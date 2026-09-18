@@ -1,0 +1,27 @@
+# ---------------------------------------------------------------------------
+# Material de referencia privado — NUNCA se publica.
+# _referencia/ contiene el método de MIA (sistema personal de Max), con datos
+# personales y capturas de pantalla. Este repositorio es público.
+# ---------------------------------------------------------------------------
+_referencia/
+
+# Archivos fuente de modelado (pesados y binarios: Git los guarda enteros en
+# cada versión). Al repositorio solo entra el export optimizado.
+# Ver atlas-desarrollo/00-metodo/README.md → "Presupuesto de peso".
+*.blend
+*.blend[0-9]*
+*.zpr
+*.ztl
+fuentes-3d/
+
+# Sistema operativo y editores
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
+
+# Dependencias y artefactos de build
+node_modules/
+dist/
+.cache/
