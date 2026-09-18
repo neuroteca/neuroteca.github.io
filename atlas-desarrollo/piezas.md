@@ -22,15 +22,16 @@ ultima_actualizacion: 2026-09-18
 
 | ID | Nombre | Qué hace | Esquema que usa | Versión | Estado |
 |---|---|---|---|---|---|
+| `visor` | Visor anatómico | Muestra el modelo de una región y abre la ficha de la parte que se toca. Se crea en `v0.1-cerebelo` | `v1` | — | Propuesta |
 | `glosario` | Glosario | Contiene las **fichas fundacionales** y resuelve todo término técnico enlazado desde otras fichas. Es lo que permite que el atlas no asuma formación previa (P-04) | — | — | Propuesta |
 
 ## Motor
 
 | Campo | Valor |
 |---|---|
-| **Versión actual** | Ninguna — no ha arrancado |
-| **Esquema de contenido** | No existe todavía (`v0`) |
-| **Arquitectura** | `motor/arquitectura.md` — sin definir |
+| **Versión actual** | `v0` — «Ver y entender una región». Hito `v0.1-cerebelo` en fase 1 |
+| **Esquema de contenido** | `v0` borrador; el `v1` se crea en `v0.1-cerebelo` |
+| **Arquitectura** | `motor/arquitectura.md` v1.0 — stack y visión decididos |
 
 > **Ninguna pieza se diseña antes de que exista `esquema v1`.** Ver
 > `00-metodo/README.md` → Parte I.

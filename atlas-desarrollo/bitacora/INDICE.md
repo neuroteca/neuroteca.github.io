@@ -24,6 +24,7 @@ ultima_actualizacion: 2026-09-18
 | S-02 | 2026-09-18 | Claude Opus 5 | Método | Registradas P-02, P-03 y P-04; P-01 y P-05 abiertas |
 | S-03 | 2026-09-18 | Claude Opus 5 | Método | P-01 y P-04 revisada; glosario como pieza; P-05 reabierta |
 | S-04 | 2026-09-18 | Claude Opus 5 | Método | El proyecto se llama Neuroteca; colisiones verificadas |
+| S-05 | 2026-09-18 | Claude Opus 5 | Software | Paso 0 y fase 1 de v0.1-cerebelo; compuerta A pendiente |
 
 ## Periodos anteriores
 

@@ -1,0 +1,39 @@
+# Licencia del contenido de Neuroteca
+
+Copyright (c) 2026 Maximiliano Alamilla Rodríguez
+
+El **contenido** de Neuroteca —fichas de texto, modelos, diagramas, esquemas y demás
+activos visuales, es decir todo lo que vive en `contenido/`— se publica bajo:
+
+**Creative Commons Atribución-CompartirIgual 4.0 Internacional (CC BY-SA 4.0)**
+
+- Resumen legible: https://creativecommons.org/licenses/by-sa/4.0/deed.es
+- Texto legal completo: https://creativecommons.org/licenses/by-sa/4.0/legalcode.es
+
+## Qué puedes hacer
+
+Copiar, redistribuir, adaptar y transformar este contenido, para cualquier finalidad,
+**incluso comercial**, siempre que:
+
+1. **Atribuyas** la autoría, enlaces a la licencia e indiques si hiciste cambios.
+2. **Compartas igual**: si adaptas el material, distribuyes tu contribución bajo esta
+   misma licencia.
+
+## Cómo citar
+
+> Alamilla Rodríguez, M. *Neuroteca — atlas vivo del sistema nervioso*.
+> Licencia CC BY-SA 4.0. <URL de la ficha o del sitio>
+
+## Excepciones
+
+El **código** de este repositorio (todo lo que no es contenido) se publica aparte bajo
+licencia MIT — ver `LICENSE`.
+
+Los activos visuales **derivados de terceros** conservan la licencia de su origen, que se
+declara ficha por ficha. Ningún activo se publica sin su origen registrado
+(`atlas-desarrollo/00-metodo/README.md` → compuerta V).
+
+## Advertencia
+
+Neuroteca es un recurso **didáctico y esquemático**. No es una referencia clínica ni
+quirúrgica, y no debe usarse para tomar decisiones diagnósticas o terapéuticas.

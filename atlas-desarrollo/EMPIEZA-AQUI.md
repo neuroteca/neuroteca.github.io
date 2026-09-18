@@ -176,6 +176,7 @@ atlas_neuronal/                  ← raíz del repositorio (público)
     motor/
       arquitectura.md            qué es el atlas (vivo)
       esquema-contenido.md       el contrato de los datos del atlas (vivo)
+      hitos/vX.Y-<nombre>/       documentos de fase del motor
     piezas/
       <nombre>/ficha.md + hitos/
     lotes/

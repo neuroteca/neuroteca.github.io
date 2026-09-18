@@ -1,14 +1,14 @@
 ---
 proyecto: Neuroteca
 tipo: preguntas-abiertas
-version: "1.3"
+version: "1.4"
 ultima_actualizacion: 2026-09-18
 techo: 100 lineas
 ---
 
 # Preguntas abiertas
 
-> **Este es el archivo donde Max responde.** El agente escribe las preguntas; Max escribe
+> **Sin preguntas abiertas ahora mismo.** Este es el archivo donde Max responde: El agente escribe las preguntas; Max escribe
 > las respuestas debajo de cada una, cuando pueda, sin necesidad de estar en una sesión.
 >
 > **Aquí van solo las preguntas de proyecto.** Las de un hito van en su `00-cuestionario.md`.
@@ -17,19 +17,11 @@ techo: 100 lineas
 
 ---
 
-## P-06 · Nombre completo para los archivos `LICENSE`
-
-Los dos archivos de licencia necesitan un titular del copyright. Puede ser tu nombre
-completo o el nombre del proyecto como entidad.
-
-**Respuesta:**
-
----
-
 ## Respondidas
 
 | ID | Pregunta | Respuesta | Dónde quedó registrada |
 |---|---|---|---|
+| P-06 | Titular del copyright | Maximiliano Alamilla Rodríguez | `LICENSE` y `LICENSE-CONTENIDO` |
 | P-05 | Nombre público | **Neuroteca** — *atlas vivo del sistema nervioso*. GitHub `neuroteca` libre; `.es` es una clínica de psicología (otro sector), `.com` en venta a 4.454 $ y no hace falta | `motor/arquitectura.md` |
 | P-01 | Licencia del contenido | `CC BY-SA 4.0` | `motor/arquitectura.md` |
 | P-02 | Licencia del código | `MIT` | `motor/arquitectura.md` |

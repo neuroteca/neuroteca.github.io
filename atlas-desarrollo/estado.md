@@ -1,7 +1,7 @@
 ---
 proyecto: Neuroteca
 tipo: estado
-version: "1.3"
+version: "2.0"
 ultima_actualizacion: 2026-09-18
 techo: 150 lineas
 ---
@@ -16,9 +16,9 @@ techo: 150 lineas
 
 **El proyecto se llama Neuroteca** — *atlas vivo del sistema nervioso*.
 
-**El método está montado; el atlas no ha empezado.** No existe código, ni contenido, ni
-arquitectura definida. Lo único que hay es el proceso con el que se va a construir, escrito
-en `00-metodo/`, y el repositorio git inicializado.
+**Paso 0 conversado y primer hito abierto.** La visión de la `v0` es «Ver y entender una
+región»; el stack es HTML/CSS/JS estándar con generador propio, sin framework; la primera
+región es el **cerebelo**. Todavía no existe código ni contenido.
 
 Decisiones de fondo tomadas: dos carriles (software y contenido), piezas por capacidad de
 la aplicación, modelos visuales propios con granularidad creciente, publicación en GitHub
@@ -32,30 +32,37 @@ nunca en línea.
 
 | Carril | Pieza / Lote | Versión | Hito / Paso | Fase | Compuerta | Estado |
 |---|---|---|---|---|---|---|
-| Software | `glosario` (pieza) | — | — | — | — | Propuesta, sin hito |
+| Software | motor | `v0` | `v0.1-cerebelo` | 1 · Diseño | **A** | Esperando aprobación de Max |
+| Contenido | `L-001-cerebelo` | — | 0 · Encuadre | — | V | Sin arrancar |
+| Software | `visor` (pieza) | — | se crea en `v0.1` | — | — | Propuesta |
+| Software | `glosario` (pieza) | — | — | — | — | Propuesta |
 
-**Nada abierto todavía.** El primer trabajo será el hito `v0.1` del motor, y no puede
-arrancar hasta que exista `motor/arquitectura.md` con la visión de `v0` escrita.
+`v0.1-cerebelo` entrega **la máquina**; el cerebelo lo entrega el lote `L-001-cerebelo` por
+el carril de contenido. **La frase de valor no se cumple hasta que ambos crucen su
+compuerta.**
 
 ## Siguiente acción
 
-**Conversar el paso 0 del motor:** qué es el atlas en concreto, qué capacidades tendrá la
-`v0`, **qué región cerebral es la primera**, y con qué stack. De esa conversación salen
-`motor/arquitectura.md` (tabla de versiones) y la frase de valor del hito `v0.1`.
+**Max revisa `motor/hitos/v0.1-cerebelo/01-diseno.md` y cruza o corrige la compuerta A.**
+Hay tres avisos al principio del documento que se aprueban o se recortan ahí mismo: que este
+hito cree el motor y la primera pieza a la vez, que el nivel de detalle sea mixto (`N1` +
+`N2`), y que el modelo 3D no lo puede producir el agente.
 
-Queda abierta **P-06** (nombre completo para los `LICENSE`). No bloquea el paso 0.
+Al cruzar A, el alcance queda congelado y se abre la fase 2 en modo cuestionario.
 
 ## Bloqueos
 
 | Qué | Espera a | Desde |
 |---|---|---|
-| Arranque del hito `v0.1` del motor | Conversación del paso 0 con Max | 2026-09-17 |
-| `esquema-contenido.md` v1 | La misma conversación (el esquema depende de qué muestra el atlas) | 2026-09-17 |
+| Compuerta A de `v0.1-cerebelo` | Revisión y aprobación de Max | 2026-09-18 |
+| `esquema-contenido.md` v1 | Se crea dentro de `v0.1-cerebelo` | 2026-09-18 |
+| Origen del modelo 3D del cerebelo | Decisión abierta `DEC-A1`, se cierra en fase 2 | 2026-09-18 |
 
-Las preguntas abiertas están en `preguntas.md`, no aquí. **Solo P-06 sigue abierta.**
+No hay preguntas de proyecto abiertas. Las licencias están creadas a nombre de Maximiliano
+Alamilla Rodríguez.
 
-**Los archivos `LICENSE` y `LICENSE-CONTENIDO` no se han creado todavía**: falta el titular
-del copyright (P-06). Las licencias en sí ya están decididas.
+**Pendiente de Max, fuera del repositorio:** reservar el identificador `neuroteca` en GitHub
+creando una organización gratuita con ese nombre.
 
 ## Recordatorios de método
 

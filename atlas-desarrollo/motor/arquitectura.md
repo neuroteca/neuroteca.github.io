@@ -1,20 +1,19 @@
 ---
 proyecto: Neuroteca
 tipo: arquitectura
-version: "0.3"
+version: "1.0"
 ultima_actualizacion: 2026-09-18
-estado: SIN DEFINIR
+estado: EN CONSTRUCCION
 ---
 
 # Arquitectura de Neuroteca
 
-> ## ⚠ Este documento está **sin definir**.
+> ## Arquitectura en construcción
 >
-> **No inventes su contenido.** Si necesitas saber cómo está hecho el atlas y esta sección
-> sigue aquí, la respuesta es que todavía no se ha decidido: se decide conversando con Max
-> en el **paso 0** del primer hito del motor, no deduciéndolo.
->
-> Un agente que rellene este archivo por su cuenta rompe la regla número uno del proyecto.
+> El **paso 0 se conversó el 2026-09-18** y de ahí salieron la visión de `v0`, el stack y la
+> primera región. Lo que sigue sin estar escrito **sigue sin estar decidido**: no lo
+> inventes. El detalle de cómo se construye vive en los documentos de fase de
+> `motor/hitos/v0.1-cerebelo/`.
 
 ---
 
@@ -37,18 +36,18 @@ Esto se decidió al diseñar el método (sesión S-01) y es vinculante:
 | **Licencia del código** | `MIT` (P-02, 2026-09-18) |
 | **Público** | Cualquiera: **no se asume formación en neurociencia**. Los fundamentos son contenido del atlas, no requisito previo (P-04 revisado, 2026-09-18) |
 | **Licencia del contenido** | `CC BY-SA 4.0` (P-01, 2026-09-18) |
+| **Titular del copyright** | Maximiliano Alamilla Rodríguez (P-06, 2026-09-18) |
+| **Stack** | HTML, CSS y JS estándar; datos en JSON; generador propio mínimo. **Sin framework ni dependencias que caduquen** (paso 0, 2026-09-18) |
+| **Primera región** | **Cerebelo** (paso 0, 2026-09-18) |
 | **Primera rebanada publicable** | Una región cerebral a nivel `N1`, con su anatomía y su fisiología, navegable y consultable (P-03, 2026-09-18) |
 
 ## Qué falta decidir
 
 | Qué | Dónde se decide |
 |---|---|
-| El stack técnico | Paso 0 del hito `v0.1` del motor |
-| **Qué región cerebral es la primera** | Paso 0 — el alcance ya está decidido (una región a `N1`), falta cuál |
 | Cómo se representa el contenido (formato de datos) | `esquema-contenido.md` v1 |
 | Cómo se cargan y muestran los activos visuales | Fase 2 del hito `v0.1` |
-| Qué capacidades tiene la `v0` del motor | Paso 0 — tabla "Versiones", abajo |
-| Titular del copyright para los archivos `LICENSE` | Falta el nombre completo de Max |
+
 
 ## Versiones del motor
 
@@ -60,17 +59,18 @@ Esto se decidió al diseñar el método (sesión S-01) y es vinculante:
 
 | Versión | Propósito en una frase | Estado |
 |---|---|---|
-| `v0` | *(sin escribir — sale de la conversación del paso 0)* | — |
+| `v0` | **Ver y entender una región**: mostrar una región del sistema nervioso de forma visual e interactiva y, para cada estructura, decir qué es y qué hace, con fuentes, entendible sin formación previa gracias al glosario enlazado. | En curso |
 
 ## Hitos del motor
 
 | Hito | Frase de valor | Fase | Estado |
 |---|---|---|---|
-| — | — | — | Ninguno abierto |
+| `v0.1-cerebelo` | Girar un modelo del cerebelo, tocar una parte y leer ahí mismo qué es y qué hace | 1 | Compuerta A pendiente |
 
 ## Historial de versiones
 | Versión | Fecha | Cambio principal |
 |---|---|---|
+| 1.0 | 2026-09-18 | **Paso 0 conversado.** Visión de `v0` («Ver y entender una región»), stack sin framework con generador propio, primera región el cerebelo, y hito `v0.1-cerebelo` abierto. |
 | 0.3 | 2026-09-18 | Nombre público: **Neuroteca**, con bajada "atlas vivo del sistema nervioso" (P-05). Identificador de GitHub `neuroteca` libre y verificado. |
 | 0.2 | 2026-09-18 | P-01 (contenido `CC BY-SA 4.0`) y P-04 revisado: el atlas no asume formación en neurociencia. |
 | 0.1 | 2026-09-18 | Se registran P-02 (licencia del código, `MIT`), P-03 (primera rebanada: una región a `N1`) y P-04 (público principal). |
