@@ -1,8 +1,8 @@
 ---
 proyecto: Atlas Neuronal
 tipo: arquitectura
-version: "0"
-ultima_actualizacion: 2026-09-17
+version: "0.1"
+ultima_actualizacion: 2026-09-18
 estado: SIN DEFINIR
 ---
 
@@ -33,16 +33,20 @@ Esto se decidió al diseñar el método (sesión S-01) y es vinculante:
 | **Contenido** | Vive como datos, separado del código, conforme a `esquema-contenido.md` |
 | **Modelos visuales** | Propios, con granularidad creciente (`N1` → `N5`) |
 | **Presupuesto de peso** | 400 MB de sitio publicado (límite duro de Pages: ~1 GB) |
+| **Licencia del código** | `MIT` (P-02, 2026-09-18) |
+| **Público principal** | Estudiantes de medicina, neurociencia y **psicología** (P-04, 2026-09-18) |
+| **Primera rebanada publicable** | Una región cerebral a nivel `N1`, con su anatomía y su fisiología, navegable y consultable (P-03, 2026-09-18) |
 
 ## Qué falta decidir
 
 | Qué | Dónde se decide |
 |---|---|
 | El stack técnico | Paso 0 del hito `v0.1` del motor |
+| **Qué región cerebral es la primera** | Paso 0 — el alcance ya está decidido (una región a `N1`), falta cuál |
 | Cómo se representa el contenido (formato de datos) | `esquema-contenido.md` v1 |
 | Cómo se cargan y muestran los activos visuales | Fase 2 del hito `v0.1` |
 | Qué capacidades tiene la `v0` del motor | Paso 0 — tabla "Versiones", abajo |
-| Público principal, nombre, licencias | `preguntas.md` (P-01 a P-05) |
+| Licencia del contenido y nombre público | `preguntas.md` (P-01 y P-05) |
 
 ## Versiones del motor
 
@@ -65,4 +69,5 @@ Esto se decidió al diseñar el método (sesión S-01) y es vinculante:
 ## Historial de versiones
 | Versión | Fecha | Cambio principal |
 |---|---|---|
+| 0.1 | 2026-09-18 | Se registran P-02 (licencia del código, `MIT`), P-03 (primera rebanada: una región a `N1`) y P-04 (público principal). |
 | 0 | 2026-09-17 | Esqueleto. Recoge lo decidido al diseñar el método; la arquitectura en sí sigue sin definir. |

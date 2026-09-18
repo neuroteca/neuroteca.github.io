@@ -1,8 +1,8 @@
 ---
 proyecto: Atlas Neuronal
 tipo: reglas-del-agente
-version: "1.0"
-ultima_actualizacion: 2026-09-17
+version: "1.1"
+ultima_actualizacion: 2026-09-18
 ---
 
 # Reglas del agente
@@ -38,7 +38,9 @@ orden. La primera que discrimine, gana.
    ya hace algo de cierta forma, lo nuevo lo hace igual aunque haya una manera mejor — la
    manera mejor se propone en el backlog.
 5. 🔧 **Lo que reduce fricción para el visitante** por encima de lo que se ve impresionante.
-   El atlas es para alguien que llega sin saber de neurociencia ni de código.
+   El atlas es para alguien que llega **a estudiar**, no a admirar la interfaz — y que no
+   sabe ni tiene que saber programar. El nivel de neurociencia que sí se le supone está en
+   §5.
 
 ---
 
@@ -106,6 +108,25 @@ prefieres?") sin traer opciones cerradas.
 
 ## 5. Textos e idioma
 
+### Público principal y nivel asumido
+
+*(Decidido por Max — P-04, 2026-09-18. No lleva 🔧: no es propuesta del agente.)*
+
+**El atlas se escribe para estudiantes de medicina, neurociencia y psicología.** Cuando
+haya que elegir entre servir a este público o a otro, manda este.
+
+**Se asume sabido** (no se explica, no se enlaza como si fuera novedad): qué son los
+neurotransmisores, el potencial de acción, la fisiología **básica** de la neurona, y la
+diferencia entre sistema nervioso central y periférico.
+
+**Todo lo demás se explica o se enlaza al glosario.** Ante la duda sobre si algo entra en
+los mínimos, se explica: sobra una frase, nunca falta un lector.
+
+> El caso difícil es el estudiante de psicología, que llega con menos base que el de
+> medicina. **Es el lector contra el que se escribe**: si él lo entiende, los demás también.
+
+### Forma
+
 - 🔧 **Todo en español**: interfaz, contenido, documentación, nombres de archivo de
   contenido.
 - 🔧 **El código en inglés**: nombres de variables, funciones y archivos de código, por
@@ -156,4 +177,5 @@ referencia a su origen. Esta tabla está vacía porque el proyecto aún no ha ce
 ## Historial de versiones
 | Versión | Fecha | Cambio principal |
 |---|---|---|
+| 1.1 | 2026-09-18 | §5: público principal y nivel de conocimiento asumido (P-04). Decidido por Max, sin 🔧. |
 | 1.0 | 2026-09-17 | Versión inicial. Estructura tomada de MIA v3.33; los defaults técnicos y visuales son nuevos, para un sitio estático público y accesible. |

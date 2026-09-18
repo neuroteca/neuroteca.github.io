@@ -2,7 +2,7 @@
 proyecto: Atlas Neuronal
 tipo: indice-de-bitacora
 version: "1.0"
-ultima_actualizacion: 2026-09-17
+ultima_actualizacion: 2026-09-18
 ---
 
 # Índice de sesiones
@@ -21,6 +21,7 @@ ultima_actualizacion: 2026-09-17
 | # | Fecha | Agente | Carril | Qué se hizo |
 |---|---|---|---|---|
 | S-01 | 2026-09-17 | Claude Opus 5 | Método | Diseño y montaje del método completo |
+| S-02 | 2026-09-18 | Claude Opus 5 | Método | Registradas P-02, P-03 y P-04; P-01 y P-05 abiertas |
 
 ## Periodos anteriores
 

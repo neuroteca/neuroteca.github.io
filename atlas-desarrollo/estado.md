@@ -1,8 +1,8 @@
 ---
 proyecto: Atlas Neuronal
 tipo: estado
-version: "1.0"
-ultima_actualizacion: 2026-09-17
+version: "1.1"
+ultima_actualizacion: 2026-09-18
 techo: 150 lineas
 ---
 
@@ -18,9 +18,11 @@ techo: 150 lineas
 arquitectura definida. Lo único que hay es el proceso con el que se va a construir, escrito
 en `00-metodo/`, y el repositorio git inicializado.
 
-La decisión de fondo ya tomada: dos carriles (software y contenido), piezas por capacidad
-de la aplicación, modelos visuales propios con granularidad creciente, publicación en
-GitHub Pages, todo en español, y fuente obligatoria por ficha.
+Decisiones de fondo tomadas: dos carriles (software y contenido), piezas por capacidad de
+la aplicación, modelos visuales propios con granularidad creciente, publicación en GitHub
+Pages, todo en español, y fuente obligatoria por ficha. **Licencia del código `MIT`**,
+**público principal estudiantes de medicina, neurociencia y psicología**, y **primera
+rebanada publicable: una región cerebral a nivel `N1`** con anatomía y fisiología.
 
 ## Trabajo vivo
 
@@ -34,11 +36,12 @@ arrancar hasta que exista `motor/arquitectura.md` con la visión de `v0` escrita
 ## Siguiente acción
 
 **Conversar el paso 0 del motor:** qué es el atlas en concreto, qué capacidades tendrá la
-`v0`, y cuál es la primera rebanada vertical publicable. De esa conversación salen
+`v0`, **qué región cerebral es la primera**, y con qué stack. De esa conversación salen
 `motor/arquitectura.md` (tabla de versiones) y la frase de valor del hito `v0.1`.
 
-Antes de esa conversación conviene cerrar las preguntas de `preguntas.md`, porque tres de
-ellas condicionan la arquitectura.
+Quedan dos preguntas abiertas en `preguntas.md` (P-01 licencia del contenido, P-05 nombre
+público). **No bloquean el paso 0**, pero el nombre conviene fijarlo antes de publicar nada,
+porque cambiarlo después cuesta URLs y citas.
 
 ## Bloqueos
 
@@ -47,7 +50,7 @@ ellas condicionan la arquitectura.
 | Arranque del hito `v0.1` del motor | Conversación del paso 0 con Max | 2026-09-17 |
 | `esquema-contenido.md` v1 | La misma conversación (el esquema depende de qué muestra el atlas) | 2026-09-17 |
 
-Las preguntas abiertas están en `preguntas.md`, no aquí.
+Las preguntas abiertas están en `preguntas.md`, no aquí. **P-01 y P-05 siguen abiertas.**
 
 ## Recordatorios de método
 
