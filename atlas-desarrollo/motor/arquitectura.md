@@ -1,7 +1,7 @@
 ---
 proyecto: Atlas Neuronal
 tipo: arquitectura
-version: "0.1"
+version: "0.2"
 ultima_actualizacion: 2026-09-18
 estado: SIN DEFINIR
 ---
@@ -34,7 +34,8 @@ Esto se decidió al diseñar el método (sesión S-01) y es vinculante:
 | **Modelos visuales** | Propios, con granularidad creciente (`N1` → `N5`) |
 | **Presupuesto de peso** | 400 MB de sitio publicado (límite duro de Pages: ~1 GB) |
 | **Licencia del código** | `MIT` (P-02, 2026-09-18) |
-| **Público principal** | Estudiantes de medicina, neurociencia y **psicología** (P-04, 2026-09-18) |
+| **Público** | Cualquiera: **no se asume formación en neurociencia**. Los fundamentos son contenido del atlas, no requisito previo (P-04 revisado, 2026-09-18) |
+| **Licencia del contenido** | `CC BY-SA 4.0` (P-01, 2026-09-18) |
 | **Primera rebanada publicable** | Una región cerebral a nivel `N1`, con su anatomía y su fisiología, navegable y consultable (P-03, 2026-09-18) |
 
 ## Qué falta decidir
@@ -46,7 +47,8 @@ Esto se decidió al diseñar el método (sesión S-01) y es vinculante:
 | Cómo se representa el contenido (formato de datos) | `esquema-contenido.md` v1 |
 | Cómo se cargan y muestran los activos visuales | Fase 2 del hito `v0.1` |
 | Qué capacidades tiene la `v0` del motor | Paso 0 — tabla "Versiones", abajo |
-| Licencia del contenido y nombre público | `preguntas.md` (P-01 y P-05) |
+| Nombre público | `preguntas.md` (P-05) |
+| Titular del copyright para los archivos `LICENSE` | Falta el nombre completo de Max |
 
 ## Versiones del motor
 
@@ -69,5 +71,6 @@ Esto se decidió al diseñar el método (sesión S-01) y es vinculante:
 ## Historial de versiones
 | Versión | Fecha | Cambio principal |
 |---|---|---|
+| 0.2 | 2026-09-18 | P-01 (contenido `CC BY-SA 4.0`) y P-04 revisado: el atlas no asume formación en neurociencia. |
 | 0.1 | 2026-09-18 | Se registran P-02 (licencia del código, `MIT`), P-03 (primera rebanada: una región a `N1`) y P-04 (público principal). |
 | 0 | 2026-09-17 | Esqueleto. Recoge lo decidido al diseñar el método; la arquitectura en sí sigue sin definir. |

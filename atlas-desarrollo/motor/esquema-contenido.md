@@ -1,8 +1,8 @@
 ---
 proyecto: Atlas Neuronal
 tipo: esquema-de-contenido
-version: "0"
-ultima_actualizacion: 2026-09-17
+version: "0.1"
+ultima_actualizacion: 2026-09-18
 estado: BORRADOR — no es v1
 ---
 
@@ -45,6 +45,7 @@ Campos **ya decididos** (sesión S-01, vinculantes):
 | `autoria` | `Max` o `agente` | Sí |
 | `estado` | `borrador` o `revisado` | Sí |
 | `activos` | Referencias a los activos visuales de esta estructura | No |
+| `tipo` | `estructura` (una parte del sistema nervioso) o `fundacional` (un concepto: potencial de acción, sinapsis…) | Sí |
 
 Reglas vinculantes sobre estos campos:
 
@@ -53,6 +54,9 @@ Reglas vinculantes sobre estos campos:
   sin haberla cruzado.
 - **`nivel_detalle` se muestra siempre al visitante.** Es lo que hace honesto un atlas
   construido por granularidad creciente.
+- **Las fichas `fundacionales` viven en la pieza `glosario`** y cumplen el mismo esquema,
+  con fuentes y compuerta V. No son definiciones de una línea: son contenido del atlas.
+  Es el mecanismo que sostiene que no se asuma formación previa (P-04).
 - **La autoría se registra por ficha**, para saber después qué texto pasó por el criterio
   de Max sin tener que revisarlo todo otra vez.
 
@@ -119,4 +123,5 @@ podría cerrar nunca.
 ## Historial de versiones
 | Versión | Fecha | Cambio principal |
 |---|---|---|
+| 0.1 | 2026-09-18 | Campo `tipo` (`estructura` / `fundacional`) y las fichas fundacionales del glosario (P-04 revisado). |
 | 0 | 2026-09-17 | Borrador inicial. Recoge lo decidido en S-01 y marca los huecos. No es el contrato: `v1` requiere aprobación de Max. |

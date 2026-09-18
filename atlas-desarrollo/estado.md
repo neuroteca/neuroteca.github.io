@@ -1,7 +1,7 @@
 ---
 proyecto: Atlas Neuronal
 tipo: estado
-version: "1.1"
+version: "1.2"
 ultima_actualizacion: 2026-09-18
 techo: 150 lineas
 ---
@@ -20,15 +20,17 @@ en `00-metodo/`, y el repositorio git inicializado.
 
 Decisiones de fondo tomadas: dos carriles (software y contenido), piezas por capacidad de
 la aplicación, modelos visuales propios con granularidad creciente, publicación en GitHub
-Pages, todo en español, y fuente obligatoria por ficha. **Licencia del código `MIT`**,
-**público principal estudiantes de medicina, neurociencia y psicología**, y **primera
-rebanada publicable: una región cerebral a nivel `N1`** con anatomía y fisiología.
+Pages, todo en español, y fuente obligatoria por ficha. **Licencias: código `MIT`,
+contenido `CC BY-SA 4.0`**. **Primera rebanada publicable: una región cerebral a nivel `N1`**
+con anatomía y fisiología. **El atlas no asume formación previa en neurociencia**: los
+fundamentos entran como fichas fundacionales de la pieza `glosario`, y se explica por enlace,
+nunca en línea.
 
 ## Trabajo vivo
 
 | Carril | Pieza / Lote | Versión | Hito / Paso | Fase | Compuerta | Estado |
 |---|---|---|---|---|---|---|
-| — | — | — | — | — | — | Sin trabajo abierto |
+| Software | `glosario` (pieza) | — | — | — | — | Propuesta, sin hito |
 
 **Nada abierto todavía.** El primer trabajo será el hito `v0.1` del motor, y no puede
 arrancar hasta que exista `motor/arquitectura.md` con la visión de `v0` escrita.
@@ -39,9 +41,9 @@ arrancar hasta que exista `motor/arquitectura.md` con la visión de `v0` escrita
 `v0`, **qué región cerebral es la primera**, y con qué stack. De esa conversación salen
 `motor/arquitectura.md` (tabla de versiones) y la frase de valor del hito `v0.1`.
 
-Quedan dos preguntas abiertas en `preguntas.md` (P-01 licencia del contenido, P-05 nombre
-público). **No bloquean el paso 0**, pero el nombre conviene fijarlo antes de publicar nada,
-porque cambiarlo después cuesta URLs y citas.
+Quedan abiertas **P-05** (nombre público, segunda ronda tras la colisión con `neuroatlas.es`)
+y **P-06** (nombre completo para los `LICENSE`). **No bloquean el paso 0**, pero el nombre
+conviene fijarlo antes de publicar nada: cambiarlo después cuesta URLs y citas.
 
 ## Bloqueos
 
@@ -50,7 +52,10 @@ porque cambiarlo después cuesta URLs y citas.
 | Arranque del hito `v0.1` del motor | Conversación del paso 0 con Max | 2026-09-17 |
 | `esquema-contenido.md` v1 | La misma conversación (el esquema depende de qué muestra el atlas) | 2026-09-17 |
 
-Las preguntas abiertas están en `preguntas.md`, no aquí. **P-01 y P-05 siguen abiertas.**
+Las preguntas abiertas están en `preguntas.md`, no aquí. **P-05 y P-06 siguen abiertas.**
+
+**Los archivos `LICENSE` y `LICENSE-CONTENIDO` no se han creado todavía**: falta el titular
+del copyright (P-06). Las licencias en sí ya están decididas.
 
 ## Recordatorios de método
 

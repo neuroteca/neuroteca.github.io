@@ -1,7 +1,7 @@
 ---
 proyecto: Atlas Neuronal
 tipo: preguntas-abiertas
-version: "1.1"
+version: "1.2"
 ultima_actualizacion: 2026-09-18
 techo: 100 lineas
 ---
@@ -15,57 +15,59 @@ techo: 100 lineas
 > Al responderse, la pregunta se retira de aquí y su respuesta se registra donde
 > corresponda. Techo duro: 100 líneas.
 
-**Cómo responder:** escribe tu respuesta en la línea `**Respuesta:**`. Si eliges una opción,
-basta su letra. Si ninguna te convence, escribe lo que quieras.
-
 ---
 
-## P-01 · Licencia del contenido *(reformulada tras tu pregunta)*
+## P-05 · Nombre público *(segunda ronda — la opción A colisionaba)*
 
-**La diferencia clave:** `BY-SA` restringe **la licencia de lo derivado** (quien lo adapte
-debe publicarlo igual de abierto). `BY-NC` restringe **quién puede usarlo y para qué**
-(nada comercial), pero no obliga a que lo derivado siga siendo libre.
+**Por qué se reabre:** `neuroatlas.es` ya existe — el *NeuroAtlas* de la Universidad
+Autónoma de Madrid, interactivo, en español, de neuroanatomía, para estudiantes de
+Medicina. Mismo idioma, mismo campo, mismo público.
 
-Tres cosas que decidieron la recomendación:
+**El razonamiento, corregido:** Max observó con acierto que en las primeras etapas el
+descubrimiento será boca a boca con sus alumnos, no búsqueda. De ahí **no** se sigue que dé
+igual el nombre, sino lo contrario:
 
-1. **"Comercial" no está definido con claridad** ni por Creative Commons. ¿Universidad con
-   matrícula? ¿Curso de pago? ¿Blog con publicidad? Ante la duda la gente evita el material
-   NC, así que restringe más de lo que pretendías sin dar protección real.
-2. **Wikipedia y Wikimedia Commons solo aceptan licencias que permitan uso comercial.** Con
-   NC, ninguna imagen tuya podría ilustrar nunca un artículo sobre el tálamo. Con BY-SA sí,
-   y en ambos sentidos.
-3. **NC no te da derechos extra.** Sigues siendo titular del copyright: siempre podrás
-   conceder licencias comerciales aparte a quien te las pida, uses la licencia que uses.
+1. Si llega por voz, el nombre tiene que **sobrevivir a oírse una vez y escribirse después**.
+2. Un nombre **descriptivo** (`Atlas de Neuroanatomía`) compite contra mil páginas que
+   contienen esas palabras y nunca gana. Un nombre **distintivo** se apropia de su búsqueda
+   entera desde el día que alguien la teclea.
 
-- **A** — `CC BY 4.0`: máxima difusión, incluso dentro de obras cerradas (libros de texto,
-  cursos de pago). A cambio, alguien puede encerrar una versión derivada.
-- **B** — `CC BY-SA 4.0`: lo derivado debe seguir siendo libre. *(Recomendada.)* **Coste
-  real:** es "viral" — una editorial no podrá meter tus diagramas en un capítulo cerrado.
-- **C** — `CC BY-NC 4.0`: **no recomendada en ningún escenario**, por los tres puntos de
-  arriba.
+Un nombre descriptivo solo gana si apuestas por tráfico genérico, que es justo la apuesta
+que Max **no** está haciendo.
+
+**Estructura propuesta:** nombre distintivo **+ bajada descriptiva**. Ejemplo:
+*Neuroteca — atlas vivo del sistema nervioso*. Así el nombre es memorable y el subtítulo
+hace el trabajo de explicar.
+
+- **A** — **Neuroteca** — "biblioteca de lo neuro". Se dice y se escribe a la primera,
+  natural en español, y el hueco está libre. *(Recomendada.)* Contra: empieza por "neuro-",
+  campo saturado, aunque el compuesto no está tomado.
+- **B** — **Atlas Vivo** — corto, "vivo" dice fisiología y crecimiento. Libre en este campo.
+  Contra: semi-descriptivo, más fácil de confundir.
+- **C** — **Fascículo** — doble sentido exacto: haz de fibras **y** entrega publicada por
+  partes, que es tu modelo `N1`→`N5`. Muy distintivo. Contra: seco, hay que explicar el
+  juego.
+- **D** — **Tálamo** — el sitio por donde pasa todo antes de llegar a la corteza. Corto,
+  memorable, tus alumnos lo conocen. Contra: puede sugerir que el atlas trata solo del
+  tálamo.
+- **E** — **Mielina** — lo que hace que la señal llegue lejos y rápido; buena metáfora de
+  divulgación. Contra: mismo riesgo que D.
+
+**Descartado: Cajal.** Temáticamente perfecto (el gran ilustrador del sistema nervioso, en
+español), pero está tomadísimo: Instituto Cajal (CSIC), Centro de Neurociencias Cajal,
+Centro Internacional de Neurociencia Cajal.
+
+*(Comprobación razonable de colisiones, no búsqueda de marcas registradas. Antes de fijar
+el elegido conviene mirar también dominio y nombre de organización en GitHub.)*
 
 **Respuesta:**
 
 ---
 
-## P-05 · Nombre público del proyecto *(con propuestas)*
+## P-06 · Nombre completo para los archivos `LICENSE`
 
-**Observación previa:** en español, **"neuronal" se refiere a las neuronas**. El atlas trata
-de lóbulos, núcleos, vías y sistemas: eso es *neural* o *del sistema nervioso*. Con público
-de medicina y psicología, alguien lo va a notar. La carpeta puede seguir llamándose
-`atlas_neuronal`; el nombre público conviene que sea preciso.
-
-- **A** — **Neuroatlas Vivo** — "vivo" dice a la vez que incluye fisiología (no es anatomía
-  congelada) y que crece con el tiempo. Corto, funciona como dominio. *(Recomendada.)*
-- **B** — **Atlas Vivo del Sistema Nervioso** — lo mismo, explícito y preciso. Largo de
-  citar.
-- **C** — **Cerebro Abierto** — cálido y memorable. Deja fuera médula y periférico, y tiene
-  una lectura quirúrgica involuntaria.
-- **D** — **Forma y Función** — nombra el diferencial (anatomía + fisiología juntas), pero
-  solo no dice que es de neurociencia.
-- **E** — **Atlas Neurofuncional** — preciso y citable, pero frío.
-
-Antes de fijarlo hay que comprobar que no colisione con algo existente.
+Los dos archivos de licencia necesitan un titular del copyright. Puede ser tu nombre
+completo o el nombre del proyecto como entidad.
 
 **Respuesta:**
 
@@ -75,6 +77,7 @@ Antes de fijarlo hay que comprobar que no colisione con algo existente.
 
 | ID | Pregunta | Respuesta | Dónde quedó registrada |
 |---|---|---|---|
+| P-01 | Licencia del contenido | `CC BY-SA 4.0` | `motor/arquitectura.md` |
 | P-02 | Licencia del código | `MIT` | `motor/arquitectura.md` |
 | P-03 | Alcance de la primera versión | Una región cerebral a `N1`, anatomía y fisiología, navegable | `motor/arquitectura.md` |
-| P-04 | Público principal | Estudiantes de medicina, neurociencia y **psicología**, con mínimos asumidos | `00-metodo/reglas-del-agente.md` §5 |
+| P-04 | Público y conocimiento asumido | **No se asume formación en neurociencia.** Los fundamentos entran como fichas fundacionales de la pieza `glosario`; se explica por enlace, no en línea | `00-metodo/reglas-del-agente.md` §5, `motor/esquema-contenido.md`, `piezas.md` |

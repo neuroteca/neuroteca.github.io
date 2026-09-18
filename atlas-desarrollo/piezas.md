@@ -2,7 +2,7 @@
 proyecto: Atlas Neuronal
 tipo: registro-de-piezas
 version: "1.0"
-ultima_actualizacion: 2026-09-17
+ultima_actualizacion: 2026-09-18
 ---
 
 # Registro de piezas
@@ -22,7 +22,7 @@ ultima_actualizacion: 2026-09-17
 
 | ID | Nombre | Qué hace | Esquema que usa | Versión | Estado |
 |---|---|---|---|---|---|
-| — | — | Ninguna todavía | — | — | — |
+| `glosario` | Glosario | Contiene las **fichas fundacionales** y resuelve todo término técnico enlazado desde otras fichas. Es lo que permite que el atlas no asuma formación previa (P-04) | — | — | Propuesta |
 
 ## Motor
 

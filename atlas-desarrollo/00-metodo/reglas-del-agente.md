@@ -1,7 +1,7 @@
 ---
 proyecto: Atlas Neuronal
 tipo: reglas-del-agente
-version: "1.1"
+version: "1.2"
 ultima_actualizacion: 2026-09-18
 ---
 
@@ -38,9 +38,8 @@ orden. La primera que discrimine, gana.
    ya hace algo de cierta forma, lo nuevo lo hace igual aunque haya una manera mejor — la
    manera mejor se propone en el backlog.
 5. 🔧 **Lo que reduce fricción para el visitante** por encima de lo que se ve impresionante.
-   El atlas es para alguien que llega **a estudiar**, no a admirar la interfaz — y que no
-   sabe ni tiene que saber programar. El nivel de neurociencia que sí se le supone está en
-   §5.
+   El atlas es para alguien que llega **a aprender**, no a admirar la interfaz, y al que no
+   se le supone formación en neurociencia ni en programación (§5).
 
 ---
 
@@ -108,22 +107,34 @@ prefieres?") sin traer opciones cerradas.
 
 ## 5. Textos e idioma
 
-### Público principal y nivel asumido
+### Público y conocimiento asumido
 
-*(Decidido por Max — P-04, 2026-09-18. No lleva 🔧: no es propuesta del agente.)*
+*(Decidido por Max — P-04, revisado el 2026-09-18. No lleva 🔧: no es propuesta del agente.)*
 
-**El atlas se escribe para estudiantes de medicina, neurociencia y psicología.** Cuando
-haya que elegir entre servir a este público o a otro, manda este.
+**El atlas no asume formación previa en neurociencia.** Está escrito para que pueda entrarle
+cualquiera: el estudiante de medicina o psicología que lo usa para estudiar, y también quien
+nunca tocó el tema y llegó por curiosidad. **Cuando haya que elegir, manda el que llega sin
+base.**
 
-**Se asume sabido** (no se explica, no se enlaza como si fuera novedad): qué son los
-neurotransmisores, el potencial de acción, la fisiología **básica** de la neurona, y la
-diferencia entre sistema nervioso central y periférico.
+Cómo se sostiene sin diluir el texto:
 
-**Todo lo demás se explica o se enlaza al glosario.** Ante la duda sobre si algo entra en
-los mínimos, se explica: sobra una frase, nunca falta un lector.
+- **Se explica por enlace, no por paréntesis.** Todo término técnico enlaza a su entrada del
+  glosario en su primer uso dentro de la ficha. Un enlace **no le cuesta nada al lector que
+  no lo necesita**; un inciso explicativo sí. Esto es lo que permite abrir el público sin
+  aburrir al que ya sabe.
+- **Nada se explica en línea salvo que quepa en media frase.**
+- **Los fundamentos están dentro del atlas, no dados por sabidos.** El glosario es una
+  **pieza** que contiene **fichas fundacionales** (potencial de acción, sinapsis,
+  neurotransmisión, SNC vs SNP…), con el mismo formato, fuentes y verificación que las
+  demás. Así "sin saber de neurociencia" es una propiedad estructural del atlas, no una
+  promesa sobre el estilo de redacción.
 
-> El caso difícil es el estudiante de psicología, que llega con menos base que el de
-> medicina. **Es el lector contra el que se escribe**: si él lo entiende, los demás también.
+**Lo que esto prohíbe:** escribir cada ficha en dos registros, uno divulgativo y otro
+técnico. Duplica el trabajo de redacción para siempre, y en un proyecto de años es lo
+primero que se abandona.
+
+> **Verificable en la compuerta V:** una ficha que use un término técnico sin enlace, o que
+> explique un concepto en línea en más de media frase, no pasa.
 
 ### Forma
 
@@ -177,5 +188,6 @@ referencia a su origen. Esta tabla está vacía porque el proyecto aún no ha ce
 ## Historial de versiones
 | Versión | Fecha | Cambio principal |
 |---|---|---|
+| 1.2 | 2026-09-18 | §5 reescrita: el atlas **no asume** formación en neurociencia. Se explica por enlace, no en línea, y los fundamentos entran como fichas fundacionales del glosario. §1 prioridad 5 alineada. |
 | 1.1 | 2026-09-18 | §5: público principal y nivel de conocimiento asumido (P-04). Decidido por Max, sin 🔧. |
 | 1.0 | 2026-09-17 | Versión inicial. Estructura tomada de MIA v3.33; los defaults técnicos y visuales son nuevos, para un sitio estático público y accesible. |
