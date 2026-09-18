@@ -1,5 +1,5 @@
 ---
-proyecto: Atlas Neuronal
+proyecto: Neuroteca
 tipo: protocolo-de-sesion
 version: "1.0"
 ultima_actualizacion: 2026-09-17

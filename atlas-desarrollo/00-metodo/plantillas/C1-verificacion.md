@@ -1,5 +1,5 @@
 ---
-proyecto: Atlas Neuronal
+proyecto: Neuroteca
 lote: L-NNN-<nombre>
 tipo: verificacion
 paso: 2

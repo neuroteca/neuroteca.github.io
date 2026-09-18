@@ -1,5 +1,5 @@
 ---
-proyecto: Atlas Neuronal
+proyecto: Neuroteca
 tipo: esquema-de-contenido
 version: "0.1"
 ultima_actualizacion: 2026-09-18

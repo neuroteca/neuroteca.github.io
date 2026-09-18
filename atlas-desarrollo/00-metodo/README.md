@@ -1,11 +1,11 @@
 ---
-proyecto: Atlas Neuronal
+proyecto: Neuroteca
 tipo: metodo-de-desarrollo
-version: "1.0"
-ultima_actualizacion: 2026-09-17
+version: "1.1"
+ultima_actualizacion: 2026-09-18
 ---
 
-# Método de desarrollo del Atlas Neuronal
+# Método de desarrollo de Neuroteca
 
 Este documento define **cómo se construye el atlas**. No describe qué es el atlas (eso es
 `motor/arquitectura.md`) ni cómo se estructuran sus datos (eso es
@@ -652,4 +652,5 @@ puede usar desde el primer activo.
 ## Historial de versiones
 | Versión | Fecha | Cambio principal |
 |---|---|---|
+| 1.1 | 2026-09-18 | El proyecto pasa a llamarse **Neuroteca**. |
 | 1.0 | 2026-09-17 | Versión inicial. Adaptada del método de MIA v3.10: se conservan las 5 fases, las 4 compuertas, el barrido de huecos, la partición 1.5× y las reglas acumulables. Se añaden el carril de contenido con compuerta V, los niveles de detalle, el presupuesto de peso, la publicación como requisito de la compuerta C, y el techo duro de los archivos de arranque. |

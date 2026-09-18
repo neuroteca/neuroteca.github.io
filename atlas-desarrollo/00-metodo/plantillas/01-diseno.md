@@ -1,5 +1,5 @@
 ---
-proyecto: Atlas Neuronal
+proyecto: Neuroteca
 pieza: motor | <nombre de pieza>
 hito: vX.Y-<nombre>
 esquema: <versión de esquema de contenido que usa, si lo toca>

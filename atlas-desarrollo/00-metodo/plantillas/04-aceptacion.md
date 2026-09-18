@@ -1,5 +1,5 @@
 ---
-proyecto: Atlas Neuronal
+proyecto: Neuroteca
 pieza: motor | <nombre de pieza>
 hito: vX.Y-<nombre>
 tipo: aceptacion

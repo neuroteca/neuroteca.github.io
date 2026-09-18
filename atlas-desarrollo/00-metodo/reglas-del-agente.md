@@ -1,5 +1,5 @@
 ---
-proyecto: Atlas Neuronal
+proyecto: Neuroteca
 tipo: reglas-del-agente
 version: "1.2"
 ultima_actualizacion: 2026-09-18

@@ -1,18 +1,20 @@
 ---
-proyecto: Atlas Neuronal
+proyecto: Neuroteca
 tipo: estado
-version: "1.2"
+version: "1.3"
 ultima_actualizacion: 2026-09-18
 techo: 150 lineas
 ---
 
-# Estado del Atlas Neuronal
+# Estado de Neuroteca
 
 > **Este archivo describe el presente, no la historia.** Techo duro: 150 líneas. Lo que
 > deje de explicar dónde estamos hoy se mueve a `historial/`, aunque haya costado
 > escribirlo. El histórico completo está en `bitacora/`.
 
 ## Situación general
+
+**El proyecto se llama Neuroteca** — *atlas vivo del sistema nervioso*.
 
 **El método está montado; el atlas no ha empezado.** No existe código, ni contenido, ni
 arquitectura definida. Lo único que hay es el proceso con el que se va a construir, escrito
@@ -41,9 +43,7 @@ arrancar hasta que exista `motor/arquitectura.md` con la visión de `v0` escrita
 `v0`, **qué región cerebral es la primera**, y con qué stack. De esa conversación salen
 `motor/arquitectura.md` (tabla de versiones) y la frase de valor del hito `v0.1`.
 
-Quedan abiertas **P-05** (nombre público, segunda ronda tras la colisión con `neuroatlas.es`)
-y **P-06** (nombre completo para los `LICENSE`). **No bloquean el paso 0**, pero el nombre
-conviene fijarlo antes de publicar nada: cambiarlo después cuesta URLs y citas.
+Queda abierta **P-06** (nombre completo para los `LICENSE`). No bloquea el paso 0.
 
 ## Bloqueos
 
@@ -52,7 +52,7 @@ conviene fijarlo antes de publicar nada: cambiarlo después cuesta URLs y citas.
 | Arranque del hito `v0.1` del motor | Conversación del paso 0 con Max | 2026-09-17 |
 | `esquema-contenido.md` v1 | La misma conversación (el esquema depende de qué muestra el atlas) | 2026-09-17 |
 
-Las preguntas abiertas están en `preguntas.md`, no aquí. **P-05 y P-06 siguen abiertas.**
+Las preguntas abiertas están en `preguntas.md`, no aquí. **Solo P-06 sigue abierta.**
 
 **Los archivos `LICENSE` y `LICENSE-CONTENIDO` no se han creado todavía**: falta el titular
 del copyright (P-06). Las licencias en sí ya están decididas.

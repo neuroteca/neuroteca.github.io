@@ -1,8 +1,8 @@
 ---
-proyecto: Atlas Neuronal
+proyecto: Neuroteca
 tipo: glosario
-version: "1.0"
-ultima_actualizacion: 2026-09-17
+version: "1.1"
+ultima_actualizacion: 2026-09-18
 ---
 
 # Glosario
@@ -14,7 +14,7 @@ que las interprete a su manera va a sonar como si entendiera el proyecto sin ent
 
 ## El producto
 
-**Atlas** — El Atlas Neuronal: atlas interactivo de neuroanatomía y neurofisiología juntas,
+**Neuroteca** — El proyecto: *atlas vivo del sistema nervioso*. Atlas interactivo de neuroanatomía y neurofisiología juntas,
 de acceso libre, publicado en GitHub Pages y usable sin conocimientos de programación. Es
 **didáctico y esquemático**, no una referencia clínica ni quirúrgica. Qué es en concreto
 está en `motor/arquitectura.md`; si ahí está vacío, **no está definido y no se inventa**.
@@ -135,4 +135,5 @@ con DOI. **Un agente no es una fuente.** Tampoco lo es "es sabido que".
 ## Historial de versiones
 | Versión | Fecha | Cambio principal |
 |---|---|---|
+| 1.1 | 2026-09-18 | El proyecto pasa a llamarse **Neuroteca**. |
 | 1.0 | 2026-09-17 | Versión inicial. |

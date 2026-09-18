@@ -1,6 +1,6 @@
-# Atlas Neuronal
+# Neuroteca
 
-Atlas interactivo de neuroanatomía y neurofisiología, de acceso libre, publicado en
+*Atlas vivo del sistema nervioso.* Atlas interactivo de neuroanatomía y neurofisiología, de acceso libre, publicado en
 GitHub Pages y usable sin conocimientos de programación.
 
 ## Si eres un agente, empieza aquí

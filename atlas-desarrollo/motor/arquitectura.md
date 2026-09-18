@@ -1,12 +1,12 @@
 ---
-proyecto: Atlas Neuronal
+proyecto: Neuroteca
 tipo: arquitectura
-version: "0.2"
+version: "0.3"
 ultima_actualizacion: 2026-09-18
 estado: SIN DEFINIR
 ---
 
-# Arquitectura del Atlas Neuronal
+# Arquitectura de Neuroteca
 
 > ## ⚠ Este documento está **sin definir**.
 >
@@ -24,6 +24,7 @@ Esto se decidió al diseñar el método (sesión S-01) y es vinculante:
 
 | Decisión | Valor |
 |---|---|
+| **Nombre público** | **Neuroteca** — *atlas vivo del sistema nervioso* (P-05, 2026-09-18) |
 | **Qué es** | Atlas interactivo de neuroanatomía y neurofisiología juntas |
 | **Carácter** | Didáctico y esquemático. **No** es referencia clínica ni quirúrgica |
 | **Acceso** | Libre y gratuito, usable sin conocimientos de programación |
@@ -47,7 +48,6 @@ Esto se decidió al diseñar el método (sesión S-01) y es vinculante:
 | Cómo se representa el contenido (formato de datos) | `esquema-contenido.md` v1 |
 | Cómo se cargan y muestran los activos visuales | Fase 2 del hito `v0.1` |
 | Qué capacidades tiene la `v0` del motor | Paso 0 — tabla "Versiones", abajo |
-| Nombre público | `preguntas.md` (P-05) |
 | Titular del copyright para los archivos `LICENSE` | Falta el nombre completo de Max |
 
 ## Versiones del motor
@@ -71,6 +71,7 @@ Esto se decidió al diseñar el método (sesión S-01) y es vinculante:
 ## Historial de versiones
 | Versión | Fecha | Cambio principal |
 |---|---|---|
+| 0.3 | 2026-09-18 | Nombre público: **Neuroteca**, con bajada "atlas vivo del sistema nervioso" (P-05). Identificador de GitHub `neuroteca` libre y verificado. |
 | 0.2 | 2026-09-18 | P-01 (contenido `CC BY-SA 4.0`) y P-04 revisado: el atlas no asume formación en neurociencia. |
 | 0.1 | 2026-09-18 | Se registran P-02 (licencia del código, `MIT`), P-03 (primera rebanada: una región a `N1`) y P-04 (público principal). |
 | 0 | 2026-09-17 | Esqueleto. Recoge lo decidido al diseñar el método; la arquitectura en sí sigue sin definir. |

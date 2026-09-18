@@ -1,5 +1,5 @@
 ---
-proyecto: Atlas Neuronal
+proyecto: Neuroteca
 tipo: punto-de-entrada
 version: "1.0"
 ultima_actualizacion: 2026-09-17
@@ -20,7 +20,7 @@ previas y sin contexto de ningún tipo, pueda operarlo únicamente con estos arc
 
 `atlas-desarrollo/` contiene **el proceso de construcción del atlas**, no el atlas.
 
-El **Atlas Neuronal** es un atlas interactivo de neuroanatomía y neurofisiología juntas,
+**Neuroteca** — *atlas vivo del sistema nervioso* — es un atlas interactivo de neuroanatomía y neurofisiología juntas,
 de acceso libre, publicado en GitHub Pages y usable sin conocimientos de programación.
 Es **didáctico y esquemático**: no es una referencia clínica ni quirúrgica.
 
