@@ -31,6 +31,7 @@ ultima_actualizacion: 2026-09-18
 | S-09 | 2026-09-18 | Claude Opus 5 | Software | Ejes de división en el esquema; navegación por migas |
 | S-10 | 2026-09-18 | Claude Opus 5 | Software | Especificación de fase 2 escrita; compuerta B pendiente |
 | S-11 | 2026-09-18 | Claude Opus 5 | Software | Compuerta B aprobada; arranca la construcción |
+| S-12 | 2026-09-19 | Claude Opus 5 | Software | Repositorio publicado; 9/15 pasos, el sitio ya navega |
 
 ## Periodos anteriores
 

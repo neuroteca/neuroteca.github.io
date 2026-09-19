@@ -1,0 +1,62 @@
+/* Tokens de Neuroteca.
+   Extraídos de la maqueta aprobada por Max el 2026-09-18
+   (atlas-desarrollo/motor/hitos/v0.1-cerebelo/identidad-visual/opcion-mixta.html).
+   DEC-12: la maqueta es la referencia normativa. No se inventan valores aquí. */
+
+:root {
+  --papel: #FBFAF7;
+  --papel-2: #F2EFE9;
+  --tinta: #1C1B19;
+  --tinta-2: #57534E;
+  --tinta-3: #8A837C;
+  --borde: #E2DDD4;
+  --acento: #1F6F63;
+  --acento-suave: #E4F0ED;
+  --aviso: #8A5A00;
+  --aviso-fondo: #FDF4E3;
+
+  /* El lienzo del visor es SIEMPRE oscuro, sea cual sea el tema (regla de C-01). */
+  --lienzo: #0F1419;
+  --lienzo-borde: #2B333C;
+  --lienzo-tinta: #E8E6E3;
+  --lienzo-tinta-2: #A0A8B0;
+
+  --radio: 10px;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --serif: Charter, Georgia, "Iowan Old Style", serif;
+
+  /* Color por estructura. Se usa en el visor y en los puntos de la navegación. */
+  --c-vermis: #C9A227;
+  --c-hemisferios: #3E7CA6;
+  --c-anterior: #6E8F3E;
+  --c-posterior: #B4643E;
+  --c-floculonodular: #9C5AA8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-tema="claro"]) {
+    --papel: #14171A;
+    --papel-2: #1B1F24;
+    --tinta: #E8E6E3;
+    --tinta-2: #ADB4BB;
+    --tinta-3: #7D858D;
+    --borde: #2A2F35;
+    --acento: #5FC2B0;
+    --acento-suave: #14312C;
+    --aviso: #E0B060;
+    --aviso-fondo: #2A2113;
+  }
+}
+
+:root[data-tema="oscuro"] {
+  --papel: #14171A;
+  --papel-2: #1B1F24;
+  --tinta: #E8E6E3;
+  --tinta-2: #ADB4BB;
+  --tinta-3: #7D858D;
+  --borde: #2A2F35;
+  --acento: #5FC2B0;
+  --acento-suave: #14312C;
+  --aviso: #E0B060;
+  --aviso-fondo: #2A2113;
+}

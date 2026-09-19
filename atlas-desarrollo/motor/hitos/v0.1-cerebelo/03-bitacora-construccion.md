@@ -4,8 +4,8 @@ pieza: motor
 hito: v0.1-cerebelo
 tipo: bitacora-construccion
 fase: 3
-version: "1.0"
-ultima_actualizacion: 2026-09-18
+version: "1.1"
+ultima_actualizacion: 2026-09-19
 estado_compuerta_C: Pendiente
 ---
 
@@ -23,21 +23,21 @@ estado_compuerta_C: Pendiente
 |---|---|---|---|
 | 1 | Esqueleto del repositorio y `construir.py` | **Completado** | Existen `contenido/`, `src/`, `herramientas/construir.py`. `--validar` corre y devuelve 0 |
 | 2 | `esquema v1` y validación; 6 fichas de prueba | **Completado** | `python herramientas/construir.py --validar` → «13 fichas válidas». Probado el fallo: quitar un campo obligatorio o romper un enlace detiene la construcción con código 1 |
-| 3 | Plantilla y generación de la página de ficha | Pendiente | |
+| 3 | Plantilla y generación de la página de ficha | **Completado** | 13 páginas en `docs/`, con nombre, latín, nivel, anatomía/fisiología (o definición/explicación) y fuentes |
 | 4 | Marcado inline y fallo por enlace sin destino | **Adelantado en el paso 2** | Verificado con un enlace roto a propósito: `[[estructura_inexistente]]` → construcción detenida, código 1, con archivo y campo señalados |
 | 5 | Fichas fundacionales de glosario | **Completado** | 7 fichas en `contenido/glosario/`, todas con destino desde las estructuras |
-| 6 | Navegación del motor: migas y ejes | Pendiente | |
-| 7 | URLs `/estructura/<id>/` y 404 propia | Pendiente | |
-| 8 | Estilos desde la maqueta aprobada | Pendiente | |
-| 9 | Aviso de entrada e insignias | Pendiente | |
+| 6 | Navegación del motor: migas y ejes | **Completado** | Migas «Cerebelo › Lóbulo floculonodular» y los dos ejes etiquetados, en HTML puro, sin JavaScript |
+| 7 | URLs `/estructura/<id>/` y 404 propia | **Completado** | `http://localhost:8765/estructura/vermis/` abre esa ficha directamente. `404.html` generado |
+| 8 | Estilos desde la maqueta aprobada | **Completado** | `tokens.css` y `sitio.css` extraídos de la maqueta. Verificado servido por HTTP |
+| 9 | Aviso de entrada e insignias | **Completado** | Aviso una vez por navegador; insignias de nivel, estado y contenido de prueba |
 | 10 | `generar-geometria.py` y `cerebelo.glb` | Pendiente | |
 | 11 | Vendorizar Three.js; pieza `visor` | Pendiente | |
 | 12 | Selección y coloreado por eje | Pendiente | |
 | 13 | Degradación y apagado del visor | Pendiente | |
-| 14 | Publicar en Pages y verificar en la URL real | Pendiente | Necesita el repositorio remoto (DEP-03) |
+| 14 | Publicar en Pages y verificar en la URL real | Pendiente | **DEP-03 resuelta:** repositorio `neuroteca/neuroteca.github.io` creado y con los 13 commits empujados |
 | 15 | Medir peso y tiempo reales | Pendiente | |
 
-**Pasos presupuestados:** 15 · **Límite de partición (1.5×):** 22 · **Ejecutados:** 3
+**Pasos presupuestados:** 15 · **Límite de partición (1.5×):** 22 · **Ejecutados:** 9
 
 > Los pasos 4 y 5 se completaron dentro del 2 porque la validación de enlaces no se puede
 > escribir sin enlaces que validar, ni probar sin fichas de glosario a las que apuntar.
@@ -73,6 +73,18 @@ estado_compuerta_C: Pendiente
     para probar», y confundirlos sería peligroso en contenido médico.
   - **Cómo revertir:** quitar el campo de las 13 fichas y una comprobación del generador.
 
+- **[DC-03]** El separador de las fuentes se escapa por trozos, no después de unir.
+  - **Por qué surgió:** al revisar la primera página generada, la lista de fuentes mostraba
+    `&middot;` literal en vez del punto. Escapaba la cadena ya unida, así que el `&` del
+    separador se escapaba a sí mismo.
+  - **Opciones:** (A) escapar cada trozo y unir después; (B) usar el carácter `·` directamente
+    en vez de la entidad.
+  - **Elegida y razón:** **A**. (B) esconde el error en vez de corregirlo: en cuanto una
+    fuente traiga un `&` de verdad, volvería a romperse.
+  - **Cómo revertir:** una línea en `_ficha_html`.
+  - **Cómo se detectó:** mirando la página real en el navegador, no el código. Es la razón
+    de la regla «verificar, no solo marcar».
+
 ## Excepciones que detuvieron la construcción
 
 | # | Tipo (1/2/3) | Qué pasó | Qué decidió Max | Fecha |
@@ -95,4 +107,5 @@ estado_compuerta_C: Pendiente
 ## Historial de versiones
 | Versión | Fecha | Cambio principal |
 |---|---|---|
+| 1.1 | 2026-09-19 | Pasos 3, 6, 7, 8 y 9 completados: el sitio ya se genera y se navega. `DC-03` registrada. |
 | 1.0 | 2026-09-18 | Pasos 1, 2, 4 y 5 completados. `DC-01` y `DC-02` registradas. |

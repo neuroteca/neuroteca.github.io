@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sustancia blanca — Neuroteca</title>
+<meta name="description" content="Tejido nervioso formado sobre todo por axones recubiertos de mielina.">
+<link rel="stylesheet" href="../../estilos/tokens.css">
+<link rel="stylesheet" href="../../estilos/sitio.css">
+<script>
+  // Tema antes de pintar, para que no haya destello. Si el almacenamiento falla,
+  // se usa la preferencia del sistema y el sitio funciona igual (DEC-08).
+  try {
+    var t = localStorage.getItem('neuroteca-tema');
+    if (t) { document.documentElement.setAttribute('data-tema', t); }
+  } catch (e) {}
+</script>
+</head>
+<body>
+
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+
+<header class="sitio">
+  <a class="marca" href="../../">Neuroteca</a>
+  <span class="bajada">atlas vivo del sistema nervioso</span>
+  <span class="acciones">
+    <button class="tema-btn" id="btn-tema" type="button">Cambiar tema</button>
+  </span>
+</header>
+
+<div class="aviso-entrada" id="aviso-entrada"><div><strong>Los modelos son formas aproximadas por ahora.</strong> Sirven para situar y reconocer cada estructura; el modelado definitivo está en curso. Cada ficha dice en qué estado está su modelo.</div><button type="button">Entendido</button></div>
+
+<main class="atlas" id="contenido">
+
+<section class="panel">
+
+<article class="ficha"><h1>Sustancia blanca</h1><div class="insignias"><span class="insignia nivel">Nivel N1 &middot; forma general</span><span class="insignia prueba">Contenido de prueba</span><span class="insignia">Borrador</span></div><h2>Definición</h2><p>Tejido nervioso formado sobre todo por axones recubiertos de mielina.</p><h2>Explicación</h2><p>Texto de prueba. Es el cableado: conecta unas zonas de <a class="glos" href="../../estructura/sustancia_gris/">sustancia gris</a> con otras.</p><h2>Fuentes</h2><ul class="fuentes"><li>CONTENIDO DE PRUEBA — sin verificar</li></ul></article>
+</section>
+</main>
+
+<footer class="sitio">
+  <strong>Neuroteca</strong> · Contenido bajo
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">CC BY-SA 4.0</a> ·
+  Recurso <strong>didáctico y esquemático</strong>: no es una referencia clínica ni
+  quirúrgica.
+</footer>
+
+<script src="../../js/sitio.js"></script>
+
+</body>
+</html>

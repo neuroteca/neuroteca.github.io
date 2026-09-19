@@ -1,7 +1,7 @@
 ---
 proyecto: Neuroteca
 tipo: estado
-version: "2.7"
+version: "2.8"
 ultima_actualizacion: 2026-09-18
 techo: 150 lineas
 ---
@@ -40,7 +40,7 @@ nunca en línea.
 
 | Carril | Pieza / Lote | Versión | Hito / Paso | Fase | Compuerta | Estado |
 |---|---|---|---|---|---|---|
-| Software | motor | `v0` | `v0.1-cerebelo` | 3 · Construcción | **C** | En curso — 4/15 pasos (1, 2, 4 y 5) |
+| Software | motor | `v0` | `v0.1-cerebelo` | 3 · Construcción | **C** | En curso — **9/15 pasos**. Queda el 3D (10-13), publicar (14) y medir (15) |
 | Contenido | `L-001-cerebelo` | — | 0 · Encuadre | — | V | Sin arrancar |
 | Software | `visor` (pieza) | — | se crea en `v0.1` | — | — | Propuesta |
 | Software | `glosario` (pieza) | — | — | — | — | Propuesta |
@@ -65,16 +65,14 @@ backlog.
 | Qué | Espera a | Desde |
 |---|---|---|
 | `esquema-contenido.md` v1 | Se crea dentro de `v0.1-cerebelo` | 2026-09-18 |
-| Publicación en Pages (paso 14) | Crear el repositorio en la organización `neuroteca` y empujar | 2026-09-18 |
+| Paso 14 del plan | Que Max active Pages en `main` + `/docs` | 2026-09-19 |
 
 No hay preguntas de proyecto abiertas. Las licencias están creadas a nombre de Maximiliano
 Alamilla Rodríguez.
 
-**Organización `neuroteca` creada en GitHub el 2026-09-18.** Falta el repositorio, el primer
-push y activar Pages desde `main` + `/docs`.
-
-**Decisión pendiente de Max:** si los commits deben usar el correo `noreply` de GitHub en vez
-del personal, antes del primer push — después exige reescribir historia.
+**Repositorio publicado:** `github.com/neuroteca/neuroteca.github.io`, 13 commits, autoría
+con el `noreply` de GitHub (sin correo personal expuesto). **Falta que Max active Pages** en
+*Settings → Pages → Deploy from a branch → `main` + `/docs`*.
 
 ## Recordatorios de método
 

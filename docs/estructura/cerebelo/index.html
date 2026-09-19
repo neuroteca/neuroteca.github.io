@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cerebelo — Neuroteca</title>
+<meta name="description" content="Texto de prueba. Ocupa la fosa craneal posterior, por detrás del tronco encefálico, del que lo separa el cuarto ventrículo.">
+<link rel="stylesheet" href="../../estilos/tokens.css">
+<link rel="stylesheet" href="../../estilos/sitio.css">
+<script>
+  // Tema antes de pintar, para que no haya destello. Si el almacenamiento falla,
+  // se usa la preferencia del sistema y el sitio funciona igual (DEC-08).
+  try {
+    var t = localStorage.getItem('neuroteca-tema');
+    if (t) { document.documentElement.setAttribute('data-tema', t); }
+  } catch (e) {}
+</script>
+</head>
+<body>
+
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+
+<header class="sitio">
+  <a class="marca" href="../../">Neuroteca</a>
+  <span class="bajada">atlas vivo del sistema nervioso</span>
+  <span class="acciones">
+    <button class="tema-btn" id="btn-tema" type="button">Cambiar tema</button>
+  </span>
+</header>
+
+<div class="aviso-entrada" id="aviso-entrada"><div><strong>Los modelos son formas aproximadas por ahora.</strong> Sirven para situar y reconocer cada estructura; el modelado definitivo está en curso. Cada ficha dice en qué estado está su modelo.</div><button type="button">Entendido</button></div>
+
+<main class="atlas" id="contenido">
+<section class="visor" aria-label="Visor del cerebelo"><svg viewBox="0 0 520 400" role="img" aria-label="Esquema del cerebelo, vista posterior. Forma aproximada.">
+  <defs>
+    <radialGradient id="halo" cx="50%" cy="42%" r="62%">
+      <stop offset="0%" stop-color="#25303A"/><stop offset="100%" stop-color="#0F1419"/>
+    </radialGradient>
+    <path id="silueta" d="M260 86 C 150 80, 72 126, 62 198
+      C 54 262, 112 306, 178 304 C 218 303, 246 290, 260 272
+      C 274 290, 302 303, 342 304 C 408 306, 466 262, 458 198
+      C 448 126, 370 80, 260 86 Z"/>
+    <clipPath id="recorte"><use href="#silueta"/></clipPath>
+  </defs>
+  <rect width="520" height="400" fill="url(#halo)"/>
+
+  <path d="M242 250 q18 -10 36 0 l6 128 q-24 8 -48 0 z" fill="#2A333C" opacity=".9"/>
+  <text x="260" y="392" fill="#6C7681" font-size="10" text-anchor="middle"
+        font-family="system-ui">tronco encefálico (contexto)</text>
+
+  <g clip-path="url(#recorte)">
+    <a href="../../estructura/lobulo_anterior/" class="parte" data-parte="lobulo_anterior">
+      <rect x="40" y="70" width="440" height="72" fill="var(--c-anterior)">
+        <title>Lóbulo anterior</title></rect>
+    </a>
+    <a href="../../estructura/lobulo_posterior/" class="parte" data-parte="lobulo_posterior">
+      <rect x="40" y="142" width="440" height="116" fill="var(--c-posterior)">
+        <title>Lóbulo posterior</title></rect>
+    </a>
+    <a href="../../estructura/lobulo_floculonodular/" class="parte" data-parte="lobulo_floculonodular">
+      <rect x="40" y="258" width="440" height="60" fill="var(--c-floculonodular)">
+        <title>Lóbulo floculonodular</title></rect>
+    </a>
+    <a href="../../estructura/vermis/" class="parte" data-parte="vermis">
+      <path d="M244 80 q16 -6 32 0 l5 200 q-21 8 -42 0 z" fill="var(--c-vermis)">
+        <title>Vermis</title></path>
+    </a>
+    <g stroke="#0F1419" stroke-opacity=".28" fill="none" aria-hidden="true">
+      <path d="M60 116 q200 -30 400 0"/><path d="M58 152 q202 -30 404 0"/>
+      <path d="M58 190 q202 -30 404 0"/><path d="M62 228 q198 -28 396 0"/>
+      <path d="M70 266 q190 -26 380 0"/>
+    </g>
+  </g>
+
+  <g clip-path="url(#recorte)">
+    <a href="../../estructura/hemisferios_cerebelosos/" class="parte" data-parte="hemisferios_cerebelosos">
+      <rect x="40" y="70" width="204" height="250" fill="transparent">
+        <title>Hemisferio cerebeloso</title></rect>
+    </a>
+    <a href="../../estructura/hemisferios_cerebelosos/" class="parte" data-parte="hemisferios_cerebelosos">
+      <rect x="276" y="70" width="204" height="250" fill="transparent">
+        <title>Hemisferio cerebeloso</title></rect>
+    </a>
+  </g>
+
+  <use href="#silueta" fill="none" stroke="#0F1419" stroke-opacity=".5" stroke-width="2"/>
+</svg>
+<div class="visor-barra"><span class="etiqueta-provisional">Forma aproximada</span><span>Toca una parte para abrir su ficha</span></div></section>
+<section class="panel">
+<nav class="partes-nav" aria-label="Navegación por estructuras"><p class="migas-nav"><span class="actual">Cerebelo <span class="nv">N1</span></span></p><div class="eje"><span class="eje-nombre">Por regiones</span><ul><li><a href="../../estructura/vermis/"><span class="punto" style="background:var(--c-vermis)"></span>Vermis <span class="nv">N2</span></a></li><li><a href="../../estructura/hemisferios_cerebelosos/"><span class="punto" style="background:var(--c-hemisferios)"></span>Hemisferios cerebelosos <span class="nv">N2</span></a></li></ul></div><div class="eje"><span class="eje-nombre">Por lóbulos</span><ul><li><a href="../../estructura/lobulo_anterior/"><span class="punto" style="background:var(--c-anterior)"></span>Lóbulo anterior <span class="nv">N2</span></a></li><li><a href="../../estructura/lobulo_posterior/"><span class="punto" style="background:var(--c-posterior)"></span>Lóbulo posterior <span class="nv">N2</span></a></li><li><a href="../../estructura/lobulo_floculonodular/"><span class="punto" style="background:var(--c-floculonodular)"></span>Lóbulo floculonodular <span class="nv">N2</span></a></li></ul></div></nav>
+<article class="ficha"><h1>Cerebelo</h1><p class="latin">Cerebellum</p><div class="insignias"><span class="insignia nivel">Nivel N1 &middot; forma general</span><span class="insignia prueba">Contenido de prueba</span><span class="insignia">Borrador</span></div><h2>Anatomía</h2><p>Texto de prueba. Ocupa la fosa craneal posterior, por detrás del tronco encefálico, del que lo separa el cuarto ventrículo.</p><p>Su superficie está plegada en láminas finas y paralelas, y bajo la <a class="glos" href="../../estructura/corteza/">corteza</a> se dispone la <a class="glos" href="../../estructura/sustancia_blanca/">sustancia blanca</a>.</p><h2>Fisiología</h2><p>Texto de prueba. Recibe información <a class="glos" href="../../estructura/aferente/">aferente</a> de la médula, el tronco y la corteza cerebral, y emite señales <a class="glos" href="../../estructura/eferente/">eferentes</a> que ajustan el movimiento mientras ocurre.</p><h2>Fuentes</h2><ul class="fuentes"><li>CONTENIDO DE PRUEBA — sin verificar</li></ul></article>
+</section>
+</main>
+
+<footer class="sitio">
+  <strong>Neuroteca</strong> · Contenido bajo
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">CC BY-SA 4.0</a> ·
+  Recurso <strong>didáctico y esquemático</strong>: no es una referencia clínica ni
+  quirúrgica.
+</footer>
+
+<script src="../../js/sitio.js"></script>
+
+</body>
+</html>

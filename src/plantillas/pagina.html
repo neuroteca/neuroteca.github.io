@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es"{{ATRIBUTO_TEMA}}>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITULO}}</title>
+<meta name="description" content="{{DESCRIPCION}}">
+<link rel="stylesheet" href="{{BASE}}estilos/tokens.css">
+<link rel="stylesheet" href="{{BASE}}estilos/sitio.css">
+<script>
+  // Tema antes de pintar, para que no haya destello. Si el almacenamiento falla,
+  // se usa la preferencia del sistema y el sitio funciona igual (DEC-08).
+  try {
+    var t = localStorage.getItem('neuroteca-tema');
+    if (t) { document.documentElement.setAttribute('data-tema', t); }
+  } catch (e) {}
+</script>
+</head>
+<body>
+
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+
+<header class="sitio">
+  <a class="marca" href="{{BASE}}">Neuroteca</a>
+  <span class="bajada">atlas vivo del sistema nervioso</span>
+  <span class="acciones">
+    <button class="tema-btn" id="btn-tema" type="button">Cambiar tema</button>
+  </span>
+</header>
+
+{{AVISO}}
+
+<main class="atlas" id="contenido">
+{{VISOR}}
+<section class="panel">
+{{NAVEGACION}}
+{{FICHA}}
+</section>
+</main>
+
+<footer class="sitio">
+  <strong>Neuroteca</strong> · Contenido bajo
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">CC BY-SA 4.0</a> ·
+  Recurso <strong>didáctico y esquemático</strong>: no es una referencia clínica ni
+  quirúrgica.
+</footer>
+
+<script src="{{BASE}}js/sitio.js"></script>
+{{GUION_VISOR}}
+</body>
+</html>

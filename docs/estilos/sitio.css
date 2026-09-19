@@ -1,0 +1,195 @@
+/* Neuroteca — hoja principal.
+   Dos zonas: el visor (lienzo siempre oscuro) y la lectura (sigue el tema).
+   En móvil se apilan, y el borde entre ambas se trata a propósito. */
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--sans);
+  line-height: 1.6;
+}
+
+.sr {
+  position: absolute; width: 1px; height: 1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+  outline: 2px solid var(--acento);
+  outline-offset: 2px;
+}
+
+/* Salto al contenido, para teclado y lectores de pantalla */
+.saltar {
+  position: absolute; left: -9999px; top: 0; z-index: 20;
+  background: var(--papel); color: var(--acento);
+  padding: 10px 14px; border: 1px solid var(--acento); border-radius: 0 0 var(--radio) 0;
+}
+.saltar:focus { left: 0; }
+
+/* ---------------------------------------------------------- cabecera */
+
+header.sitio {
+  display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+  padding: 18px 16px 14px;
+  border-bottom: 1px solid var(--borde);
+}
+header.sitio .marca { font-size: 19px; font-weight: 700; letter-spacing: -0.01em;
+  color: inherit; text-decoration: none; }
+header.sitio .bajada { color: var(--tinta-3); font-size: 13px; }
+header.sitio .acciones { margin-left: auto; }
+
+button.tema-btn {
+  font: inherit; font-size: 13px; color: var(--tinta-2); background: none;
+  border: 1px solid var(--borde); border-radius: 99px;
+  padding: 5px 12px; cursor: pointer;
+}
+button.tema-btn:hover { border-color: var(--acento); color: var(--acento); }
+
+/* ---------------------------------------------------------- aviso de entrada */
+
+.aviso-entrada {
+  margin: 16px; padding: 12px 14px;
+  display: flex; gap: 12px; align-items: flex-start;
+  background: var(--aviso-fondo);
+  border: 1px solid var(--aviso);
+  border-radius: var(--radio);
+  font-size: 14px;
+}
+.aviso-entrada strong { color: var(--aviso); }
+.aviso-entrada button {
+  margin-left: auto; flex: none; cursor: pointer;
+  font: inherit; font-size: 13px; background: none;
+  border: 1px solid var(--aviso); border-radius: 6px;
+  padding: 4px 10px; color: var(--tinta-2);
+}
+
+/* ---------------------------------------------------------- rejilla */
+
+.atlas {
+  display: grid; grid-template-columns: 1.15fr 1fr;
+  gap: 20px; padding: 16px; align-items: start;
+}
+@media (max-width: 860px) { .atlas { grid-template-columns: 1fr; } }
+
+/* ---------------------------------------------------------- zona visor */
+
+.visor {
+  background: var(--lienzo);
+  border: 1px solid var(--lienzo-borde);
+  border-radius: var(--radio);
+  overflow: hidden; position: relative;
+  box-shadow: 0 1px 3px rgba(0,0,0,.18), 0 10px 30px -18px rgba(0,0,0,.5);
+}
+.visor svg, .visor canvas { display: block; width: 100%; height: auto; touch-action: manipulation; }
+
+.visor-barra {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  padding: 10px 12px;
+  background: linear-gradient(transparent, rgba(0,0,0,.55) 40%);
+  color: var(--lienzo-tinta-2); font-size: 12px;
+}
+.etiqueta-provisional {
+  background: rgba(224,176,96,.15); color: #F0C888;
+  border: 1px solid rgba(224,176,96,.35);
+  border-radius: 99px; padding: 3px 9px;
+}
+.visor-barra .controles { margin-left: auto; display: flex; gap: 6px; }
+.visor-barra button {
+  font: inherit; font-size: 12px; color: var(--lienzo-tinta-2); cursor: pointer;
+  background: rgba(255,255,255,.06);
+  border: 1px solid var(--lienzo-borde); border-radius: 6px; padding: 4px 9px;
+}
+.visor-barra button:hover { color: var(--lienzo-tinta); border-color: #47525C; }
+
+.parte { cursor: pointer; transition: opacity .15s; }
+.parte:hover { opacity: .85; }
+.parte[aria-current="true"] { stroke: #FFF; stroke-width: 2.5; }
+
+/* ---------------------------------------------------------- navegación */
+
+.panel { min-width: 0; }
+
+.partes-nav {
+  position: sticky; top: 0; z-index: 5;
+  background: var(--papel);
+  border-bottom: 1px solid var(--borde);
+  padding-bottom: 10px; margin-bottom: 16px;
+}
+.migas-nav {
+  display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+  font-size: 13px; color: var(--tinta-3); margin: 0 0 12px;
+}
+.migas-nav a { color: var(--acento); text-decoration: none; }
+.migas-nav a:hover { text-decoration: underline; }
+.migas-nav .actual { color: var(--tinta); font-weight: 600; }
+
+.eje { display: flex; align-items: baseline; gap: 10px; margin-bottom: 7px; }
+.eje > .eje-nombre {
+  font-size: 10.5px; text-transform: uppercase; letter-spacing: .07em;
+  color: var(--tinta-3); flex: none; width: 82px; text-align: right; padding-top: 5px;
+}
+@media (max-width: 520px) {
+  .eje { display: block; }
+  .eje > .eje-nombre { width: auto; text-align: left; display: block; margin-bottom: 4px; }
+}
+.partes-nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; padding: 0; margin: 0; }
+.partes-nav a {
+  font-size: 13px; text-decoration: none; color: var(--tinta-2);
+  background: var(--papel-2); border: 1px solid var(--borde); border-radius: 99px;
+  padding: 5px 11px 5px 8px; display: inline-flex; align-items: center; gap: 7px;
+}
+.partes-nav a:hover { border-color: var(--acento); color: var(--tinta); }
+.partes-nav a[aria-current="page"] {
+  background: var(--acento-suave); border-color: transparent;
+  color: var(--acento); font-weight: 600;
+}
+.punto { width: 9px; height: 9px; border-radius: 2px; flex: none; }
+.partes-nav .nv, .migas-nav .nv { font-size: 10px; color: var(--tinta-3); letter-spacing: .04em; }
+
+/* ---------------------------------------------------------- ficha */
+
+.ficha h1 { font-size: 26px; margin: 0 0 2px; letter-spacing: -0.015em; }
+.latin { font-family: var(--serif); font-style: italic; color: var(--tinta-2); font-size: 16px; margin: 0; }
+
+.insignias { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0 18px; }
+.insignia {
+  font-size: 12px; padding: 3px 9px; border-radius: 99px;
+  border: 1px solid var(--borde); color: var(--tinta-2); background: var(--papel-2);
+}
+.insignia.nivel { background: var(--acento-suave); border-color: transparent; color: var(--acento); font-weight: 600; }
+.insignia.provisional, .insignia.prueba { background: var(--aviso-fondo); border-color: transparent; color: var(--aviso); }
+
+.ficha h2, .partes-nav h2 {
+  font-size: 12px; text-transform: uppercase; letter-spacing: .09em;
+  color: var(--tinta-3); margin: 22px 0 6px; font-weight: 600;
+}
+.partes-nav h2 { margin-top: 0; }
+.ficha p { font-family: var(--serif); font-size: 17px; line-height: 1.65; margin: 0 0 12px; }
+
+a.glos {
+  color: inherit; text-decoration: none;
+  border-bottom: 1px dashed var(--acento);
+}
+a.glos:hover { color: var(--acento); border-bottom-style: solid; }
+a.glos::after { content: "\00B0"; color: var(--acento); font-size: .8em; vertical-align: super; }
+
+.fuentes { font-size: 13.5px; color: var(--tinta-2); padding-left: 18px; margin: 0; }
+.fuentes li { margin-bottom: 4px; }
+
+/* ---------------------------------------------------------- pie */
+
+footer.sitio {
+  padding: 20px 16px 40px;
+  border-top: 1px solid var(--borde);
+  color: var(--tinta-3); font-size: 13px;
+}
+footer.sitio a { color: var(--acento); }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}

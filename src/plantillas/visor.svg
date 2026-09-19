@@ -1,0 +1,54 @@
+<svg viewBox="0 0 520 400" role="img" aria-label="Esquema del cerebelo, vista posterior. Forma aproximada.">
+  <defs>
+    <radialGradient id="halo" cx="50%" cy="42%" r="62%">
+      <stop offset="0%" stop-color="#25303A"/><stop offset="100%" stop-color="#0F1419"/>
+    </radialGradient>
+    <path id="silueta" d="M260 86 C 150 80, 72 126, 62 198
+      C 54 262, 112 306, 178 304 C 218 303, 246 290, 260 272
+      C 274 290, 302 303, 342 304 C 408 306, 466 262, 458 198
+      C 448 126, 370 80, 260 86 Z"/>
+    <clipPath id="recorte"><use href="#silueta"/></clipPath>
+  </defs>
+  <rect width="520" height="400" fill="url(#halo)"/>
+
+  <path d="M242 250 q18 -10 36 0 l6 128 q-24 8 -48 0 z" fill="#2A333C" opacity=".9"/>
+  <text x="260" y="392" fill="#6C7681" font-size="10" text-anchor="middle"
+        font-family="system-ui">tronco encefálico (contexto)</text>
+
+  <g clip-path="url(#recorte)">
+    <a href="{{BASE}}estructura/lobulo_anterior/" class="parte" data-parte="lobulo_anterior">
+      <rect x="40" y="70" width="440" height="72" fill="var(--c-anterior)">
+        <title>Lóbulo anterior</title></rect>
+    </a>
+    <a href="{{BASE}}estructura/lobulo_posterior/" class="parte" data-parte="lobulo_posterior">
+      <rect x="40" y="142" width="440" height="116" fill="var(--c-posterior)">
+        <title>Lóbulo posterior</title></rect>
+    </a>
+    <a href="{{BASE}}estructura/lobulo_floculonodular/" class="parte" data-parte="lobulo_floculonodular">
+      <rect x="40" y="258" width="440" height="60" fill="var(--c-floculonodular)">
+        <title>Lóbulo floculonodular</title></rect>
+    </a>
+    <a href="{{BASE}}estructura/vermis/" class="parte" data-parte="vermis">
+      <path d="M244 80 q16 -6 32 0 l5 200 q-21 8 -42 0 z" fill="var(--c-vermis)">
+        <title>Vermis</title></path>
+    </a>
+    <g stroke="#0F1419" stroke-opacity=".28" fill="none" aria-hidden="true">
+      <path d="M60 116 q200 -30 400 0"/><path d="M58 152 q202 -30 404 0"/>
+      <path d="M58 190 q202 -30 404 0"/><path d="M62 228 q198 -28 396 0"/>
+      <path d="M70 266 q190 -26 380 0"/>
+    </g>
+  </g>
+
+  <g clip-path="url(#recorte)">
+    <a href="{{BASE}}estructura/hemisferios_cerebelosos/" class="parte" data-parte="hemisferios_cerebelosos">
+      <rect x="40" y="70" width="204" height="250" fill="transparent">
+        <title>Hemisferio cerebeloso</title></rect>
+    </a>
+    <a href="{{BASE}}estructura/hemisferios_cerebelosos/" class="parte" data-parte="hemisferios_cerebelosos">
+      <rect x="276" y="70" width="204" height="250" fill="transparent">
+        <title>Hemisferio cerebeloso</title></rect>
+    </a>
+  </g>
+
+  <use href="#silueta" fill="none" stroke="#0F1419" stroke-opacity=".5" stroke-width="2"/>
+</svg>
