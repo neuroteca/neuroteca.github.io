@@ -1,7 +1,7 @@
 ---
 proyecto: Neuroteca
 tipo: esquema-de-contenido
-version: "0.1"
+version: "0.2"
 ultima_actualizacion: 2026-09-18
 estado: BORRADOR — no es v1
 ---
@@ -83,10 +83,16 @@ Campos **ya decididos**:
 | `licencia` | La que aplica a este activo | Sí |
 | `peso` | Medido sobre el export real, no sobre el archivo fuente | Sí |
 | `equivalente_textual` | Descripción que no exige ver ni manipular el activo | Sí |
+| `estado` | `provisional` (aproximación de trabajo) o `definitivo` (modelado de verdad) | Sí |
 
 Reglas vinculantes:
 
 - **Un activo sin origen registrado no se publica**, aunque sea evidentemente propio.
+- **El `estado` se muestra al visitante**, igual que el nivel de detalle. Un activo
+  `provisional` presentado como definitivo rompe la honestidad del atlas.
+- **La geometría se carga desde un archivo, nunca escrita dentro del código.** Sustituir un
+  activo `provisional` por su versión `definitiva` es un lote de contenido con compuerta V,
+  no un cambio de software.
 - **Al repositorio entra solo el export optimizado.** Los archivos fuente de modelado viven
   fuera y están en `.gitignore`: Git guarda cada versión de un binario entera, y veinte
   iteraciones de un modelo pesan veinte veces.
@@ -123,5 +129,6 @@ podría cerrar nunca.
 ## Historial de versiones
 | Versión | Fecha | Cambio principal |
 |---|---|---|
+| 0.2 | 2026-09-18 | Campo `estado` del activo (`provisional`/`definitivo`) y la regla de cargar la geometría desde archivo, para que reemplazar un modelo sea contenido y no código. |
 | 0.1 | 2026-09-18 | Campo `tipo` (`estructura` / `fundacional`) y las fichas fundacionales del glosario (P-04 revisado). |
 | 0 | 2026-09-17 | Borrador inicial. Recoge lo decidido en S-01 y marca los huecos. No es el contrato: `v1` requiere aprobación de Max. |

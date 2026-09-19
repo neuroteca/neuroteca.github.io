@@ -5,10 +5,10 @@ hito: v0.1-cerebelo
 esquema: v1 (se crea en este hito)
 tipo: diseno
 fase: 1
-version: "1.0"
+version: "1.1"
 ultima_actualizacion: 2026-09-18
 modo_de_respuesta: chat
-estado_compuerta_A: Pendiente
+estado_compuerta_A: Aprobada
 ---
 
 # Fase 1 — Diseño · v0.1 «cerebelo»
@@ -50,13 +50,21 @@ sola forma**, y sin partes no hay nada que tocar. Por eso:
 El esquema admite nivel por ficha, así que esto es legal y además prueba el mecanismo de
 verdad. Pero **es más de lo que P-03 decía** y lo apruebas aquí o lo recortas aquí.
 
-### 3. El modelo 3D no lo puede producir el agente
+### 3. El modelo 3D no lo puede producir el agente — **resuelto en la compuerta A**
 
-Es la única pieza del hito que está fuera de lo que un agente hace bien, y está en el camino
-crítico. Las tres salidas posibles se evalúan en la fase 2 (decisión abierta `DEC-A1`):
-modelarlo tú en Blender; partir de una geometría aproximada generada por código y refinarla
-después; o empezar con un esquema 2D por capas y meter el 3D en `v0.2`. **No se arranca la
-construcción sin esto cerrado.**
+**Decisión de Max (2026-09-18):** se arranca con **geometría aproximada generada por
+código**, y Max refina el modelo real en Blender en paralelo, como tarea secundaria. Razones
+suyas: no bloquea el avance del resto, y le da tiempo de aprender la herramienta.
+
+Esto tiene **dos consecuencias vinculantes para la fase 2**:
+
+1. **La geometría se carga desde un archivo, nunca escrita dentro del código.** Sustituir el
+   modelo provisional por el definitivo debe ser un **lote de contenido** con su compuerta
+   V, sin tocar una línea de la pieza `visor`. Si esto no se diseña así desde el principio,
+   el reemplazo se convierte en una reescritura.
+2. **Los activos visuales declaran `estado`** (`provisional` / `definitivo`), espejo del
+   `borrador` / `revisado` de las fichas, y el visitante lo ve. Un modelo aproximado
+   presentado como definitivo rompe la misma honestidad que sostiene el nivel de detalle.
 
 ## Funciones incluidas
 
@@ -193,17 +201,20 @@ compuerta.
 
 ## Compuerta A
 
-- [ ] Cada función tiene al menos un criterio de aceptación.
-- [ ] La lista de "fuera de alcance" no está vacía.
-- [ ] Los criterios se pueden responder con sí o no, sin opinar.
-- [ ] Si es pieza: `CA-A1` y `CA-A2` presentes, y la versión de esquema declarada.
-- [ ] Si toca el esquema: declarado si el cambio es compatible o rompiente.
-- [ ] **Los tres avisos del principio están aprobados o corregidos.**
-- [ ] Max aprobó el documento.
+- [x] Cada función tiene al menos un criterio de aceptación.
+- [x] La lista de "fuera de alcance" no está vacía.
+- [x] Los criterios se pueden responder con sí o no, sin opinar.
+- [x] Si es pieza: `CA-A1` y `CA-A2` presentes, y la versión de esquema declarada.
+- [x] Si toca el esquema: declarado si el cambio es compatible o rompiente.
+- [x] **Los tres avisos del principio están aprobados o corregidos.**
+- [x] Max aprobó el documento.
 
-**Aprobado por Max el:** ____-__-__
+**Aprobado por Max el:** 2026-09-18
+
+> **Alcance congelado.** Toda idea posterior va a `backlog.md`.
 
 ## Historial de versiones
 | Versión | Fecha | Cambio principal |
 |---|---|---|
+| 1.1 | 2026-09-18 | Compuerta A aprobada. Aviso 3 resuelto: geometría aproximada por código, con dos consecuencias vinculantes para la fase 2 (carga desde archivo y `estado` del activo). |
 | 1.0 | 2026-09-18 | Versión inicial, escrita tras el paso 0. |

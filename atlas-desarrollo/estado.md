@@ -1,7 +1,7 @@
 ---
 proyecto: Neuroteca
 tipo: estado
-version: "2.0"
+version: "2.1"
 ultima_actualizacion: 2026-09-18
 techo: 150 lineas
 ---
@@ -20,6 +20,10 @@ techo: 150 lineas
 región»; el stack es HTML/CSS/JS estándar con generador propio, sin framework; la primera
 región es el **cerebelo**. Todavía no existe código ni contenido.
 
+**Modelo 3D:** se arranca con geometría aproximada por código; Max modela el definitivo en
+Blender en paralelo. Por eso la geometría se carga **desde un archivo**, nunca escrita en el
+código: reemplazarla será un lote de contenido, no una reescritura.
+
 Decisiones de fondo tomadas: dos carriles (software y contenido), piezas por capacidad de
 la aplicación, modelos visuales propios con granularidad creciente, publicación en GitHub
 Pages, todo en español, y fuente obligatoria por ficha. **Licencias: código `MIT`,
@@ -32,7 +36,7 @@ nunca en línea.
 
 | Carril | Pieza / Lote | Versión | Hito / Paso | Fase | Compuerta | Estado |
 |---|---|---|---|---|---|---|
-| Software | motor | `v0` | `v0.1-cerebelo` | 1 · Diseño | **A** | Esperando aprobación de Max |
+| Software | motor | `v0` | `v0.1-cerebelo` | 2 · Especificación | **B** | Cuestionario esperando a Max |
 | Contenido | `L-001-cerebelo` | — | 0 · Encuadre | — | V | Sin arrancar |
 | Software | `visor` (pieza) | — | se crea en `v0.1` | — | — | Propuesta |
 | Software | `glosario` (pieza) | — | — | — | — | Propuesta |
@@ -43,20 +47,20 @@ compuerta.**
 
 ## Siguiente acción
 
-**Max revisa `motor/hitos/v0.1-cerebelo/01-diseno.md` y cruza o corrige la compuerta A.**
-Hay tres avisos al principio del documento que se aprueban o se recortan ahí mismo: que este
-hito cree el motor y la primera pieza a la vez, que el nivel de detalle sea mixto (`N1` +
-`N2`), y que el modelo 3D no lo puede producir el agente.
+**Max responde `motor/hitos/v0.1-cerebelo/00-cuestionario-f2.md`** (cuatro preguntas:
+dirección visual, primera vista, cómo se marca el modelo provisional, y listón de realismo
+de la geometría). Con eso se integra `02-especificacion.md`, se construye la maqueta de
+identidad visual y se cierra la compuerta B.
 
-Al cruzar A, el alcance queda congelado y se abre la fase 2 en modo cuestionario.
+**Compuerta A aprobada el 2026-09-18: el alcance está congelado.** Toda idea nueva va al
+backlog.
 
 ## Bloqueos
 
 | Qué | Espera a | Desde |
 |---|---|---|
-| Compuerta A de `v0.1-cerebelo` | Revisión y aprobación de Max | 2026-09-18 |
 | `esquema-contenido.md` v1 | Se crea dentro de `v0.1-cerebelo` | 2026-09-18 |
-| Origen del modelo 3D del cerebelo | Decisión abierta `DEC-A1`, se cierra en fase 2 | 2026-09-18 |
+| Compuerta B de `v0.1-cerebelo` | Respuestas del cuestionario y maqueta visual aprobada | 2026-09-18 |
 
 No hay preguntas de proyecto abiertas. Las licencias están creadas a nombre de Maximiliano
 Alamilla Rodríguez.
