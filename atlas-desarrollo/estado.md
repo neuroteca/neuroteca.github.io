@@ -1,7 +1,7 @@
 ---
 proyecto: Neuroteca
 tipo: estado
-version: "2.9"
+version: "3.0"
 ultima_actualizacion: 2026-09-18
 techo: 150 lineas
 ---
@@ -40,7 +40,7 @@ nunca en línea.
 
 | Carril | Pieza / Lote | Versión | Hito / Paso | Fase | Compuerta | Estado |
 |---|---|---|---|---|---|---|
-| Software | motor | `v0` | `v0.1-cerebelo` | 3 · Construcción | **C** | **Detenido en el paso 11** — 10/15. Espera autorización de descarga |
+| Software | motor | `v0` | `v0.1-cerebelo` | 3 · Construcción | **C** | En curso — **13/15**. Quedan publicar (14) y medir (15) |
 | Contenido | `L-001-cerebelo` | — | 0 · Encuadre | — | V | Sin arrancar |
 | Software | `visor` (pieza) | — | se crea en `v0.1` | — | — | Propuesta |
 | Software | `glosario` (pieza) | — | — | — | — | Propuesta |
@@ -51,11 +51,8 @@ compuerta.**
 
 ## Siguiente acción
 
-**Max autoriza (o no) la descarga de Three.js**, que es lo único que detiene la
-construcción. La alternativa es reconsiderar `DEC-05` y escribir el visor con WebGL
-directamente, sin ninguna dependencia externa — lo que reabriría la compuerta B.
-
-Con eso resuelto, quedan los pasos 11 a 15.
+**Pasos 14 y 15:** publicar y verificar en `https://neuroteca.github.io` —incluida la carga
+en móvil— y medir el peso y el tiempo reales. Con eso se presenta la compuerta C a Max.
 
 **Compuerta A aprobada el 2026-09-18: el alcance está congelado.** Toda idea nueva va al
 backlog.
@@ -65,7 +62,7 @@ backlog.
 | Qué | Espera a | Desde |
 |---|---|---|
 | `esquema-contenido.md` v1 | Se crea dentro de `v0.1-cerebelo` | 2026-09-18 |
-| Paso 11 del plan | **Autorización de Max** para descargar Three.js, o decisión de no usarlo | 2026-09-19 |
+| — | Nada bloqueado | — |
 
 No hay preguntas de proyecto abiertas. Las licencias están creadas a nombre de Maximiliano
 Alamilla Rodríguez.

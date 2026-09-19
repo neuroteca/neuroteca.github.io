@@ -4,6 +4,11 @@
 
 * { box-sizing: border-box; }
 
+/* Un elemento con `hidden` cuya clase fija `display` pierde el empate de
+   especificidad y se sigue viendo. Sin esta regla, ocultar el SVG al cargar el 3D
+   no funciona. Regla heredada del metodo de MIA; la olvide y volvio a morder. */
+[hidden] { display: none !important; }
+
 body {
   margin: 0;
   background: var(--papel);

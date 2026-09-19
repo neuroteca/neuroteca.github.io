@@ -31,13 +31,13 @@ estado_compuerta_C: Pendiente
 | 8 | Estilos desde la maqueta aprobada | **Completado** | `tokens.css` y `sitio.css` extraídos de la maqueta. Verificado servido por HTTP |
 | 9 | Aviso de entrada e insignias | **Completado** | Aviso una vez por navegador; insignias de nivel, estado y contenido de prueba |
 | 10 | `generar-geometria.py` y `cerebelo.glb` | **Completado** | `.glb` válido de 279 KB con **6 sectores** nombrados. Cabecera y longitudes verificadas leyendo el binario |
-| 11 | Vendorizar Three.js; pieza `visor` | **Detenido** | Excepción: hace falta autorización de Max para descargar Three.js |
-| 12 | Selección y coloreado por eje | Pendiente | |
-| 13 | Degradación y apagado del visor | Pendiente | |
+| 11 | Vendorizar Three.js; pieza `visor` | **Completado** | Three.js `0.185.1` fijado en `src/vendor/` (5 archivos, 933 KB, MIT). El modelo carga, gira y hace zoom |
+| 12 | Selección y coloreado por eje | **Completado** | Clic en un sector abre su ficha. Coloreado por el eje principal y resaltado del otro al apuntar a sus botones, con ratón y con teclado |
+| 13 | Degradación y apagado del visor | **Completado** | `CA-A1`: apagada en `src/piezas.json`, el sitio pasa de 1293 KB a **78 KB** y sigue navegable. `CA-A2`: borrado el `.glb`, aparece el esquema con el aviso «No se pudo cargar el modelo» |
 | 14 | Publicar en Pages y verificar en la URL real | Pendiente | **DEP-03 resuelta:** repositorio `neuroteca/neuroteca.github.io` creado y con los 13 commits empujados |
 | 15 | Medir peso y tiempo reales | Pendiente | |
 
-**Pasos presupuestados:** 15 · **Límite de partición (1.5×):** 22 · **Ejecutados:** 10
+**Pasos presupuestados:** 15 · **Límite de partición (1.5×):** 22 · **Ejecutados:** 13
 
 > Los pasos 4 y 5 se completaron dentro del 2 porque la validación de enlaces no se puede
 > escribir sin enlaces que validar, ni probar sin fichas de glosario a las que apuntar.
@@ -111,11 +111,42 @@ estado_compuerta_C: Pendiente
     extremos superior e inferior, donde la malla se estrecha más que un cerebelo real. Sirve
     de nota para Max al modelar el definitivo.
 
+- **[DC-06]** El SVG se oculta con `setAttribute('hidden','')` **más** una regla
+  `[hidden] { display: none !important }`.
+  - **Por qué surgió:** al cargar el 3D se veían **las dos representaciones a la vez**. Dos
+    causas encadenadas: (1) `hidden` **no existe como propiedad en un `SVGElement`**, así que
+    `svg.hidden = true` creaba una propiedad de JavaScript que no llegaba al DOM; (2) aunque
+    llegara, `.visor svg { display: block }` gana el empate de especificidad al atributo.
+  - **Elegida y razón:** atributo explícito más regla CSS explícita. Las dos hacen falta:
+    una sola no basta.
+  - **Cómo revertir:** dos líneas.
+  - **Lo que duele:** la causa (2) **ya estaba escrita** en las reglas promovidas del método
+    de MIA, que leí al diseñar este método, y aun así la pisé. Es el argumento literal de la
+    regla «antes de diagnosticar, revisar lo ya sabido». **Se promueve a
+    `reglas-del-agente.md` al cerrar el hito.**
+
+- **[DC-07]** Los enlaces a CSS y JS llevan una versión derivada del contenido.
+  - **Por qué surgió:** la corrección del CSS no aparecía en el navegador porque servía una
+    copia en caché. Perdí una vuelta entera diagnosticando un fallo que ya estaba arreglado.
+    En un sitio publicado le pasaría a cada visitante que ya hubiera entrado antes.
+  - **Opciones:** (A) sello del contenido en la URL; (B) cabeceras de caché — imposible, Pages
+    no las deja configurar; (C) nada.
+  - **Elegida y razón:** **A**, que además es lo único disponible en un sitio estático.
+  - **Cómo revertir:** quitar `version_de()` y los cuatro marcadores de la plantilla.
+
+- **[DC-08]** La cámara se encuadra a partir de la caja del modelo, no con valores fijos.
+  - **Por qué surgió:** con la cámara fija, cualquier modelo de otro tamaño quedaría fuera de
+    plano. El modelo definitivo de Blender **no va a tener las mismas dimensiones** que la
+    aproximación por código.
+  - **Elegida y razón:** encuadre automático. Es lo que hace cierta la promesa de `RT-05`:
+    sustituir el `.glb` no debe obligar a tocar el visor, ni siquiera la cámara.
+  - **Cómo revertir:** fijar `camara.position` y los límites de distancia a mano.
+
 ## Excepciones que detuvieron la construcción
 
 | # | Tipo (1/2/3) | Qué pasó | Qué decidió Max | Fecha |
 |---|---|---|---|---|
-| 1 | Seguridad | El paso 11 exige **descargar Three.js de internet** e incorporarlo al repositorio. Un agente no descarga archivos de fuera sin autorización explícita, por mucho que la fuente sea conocida. Se presenta a Max con la alternativa de reconsiderar `DEC-05` | *Pendiente* | 2026-09-19 |
+| 1 | Seguridad | El paso 11 exige **descargar Three.js de internet** e incorporarlo al repositorio. Un agente no descarga archivos de fuera sin autorización explícita, por mucho que la fuente sea conocida. Se presentó con la alternativa de reconsiderar `DEC-05` | **Autorizado.** Se mantiene `DEC-05` y se descarga desde cdn.jsdelivr.net con versión fija | 2026-09-19 |
 
 ## Compuerta C
 
@@ -133,6 +164,7 @@ estado_compuerta_C: Pendiente
 ## Historial de versiones
 | Versión | Fecha | Cambio principal |
 |---|---|---|
+| 1.3 | 2026-09-19 | Pasos 11, 12 y 13 completados. `CA-A1` y `CA-A2` probados de verdad. `DC-06`, `DC-07` y `DC-08` registradas. |
 | 1.2 | 2026-09-19 | Paso 10 completado. `DC-04` y `DC-05` registradas. Construcción detenida en el paso 11 por autorización de descarga. |
 | 1.1 | 2026-09-19 | Pasos 3, 6, 7, 8 y 9 completados: el sitio ya se genera y se navega. `DC-03` registrada. |
 | 1.0 | 2026-09-18 | Pasos 1, 2, 4 y 5 completados. `DC-01` y `DC-02` registradas. |

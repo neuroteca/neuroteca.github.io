@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lóbulo posterior — Neuroteca</title>
 <meta name="description" content="Texto de prueba. El más extenso, entre la fisura primaria y la posterolateral.">
-<link rel="stylesheet" href="../../estilos/tokens.css">
-<link rel="stylesheet" href="../../estilos/sitio.css">
+<link rel="stylesheet" href="../../estilos/tokens.css?v=1e73bb1f">
+<link rel="stylesheet" href="../../estilos/sitio.css?v=c03707e5">
 <script>
   // Tema antes de pintar, para que no haya destello. Si el almacenamiento falla,
   // se usa la preferencia del sistema y el sitio funciona igual (DEC-08).
@@ -31,7 +31,7 @@
 <div class="aviso-entrada" id="aviso-entrada"><div><strong>Los modelos son formas aproximadas por ahora.</strong> Sirven para situar y reconocer cada estructura; el modelado definitivo está en curso. Cada ficha dice en qué estado está su modelo.</div><button type="button">Entendido</button></div>
 
 <main class="atlas" id="contenido">
-<section class="visor" aria-label="Visor del cerebelo"><svg viewBox="0 0 520 400" role="img" aria-label="Esquema del cerebelo, vista posterior. Forma aproximada.">
+<section class="visor" id="visor" aria-label="Visor del cerebelo" data-visor='{"modelo": "../../activos/cerebelo.glb", "base": "../../", "eje": "regiones", "actual": "lobulo_posterior", "colores": {"vermis": "--c-vermis", "hemisferios_cerebelosos": "--c-hemisferios", "lobulo_anterior": "--c-anterior", "lobulo_posterior": "--c-posterior", "lobulo_floculonodular": "--c-floculonodular"}}'><svg viewBox="0 0 520 400" role="img" aria-label="Esquema del cerebelo, vista posterior. Forma aproximada.">
   <defs>
     <radialGradient id="halo" cx="50%" cy="42%" r="62%">
       <stop offset="0%" stop-color="#25303A"/><stop offset="100%" stop-color="#0F1419"/>
@@ -85,7 +85,7 @@
 
   <use href="#silueta" fill="none" stroke="#0F1419" stroke-opacity=".5" stroke-width="2"/>
 </svg>
-<div class="visor-barra"><span class="etiqueta-provisional">Forma aproximada</span><span>Toca una parte para abrir su ficha</span></div></section>
+<div class="visor-barra"><span class="etiqueta-provisional">Forma aproximada</span><span class="estado">Arrastra para girar; toca una parte para abrir su ficha</span><span class="controles"><button type="button" id="visor-inicio" hidden>Vista inicial</button></span></div></section>
 <section class="panel">
 <nav class="partes-nav" aria-label="Navegación por estructuras"><p class="migas-nav"><a href="../../estructura/cerebelo/">Cerebelo <span class="nv">N1</span></a><span aria-hidden="true">&rsaquo;</span><span class="actual">Lóbulo posterior <span class="nv">N2</span></span></p><div class="eje"><span class="eje-nombre">Por regiones</span><ul><li><a href="../../estructura/vermis/"><span class="punto" style="background:var(--c-vermis)"></span>Vermis <span class="nv">N2</span></a></li><li><a href="../../estructura/hemisferios_cerebelosos/"><span class="punto" style="background:var(--c-hemisferios)"></span>Hemisferios cerebelosos <span class="nv">N2</span></a></li></ul></div><div class="eje"><span class="eje-nombre">Por lóbulos</span><ul><li><a href="../../estructura/lobulo_anterior/"><span class="punto" style="background:var(--c-anterior)"></span>Lóbulo anterior <span class="nv">N2</span></a></li><li><a href="../../estructura/lobulo_posterior/" aria-current="page"><span class="punto" style="background:var(--c-posterior)"></span>Lóbulo posterior <span class="nv">N2</span></a></li><li><a href="../../estructura/lobulo_floculonodular/"><span class="punto" style="background:var(--c-floculonodular)"></span>Lóbulo floculonodular <span class="nv">N2</span></a></li></ul></div></nav>
 <article class="ficha"><h1>Lóbulo posterior</h1><p class="latin">Lobus cerebelli posterior</p><div class="insignias"><span class="insignia nivel">Nivel N2 &middot; subdivisiones</span><span class="insignia prueba">Contenido de prueba</span><span class="insignia">Borrador</span></div><h2>Anatomía</h2><p>Texto de prueba. El más extenso, entre la fisura primaria y la posterolateral.</p><h2>Fisiología</h2><p>Texto de prueba. Participa en la planificación y el ajuste del movimiento voluntario.</p><h2>Fuentes</h2><ul class="fuentes"><li>CONTENIDO DE PRUEBA — sin verificar</li></ul></article>
@@ -99,7 +99,8 @@
   quirúrgica.
 </footer>
 
-<script src="../../js/sitio.js"></script>
-
+<script src="../../js/sitio.js?v=fc52503a"></script>
+<script type="importmap">{"imports": {"three": "../../vendor/three/three.module.min.js", "three/addons/": "../../vendor/three/jsm/"}}</script>
+<script type="module" src="../../js/visor.js?v=8e40312f"></script>
 </body>
 </html>

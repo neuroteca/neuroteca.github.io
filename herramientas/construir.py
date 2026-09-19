@@ -14,6 +14,7 @@ Uso:
     python herramientas/construir.py --validar  solo valida, no escribe
 """
 
+import hashlib
 import io
 import json
 import os
@@ -159,18 +160,44 @@ def validar(fichas):
 
 # ---------------------------------------------------------------- renderizado
 
-COLOR = {
-    'vermis': 'var(--c-vermis)',
-    'hemisferios_cerebelosos': 'var(--c-hemisferios)',
-    'lobulo_anterior': 'var(--c-anterior)',
-    'lobulo_posterior': 'var(--c-posterior)',
-    'lobulo_floculonodular': 'var(--c-floculonodular)',
+# Variable CSS de color por estructura. Una sola fuente de verdad: el visor 3D
+# lee estas mismas variables en tiempo de ejecucion, no una copia en hexadecimal.
+VAR_COLOR = {
+    'vermis': '--c-vermis',
+    'hemisferios_cerebelosos': '--c-hemisferios',
+    'lobulo_anterior': '--c-anterior',
+    'lobulo_posterior': '--c-posterior',
+    'lobulo_floculonodular': '--c-floculonodular',
 }
+COLOR = dict((k, 'var(%s)' % v) for k, v in VAR_COLOR.items())
+
+
+def piezas():
+    """Manifiesto de piezas del motor. Apagar una aqui es lo que prueba CA-A1."""
+    ruta = os.path.join(FUENTE, 'piezas.json')
+    if not os.path.isfile(ruta):
+        return {}
+    with open(ruta, encoding='utf-8') as f:
+        return json.load(f)
 
 
 def _esc(t):
     return (t.replace('&', '&amp;').replace('<', '&lt;')
              .replace('>', '&gt;').replace('"', '&quot;'))
+
+
+def version_de(ruta_relativa):
+    """Sello corto del contenido de un archivo, para versionar su URL.
+
+    Sin esto, un visitante que ya tiene el CSS en cache se queda con la version
+    vieja al publicar cambios. Es la misma clase de fallo que acaba en
+    "en mi maquina funciona".
+    """
+    ruta = os.path.join(FUENTE, ruta_relativa)
+    if not os.path.isfile(ruta):
+        return '0'
+    with open(ruta, 'rb') as f:
+        return hashlib.sha256(f.read()).hexdigest()[:8]
 
 
 def _plantilla(nombre):
@@ -297,13 +324,35 @@ AVISO = ('<div class="aviso-entrada" id="aviso-entrada"><div>'
          '</div><button type="button">Entendido</button></div>')
 
 
-def _visor_html(base):
+def _visor_html(ficha, base, con_pieza):
+    """El SVG lo dibuja siempre el motor. La pieza `visor` lo sustituye por 3D si puede.
+
+    Si la pieza esta apagada o falla, el SVG se queda: eso es CA-A1 y CA-A2
+    resueltos por diseno, no por codigo defensivo.
+    """
     svg = _plantilla('visor.svg').replace('{{BASE}}', base)
     barra = ('<div class="visor-barra">'
              '<span class="etiqueta-provisional">Forma aproximada</span>'
-             '<span>Toca una parte para abrir su ficha</span>'
-             '</div>')
-    return '<section class="visor" aria-label="Visor del cerebelo">%s%s</section>' % (svg, barra)
+             '<span class="estado">%s</span>'
+             '<span class="controles">'
+             '<button type="button" id="visor-inicio" hidden>Vista inicial</button>'
+             '</span></div>'
+             % ('Arrastra para girar; toca una parte para abrir su ficha'
+                if con_pieza else 'Esquema estatico: el visor 3D esta apagado'))
+
+    datos = ''
+    if con_pieza:
+        cfg = {
+            'modelo': base + 'activos/cerebelo.glb',
+            'base': base,
+            'eje': 'regiones',
+            'actual': ficha['id'],
+            'colores': VAR_COLOR,
+        }
+        datos = " data-visor='%s'" % json.dumps(cfg, ensure_ascii=True).replace("'", '&#39;')
+
+    return ('<section class="visor" id="visor" aria-label="Visor del cerebelo"%s>%s%s</section>'
+            % (datos, svg, barra))
 
 
 def escribir(fichas):
@@ -315,9 +364,33 @@ def escribir(fichas):
     for carpeta in ('estilos', 'js'):
         shutil.copytree(os.path.join(FUENTE, carpeta), os.path.join(SALIDA, carpeta))
 
+    manifiesto = piezas()
+    con_visor = manifiesto.get('visor', {}).get('activa', False)
+    if con_visor:
+        shutil.copytree(os.path.join(FUENTE, 'vendor'), os.path.join(SALIDA, 'vendor'))
+        activos = os.path.join(CONTENIDO, 'activos')
+        if os.path.isdir(activos):
+            destino_activos = os.path.join(SALIDA, 'activos')
+            os.makedirs(destino_activos)
+            for nombre in os.listdir(activos):
+                if nombre.endswith('.glb'):
+                    shutil.copy2(os.path.join(activos, nombre),
+                                 os.path.join(destino_activos, nombre))
+
     plantilla = _plantilla('pagina.html')
     padres = _padres(fichas)
     paginas = 0
+
+    def guion_visor(base):
+        if not con_visor:
+            return ''
+        mapa = json.dumps({'imports': {
+            'three': base + 'vendor/three/three.module.min.js',
+            'three/addons/': base + 'vendor/three/jsm/',
+        }})
+        return ('<script type="importmap">%s</script>\n'
+                '<script type="module" src="%sjs/visor.js?v=%s"></script>'
+                % (mapa, base, version_de('js/visor.js')))
 
     for idf, ficha in sorted(fichas.items()):
         destino = os.path.join(SALIDA, 'estructura', idf)
@@ -325,15 +398,21 @@ def escribir(fichas):
         base = '../../'
         descripcion = ficha.get('definicion') or _parrafos(ficha, 'anatomia')[0]
         html = (plantilla
+                .replace('{{V_ESTILOS}}', version_de('estilos/sitio.css'))
+                .replace('{{V_TOKENS}}', version_de('estilos/tokens.css'))
+                .replace('{{V_JS}}', version_de('js/sitio.js'))
+                .replace('{{V_VISOR}}', version_de('js/visor.js'))
                 .replace('{{ATRIBUTO_TEMA}}', '')
                 .replace('{{TITULO}}', _esc('%s — Neuroteca' % ficha['nombre']))
                 .replace('{{DESCRIPCION}}', _esc(RE_ENLACE.sub(r'\1', descripcion)[:160]))
                 .replace('{{BASE}}', base)
                 .replace('{{AVISO}}', AVISO)
-                .replace('{{VISOR}}', _visor_html(base) if ficha['tipo'] == 'estructura' else '')
+                .replace('{{VISOR}}', _visor_html(ficha, base, con_visor)
+                          if ficha['tipo'] == 'estructura' else '')
                 .replace('{{NAVEGACION}}', _navegacion(ficha, fichas, padres, base))
                 .replace('{{FICHA}}', _ficha_html(ficha, fichas, base))
-                .replace('{{GUION_VISOR}}', ''))
+                .replace('{{GUION_VISOR}}',
+                          guion_visor(base) if ficha['tipo'] == 'estructura' else ''))
         with io.open(os.path.join(destino, 'index.html'), 'w', encoding='utf-8') as f:
             f.write(html)
         paginas += 1
@@ -350,6 +429,10 @@ def escribir(fichas):
 
     with io.open(os.path.join(SALIDA, '404.html'), 'w', encoding='utf-8') as f:
         f.write(plantilla
+                .replace('{{V_ESTILOS}}', version_de('estilos/sitio.css'))
+                .replace('{{V_TOKENS}}', version_de('estilos/tokens.css'))
+                .replace('{{V_JS}}', version_de('js/sitio.js'))
+                .replace('{{V_VISOR}}', version_de('js/visor.js'))
                 .replace('{{ATRIBUTO_TEMA}}', '')
                 .replace('{{TITULO}}', 'Esa página no existe &mdash; Neuroteca')
                 .replace('{{DESCRIPCION}}', 'Página no encontrada')
@@ -382,6 +465,9 @@ def main(argv):
 
     paginas = escribir(fichas)
     print('%d páginas escritas en docs/' % paginas)
+    total = sum(os.path.getsize(os.path.join(d, f))
+                for d, _s, fs in os.walk(SALIDA) for f in fs)
+    print('peso del sitio: %.1f KB' % (total / 1024.0))
     return 0
 
 

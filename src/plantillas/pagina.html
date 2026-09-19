@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{TITULO}}</title>
 <meta name="description" content="{{DESCRIPCION}}">
-<link rel="stylesheet" href="{{BASE}}estilos/tokens.css">
-<link rel="stylesheet" href="{{BASE}}estilos/sitio.css">
+<link rel="stylesheet" href="{{BASE}}estilos/tokens.css?v={{V_TOKENS}}">
+<link rel="stylesheet" href="{{BASE}}estilos/sitio.css?v={{V_ESTILOS}}">
 <script>
   // Tema antes de pintar, para que no haya destello. Si el almacenamiento falla,
   // se usa la preferencia del sistema y el sitio funciona igual (DEC-08).
@@ -45,7 +45,7 @@
   quirúrgica.
 </footer>
 
-<script src="{{BASE}}js/sitio.js"></script>
+<script src="{{BASE}}js/sitio.js?v={{V_JS}}"></script>
 {{GUION_VISOR}}
 </body>
 </html>

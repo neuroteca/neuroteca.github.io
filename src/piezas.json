@@ -1,0 +1,7 @@
+{
+  "_nota": "Manifiesto de piezas del motor. Poner `activa: false` apaga una pieza sin borrar nada: es el mecanismo que prueba CA-A1.",
+  "visor": {
+    "activa": true,
+    "descripcion": "Muestra el modelo 3D de una region y abre la ficha de la parte que se toca."
+  }
+}
