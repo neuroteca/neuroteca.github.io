@@ -4,10 +4,10 @@ pieza: motor
 hito: v0.1-cerebelo
 tipo: especificacion
 fase: 2
-version: "1.0"
+version: "1.1"
 ultima_actualizacion: 2026-09-18
 modo_de_respuesta: cuestionario
-estado_compuerta_B: Pendiente
+estado_compuerta_B: Aprobada
 ---
 
 # Fase 2 — Especificación · v0.1 «cerebelo»
@@ -200,12 +200,17 @@ valor no se cumple hasta que ambos crucen.
 - [x] Cada `CA-NN` de la fase 1 aparece en la columna «Produce» del plan.
 - [x] El plan cumple la regla de granularidad y el presupuesto en pasos está declarado.
 - [x] El presupuesto de peso está declarado.
-- [ ] **Snapshot tomado** (`git commit` con el estado previo a construir).
-- [ ] Max aprobó el documento.
+- [x] **Snapshot tomado** (`git commit` con el estado previo a construir).
+- [x] Max aprobó el documento.
 
-**Aprobado por Max el:** ____-__-__
+**Aprobado por Max el:** 2026-09-18
+
+> **La fase 3 arranca.** El agente construye de corrido y solo se detiene por una de las
+> tres excepciones. Toda decisión propia se registra como `DC-NN` en
+> `03-bitacora-construccion.md`, con su razón y cómo revertirla.
 
 ## Historial de versiones
 | Versión | Fecha | Cambio principal |
 |---|---|---|
+| 1.1 | 2026-09-18 | Compuerta B aprobada. Snapshot tomado. Arranca la fase 3. |
 | 1.0 | 2026-09-18 | Versión inicial, con la identidad visual ya cerrada y 14 decisiones cerradas. |

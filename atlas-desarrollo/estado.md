@@ -1,7 +1,7 @@
 ---
 proyecto: Neuroteca
 tipo: estado
-version: "2.5"
+version: "2.6"
 ultima_actualizacion: 2026-09-18
 techo: 150 lineas
 ---
@@ -40,7 +40,7 @@ nunca en línea.
 
 | Carril | Pieza / Lote | Versión | Hito / Paso | Fase | Compuerta | Estado |
 |---|---|---|---|---|---|---|
-| Software | motor | `v0` | `v0.1-cerebelo` | 2 · Especificación | **B** | Especificación escrita, esperando aprobación |
+| Software | motor | `v0` | `v0.1-cerebelo` | 3 · Construcción | **C** | En curso — 0/15 pasos |
 | Contenido | `L-001-cerebelo` | — | 0 · Encuadre | — | V | Sin arrancar |
 | Software | `visor` (pieza) | — | se crea en `v0.1` | — | — | Propuesta |
 | Software | `glosario` (pieza) | — | — | — | — | Propuesta |
@@ -51,12 +51,11 @@ compuerta.**
 
 ## Siguiente acción
 
-**Max revisa `motor/hitos/v0.1-cerebelo/02-especificacion.md` y cruza la compuerta B.**
-Barrido de 18 puntos respondido, 14 decisiones cerradas, **cero decisiones abiertas**, plan
-de 15 pasos con límite de partición en 22, y presupuesto de peso de ~1 MB.
+**Construir los 15 pasos del plan de `02-especificacion.md`**, registrando cada decisión
+propia como `DC-NN` en `03-bitacora-construccion.md`.
 
-Al cruzar B se toma el snapshot y **empieza la construcción de corrido**, sin interrumpir a
-Max salvo por una de las tres excepciones.
+El agente no interrumpe salvo por una de las tres excepciones. El paso 14 (publicar y
+verificar en la URL real) necesita el repositorio en GitHub; los pasos 1 a 13 no.
 
 **Compuerta A aprobada el 2026-09-18: el alcance está congelado.** Toda idea nueva va al
 backlog.
@@ -66,14 +65,16 @@ backlog.
 | Qué | Espera a | Desde |
 |---|---|---|
 | `esquema-contenido.md` v1 | Se crea dentro de `v0.1-cerebelo` | 2026-09-18 |
-| Compuerta B de `v0.1-cerebelo` | Aprobación de la especificación | 2026-09-18 |
-| Publicación en Pages (paso 14) | Que Max reserve `neuroteca` en GitHub (DEP-03) | 2026-09-18 |
+| Publicación en Pages (paso 14) | Crear el repositorio en la organización `neuroteca` y empujar | 2026-09-18 |
 
 No hay preguntas de proyecto abiertas. Las licencias están creadas a nombre de Maximiliano
 Alamilla Rodríguez.
 
-**Pendiente de Max, fuera del repositorio:** reservar el identificador `neuroteca` en GitHub
-creando una organización gratuita con ese nombre.
+**Organización `neuroteca` creada en GitHub el 2026-09-18.** Falta el repositorio, el primer
+push y activar Pages desde `main` + `/docs`.
+
+**Decisión pendiente de Max:** si los commits deben usar el correo `noreply` de GitHub en vez
+del personal, antes del primer push — después exige reescribir historia.
 
 ## Recordatorios de método
 
