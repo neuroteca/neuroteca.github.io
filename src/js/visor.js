@@ -118,6 +118,27 @@ function arrancar(cfg) {
     controles.maxDistance = radio * 5.0;
     controles.update();
 
+    // La vista se recuerda entre fichas. Cada estructura es una pagina propia
+    // (DEC-04), asi que sin esto girar el modelo y tocar una parte tiraba el angulo
+    // que el visitante acababa de elegir.
+    // La clave usa solo el nombre del archivo: la ruta es relativa y cambiaria
+    // si alguna pagina viviera a otra profundidad, partiendo la memoria en dos.
+    const memoria = 'neuroteca-vista:' + cfg.modelo.split('/').pop();
+    let guardada = null;
+    try { guardada = JSON.parse(sessionStorage.getItem(memoria)); } catch (e) {}
+    if (guardada && guardada.length === 3) {
+      camara.position.set(guardada[0], guardada[1], guardada[2]);
+      controles.update();
+    }
+    controles.addEventListener('change', function () {
+      try {
+        sessionStorage.setItem(memoria, JSON.stringify(
+          [camara.position.x, camara.position.y, camara.position.z].map(function (n) {
+            return Math.round(n * 1000) / 1000;
+          })));
+      } catch (e) { /* sin almacenamiento, se pierde el angulo y no pasa nada */ }
+    });
+
     escena.add(gltf.scene);
     if (svg) svg.setAttribute('hidden', '');
     contenedor.insertBefore(renderizador.domElement, contenedor.firstChild);
@@ -179,7 +200,10 @@ function arrancar(cfg) {
   const reiniciar = document.getElementById('visor-inicio');
   if (reiniciar) {
     reiniciar.hidden = false;
-    reiniciar.addEventListener('click', function () { controles.reset(); });
+    reiniciar.addEventListener('click', function () {
+      controles.reset();
+      try { sessionStorage.removeItem(memoria); } catch (e) {}
+    });
   }
 
   window.addEventListener('resize', function () {

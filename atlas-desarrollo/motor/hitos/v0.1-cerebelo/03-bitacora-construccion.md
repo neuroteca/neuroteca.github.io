@@ -144,6 +144,41 @@ estado_compuerta_C: Pendiente
     sustituir el `.glb` no debe obligar a tocar el visor, ni siquiera la cámara.
   - **Cómo revertir:** fijar `camara.position` y los límites de distancia a mano.
 
+- **[DC-09]** Con la pieza activa, el esquema SVG **nace oculto**; solo aparece si algo falla.
+  - **Por qué surgió:** **defecto encontrado por Max al revisar la compuerta C.** Al cambiar
+    de ficha se veía un destello del esquema de colores antes de que cargara el modelo. El
+    SVG nacía visible y la pieza lo ocultaba después, así que el intervalo entre una cosa y
+    otra era visible en cada navegación.
+  - **Opciones:** (A) nace oculto y `degradar()` lo devuelve; (B) fundido entre los dos; (C)
+    hacer que el SVG se parezca al modelo.
+  - **Elegida y razón:** **A**. (B) disimula el problema sin quitarlo. (C) es trabajo
+    permanente para mantener dos representaciones parecidas, y se romperá en cuanto entre el
+    modelo de Blender.
+  - **Cuidado que hubo que tener:** si nace oculto y no hay JavaScript, no aparecería nunca y
+    se romperían `RT-03` y `CA-A2`. Por eso lleva un `<noscript>` que lo devuelve, además de
+    `degradar()`.
+  - **Cómo revertir:** tres líneas en `_visor_html`.
+
+- **[DC-10]** La vista de la cámara se recuerda entre fichas, en `sessionStorage`.
+  - **Por qué surgió:** el otro síntoma del mismo informe de Max: girar el modelo y tocar una
+    parte **tiraba el ángulo** que el visitante acababa de elegir. Es consecuencia directa de
+    `DEC-04` —una página HTML por estructura—, que fue decisión mía: cada navegación
+    reconstruye la escena de cero.
+  - **Opciones:** (A) recordar la posición de la cámara y restaurarla; (B) pasar a navegación
+    en el cliente, sin recargar; (C) asumirlo.
+  - **Elegida y razón:** **A**. (B) contradice `DEC-04` y con ella `CA-05`, `CA-06` y `CA-A2`,
+    que salen casi gratis justamente por tener una página por estructura. Cambiar eso por una
+    molestia de cámara sería tirar lo que mejor funciona del hito.
+  - **Cómo revertir:** borrar el bloque de memoria; son doce líneas.
+  - **Nota:** «Vista inicial» también borra lo recordado, o el botón no serviría de nada.
+
+> **Sobre si esto es defecto o mejora:** el destello es defecto sin discusión — se veía algo
+> que no debía verse. El reinicio de la cámara es más discutible, porque la fase 1 nunca
+> prometió que la vista se conservara; pero nace de una decisión de arquitectura mía y rompe
+> la continuidad que la frase de valor da por supuesta («girar un modelo, tocar una de sus
+> partes y leer ahí mismo»). Se corrige como defecto. **Si Max lo considera mejora, se
+> revierte y va al backlog.**
+
 ## Excepciones que detuvieron la construcción
 
 | # | Tipo (1/2/3) | Qué pasó | Qué decidió Max | Fecha |
@@ -200,6 +235,7 @@ atlas —HTML, CSS, JavaScript— suma 10 KB.**
 ## Historial de versiones
 | Versión | Fecha | Cambio principal |
 |---|---|---|
+| 1.5 | 2026-09-19 | Defecto encontrado por Max al revisar la compuerta C: destello del esquema y reinicio de la vista al cambiar de ficha. Corregido. `DC-09` y `DC-10`. |
 | 1.4 | 2026-09-19 | Pasos 14 y 15 completados. Los 10 criterios verificados en el sitio publicado. Compuerta C presentada a Max. |
 | 1.3 | 2026-09-19 | Pasos 11, 12 y 13 completados. `CA-A1` y `CA-A2` probados de verdad. `DC-06`, `DC-07` y `DC-08` registradas. |
 | 1.2 | 2026-09-19 | Paso 10 completado. `DC-04` y `DC-05` registradas. Construcción detenida en el paso 11 por autorización de descarga. |

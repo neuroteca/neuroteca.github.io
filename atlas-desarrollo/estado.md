@@ -1,7 +1,7 @@
 ---
 proyecto: Neuroteca
 tipo: estado
-version: "3.1"
+version: "3.2"
 ultima_actualizacion: 2026-09-18
 techo: 150 lineas
 ---
@@ -40,7 +40,7 @@ nunca en línea.
 
 | Carril | Pieza / Lote | Versión | Hito / Paso | Fase | Compuerta | Estado |
 |---|---|---|---|---|---|---|
-| Software | motor | `v0` | `v0.1-cerebelo` | 3 · Construcción | **C** | **15/15 pasos.** Compuerta C esperando aprobación |
+| Software | motor | `v0` | `v0.1-cerebelo` | 3 · Construcción | **C** | 15/15 pasos + 1 defecto corregido. Compuerta C esperando aprobación |
 | Contenido | `L-001-cerebelo` | — | 0 · Encuadre | — | V | Sin arrancar |
 | Software | `visor` (pieza) | — | se crea en `v0.1` | — | — | Propuesta |
 | Software | `glosario` (pieza) | — | — | — | — | Propuesta |

@@ -331,6 +331,14 @@ def _visor_html(ficha, base, con_pieza):
     resueltos por diseno, no por codigo defensivo.
     """
     svg = _plantilla('visor.svg').replace('{{BASE}}', base)
+    if con_pieza:
+        # Con la pieza activa el esquema nace oculto: si nace visible, se ve un
+        # destello del SVG antes de que cargue el modelo. `degradar()` lo devuelve
+        # si algo falla, y el <noscript> lo devuelve si no hay JavaScript, asi que
+        # RT-03 y CA-A2 se siguen cumpliendo.
+        svg = svg.replace('<svg ', '<svg hidden ', 1)
+        svg = ('<noscript><style>#visor svg[hidden]{display:block !important}</style>'
+               '</noscript>' + svg)
     barra = ('<div class="visor-barra">'
              '<span class="etiqueta-provisional">Forma aproximada</span>'
              '<span class="estado">%s</span>'
