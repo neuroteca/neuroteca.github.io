@@ -34,6 +34,7 @@ ultima_actualizacion: 2026-09-18
 | S-12 | 2026-09-19 | Claude Opus 5 | Software | Repositorio publicado; 9/15 pasos, el sitio ya navega |
 | S-13 | 2026-09-19 | Claude Opus 5 | Software | Geometría del cerebelo; detenido por autorización de descarga |
 | S-14 | 2026-09-19 | Claude Opus 5 | Software | Visor 3D funcionando; CA-A1 y CA-A2 probados |
+| S-15 | 2026-09-19 | Claude Opus 5 | Software | Publicado y medido; 15/15 pasos, compuerta C pendiente |
 
 ## Periodos anteriores
 

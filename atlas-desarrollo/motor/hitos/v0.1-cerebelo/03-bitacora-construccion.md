@@ -34,10 +34,12 @@ estado_compuerta_C: Pendiente
 | 11 | Vendorizar Three.js; pieza `visor` | **Completado** | Three.js `0.185.1` fijado en `src/vendor/` (5 archivos, 933 KB, MIT). El modelo carga, gira y hace zoom |
 | 12 | Selección y coloreado por eje | **Completado** | Clic en un sector abre su ficha. Coloreado por el eje principal y resaltado del otro al apuntar a sus botones, con ratón y con teclado |
 | 13 | Degradación y apagado del visor | **Completado** | `CA-A1`: apagada en `src/piezas.json`, el sitio pasa de 1293 KB a **78 KB** y sigue navegable. `CA-A2`: borrado el `.glb`, aparece el esquema con el aviso «No se pudo cargar el modelo» |
-| 14 | Publicar en Pages y verificar en la URL real | Pendiente | **DEP-03 resuelta:** repositorio `neuroteca/neuroteca.github.io` creado y con los 13 commits empujados |
-| 15 | Medir peso y tiempo reales | Pendiente | |
+| 14 | Publicar en Pages y verificar en la URL real | **Completado** | **https://neuroteca.github.io** en línea. Verificado ahí el visor 3D, la navegación y la carga en móvil de 375 px |
+| 15 | Medir peso y tiempo reales | **Completado** | **348 KB por la red** (1237 KB sin comprimir). Descarga completa en frío y secuencial: 2353 ms. Primer byte del HTML: 169 ms |
 
-**Pasos presupuestados:** 15 · **Límite de partición (1.5×):** 22 · **Ejecutados:** 13
+**Pasos presupuestados:** 15 · **Límite de partición (1.5×):** 22 · **Ejecutados:** 15
+
+> **Sin partición y sin reaperturas.** El plan se ejecutó completo dentro del presupuesto.
 
 > Los pasos 4 y 5 se completaron dentro del 2 porque la validación de enlaces no se puede
 > escribir sin enlaces que validar, ni probar sin fichas de glosario a las que apuntar.
@@ -148,22 +150,57 @@ estado_compuerta_C: Pendiente
 |---|---|---|---|---|
 | 1 | Seguridad | El paso 11 exige **descargar Three.js de internet** e incorporarlo al repositorio. Un agente no descarga archivos de fuera sin autorización explícita, por mucho que la fuente sea conocida. Se presentó con la alternativa de reconsiderar `DEC-05` | **Autorizado.** Se mantiene `DEC-05` y se descarga desde cdn.jsdelivr.net con versión fija | 2026-09-19 |
 
+## Verificación de los criterios de aceptación
+
+Todos comprobados **en el sitio publicado**, no en local.
+
+| ID | ¿Se cumple? | Evidencia |
+|---|---|---|
+| CA-01 | Sí | El modelo se ve y gira arrastrando en `https://neuroteca.github.io/estructura/cerebelo/`. Primer byte del HTML 169 ms; todo el conjunto en frío y en secuencia, 2353 ms |
+| CA-02 | Sí | Clic en el centro del modelo → abre la ficha del **vermis**, que es la estructura que ocupa esa posición |
+| CA-03 | Sí | Las 6 estructuras muestran nombre, latín, nivel, anatomía, fisiología y fuente |
+| CA-04 | Sí | **Verificable por la máquina:** la construcción falla si un `[[id]]` no tiene destino. Probado con un enlace roto a propósito |
+| CA-05 | Sí | `/estructura/lobulo_floculonodular/` pegada en otra ventana abre esa estructura |
+| CA-06 | Sí | Desde la ficha del vermis, el tabulador alcanza las 6 estructuras más los enlaces de glosario. «Saltar al contenido» es el primer foco |
+| CA-07 | Sí | Comprobado en el sitio real a 375 px: visor, navegación y ficha, sin desplazamiento horizontal ni zoom para leer |
+| CA-08 | Sí | El nivel aparece como insignia junto al título y junto a cada entrada de la navegación |
+| CA-A1 | Sí | Apagada la pieza en `src/piezas.json`: el sitio pasa de 1293 KB a **78 KB** y sigue navegable. No deja residuo |
+| CA-A2 | Sí | Borrado el `.glb`: aparece el esquema SVG con el aviso «No se pudo cargar el modelo». Ficha y navegación intactas |
+
+## Medición final
+
+| Qué | Valor | Presupuesto |
+|---|---|---|
+| Peso por la red, página con visor | **348 KB** | — |
+| Peso sin comprimir | 1237 KB | ~1 MB estimado en fase 2 |
+| Sitio completo en disco | 1293 KB | 400 MB |
+| Sin la pieza `visor` | 78 KB | — |
+
+Lo que pesa es Three.js: 236 KB de los 348. La geometría, 111 KB. **Todo lo propio del
+atlas —HTML, CSS, JavaScript— suma 10 KB.**
+
 ## Compuerta C
 
-- [ ] Todos los criterios de aceptación **vigentes** se cumplen, verificados uno por uno.
-- [ ] La bitácora de construcción está completa.
-- [ ] **Publicado y verificado en el sitio real**, incluida la carga en móvil.
-- [ ] El peso real está medido y dentro del presupuesto.
-- [ ] `CA-A1` y `CA-A2` probados de verdad, apagando y rompiendo la pieza.
-- [ ] `esquema-contenido.md` y `arquitectura.md` actualizados.
-- [ ] **Snapshot tomado** y **etiqueta `v0.1`** creada.
+- [x] Todos los criterios de aceptación **vigentes** se cumplen, verificados uno por uno.
+- [x] La bitácora de construcción está completa.
+- [x] **Publicado y verificado en el sitio real**, incluida la carga en móvil.
+- [x] El peso real está medido y dentro del presupuesto.
+- [x] `CA-A1` y `CA-A2` probados de verdad, apagando y rompiendo la pieza.
+- [x] `esquema-contenido.md` y `arquitectura.md` actualizados.
+- [x] **Snapshot tomado** y **etiqueta `v0.1`** creada.
 - [ ] **Max aprobó el cierre de la construcción.**
+
+> **Lo que este hito NO entrega:** el cerebelo de verdad. Las 13 fichas son contenido de
+> prueba marcado como tal, y el modelo es una forma aproximada. Eso llega por el lote
+> `L-001-cerebelo`, con su compuerta V. La frase de valor no se cumple del todo hasta
+> entonces, y estaba previsto desde la fase 1.
 
 **Aprobado por Max el:** ____-__-__
 
 ## Historial de versiones
 | Versión | Fecha | Cambio principal |
 |---|---|---|
+| 1.4 | 2026-09-19 | Pasos 14 y 15 completados. Los 10 criterios verificados en el sitio publicado. Compuerta C presentada a Max. |
 | 1.3 | 2026-09-19 | Pasos 11, 12 y 13 completados. `CA-A1` y `CA-A2` probados de verdad. `DC-06`, `DC-07` y `DC-08` registradas. |
 | 1.2 | 2026-09-19 | Paso 10 completado. `DC-04` y `DC-05` registradas. Construcción detenida en el paso 11 por autorización de descarga. |
 | 1.1 | 2026-09-19 | Pasos 3, 6, 7, 8 y 9 completados: el sitio ya se genera y se navega. `DC-03` registrada. |

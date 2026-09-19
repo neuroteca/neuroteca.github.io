@@ -1,7 +1,7 @@
 ---
 proyecto: Neuroteca
 tipo: estado
-version: "3.0"
+version: "3.1"
 ultima_actualizacion: 2026-09-18
 techo: 150 lineas
 ---
@@ -40,7 +40,7 @@ nunca en línea.
 
 | Carril | Pieza / Lote | Versión | Hito / Paso | Fase | Compuerta | Estado |
 |---|---|---|---|---|---|---|
-| Software | motor | `v0` | `v0.1-cerebelo` | 3 · Construcción | **C** | En curso — **13/15**. Quedan publicar (14) y medir (15) |
+| Software | motor | `v0` | `v0.1-cerebelo` | 3 · Construcción | **C** | **15/15 pasos.** Compuerta C esperando aprobación |
 | Contenido | `L-001-cerebelo` | — | 0 · Encuadre | — | V | Sin arrancar |
 | Software | `visor` (pieza) | — | se crea en `v0.1` | — | — | Propuesta |
 | Software | `glosario` (pieza) | — | — | — | — | Propuesta |
@@ -51,8 +51,12 @@ compuerta.**
 
 ## Siguiente acción
 
-**Pasos 14 y 15:** publicar y verificar en `https://neuroteca.github.io` —incluida la carga
-en móvil— y medir el peso y el tiempo reales. Con eso se presenta la compuerta C a Max.
+**Max revisa `03-bitacora-construccion.md` y cruza la compuerta C.** Los 15 pasos están
+hechos, los 10 criterios verificados **en el sitio publicado**, y `CA-A1` y `CA-A2` probados
+apagando y rompiendo la pieza de verdad.
+
+Al cruzarla empieza la **fase 4: uso real durante 2 semanas**, y en paralelo puede arrancar
+el lote `L-001-cerebelo` para sustituir el contenido de prueba por el cerebelo de verdad.
 
 **Compuerta A aprobada el 2026-09-18: el alcance está congelado.** Toda idea nueva va al
 backlog.
@@ -67,9 +71,8 @@ backlog.
 No hay preguntas de proyecto abiertas. Las licencias están creadas a nombre de Maximiliano
 Alamilla Rodríguez.
 
-**Repositorio publicado:** `github.com/neuroteca/neuroteca.github.io`, 13 commits, autoría
-con el `noreply` de GitHub (sin correo personal expuesto). **Falta que Max active Pages** en
-*Settings → Pages → Deploy from a branch → `main` + `/docs`*.
+**Neuroteca está en línea: https://neuroteca.github.io** — con contenido de prueba, pero
+real y pública. 348 KB por la red, 10 KB de código propio.
 
 ## Recordatorios de método
 
