@@ -1,7 +1,7 @@
 ---
 proyecto: Neuroteca
 tipo: estado
-version: "2.4"
+version: "2.5"
 ultima_actualizacion: 2026-09-18
 techo: 150 lineas
 ---
@@ -40,7 +40,7 @@ nunca en línea.
 
 | Carril | Pieza / Lote | Versión | Hito / Paso | Fase | Compuerta | Estado |
 |---|---|---|---|---|---|---|
-| Software | motor | `v0` | `v0.1-cerebelo` | 2 · Especificación | **B** | Maqueta corregida, esperando aprobación |
+| Software | motor | `v0` | `v0.1-cerebelo` | 2 · Especificación | **B** | Especificación escrita, esperando aprobación |
 | Contenido | `L-001-cerebelo` | — | 0 · Encuadre | — | V | Sin arrancar |
 | Software | `visor` (pieza) | — | se crea en `v0.1` | — | — | Propuesta |
 | Software | `glosario` (pieza) | — | — | — | — | Propuesta |
@@ -51,12 +51,12 @@ compuerta.**
 
 ## Siguiente acción
 
-**Max aprueba o corrige la maqueta de identidad visual**
-(`motor/hitos/v0.1-cerebelo/identidad-visual/opcion-mixta.html`). Es lo último que bloquea la
-compuerta B: el barrido punto 5 no se puede cerrar con un estilo que Max no haya visto.
+**Max revisa `motor/hitos/v0.1-cerebelo/02-especificacion.md` y cruza la compuerta B.**
+Barrido de 18 puntos respondido, 14 decisiones cerradas, **cero decisiones abiertas**, plan
+de 15 pasos con límite de partición en 22, y presupuesto de peso de ~1 MB.
 
-Con la maqueta aprobada se escribe `02-especificacion.md` completo —barrido de 18 puntos,
-decisiones cerradas, plan de construcción y presupuestos— y se cruza la compuerta B.
+Al cruzar B se toma el snapshot y **empieza la construcción de corrido**, sin interrumpir a
+Max salvo por una de las tres excepciones.
 
 **Compuerta A aprobada el 2026-09-18: el alcance está congelado.** Toda idea nueva va al
 backlog.
@@ -66,7 +66,8 @@ backlog.
 | Qué | Espera a | Desde |
 |---|---|---|
 | `esquema-contenido.md` v1 | Se crea dentro de `v0.1-cerebelo` | 2026-09-18 |
-| Compuerta B de `v0.1-cerebelo` | Aprobación de la maqueta visual | 2026-09-18 |
+| Compuerta B de `v0.1-cerebelo` | Aprobación de la especificación | 2026-09-18 |
+| Publicación en Pages (paso 14) | Que Max reserve `neuroteca` en GitHub (DEP-03) | 2026-09-18 |
 
 No hay preguntas de proyecto abiertas. Las licencias están creadas a nombre de Maximiliano
 Alamilla Rodríguez.
