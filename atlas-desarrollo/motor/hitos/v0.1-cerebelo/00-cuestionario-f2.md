@@ -156,3 +156,34 @@ el contenido va a crecer y con las partes abajo se pierden.
 no a la pieza `visor`**. Si viviera dentro del visor, apagarlo la borraría y **`CA-A1`
 fallaría** — ese criterio exige que sin visor se llegue a las seis fichas. Es el primer caso
 real en que el criterio de aislamiento decide dónde vive un elemento de interfaz.
+
+---
+
+## Segunda corrección de Max · navegación y jerarquía · 2026-09-18
+
+**Qué planteó:** que la navegación destaque más y que la lógica de despliegue cambie, porque
+la fila plana no será estética, navegable ni sostenible cuando haya muchas estructuras y
+subestructuras.
+
+**Respuesta y decisiones:**
+
+1. **La navegación pasa a migas + hijos del nodo actual**, reflejando los niveles `N1`→`N5`.
+   Descender en la navegación es descender un nivel de detalle. Con seis estructuras se ve
+   casi igual; con seiscientas, exactamente igual. **No toca el alcance congelado**: `F-06`
+   ya existía y `CA-06` sigue cumpliéndose, así que no hace falta reabrir la compuerta A.
+
+2. **El esquema pasa a ejes de división múltiples** (`esquema-contenido.md` v0.3). La
+   pregunta de Max destapó que **el cerebelo no es un árbol**: vermis/hemisferios y los tres
+   lóbulos son dos particiones del mismo tejido, y el lóbulo floculonodular está formado por
+   el flóculo (hemisférico) y el nódulo (vermal). Si `v1` hubiera asumido un padre único,
+   arreglarlo después habría sido un cambio rompiente que invalida contenido publicado y
+   URLs citadas.
+
+3. **Identidad estable:** la URL usa el `id` de la estructura, nunca su camino en la
+   jerarquía. Así la jerarquía puede evolucionar años sin romper una sola cita.
+
+**Choque detectado y resuelto a la vista de Max:** con un solo eje visible, vermis y
+hemisferios quedaban fuera de la navegación, y `CA-06` exige llegar a las seis fichas. La
+maqueta muestra **los dos ejes como filas etiquetadas** —sin selector, que sería una función
+nueva—. La alternativa, si Max prefiere un solo eje, es alcanzarlos desde el cuerpo de la
+ficha del cerebelo.

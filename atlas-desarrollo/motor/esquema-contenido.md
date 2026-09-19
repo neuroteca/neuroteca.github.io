@@ -1,7 +1,7 @@
 ---
 proyecto: Neuroteca
 tipo: esquema-de-contenido
-version: "0.2"
+version: "0.3"
 ultima_actualizacion: 2026-09-18
 estado: BORRADOR — no es v1
 ---
@@ -44,6 +44,8 @@ Campos **ya decididos** (sesión S-01, vinculantes):
 | `fuentes` | Lista localizable: obra, edición y página, o DOI | **Sí — sin excepción** |
 | `autoria` | `Max` o `agente` | Sí |
 | `estado` | `borrador` o `revisado` | Sí |
+| `id` | Identificador estable y único. **No se cambia ni se reutiliza jamás** | Sí |
+| `divisiones` | Cómo se subdivide, agrupado por eje (ver abajo) | No |
 | `activos` | Referencias a los activos visuales de esta estructura | No |
 | `tipo` | `estructura` (una parte del sistema nervioso) o `fundacional` (un concepto: potencial de acción, sinapsis…) | Sí |
 
@@ -63,12 +65,91 @@ Reglas vinculantes sobre estos campos:
 ### Falta decidir
 
 - Formato concreto de los datos y su organización en el disco.
-- Cómo se representan las **relaciones** entre estructuras (contiene, se conecta con,
-  proyecta a). Esto es la mitad del valor de un atlas y no está resuelto.
+- Cómo se representan las relaciones **funcionales** entre estructuras (se conecta con,
+  proyecta a). Las relaciones de composición sí están resueltas, abajo.
 - Cómo se enlaza la neuroanatomía con la neurofisiología cuando una función involucra
   varias estructuras.
-- Identificadores estables: qué garantiza que el enlace a una estructura siga funcionando
-  dentro de cinco años.
+
+---
+
+## Ejes de división: el sistema nervioso no es un árbol
+
+> **Decidido el 2026-09-18.** Es la decisión estructural más cara de deshacer del esquema, y
+> por eso se cierra antes de que exista una sola ficha publicada.
+
+### El problema
+
+Una estructura **no tiene un solo padre**. El cerebelo se divide de dos formas distintas y
+ambas son correctas a la vez:
+
+| Eje | Partes |
+|---|---|
+| **Por regiones** | vermis · hemisferios |
+| **Por lóbulos** | anterior · posterior · floculonodular |
+
+No son dos niveles de un árbol: son dos particiones del mismo tejido. El caso que lo
+demuestra es el **lóbulo floculonodular**, formado por el flóculo —hemisférico— y el
+nódulo, que pertenece al vermis. El mismo tejido está en las dos divisiones.
+
+Y esto empeora al bajar de nivel: en `N4`, una vía cruza regiones enteras y no pertenece a
+ninguna de forma exclusiva.
+
+### La decisión
+
+**La composición se modela como un grafo con ejes de división, no como un árbol.**
+
+Cada estructura declara sus divisiones, y cada división declara su eje:
+
+```yaml
+id: cerebelo
+nombre: Cerebelo
+nivel_detalle: N1
+divisiones:
+  - eje: regiones
+    nombre_visible: Por regiones
+    principal: true
+    partes: [vermis, hemisferios_cerebelosos]
+  - eje: lobulos
+    nombre_visible: Por lóbulos
+    partes: [lobulo_anterior, lobulo_posterior, lobulo_floculonodular]
+```
+
+Reglas vinculantes:
+
+- **Una estructura puede aparecer en varios ejes y bajo varios padres.** Es la norma, no la
+  excepción.
+- **Cada estructura declara un eje `principal`**, que es el que se usa cuando solo se puede
+  mostrar uno (migas, navegación simple, orden por defecto).
+- **Cada eje tiene `nombre_visible`.** El visitante siempre sabe bajo qué criterio está
+  viendo una división: «por lóbulos» no es lo mismo que «por regiones», y ocultarlo
+  enseñaría mal.
+- **Ningún eje es más verdadero que otro.** El `principal` es una preferencia de
+  presentación, no una jerarquía real.
+
+### Identidad estable
+
+**La URL de una estructura usa su `id`, nunca su posición en la jerarquía.**
+
+| | |
+|---|---|
+| ✅ | `/estructura/lobulo-anterior` |
+| ❌ | `/cerebelo/lobulos/anterior` |
+
+**Por qué:** si la URL codifica el camino, añadir un eje, reorganizar una división o
+reclasificar una estructura rompe todos los enlaces publicados y todas las citas. Con `id`
+estable, la jerarquía puede evolucionar durante años sin romper nada de lo que alguien haya
+citado. En un recurso académico eso no es un detalle: es la diferencia entre ser citable y
+no serlo.
+
+El `id` **no se reutiliza ni se cambia nunca**. Si una estructura se renombra, cambia
+`nombre`, no `id`.
+
+### Qué implica para la navegación
+
+La navegación se **deriva** de este modelo, no lo define: migas hasta la estructura actual
+más las divisiones de su padre, agrupadas por eje. Descender en la navegación es descender
+un nivel de detalle. Con seis estructuras se ve casi igual que una lista; con seiscientas se
+ve exactamente igual.
 
 ---
 
@@ -129,6 +210,7 @@ podría cerrar nunca.
 ## Historial de versiones
 | Versión | Fecha | Cambio principal |
 |---|---|---|
+| 0.3 | 2026-09-18 | **Ejes de división**: la composición es un grafo, no un árbol, porque una estructura pertenece a varias particiones a la vez (el nódulo es vermis y es floculonodular). Identidad estable: la URL usa el `id`, nunca el camino. |
 | 0.2 | 2026-09-18 | Campo `estado` del activo (`provisional`/`definitivo`) y la regla de cargar la geometría desde archivo, para que reemplazar un modelo sea contenido y no código. |
 | 0.1 | 2026-09-18 | Campo `tipo` (`estructura` / `fundacional`) y las fichas fundacionales del glosario (P-04 revisado). |
 | 0 | 2026-09-17 | Borrador inicial. Recoge lo decidido en S-01 y marca los huecos. No es el contrato: `v1` requiere aprobación de Max. |

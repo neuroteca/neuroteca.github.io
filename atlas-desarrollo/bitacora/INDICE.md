@@ -28,6 +28,7 @@ ultima_actualizacion: 2026-09-18
 | S-06 | 2026-09-18 | Claude Opus 5 | Software | Compuerta A aprobada; fase 2 abierta con cuestionario |
 | S-07 | 2026-09-18 | Claude Opus 5 | Software | Cuestionario integrado y maqueta visual construida |
 | S-08 | 2026-09-18 | Claude Opus 5 | Software | Navegación de partes arriba y fijada; regla de CA-A1 |
+| S-09 | 2026-09-18 | Claude Opus 5 | Software | Ejes de división en el esquema; navegación por migas |
 
 ## Periodos anteriores
 

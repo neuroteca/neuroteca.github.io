@@ -1,7 +1,7 @@
 ---
 proyecto: Neuroteca
 tipo: estado
-version: "2.3"
+version: "2.4"
 ultima_actualizacion: 2026-09-18
 techo: 150 lineas
 ---
@@ -23,6 +23,10 @@ región es el **cerebelo**. Todavía no existe código ni contenido.
 **Modelo 3D:** se arranca con geometría aproximada por código; Max modela el definitivo en
 Blender en paralelo. Por eso la geometría se carga **desde un archivo**, nunca escrita en el
 código: reemplazarla será un lote de contenido, no una reescritura.
+
+**El esquema usa ejes de división, no un árbol** (`esquema-contenido.md` v0.3): una
+estructura pertenece a varias particiones a la vez. Y **la URL usa el `id`, nunca el camino**,
+para que la jerarquía pueda evolucionar sin romper citas.
 
 Decisiones de fondo tomadas: dos carriles (software y contenido), piezas por capacidad de
 la aplicación, modelos visuales propios con granularidad creciente, publicación en GitHub
