@@ -1,0 +1,28 @@
+{
+  "id": "lobulo_anterior",
+  "tipo": "estructura",
+  "prueba": true,
+  "nombre": "Lóbulo anterior",
+  "termino_latin": "Lobus cerebelli anterior",
+  "sinonimos": [],
+  "nivel_detalle": "N2",
+  "anatomia": [
+    "Texto de prueba. Porción situada por delante de la fisura primaria."
+  ],
+  "fisiologia": [
+    "Texto de prueba. Relacionado con la regulación del [[tono_muscular]] a partir de señales [[aferente|aferentes]] de la médula espinal."
+  ],
+  "fuentes": [
+    {
+      "obra": "CONTENIDO DE PRUEBA — sin verificar",
+      "edicion": "—",
+      "paginas": "—"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": [
+    "cerebelo"
+  ]
+}

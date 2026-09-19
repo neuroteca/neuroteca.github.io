@@ -1,0 +1,48 @@
+{
+  "id": "cerebelo",
+  "tipo": "estructura",
+  "prueba": true,
+  "nombre": "Cerebelo",
+  "termino_latin": "Cerebellum",
+  "sinonimos": [],
+  "nivel_detalle": "N1",
+  "anatomia": [
+    "Texto de prueba. Ocupa la fosa craneal posterior, por detrás del tronco encefálico, del que lo separa el cuarto ventrículo.",
+    "Su superficie está plegada en láminas finas y paralelas, y bajo la [[corteza]] se dispone la [[sustancia_blanca]]."
+  ],
+  "fisiologia": [
+    "Texto de prueba. Recibe información [[aferente]] de la médula, el tronco y la corteza cerebral, y emite señales [[eferente|eferentes]] que ajustan el movimiento mientras ocurre."
+  ],
+  "fuentes": [
+    {
+      "obra": "CONTENIDO DE PRUEBA — sin verificar",
+      "edicion": "—",
+      "paginas": "—"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [
+    {
+      "eje": "regiones",
+      "nombre_visible": "Por regiones",
+      "principal": true,
+      "partes": [
+        "vermis",
+        "hemisferios_cerebelosos"
+      ]
+    },
+    {
+      "eje": "lobulos",
+      "nombre_visible": "Por lóbulos",
+      "partes": [
+        "lobulo_anterior",
+        "lobulo_posterior",
+        "lobulo_floculonodular"
+      ]
+    }
+  ],
+  "activos": [
+    "cerebelo"
+  ]
+}

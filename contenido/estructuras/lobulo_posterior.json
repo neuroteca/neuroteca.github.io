@@ -1,0 +1,28 @@
+{
+  "id": "lobulo_posterior",
+  "tipo": "estructura",
+  "prueba": true,
+  "nombre": "Lóbulo posterior",
+  "termino_latin": "Lobus cerebelli posterior",
+  "sinonimos": [],
+  "nivel_detalle": "N2",
+  "anatomia": [
+    "Texto de prueba. El más extenso, entre la fisura primaria y la posterolateral."
+  ],
+  "fisiologia": [
+    "Texto de prueba. Participa en la planificación y el ajuste del movimiento voluntario."
+  ],
+  "fuentes": [
+    {
+      "obra": "CONTENIDO DE PRUEBA — sin verificar",
+      "edicion": "—",
+      "paginas": "—"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": [
+    "cerebelo"
+  ]
+}

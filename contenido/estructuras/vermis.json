@@ -1,0 +1,28 @@
+{
+  "id": "vermis",
+  "tipo": "estructura",
+  "prueba": true,
+  "nombre": "Vermis",
+  "termino_latin": "Vermis cerebelli",
+  "sinonimos": [],
+  "nivel_detalle": "N2",
+  "anatomia": [
+    "Texto de prueba. Franja estrecha de [[corteza]] que ocupa la línea media y une los dos hemisferios."
+  ],
+  "fisiologia": [
+    "Texto de prueba. Participa en el control del [[tono_muscular]] y del equilibrio del tronco, con información de [[propiocepcion|propiocepción]]."
+  ],
+  "fuentes": [
+    {
+      "obra": "CONTENIDO DE PRUEBA — sin verificar",
+      "edicion": "—",
+      "paginas": "—"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": [
+    "cerebelo"
+  ]
+}

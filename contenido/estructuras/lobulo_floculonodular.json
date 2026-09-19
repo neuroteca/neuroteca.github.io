@@ -1,0 +1,28 @@
+{
+  "id": "lobulo_floculonodular",
+  "tipo": "estructura",
+  "prueba": true,
+  "nombre": "Lóbulo floculonodular",
+  "termino_latin": "Lobus flocculonodularis",
+  "sinonimos": [],
+  "nivel_detalle": "N2",
+  "anatomia": [
+    "Texto de prueba. Formado por el flóculo, de situación hemisférica, y el nódulo, que pertenece al [[vermis]]. Por eso la misma región aparece en dos divisiones distintas del cerebelo."
+  ],
+  "fisiologia": [
+    "Texto de prueba. Recibe señales del aparato vestibular y participa en el equilibrio y en los movimientos oculares."
+  ],
+  "fuentes": [
+    {
+      "obra": "CONTENIDO DE PRUEBA — sin verificar",
+      "edicion": "—",
+      "paginas": "—"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": [
+    "cerebelo"
+  ]
+}

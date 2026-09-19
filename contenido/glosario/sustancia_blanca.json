@@ -1,0 +1,24 @@
+{
+  "id": "sustancia_blanca",
+  "tipo": "fundacional",
+  "prueba": true,
+  "nombre": "Sustancia blanca",
+  "termino_latin": "",
+  "sinonimos": [],
+  "nivel_detalle": "N1",
+  "definicion": "Tejido nervioso formado sobre todo por axones recubiertos de mielina.",
+  "explicacion": [
+    "Texto de prueba. Es el cableado: conecta unas zonas de [[sustancia_gris]] con otras."
+  ],
+  "fuentes": [
+    {
+      "obra": "CONTENIDO DE PRUEBA — sin verificar",
+      "edicion": "—",
+      "paginas": "—"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}

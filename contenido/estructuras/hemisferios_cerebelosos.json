@@ -1,0 +1,28 @@
+{
+  "id": "hemisferios_cerebelosos",
+  "tipo": "estructura",
+  "prueba": true,
+  "nombre": "Hemisferios cerebelosos",
+  "termino_latin": "Hemispherium cerebelli",
+  "sinonimos": [],
+  "nivel_detalle": "N2",
+  "anatomia": [
+    "Texto de prueba. Las dos masas laterales, a ambos lados del [[vermis]]."
+  ],
+  "fisiologia": [
+    "Texto de prueba. Intervienen en la coordinación fina del movimiento de las extremidades."
+  ],
+  "fuentes": [
+    {
+      "obra": "CONTENIDO DE PRUEBA — sin verificar",
+      "edicion": "—",
+      "paginas": "—"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": [
+    "cerebelo"
+  ]
+}

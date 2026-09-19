@@ -1,0 +1,24 @@
+{
+  "id": "eferente",
+  "tipo": "fundacional",
+  "prueba": true,
+  "nombre": "Eferente",
+  "termino_latin": "",
+  "sinonimos": [],
+  "nivel_detalle": "N1",
+  "definicion": "Que lleva información desde una estructura hacia otra.",
+  "explicacion": [
+    "Texto de prueba. Lo contrario de [[aferente]]: la que sale."
+  ],
+  "fuentes": [
+    {
+      "obra": "CONTENIDO DE PRUEBA — sin verificar",
+      "edicion": "—",
+      "paginas": "—"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}
