@@ -137,3 +137,22 @@ El aviso al entrar es invisible para quien vuelve o llega por enlace directo. No
 porque **el esquema ya obliga a mostrar el `estado` del activo en su ficha** (`provisional` /
 `definitivo`): el visitante lo ve por los dos lados, sin necesidad de una etiqueta permanente
 en el visor.
+
+---
+
+## Corrección de Max sobre la maqueta · 2026-09-18
+
+**Qué pidió:** que las partes estén arriba y el contenido se desarrolle hacia abajo, porque
+el contenido va a crecer y con las partes abajo se pierden.
+
+**Aplicado**, y con dos ajustes propios:
+
+- **Fila compacta en vez de lista vertical**, y **fijada al hacer scroll**. Una lista
+  vertical arriba resolvería lo de perderse pero empujaría la ficha fuera de la primera
+  pantalla; una fila fijada no se pierde y tampoco ocupa.
+- Se aplicó igual en móvil: visor → navegación de partes → ficha.
+
+**Regla derivada, vinculante para la fase 2:** la navegación de partes **pertenece al motor,
+no a la pieza `visor`**. Si viviera dentro del visor, apagarlo la borraría y **`CA-A1`
+fallaría** — ese criterio exige que sin visor se llegue a las seis fichas. Es el primer caso
+real en que el criterio de aislamiento decide dónde vive un elemento de interfaz.

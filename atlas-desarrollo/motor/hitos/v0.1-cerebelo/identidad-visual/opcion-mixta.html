@@ -121,7 +121,7 @@
   .insignia.nivel { background: var(--acento-suave); border-color: transparent; color: var(--acento); font-weight: 600; }
   .insignia.provisional { background: var(--aviso-fondo); border-color: transparent; color: var(--aviso); }
 
-  .ficha h3 {
+  .ficha h3, .partes-nav h3 {
     font-size: 12px; text-transform: uppercase; letter-spacing: .09em;
     color: var(--tinta-3); margin: 22px 0 6px; font-weight: 600;
   }
@@ -136,16 +136,27 @@
   .fuentes { font-size: 13.5px; color: var(--tinta-2); padding-left: 18px; margin: 0; }
   .fuentes li { margin-bottom: 4px; }
 
-  .partes-lista { list-style: none; padding: 0; margin: 10px 0 0; }
-  .partes-lista li { border-bottom: 1px solid var(--borde); }
-  .partes-lista button {
-    width: 100%; text-align: left; font: inherit; background: none; border: 0; cursor: pointer;
-    padding: 11px 6px; color: var(--tinta); display: flex; align-items: center; gap: 10px;
+  /* Navegación entre partes: arriba y fija, porque la ficha crece y no puede sepultarla.
+     Vive en el motor, no en la pieza visor: si viviera en el visor, apagarlo la borraría
+     y CA-A1 fallaría. */
+  .partes-nav {
+    position: sticky; top: 0; z-index: 5; background: var(--papel);
+    border-bottom: 1px solid var(--borde); padding-bottom: 10px; margin-bottom: 16px;
   }
-  .partes-lista button:hover { background: var(--papel-2); }
-  .partes-lista button:focus-visible { outline: 2px solid var(--acento); outline-offset: -2px; }
-  .punto { width: 10px; height: 10px; border-radius: 3px; flex: none; }
-  .partes-lista .nv { margin-left: auto; font-size: 11px; color: var(--tinta-3); }
+  .partes-nav h3 { margin-top: 0; }
+  .partes-nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; padding: 0; margin: 0; }
+  .partes-nav button {
+    font: inherit; font-size: 13px; cursor: pointer; color: var(--tinta-2);
+    background: var(--papel-2); border: 1px solid var(--borde); border-radius: 99px;
+    padding: 5px 11px 5px 8px; display: inline-flex; align-items: center; gap: 7px;
+  }
+  .partes-nav button:hover { border-color: var(--acento); color: var(--tinta); }
+  .partes-nav button:focus-visible { outline: 2px solid var(--acento); outline-offset: 2px; }
+  .partes-nav button[aria-current="true"] {
+    background: var(--acento-suave); border-color: transparent; color: var(--acento); font-weight: 600;
+  }
+  .punto { width: 9px; height: 9px; border-radius: 2px; flex: none; }
+  .partes-nav .nv { font-size: 10px; color: var(--tinta-3); letter-spacing: .04em; }
 
   footer.sitio {
     padding: 20px 16px 40px; border-top: 1px solid var(--borde);
@@ -248,6 +259,19 @@
 
   <!-- ===== PANEL DE LECTURA (sigue el tema) ===== -->
   <section class="panel">
+
+    <!-- Navegación arriba y fija: la ficha crece, la navegación no puede quedar debajo -->
+    <nav class="partes-nav" aria-label="Partes del cerebelo">
+      <h3>Partes del cerebelo</h3>
+      <ul>
+        <li><button aria-current="true"><span class="punto" style="background:#C9A227"></span> Vermis <span class="nv">N2</span></button></li>
+        <li><button><span class="punto" style="background:#3E7CA6"></span> Hemisferios <span class="nv">N2</span></button></li>
+        <li><button><span class="punto" style="background:#6E8F3E"></span> Lóbulo anterior <span class="nv">N2</span></button></li>
+        <li><button><span class="punto" style="background:#B4643E"></span> Lóbulo posterior <span class="nv">N2</span></button></li>
+        <li><button><span class="punto" style="background:#9C5AA8"></span> Lóbulo floculonodular <span class="nv">N2</span></button></li>
+      </ul>
+    </nav>
+
     <article class="ficha">
       <p class="migas">Cerebelo · división</p>
       <h2>Vermis</h2>
@@ -281,15 +305,8 @@
         <li>Ejemplo de cita — DOI.</li>
       </ul>
 
-      <h3>Partes del cerebelo</h3>
-      <ul class="partes-lista">
-        <li><button><span class="punto" style="background:#C9A227"></span> Vermis <span class="nv">N2</span></button></li>
-        <li><button><span class="punto" style="background:#3E7CA6"></span> Hemisferios cerebelosos <span class="nv">N2</span></button></li>
-        <li><button><span class="punto" style="background:#6E8F3E"></span> Lóbulo anterior <span class="nv">N2</span></button></li>
-        <li><button><span class="punto" style="background:#B4643E"></span> Lóbulo posterior <span class="nv">N2</span></button></li>
-        <li><button><span class="punto" style="background:#9C5AA8"></span> Lóbulo floculonodular <span class="nv">N2</span></button></li>
-      </ul>
-      <p class="sr">Esta lista es el recorrido sin visor: da acceso por teclado a todas las fichas.</p>
+      <p class="sr">La navegación de partes, arriba, es el recorrido sin visor: da acceso
+      por teclado a todas las fichas aunque el visor esté apagado o falle.</p>
     </article>
   </section>
 </main>
