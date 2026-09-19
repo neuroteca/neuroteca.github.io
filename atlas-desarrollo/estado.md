@@ -1,7 +1,7 @@
 ---
 proyecto: Neuroteca
 tipo: estado
-version: "2.8"
+version: "2.9"
 ultima_actualizacion: 2026-09-18
 techo: 150 lineas
 ---
@@ -40,7 +40,7 @@ nunca en línea.
 
 | Carril | Pieza / Lote | Versión | Hito / Paso | Fase | Compuerta | Estado |
 |---|---|---|---|---|---|---|
-| Software | motor | `v0` | `v0.1-cerebelo` | 3 · Construcción | **C** | En curso — **9/15 pasos**. Queda el 3D (10-13), publicar (14) y medir (15) |
+| Software | motor | `v0` | `v0.1-cerebelo` | 3 · Construcción | **C** | **Detenido en el paso 11** — 10/15. Espera autorización de descarga |
 | Contenido | `L-001-cerebelo` | — | 0 · Encuadre | — | V | Sin arrancar |
 | Software | `visor` (pieza) | — | se crea en `v0.1` | — | — | Propuesta |
 | Software | `glosario` (pieza) | — | — | — | — | Propuesta |
@@ -51,11 +51,11 @@ compuerta.**
 
 ## Siguiente acción
 
-**Construir los 15 pasos del plan de `02-especificacion.md`**, registrando cada decisión
-propia como `DC-NN` en `03-bitacora-construccion.md`.
+**Max autoriza (o no) la descarga de Three.js**, que es lo único que detiene la
+construcción. La alternativa es reconsiderar `DEC-05` y escribir el visor con WebGL
+directamente, sin ninguna dependencia externa — lo que reabriría la compuerta B.
 
-El agente no interrumpe salvo por una de las tres excepciones. El paso 14 (publicar y
-verificar en la URL real) necesita el repositorio en GitHub; los pasos 1 a 13 no.
+Con eso resuelto, quedan los pasos 11 a 15.
 
 **Compuerta A aprobada el 2026-09-18: el alcance está congelado.** Toda idea nueva va al
 backlog.
@@ -65,7 +65,7 @@ backlog.
 | Qué | Espera a | Desde |
 |---|---|---|
 | `esquema-contenido.md` v1 | Se crea dentro de `v0.1-cerebelo` | 2026-09-18 |
-| Paso 14 del plan | Que Max active Pages en `main` + `/docs` | 2026-09-19 |
+| Paso 11 del plan | **Autorización de Max** para descargar Three.js, o decisión de no usarlo | 2026-09-19 |
 
 No hay preguntas de proyecto abiertas. Las licencias están creadas a nombre de Maximiliano
 Alamilla Rodríguez.

@@ -30,14 +30,14 @@ estado_compuerta_C: Pendiente
 | 7 | URLs `/estructura/<id>/` y 404 propia | **Completado** | `http://localhost:8765/estructura/vermis/` abre esa ficha directamente. `404.html` generado |
 | 8 | Estilos desde la maqueta aprobada | **Completado** | `tokens.css` y `sitio.css` extraídos de la maqueta. Verificado servido por HTTP |
 | 9 | Aviso de entrada e insignias | **Completado** | Aviso una vez por navegador; insignias de nivel, estado y contenido de prueba |
-| 10 | `generar-geometria.py` y `cerebelo.glb` | Pendiente | |
-| 11 | Vendorizar Three.js; pieza `visor` | Pendiente | |
+| 10 | `generar-geometria.py` y `cerebelo.glb` | **Completado** | `.glb` válido de 279 KB con **6 sectores** nombrados. Cabecera y longitudes verificadas leyendo el binario |
+| 11 | Vendorizar Three.js; pieza `visor` | **Detenido** | Excepción: hace falta autorización de Max para descargar Three.js |
 | 12 | Selección y coloreado por eje | Pendiente | |
 | 13 | Degradación y apagado del visor | Pendiente | |
 | 14 | Publicar en Pages y verificar en la URL real | Pendiente | **DEP-03 resuelta:** repositorio `neuroteca/neuroteca.github.io` creado y con los 13 commits empujados |
 | 15 | Medir peso y tiempo reales | Pendiente | |
 
-**Pasos presupuestados:** 15 · **Límite de partición (1.5×):** 22 · **Ejecutados:** 9
+**Pasos presupuestados:** 15 · **Límite de partición (1.5×):** 22 · **Ejecutados:** 10
 
 > Los pasos 4 y 5 se completaron dentro del 2 porque la validación de enlaces no se puede
 > escribir sin enlaces que validar, ni probar sin fichas de glosario a las que apuntar.
@@ -85,11 +85,37 @@ estado_compuerta_C: Pendiente
   - **Cómo se detectó:** mirando la página real en el navegador, no el código. Es la razón
     de la regla «verificar, no solo marcar».
 
+- **[DC-04]** La malla se parte en **seis sectores**, no en cinco piezas.
+  - **Por qué surgió:** el plan pedía «las 5 divisiones como submallas nombradas», pero una
+    estructura pertenece a varios ejes a la vez. Partir por «regiones» dejaría los lóbulos
+    sin geometría propia, y partir por «lóbulos» haría lo mismo con vermis y hemisferios.
+  - **Opciones:** (A) seis sectores {vermis, hemisferios} × {anterior, posterior,
+    floculonodular}, y cada división se compone uniendo los suyos; (B) elegir un eje
+    canónico y representar el otro solo con color; (C) duplicar la geometría, una copia por
+    eje.
+  - **Elegida y razón:** **A**. (B) contradice el modelo de grafo del esquema justo donde más
+    se nota. (C) duplica el peso y crea dos verdades que pueden divergir.
+  - **Cómo revertir:** cambiar `sector_de()` para que devuelva un solo eje.
+  - **Nota:** esto no cambia el alcance ni invalida el plan; es cómo se cumple el paso 10.
+
+- **[DC-05]** El ancho del vermis es proporcional al ancho local, no fijo.
+  - **Por qué surgió:** con un umbral fijo de `|x|`, cerca de los extremos superior e
+    inferior la malla se estrecha por debajo de ese umbral y **el casquete entero quedaba
+    clasificado como vermis**. Se vio en el recuento de vértices por sector, no en la
+    pantalla.
+  - **Opciones:** (A) umbral proporcional al ancho local; (B) dejarlo y documentarlo.
+  - **Elegida y razón:** **A**. El vermis es una franja medial estrecha a cualquier altura,
+    no un cono. (B) publicaría una relación anatómica falsa en el eje principal.
+  - **Cómo revertir:** tres líneas en `sector_de()`.
+  - **Queda declarado** en los metadatos del activo: lo más débil de la aproximación son los
+    extremos superior e inferior, donde la malla se estrecha más que un cerebelo real. Sirve
+    de nota para Max al modelar el definitivo.
+
 ## Excepciones que detuvieron la construcción
 
 | # | Tipo (1/2/3) | Qué pasó | Qué decidió Max | Fecha |
 |---|---|---|---|---|
-| — | — | Ninguna | — | — |
+| 1 | Seguridad | El paso 11 exige **descargar Three.js de internet** e incorporarlo al repositorio. Un agente no descarga archivos de fuera sin autorización explícita, por mucho que la fuente sea conocida. Se presenta a Max con la alternativa de reconsiderar `DEC-05` | *Pendiente* | 2026-09-19 |
 
 ## Compuerta C
 
@@ -107,5 +133,6 @@ estado_compuerta_C: Pendiente
 ## Historial de versiones
 | Versión | Fecha | Cambio principal |
 |---|---|---|
+| 1.2 | 2026-09-19 | Paso 10 completado. `DC-04` y `DC-05` registradas. Construcción detenida en el paso 11 por autorización de descarga. |
 | 1.1 | 2026-09-19 | Pasos 3, 6, 7, 8 y 9 completados: el sitio ya se genera y se navega. `DC-03` registrada. |
 | 1.0 | 2026-09-18 | Pasos 1, 2, 4 y 5 completados. `DC-01` y `DC-02` registradas. |

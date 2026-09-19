@@ -1,0 +1,18 @@
+{
+  "id": "cerebelo",
+  "nivel_detalle": "N2",
+  "origen": "propio",
+  "licencia": "CC BY-SA 4.0",
+  "estado": "provisional",
+  "peso_bytes": 285504,
+  "equivalente_textual": "Esquema del cerebelo en vista posterior: dos hemisferios abultados a los lados, separados por la franja más estrecha y hundida del vermis, y recorridos de arriba abajo por los lóbulos anterior, posterior y floculonodular.",
+  "sectores": [
+    "hemisferios_cerebelosos__lobulo_anterior",
+    "hemisferios_cerebelosos__lobulo_floculonodular",
+    "hemisferios_cerebelosos__lobulo_posterior",
+    "vermis__lobulo_anterior",
+    "vermis__lobulo_floculonodular",
+    "vermis__lobulo_posterior"
+  ],
+  "nota": "Forma aproximada generada por código, no modelado definitivo. Cumple el listón de C-04: silueta reconocible y divisiones diferenciadas, sin folia. Lo más débil de la aproximación son los extremos superior e inferior, donde la malla se estrecha más de lo que lo hace un cerebelo real."
+}
