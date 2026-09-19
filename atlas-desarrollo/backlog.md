@@ -2,7 +2,7 @@
 proyecto: Neuroteca
 tipo: backlog
 version: "1.0"
-ultima_actualizacion: 2026-09-17
+ultima_actualizacion: 2026-09-18
 ---
 
 # Backlog
@@ -33,3 +33,4 @@ la priorización ocurre en la fase 5, no al capturar.
 | BL-02 | Método | Idea | Extraer el método genérico portable, reutilizable en otros proyectos, una vez que este tenga uso real | S-01 | Media | Aparcado | — |
 | BL-03 | Motor | Técnico | Validación automática del contenido contra el esquema, ejecutable antes de publicar | S-01 | Alta | Aparcado | — |
 | BL-04 | Contenido | Idea | Plantilla de ficha con los campos del esquema ya puestos, para redactar sin consultarlo | S-01 | Baja | Aparcado | — |
+| BL-05 | Motor | Función | Tutorial de entrada o elección de vista/zona, en vez de caer siempre en una estructura concreta. Hará falta cuando haya varias regiones | S-07 (C-02) | Media | Aparcado | — |

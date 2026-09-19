@@ -1,7 +1,7 @@
 ---
 proyecto: Neuroteca
 tipo: estado
-version: "2.1"
+version: "2.2"
 ultima_actualizacion: 2026-09-18
 techo: 150 lineas
 ---
@@ -36,7 +36,7 @@ nunca en línea.
 
 | Carril | Pieza / Lote | Versión | Hito / Paso | Fase | Compuerta | Estado |
 |---|---|---|---|---|---|---|
-| Software | motor | `v0` | `v0.1-cerebelo` | 2 · Especificación | **B** | Cuestionario esperando a Max |
+| Software | motor | `v0` | `v0.1-cerebelo` | 2 · Especificación | **B** | Maqueta visual esperando aprobación |
 | Contenido | `L-001-cerebelo` | — | 0 · Encuadre | — | V | Sin arrancar |
 | Software | `visor` (pieza) | — | se crea en `v0.1` | — | — | Propuesta |
 | Software | `glosario` (pieza) | — | — | — | — | Propuesta |
@@ -47,10 +47,12 @@ compuerta.**
 
 ## Siguiente acción
 
-**Max responde `motor/hitos/v0.1-cerebelo/00-cuestionario-f2.md`** (cuatro preguntas:
-dirección visual, primera vista, cómo se marca el modelo provisional, y listón de realismo
-de la geometría). Con eso se integra `02-especificacion.md`, se construye la maqueta de
-identidad visual y se cierra la compuerta B.
+**Max aprueba o corrige la maqueta de identidad visual**
+(`motor/hitos/v0.1-cerebelo/identidad-visual/opcion-mixta.html`). Es lo último que bloquea la
+compuerta B: el barrido punto 5 no se puede cerrar con un estilo que Max no haya visto.
+
+Con la maqueta aprobada se escribe `02-especificacion.md` completo —barrido de 18 puntos,
+decisiones cerradas, plan de construcción y presupuestos— y se cruza la compuerta B.
 
 **Compuerta A aprobada el 2026-09-18: el alcance está congelado.** Toda idea nueva va al
 backlog.
@@ -60,7 +62,7 @@ backlog.
 | Qué | Espera a | Desde |
 |---|---|---|
 | `esquema-contenido.md` v1 | Se crea dentro de `v0.1-cerebelo` | 2026-09-18 |
-| Compuerta B de `v0.1-cerebelo` | Respuestas del cuestionario y maqueta visual aprobada | 2026-09-18 |
+| Compuerta B de `v0.1-cerebelo` | Aprobación de la maqueta visual | 2026-09-18 |
 
 No hay preguntas de proyecto abiertas. Las licencias están creadas a nombre de Maximiliano
 Alamilla Rodríguez.

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neuroteca — maqueta de identidad visual</title>
+<style>
+  :root {
+    --papel: #FBFAF7;
+    --papel-2: #F2EFE9;
+    --tinta: #1C1B19;
+    --tinta-2: #57534E;
+    --tinta-3: #8A837C;
+    --borde: #E2DDD4;
+    --acento: #1F6F63;
+    --acento-suave: #E4F0ED;
+    --aviso: #8A5A00;
+    --aviso-fondo: #FDF4E3;
+    --lienzo: #0F1419;      /* el visor es SIEMPRE oscuro */
+    --lienzo-2: #1A2027;
+    --lienzo-borde: #2B333C;
+    --lienzo-tinta: #E8E6E3;
+    --lienzo-tinta-2: #A0A8B0;
+    --radio: 10px;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --serif: Charter, Georgia, "Iowan Old Style", serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --papel: #14171A; --papel-2: #1B1F24; --tinta: #E8E6E3; --tinta-2: #ADB4BB;
+      --tinta-3: #7D858D; --borde: #2A2F35; --acento: #5FC2B0; --acento-suave: #14312C;
+      --aviso: #E0B060; --aviso-fondo: #2A2113;
+    }
+  }
+  :root[data-theme="dark"] {
+    --papel: #14171A; --papel-2: #1B1F24; --tinta: #E8E6E3; --tinta-2: #ADB4BB;
+    --tinta-3: #7D858D; --borde: #2A2F35; --acento: #5FC2B0; --acento-suave: #14312C;
+    --aviso: #E0B060; --aviso-fondo: #2A2113;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--papel); color: var(--tinta);
+    font-family: var(--sans); line-height: 1.6;
+  }
+  .maqueta-nota {
+    background: var(--aviso-fondo); color: var(--aviso); font-size: 13px;
+    padding: 8px 16px; text-align: center; border-bottom: 1px solid var(--borde);
+  }
+
+  header.sitio {
+    display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+    padding: 18px 16px 14px; border-bottom: 1px solid var(--borde);
+  }
+  header.sitio h1 { font-size: 19px; margin: 0; letter-spacing: -0.01em; }
+  header.sitio .bajada { color: var(--tinta-3); font-size: 13px; }
+  header.sitio .tema { margin-left: auto; }
+  button.tema-btn {
+    font: inherit; font-size: 13px; color: var(--tinta-2); background: none;
+    border: 1px solid var(--borde); border-radius: 99px; padding: 5px 12px; cursor: pointer;
+  }
+  button.tema-btn:hover { border-color: var(--acento); color: var(--acento); }
+
+  /* --- Aviso de entrada (C-03 opción B) --- */
+  .aviso-entrada {
+    margin: 16px; padding: 12px 14px; display: flex; gap: 12px; align-items: flex-start;
+    background: var(--aviso-fondo); border: 1px solid color-mix(in srgb, var(--aviso) 35%, transparent);
+    border-radius: var(--radio); font-size: 14px; color: var(--tinta);
+  }
+  .aviso-entrada strong { color: var(--aviso); }
+  .aviso-entrada button {
+    margin-left: auto; font: inherit; font-size: 13px; background: none; cursor: pointer;
+    border: 1px solid color-mix(in srgb, var(--aviso) 40%, transparent);
+    border-radius: 6px; padding: 4px 10px; color: var(--tinta-2); flex: none;
+  }
+
+  .atlas { display: grid; grid-template-columns: 1.15fr 1fr; gap: 20px; padding: 16px; align-items: start; }
+  @media (max-width: 860px) { .atlas { grid-template-columns: 1fr; } }
+
+  /* --- ZONA VISOR: siempre oscura --- */
+  .visor {
+    background: var(--lienzo); border: 1px solid var(--lienzo-borde);
+    border-radius: var(--radio); overflow: hidden; position: relative;
+    /* el borde entre zonas se trata a propósito, no se deja como corte */
+    box-shadow: 0 1px 3px rgba(0,0,0,.18), 0 10px 30px -18px rgba(0,0,0,.5);
+  }
+  .visor svg { display: block; width: 100%; height: auto; touch-action: manipulation; }
+  .visor-barra {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    padding: 10px 12px; background: linear-gradient(transparent, rgba(0,0,0,.55) 40%);
+    color: var(--lienzo-tinta-2); font-size: 12px;
+  }
+  .visor-barra .etiqueta-provisional {
+    background: rgba(224,176,96,.15); color: #F0C888;
+    border: 1px solid rgba(224,176,96,.35); border-radius: 99px; padding: 3px 9px;
+  }
+  .visor-barra .controles { margin-left: auto; display: flex; gap: 6px; }
+  .visor-barra button {
+    font: inherit; font-size: 12px; color: var(--lienzo-tinta-2); cursor: pointer;
+    background: rgba(255,255,255,.06); border: 1px solid var(--lienzo-borde);
+    border-radius: 6px; padding: 4px 9px;
+  }
+  .visor-barra button:hover { color: var(--lienzo-tinta); border-color: #47525C; }
+
+  .parte { cursor: pointer; transition: opacity .15s, stroke-width .15s; }
+  .parte:hover { opacity: .85; }
+  .parte[aria-selected="true"] { stroke: #FFFFFF; stroke-width: 2.5; }
+  .parte:focus-visible { outline: 3px solid #FFF; outline-offset: 2px; }
+
+  /* --- ZONA LECTURA: sigue el tema --- */
+  .panel { min-width: 0; }
+  .migas { font-size: 13px; color: var(--tinta-3); margin-bottom: 6px; }
+  .ficha h2 { font-size: 26px; margin: 0 0 2px; letter-spacing: -0.015em; }
+  .latin { font-family: var(--serif); font-style: italic; color: var(--tinta-2); font-size: 16px; }
+  .insignias { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0 18px; }
+  .insignia {
+    font-size: 12px; padding: 3px 9px; border-radius: 99px;
+    border: 1px solid var(--borde); color: var(--tinta-2); background: var(--papel-2);
+  }
+  .insignia.nivel { background: var(--acento-suave); border-color: transparent; color: var(--acento); font-weight: 600; }
+  .insignia.provisional { background: var(--aviso-fondo); border-color: transparent; color: var(--aviso); }
+
+  .ficha h3 {
+    font-size: 12px; text-transform: uppercase; letter-spacing: .09em;
+    color: var(--tinta-3); margin: 22px 0 6px; font-weight: 600;
+  }
+  .ficha p { font-family: var(--serif); font-size: 17px; line-height: 1.65; margin: 0 0 12px; }
+  a.glos {
+    color: inherit; text-decoration: none;
+    border-bottom: 1px dashed color-mix(in srgb, var(--acento) 60%, transparent);
+  }
+  a.glos:hover { color: var(--acento); border-bottom-style: solid; }
+  a.glos::after { content: "°"; color: var(--acento); font-size: .8em; vertical-align: super; }
+
+  .fuentes { font-size: 13.5px; color: var(--tinta-2); padding-left: 18px; margin: 0; }
+  .fuentes li { margin-bottom: 4px; }
+
+  .partes-lista { list-style: none; padding: 0; margin: 10px 0 0; }
+  .partes-lista li { border-bottom: 1px solid var(--borde); }
+  .partes-lista button {
+    width: 100%; text-align: left; font: inherit; background: none; border: 0; cursor: pointer;
+    padding: 11px 6px; color: var(--tinta); display: flex; align-items: center; gap: 10px;
+  }
+  .partes-lista button:hover { background: var(--papel-2); }
+  .partes-lista button:focus-visible { outline: 2px solid var(--acento); outline-offset: -2px; }
+  .punto { width: 10px; height: 10px; border-radius: 3px; flex: none; }
+  .partes-lista .nv { margin-left: auto; font-size: 11px; color: var(--tinta-3); }
+
+  footer.sitio {
+    padding: 20px 16px 40px; border-top: 1px solid var(--borde);
+    color: var(--tinta-3); font-size: 13px;
+  }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<p class="maqueta-nota">
+  Maqueta de identidad visual · <strong>v0.1-cerebelo</strong> · La forma del cerebelo es un
+  esquema para valorar el estilo, <strong>no anatomía aprobada</strong>.
+</p>
+
+<header class="sitio">
+  <h1>Neuroteca</h1>
+  <span class="bajada">atlas vivo del sistema nervioso</span>
+  <span class="tema"><button class="tema-btn" id="btnTema">Cambiar tema</button></span>
+</header>
+
+<div class="aviso-entrada" id="avisoEntrada">
+  <div>
+    <strong>Los modelos son formas aproximadas por ahora.</strong>
+    Sirven para situar y reconocer cada estructura; el modelado definitivo está en curso.
+    Cada ficha dice en qué estado está su modelo.
+  </div>
+  <button onclick="document.getElementById('avisoEntrada').remove()">Entendido</button>
+</div>
+
+<main class="atlas">
+
+  <!-- ===== VISOR (lienzo siempre oscuro) ===== -->
+  <section class="visor" aria-label="Visor del cerebelo">
+    <svg viewBox="0 0 520 400" role="img" aria-label="Esquema del cerebelo, vista posterior">
+      <defs>
+        <radialGradient id="halo" cx="50%" cy="42%" r="62%">
+          <stop offset="0%" stop-color="#25303A"/><stop offset="100%" stop-color="#0F1419"/>
+        </radialGradient>
+        <path id="silueta" d="M260 86 C 150 80, 72 126, 62 198
+          C 54 262, 112 306, 178 304 C 218 303, 246 290, 260 272
+          C 274 290, 302 303, 342 304 C 408 306, 466 262, 458 198
+          C 448 126, 370 80, 260 86 Z"/>
+        <clipPath id="recorte"><use href="#silueta"/></clipPath>
+      </defs>
+      <rect width="520" height="400" fill="url(#halo)"/>
+
+      <!-- tronco encefálico, contexto no seleccionable -->
+      <path d="M242 250 q18 -10 36 0 l6 128 q-24 8 -48 0 z" fill="#2A333C" opacity=".9"/>
+      <text x="260" y="392" fill="#6C7681" font-size="10" text-anchor="middle"
+            font-family="system-ui">tronco encefálico (contexto)</text>
+
+      <!-- Los tres lóbulos son bandas transversales, recortadas a la silueta -->
+      <g clip-path="url(#recorte)">
+        <rect id="p-anterior" class="parte" tabindex="0" role="button"
+              aria-label="Lóbulo anterior, nivel N2"
+              x="40" y="70" width="440" height="72" fill="#6E8F3E"/>
+        <rect id="p-posterior" class="parte" tabindex="0" role="button"
+              aria-label="Lóbulo posterior, nivel N2"
+              x="40" y="142" width="440" height="116" fill="#3E7CA6"/>
+        <rect id="p-floculo" class="parte" tabindex="0" role="button"
+              aria-label="Lóbulo floculonodular, nivel N2"
+              x="40" y="258" width="440" height="60" fill="#9C5AA8"/>
+
+        <!-- vermis: franja medial, por encima de las bandas -->
+        <path id="p-vermis" class="parte" tabindex="0" role="button"
+              aria-label="Vermis, nivel N2"
+              d="M244 80 q16 -6 32 0 l5 200 q-21 8 -42 0 z" fill="#C9A227"/>
+
+        <!-- folia insinuadas, decorativas -->
+        <g stroke="#0F1419" stroke-opacity=".28" fill="none" aria-hidden="true">
+          <path d="M60 116 q200 -30 400 0"/><path d="M58 152 q202 -30 404 0"/>
+          <path d="M58 190 q202 -30 404 0"/><path d="M62 228 q198 -28 396 0"/>
+          <path d="M70 266 q190 -26 380 0"/>
+        </g>
+      </g>
+
+      <!-- hemisferios: zonas laterales, se marcan con contorno al seleccionar -->
+      <g clip-path="url(#recorte)">
+        <rect id="p-hemi" class="parte hemi" tabindex="0" role="button"
+              aria-label="Hemisferios cerebelosos, nivel N2"
+              x="40" y="70" width="204" height="250" fill="transparent"/>
+        <rect class="parte hemi" tabindex="-1" aria-hidden="true"
+              x="276" y="70" width="204" height="250" fill="transparent"/>
+      </g>
+
+      <use href="#silueta" fill="none" stroke="#0F1419" stroke-opacity=".5" stroke-width="2"/>
+    </svg>
+
+    <div class="visor-barra">
+      <span class="etiqueta-provisional">Forma aproximada</span>
+      <span>Arrastra para girar</span>
+      <span class="controles">
+        <button type="button">−</button><button type="button">+</button>
+        <button type="button">Vista inicial</button>
+      </span>
+    </div>
+  </section>
+
+  <!-- ===== PANEL DE LECTURA (sigue el tema) ===== -->
+  <section class="panel">
+    <article class="ficha">
+      <p class="migas">Cerebelo · división</p>
+      <h2>Vermis</h2>
+      <p class="latin">Vermis cerebelli</p>
+
+      <div class="insignias">
+        <span class="insignia nivel">Nivel N2 · subdivisiones</span>
+        <span class="insignia provisional">Modelo provisional</span>
+        <span class="insignia">Revisado</span>
+      </div>
+
+      <h3>Anatomía</h3>
+      <p>
+        Franja estrecha de <a class="glos" href="#">corteza</a> que ocupa la línea media del
+        cerebelo y une los dos hemisferios. Su superficie presenta las mismas láminas
+        transversales que el resto del órgano, y por debajo se continúa con la
+        <a class="glos" href="#">sustancia blanca</a> que lo conecta con el tronco.
+      </p>
+
+      <h3>Fisiología</h3>
+      <p>
+        Recibe información <a class="glos" href="#">aferente</a> de la médula espinal sobre la
+        posición del cuerpo —<a class="glos" href="#">propiocepción</a>— y participa en el
+        control del <a class="glos" href="#">tono muscular</a> y en el equilibrio del tronco
+        durante la marcha y la bipedestación.
+      </p>
+
+      <h3>Fuentes</h3>
+      <ul class="fuentes">
+        <li>Ejemplo de cita — <em>Obra, edición, páginas</em>.</li>
+        <li>Ejemplo de cita — DOI.</li>
+      </ul>
+
+      <h3>Partes del cerebelo</h3>
+      <ul class="partes-lista">
+        <li><button><span class="punto" style="background:#C9A227"></span> Vermis <span class="nv">N2</span></button></li>
+        <li><button><span class="punto" style="background:#3E7CA6"></span> Hemisferios cerebelosos <span class="nv">N2</span></button></li>
+        <li><button><span class="punto" style="background:#6E8F3E"></span> Lóbulo anterior <span class="nv">N2</span></button></li>
+        <li><button><span class="punto" style="background:#B4643E"></span> Lóbulo posterior <span class="nv">N2</span></button></li>
+        <li><button><span class="punto" style="background:#9C5AA8"></span> Lóbulo floculonodular <span class="nv">N2</span></button></li>
+      </ul>
+      <p class="sr">Esta lista es el recorrido sin visor: da acceso por teclado a todas las fichas.</p>
+    </article>
+  </section>
+</main>
+
+<footer class="sitio">
+  Neuroteca · Contenido bajo CC BY-SA 4.0 · Recurso didáctico y esquemático, no es una
+  referencia clínica ni quirúrgica.
+</footer>
+
+<script>
+  document.getElementById('btnTema').addEventListener('click', function () {
+    var r = document.documentElement;
+    var oscuro = r.getAttribute('data-theme') === 'dark'
+      || (!r.hasAttribute('data-theme') && matchMedia('(prefers-color-scheme: dark)').matches);
+    r.setAttribute('data-theme', oscuro ? 'light' : 'dark');
+  });
+  document.querySelectorAll('.parte[role="button"]').forEach(function (el) {
+    el.addEventListener('click', function () {
+      document.querySelectorAll('.parte').forEach(function (p) { p.removeAttribute('aria-selected'); });
+      el.setAttribute('aria-selected', 'true');
+    });
+  });
+</script>
+</body>
+</html>

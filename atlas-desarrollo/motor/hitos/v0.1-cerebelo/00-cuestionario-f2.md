@@ -6,7 +6,7 @@ tipo: cuestionario
 fase: 2
 version: "1.0"
 ultima_actualizacion: 2026-09-18
-estado: Sin responder
+estado: Respondido e integrado
 ---
 
 # Cuestionario · fase 2 · v0.1 «cerebelo»
@@ -44,7 +44,7 @@ para que la apruebes viéndola y no imaginándola.
 *(Recuerda que el tema claro/oscuro según la preferencia del sistema ya es obligatorio por
 las reglas del agente. Esto decide el carácter, no si hay modo oscuro.)*
 
-**Respuesta:**
+**Respuesta:**Puede ser una mezcla de mabos? por ejemplo obscura y tipo visor para ver el modelo y clara para el glosario?
 
 ---
 
@@ -61,7 +61,7 @@ Neuroteca **ni** tener formación en neurociencia.
 - **C** — **Pantalla de entrada** antes del atlas. Explica mejor, pero mete un paso entre el
   visitante y lo que vino a ver.
 
-**Respuesta:**
+**Respuesta:** A por ahora, aunque, conforme crezca, seguramente tengamos que meter algo de tutorial o elección para ir una vista o zona en lugar de meterse a una especifica.
 
 ---
 
@@ -77,7 +77,7 @@ visitante tiene que saberlo — la pregunta es con cuánto énfasis.
 - **C** — **Solo una nota en la ficha del activo**, no en el visor. Lo más discreto; también
   lo más fácil de no ver.
 
-**Respuesta:**
+**Respuesta:** B
 
 ---
 
@@ -97,7 +97,7 @@ manda. La pregunta es qué tiene que cumplir la forma aproximada para ser public
   rápido y más honesto sobre su provisionalidad, pero puede no enseñar la forma, que es el
   punto de un `N1`.
 
-**Respuesta:**
+**Respuesta:**A
 
 ---
 
@@ -116,6 +116,24 @@ manda. La pregunta es qué tiene que cumplir la forma aproximada para ser public
 
 | Pregunta | Respuesta de Max | Dónde quedó registrada |
 |---|---|---|
-| — | — | — |
+| C-01 | **Mezcla:** visor oscuro tipo instrumento + superficie de lectura clara. Aceptada como dirección; **falta aprobar la maqueta** | `identidad-visual/opcion-mixta.html` · pendiente compuerta B |
+| C-02 | **A** — directo al atlas. Nota: cuando el atlas crezca hará falta tutorial o elección de vista | `02-especificacion.md` · la nota va a `backlog.md` (BL-05) |
+| C-03 | **B** — aviso al entrar, que se cierra y no vuelve | `02-especificacion.md`, barrido punto 1 |
+| C-04 | **A** — silueta reconocible con las cinco divisiones y posiciones relativas correctas, sin folia | `02-especificacion.md`, listón de `CA-01` y `CA-02` |
 
-**Integrado el:** ____-__-__
+**Integrado el:** 2026-09-18
+
+## Dos reglas derivadas de C-01, para que la mezcla no se rompa
+
+1. **El lienzo del visor es siempre oscuro**, sea cual sea el tema del sistema. Solo la
+   superficie de lectura sigue la preferencia. Sin esta regla, el modelo pierde contraste en
+   modo claro.
+2. **En móvil las dos zonas se apilan** y queda un borde entre un bloque oscuro y uno claro.
+   Ese borde se trata a propósito (margen, radio y sombra), nunca se deja como corte.
+
+## Nota sobre C-03
+
+El aviso al entrar es invisible para quien vuelve o llega por enlace directo. No queda hueco
+porque **el esquema ya obliga a mostrar el `estado` del activo en su ficha** (`provisional` /
+`definitivo`): el visitante lo ve por los dos lados, sin necesidad de una etiqueta permanente
+en el visor.
