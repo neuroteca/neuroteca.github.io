@@ -93,7 +93,6 @@ Dos entregables acordados que aún no se han escrito:
 1. **Saneamiento de MIA** — procedimiento para aplicar el techo duro a `estado.md` (3.667
    líneas) y `bitacora-sesiones.md` (12.859 líneas) del proyecto MIA, que ya sufren el
    problema que este método previene.
-2. **Método genérico portable** — plantilla neutra, reutilizable en otros proyectos, que
-   destile lo que aquí resulte universal (compuertas, barrido de huecos, reglas
-   acumulables, techo duro). Se extrae **después** de que este método tenga uso real, no
-   antes: solo el uso dice qué partes eran universales.
+2. ~~**Método genérico portable**~~ — **hecho el 2026-09-28**, en `Proyectos/metodo-por-compuertas`,
+   tras cruzar la compuerta C del primer hito. Incluye `LECCIONES.md` con lo que costó
+   caro.
