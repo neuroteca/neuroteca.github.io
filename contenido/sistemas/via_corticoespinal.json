@@ -1,0 +1,279 @@
+{
+  "id": "via_corticoespinal",
+  "tipo": "sistema",
+  "nombre": "Vía corticoespinal",
+  "termino_latin": "Tractus corticospinalis",
+  "sinonimos": [
+    "vía piramidal",
+    "tracto corticoespinal"
+  ],
+  "nivel_detalle": "N2",
+  "funcion": [
+    "La vía corticoespinal es el camino directo por el que la [[corteza_cerebral]] mueve el cuerpo: los axones de sus neuronas de proyección bajan sin relevo hasta la [[medula_espinal]] y, con el tracto corticobulbar, forman la vía principal del movimiento voluntario.[^1][^3] Se llama también vía piramidal porque sus fibras forman las pirámides del [[bulbo_raquideo]].[^1]",
+    "Es la vía del control fino: su daño deja una pérdida permanente de la destreza de los dedos, aunque las vías paralelas del tronco recuperen el movimiento grueso.[^1] En la clínica, la lesión de la [[motoneurona]] superior se reconoce por debilidad con espasticidad, reflejos tendinosos exagerados, signo de Babinski y respuesta en navaja; la de la inferior, por parálisis flácida, fasciculaciones y pérdida de [[reflejo|reflejos]].[^4]",
+    "Este sistema sigue la orden desde la corteza hasta el músculo: dónde nace, por dónde pasa, dónde cruza y quién la ajusta por el camino.[^1][^2] El esquema y el texto siguiente cuentan el mismo recorrido."
+  ],
+  "circuito": [
+    "**Origen.** La orden nace en la corteza del [[lobulo_frontal]]: la motora primaria, en la circunvolución precentral, aporta cerca del 30 % de las fibras del tracto; la premotora y el área motora suplementaria, otro 30 %; la somatosensitiva del [[lobulo_parietal]], otro 30 %, y la parietal posterior, el 10 % restante.[^2] Las neuronas de salida son las piramidales de la capa 5, entre ellas las células gigantes de Betz: son la motoneurona superior.[^2][^3][^4] La motora primaria está organizada como un [[homunculo|homúnculo]] y sus neuronas codifican la dirección y la fuerza del movimiento, no músculos aislados.[^2]",
+    "**Trayecto.** Los axones se reúnen en la [[capsula_interna]], atraviesan el pedúnculo cerebral del [[mesencefalo]], perforan la base del [[puente]] y forman las pirámides en la cara anterior del [[bulbo_raquideo]].[^1][^3] Por el camino, las fibras corticobulbares dejan la vía hacia los núcleos motores de los [[nervio_craneal|nervios craneales]] del mismo lado, que mueven la cara, la lengua y la faringe.[^3][^1]",
+    "**Cruce.** En la parte baja del bulbo, alrededor del 90 % de las fibras cruzan al lado opuesto en la [[decusacion]] piramidal y siguen por el cordón lateral de la médula como tracto corticoespinal lateral.[^1][^3][^7] El 10 % restante baja sin cruzar por el cordón anterior, como tracto corticoespinal anterior, y cruza en la comisura blanca anterior a la altura de su segmento.[^1][^3] Por eso cada hemisferio mueve el lado contrario del cuerpo.[^8]",
+    "**Llegada.** Las fibras terminan en la [[sustancia_gris_medular|sustancia gris]] del asta anterior, directamente sobre las motoneuronas alfa o sobre interneuronas.[^1][^7] El tracto lateral gobierna la musculatura distal, sobre todo el control fino de los dedos; el anterior, la proximal y axial, junto con las vías mediales del tronco encefálico.[^1] La motoneurona inferior lleva la orden al músculo esquelético: el movimiento voluntario exige que las dos neuronas, superior e inferior, estén activas.[^4][^3]",
+    "**Ajuste.** La corteza motora no decide sola: los [[ganglios_basales]] y el [[cerebelo]] le devuelven su influencia a través de los núcleos ventral anterior y ventral lateral del [[talamo]], los primeros para permitir o frenar el programa y el segundo para corregirlo con lo que el cuerpo informa.[^5][^6][^3] La corteza manda además copias de su orden al [[nucleo_rojo]], a la [[formacion_reticular]] y a los [[nucleos_pontinos]], de modo que las vías rubroespinal y reticuloespinal actúan en paralelo y pueden compensar en parte una lesión corticoespinal.[^2][^1]",
+    "**Exploración.** La fuerza se prueba contra resistencia: una diferencia entre lados apunta a un tracto corticoespinal, y una pérdida global, a otro problema; la deriva del pronador y el reflejo plantar exploran la vía, y los reflejos tendinosos, la motoneurona inferior.[^4]"
+  ],
+  "estructuras": [
+    "corteza_cerebral",
+    "lobulo_frontal",
+    "lobulo_parietal",
+    "capsula_interna",
+    "mesencefalo",
+    "puente",
+    "bulbo_raquideo",
+    "medula_espinal",
+    "sustancia_blanca_medular",
+    "sustancia_gris_medular",
+    "ganglios_basales",
+    "cerebelo",
+    "talamo",
+    "nucleo_rojo"
+  ],
+  "esquema": {
+    "columnas": [
+      {
+        "titulo": "Ajuste",
+        "nodos": [
+          {
+            "id": "ganglios_basales",
+            "nombre": "Ganglios basales"
+          },
+          {
+            "id": "cerebelo",
+            "nombre": "Cerebelo"
+          },
+          {
+            "id": "talamo",
+            "nombre": "Tálamo (VA y VL)"
+          }
+        ]
+      },
+      {
+        "titulo": "Origen",
+        "nodos": [
+          {
+            "id": "lobulo_frontal",
+            "nombre": "Corteza motora: precentral, premotora, AMS"
+          },
+          {
+            "id": "lobulo_parietal",
+            "nombre": "Corteza somatosensitiva y parietal posterior"
+          }
+        ]
+      },
+      {
+        "titulo": "Trayecto",
+        "nodos": [
+          {
+            "id": "capsula_interna",
+            "nombre": "Cápsula interna"
+          },
+          {
+            "id": "mesencefalo",
+            "nombre": "Pedúnculo cerebral"
+          },
+          {
+            "id": "puente",
+            "nombre": "Base del puente"
+          }
+        ]
+      },
+      {
+        "titulo": "Bulbo",
+        "nodos": [
+          {
+            "id": "bulbo_raquideo",
+            "nombre": "Pirámides: decusación del 90 %"
+          },
+          {
+            "id": "nucleos_motores_craneales",
+            "nombre": "Núcleos motores de nervios craneales"
+          }
+        ]
+      },
+      {
+        "titulo": "Médula",
+        "nodos": [
+          {
+            "id": "sustancia_blanca_medular",
+            "nombre": "Cordón lateral: tracto corticoespinal lateral"
+          },
+          {
+            "id": "corticoespinal_anterior",
+            "nombre": "Cordón anterior: tracto corticoespinal anterior (10 %)"
+          }
+        ]
+      },
+      {
+        "titulo": "Motoneurona",
+        "nodos": [
+          {
+            "id": "sustancia_gris_medular",
+            "nombre": "Asta anterior: motoneurona inferior"
+          }
+        ]
+      },
+      {
+        "titulo": "Efecto",
+        "nodos": [
+          {
+            "id": "musculos_distales",
+            "nombre": "Manos y pies: movimiento fino"
+          },
+          {
+            "id": "musculos_axiales",
+            "nombre": "Tronco y proximales: postura"
+          },
+          {
+            "id": "musculos_cabeza",
+            "nombre": "Cara, lengua y faringe"
+          }
+        ]
+      }
+    ],
+    "flechas": [
+      {
+        "de": "cerebelo",
+        "a": "talamo",
+        "texto": "núcleo dentado"
+      },
+      {
+        "de": "ganglios_basales",
+        "a": "talamo",
+        "texto": "vías directa e indirecta"
+      },
+      {
+        "de": "talamo",
+        "a": "lobulo_frontal",
+        "texto": "a la corteza motora"
+      },
+      {
+        "de": "lobulo_frontal",
+        "a": "capsula_interna",
+        "texto": "~60 % de las fibras"
+      },
+      {
+        "de": "lobulo_parietal",
+        "a": "capsula_interna",
+        "texto": "~40 % de las fibras"
+      },
+      {
+        "de": "capsula_interna",
+        "a": "mesencefalo",
+        "texto": ""
+      },
+      {
+        "de": "mesencefalo",
+        "a": "puente",
+        "texto": ""
+      },
+      {
+        "de": "puente",
+        "a": "bulbo_raquideo",
+        "texto": ""
+      },
+      {
+        "de": "capsula_interna",
+        "a": "nucleos_motores_craneales",
+        "texto": "corticobulbar, mismo lado"
+      },
+      {
+        "de": "bulbo_raquideo",
+        "a": "sustancia_blanca_medular",
+        "texto": "cruza: decusación piramidal"
+      },
+      {
+        "de": "bulbo_raquideo",
+        "a": "corticoespinal_anterior",
+        "texto": "sin cruzar"
+      },
+      {
+        "de": "sustancia_blanca_medular",
+        "a": "sustancia_gris_medular",
+        "texto": "a motoneuronas alfa o interneuronas"
+      },
+      {
+        "de": "corticoespinal_anterior",
+        "a": "sustancia_gris_medular",
+        "texto": "cruza en la comisura blanca anterior"
+      },
+      {
+        "de": "sustancia_gris_medular",
+        "a": "musculos_distales",
+        "texto": "tracto lateral"
+      },
+      {
+        "de": "sustancia_gris_medular",
+        "a": "musculos_axiales",
+        "texto": "tracto anterior"
+      },
+      {
+        "de": "nucleos_motores_craneales",
+        "a": "musculos_cabeza",
+        "texto": "nervios craneales"
+      }
+    ]
+  },
+  "fuentes": [
+    {
+      "obra": "Knierim J. Spinal Reflexes and Descending Motor Pathways. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 3, capítulo 2",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§2.2 Descending Motor Pathways y 2.3",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter02.html"
+    },
+    {
+      "obra": "Knierim J. Motor Cortex. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 3, capítulo 3",
+      "edicion": "revisado el 20 de octubre de 2020",
+      "paginas": "§3.2 a 3.5",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter03.html"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §14.3 Motor Responses",
+      "paginas": "apartados Cortical Responses, Descending Pathways y Extrapyramidal Controls",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/14-3-motor-responses"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §16.4 The Sensory and Motor Exams",
+      "paginas": "apartados The Motor Exam, Upper and Lower Motor Neuron Signs y Reflexes",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/16-4-the-sensory-and-motor-exams"
+    },
+    {
+      "obra": "Knierim J. Basal Ganglia. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 3, capítulo 4",
+      "edicion": "revisado el 20 de octubre de 2020",
+      "paginas": "§4.4 y 4.6",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter04.html"
+    },
+    {
+      "obra": "Knierim J. Cerebellum. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 3, capítulo 5",
+      "edicion": "revisado el 20 de octubre de 2020",
+      "paginas": "§5.3 y 5.4",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter05.html"
+    },
+    {
+      "obra": "Anatomy of the Spinal Cord. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 2, capítulo 3",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§3.9, 3.11 y 3.12",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s2/chapter03.html"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §16.2 The Mental Status Exam",
+      "paginas": "apartado Language and Speech (lateralización y control del lado opuesto)",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/16-2-the-mental-status-exam"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}
