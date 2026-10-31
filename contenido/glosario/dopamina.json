@@ -1,0 +1,31 @@
+{
+  "id": "dopamina",
+  "tipo": "fundacional",
+  "nombre": "Dopamina",
+  "termino_latin": "",
+  "sinonimos": [],
+  "nivel_detalle": "N1",
+  "definicion": "Neurotransmisor que liberan, entre otras, las neuronas de la sustancia negra y del área tegmental ventral.",
+  "explicacion": [
+    "Las neuronas de la pars compacta de la [[sustancia_negra]] la liberan en el estriado por la vía nigroestriatal: despolariza a las neuronas de la vía directa, con receptores D1, e hiperpolariza a las de la indirecta, con receptores D2, con lo que favorece el movimiento.[^1] Las neuronas dopaminérgicas de la sustancia negra y del área tegmental ventral, que proyecta al núcleo accumbens, responden a la recompensa inesperada y se apagan cuando falta la esperada, señal que se liga al aprendizaje por refuerzo de los hábitos motores.[^1]",
+    "Su pérdida en la sustancia negra causa la enfermedad de Parkinson.[^1] Es el [[neurotransmisor]] dominante de la corteza prefrontal.[^2]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Knierim J. Basal Ganglia. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 3, capítulo 4",
+      "edicion": "revisado el 20 de octubre de 2020",
+      "paginas": "§4.2 a 4.7",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter04.html"
+    },
+    {
+      "obra": "Wright A. Higher Cortical Functions: Association and Executive Processing. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 4, capítulo 9",
+      "edicion": "revisado el 20 de octubre de 2020",
+      "paginas": "§9.4",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s4/chapter09.html"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}

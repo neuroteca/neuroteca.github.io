@@ -1,0 +1,31 @@
+{
+  "id": "afasia",
+  "tipo": "fundacional",
+  "nombre": "Afasia",
+  "termino_latin": "",
+  "sinonimos": [],
+  "nivel_detalle": "N1",
+  "definicion": "Trastorno del lenguaje causado por una lesión cerebral.",
+  "explicacion": [
+    "La afasia de Broca, por lesión de la circunvolución frontal inferior izquierda, es expresiva: habla lenta, entrecortada y sin prosodia, con la comprensión casi normal en la conversación corriente.[^1][^2] La de Wernicke, por lesión del área 22, en la unión temporoparietooccipital izquierda, es receptiva: habla fluida pero desordenada, con neologismos, y comprensión alterada.[^1][^2]",
+    "La de conducción afecta sobre todo a la repetición y la denominación; la global suma los tres déficits y suele deberse a un infarto de la arteria cerebral media.[^1][^2]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Wright A. Higher Cortical Functions: Language. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 4, capítulo 8",
+      "edicion": "revisado el 1 de marzo de 2025",
+      "paginas": "§8.2 a 8.4",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s4/chapter08.html"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §16.2 The Mental Status Exam",
+      "paginas": "apartados Orientation and Memory y Language and Speech",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/16-2-the-mental-status-exam"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}

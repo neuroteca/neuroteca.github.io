@@ -1,0 +1,40 @@
+{
+  "id": "globo_palido",
+  "tipo": "estructura",
+  "nombre": "Globo pálido",
+  "termino_latin": "Globus pallidus",
+  "sinonimos": [
+    "pálido"
+  ],
+  "nivel_detalle": "N3",
+  "anatomia": [
+    "[[nucleo|Núcleo]] medial del lenticular, por dentro del [[putamen]], con dos segmentos, externo e interno.[^1][^2][^3]"
+  ],
+  "fisiologia": [
+    "El segmento interno es, con la pars reticulata de la [[sustancia_negra]], la salida principal de los [[ganglios_basales]]: proyecta, inhibidor y gabaérgico, a los núcleos ventral anterior, ventral lateral, dorsomedial e intralaminares del [[talamo]] por el asa y el fascículo lenticulares.[^1] El segmento externo pertenece a la vía indirecta: inhibe al núcleo subtalámico del [[subtalamo]], que a su vez excita al segmento interno.[^1][^2]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Knierim J. Basal Ganglia. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 3, capítulo 4",
+      "edicion": "revisado el 20 de octubre de 2020",
+      "paginas": "§4.2 a 4.7",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter04.html"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.2 The Central Nervous System",
+      "paginas": "apartado The Cerebrum, subapartado Subcortical structures (Basal Nuclei); figuras 13.9 y 13.10",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system"
+    },
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "términos 5536 (pars basalis telencephali), 5558 (nucleus accumbens), 5559 (corpus striatum; sinónimo nuclei basales telencephali), 5560 (striatum dorsale), 5561 (nucleus caudatus), 5566 (putamen), 5567 (nucleus lentiformis), 5569 a 5572 (globus pallidus y sus segmentos)",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}
