@@ -722,21 +722,35 @@ def _visor_html(ficha, vista, activo, base, enlace, con_pieza, T):
             % (_esc(_t(T, 'visor_aria', nombre=vista['nombre'])), datos, svg, barra))
 
 
-def _sistema_nav(ficha, fichas, enlace, T, idioma):
-    """Estructuras implicadas en un sistema, como botones. Vive en el motor, no en la pieza."""
-    botones = []
+def _sistema_nav(ficha, fichas, padres, mapa, enlace, T, idioma):
+    """Estructuras implicadas en un sistema, agrupadas por región y plegadas: el esquema ya
+    las muestra; la lista es el acceso alternativo. Vive en el motor, no en la pieza."""
+    grupos = {}
     for ide in ficha.get('estructuras', []):
-        botones.append('<li><a href="%s" data-nodo="%s">%s <span class="nv">%s</span></a></li>'
-                       % (enlace(ruta_de(fichas, ide)), _esc(ide),
-                          _esc(nombre_de(fichas, ide, idioma)), fichas[ide]['nivel_detalle']))
-    return ('<nav class="partes-nav sistema-nav" aria-label="%s"><div class="eje">'
-            '<span class="eje-nombre">%s</span><ul>%s</ul></div></nav>'
-            % (_esc(T['nav_aria']), _esc(T['estructuras_implicadas']), ''.join(botones)))
+        grupos.setdefault(_region_de(ide, padres), []).append(ide)
+    orden = sorted(grupos, key=lambda r: mapa['orden'].index(r) if r in mapa['orden'] else 99)
+    ejes = []
+    for region in orden:
+        botones = []
+        for ide in grupos[region]:
+            punto = ('<span class="punto" style="background:var(--region-%s)"></span>' % region
+                     if region in mapa['regiones'] else '')
+            botones.append('<li><a href="%s" data-nodo="%s">%s%s <span class="nv">%s</span></a></li>'
+                           % (enlace(ruta_de(fichas, ide)), _esc(ide), punto,
+                              _esc(nombre_de(fichas, ide, idioma)), fichas[ide]['nivel_detalle']))
+        ejes.append('<div class="eje"><span class="eje-nombre">%s</span><ul>%s</ul></div>'
+                    % (_esc(nombre_de(fichas, region, idioma)), ''.join(botones)))
+    n = len(ficha.get('estructuras', []))
+    return ('<details class="partes-nav sistema-nav" id="estructuras"><summary><h2>%s</h2></summary>'
+            '<nav aria-label="%s">%s</nav></details>'
+            % (_esc(_t(T, 'estructuras_implicadas_n', n=n)), _esc(T['nav_aria']), ''.join(ejes)))
 
 
-def _esquema_svg(ficha, vista, fichas, enlace, T, idioma):
-    """Diagrama del circuito, generado desde `esquema`. Un nodo con ficha es un enlace."""
+def _esquema_svg(ficha, vista, fichas, padres, mapa, enlace, T, idioma):
+    """Diagrama del circuito, generado desde `esquema`. Un nodo con ficha es un enlace,
+    coloreado con la región a la que pertenece, para que el recorrido se lea sin texto."""
     esq = ficha['esquema']
+    regiones_vistas = []
     nombres = vista.get('_nodos', {})
     ANCHO, LINEA, RELLENO, SEP_Y, SEP_X, MARGEN = 160, 15, 11, 18, 132, 16
     columnas = esq.get('columnas', [])
@@ -809,16 +823,24 @@ def _esquema_svg(ficha, vista, fichas, enlace, T, idioma):
                 '<text x="%d" y="%.1f" text-anchor="middle">%s</text>'
                 % (x, y, ANCHO, h, x + ANCHO / 2, y + RELLENO + LINEA - 4, texto))
         if con_ficha:
-            out.append('<g class="%s" data-nodo="%s"><a href="%s"><title>%s</title>%s</a></g>'
-                       % (clase, _esc(idn), enlace(ruta_de(fichas, idn)),
+            region = _region_de(idn, padres) if fichas[idn]['tipo'] == 'estructura' else None
+            estilo = ''
+            if region in mapa['regiones']:
+                estilo = ' style="--rc: var(--region-%s); --rs: var(--region-%s-suave)"' % (region, region)
+                if region not in regiones_vistas:
+                    regiones_vistas.append(region)
+            out.append('<g class="%s" data-nodo="%s"%s><a href="%s"><title>%s</title>%s</a></g>'
+                       % (clase, _esc(idn), estilo, enlace(ruta_de(fichas, idn)),
                           _esc(_t(T, 'esquema_abrir', nombre=nombre_de(fichas, idn, idioma))), caja))
         else:
             out.append('<g class="%s" data-nodo="%s"><title>%s</title>%s</g>'
                        % (clase, _esc(idn), _esc(T['esquema_sin_ficha']), caja))
     out.append('</svg>')
-    leyenda = ('<p class="esquema-leyenda"><span class="item"><span class="muestra con-ficha"></span>%s</span>'
-               '<span class="item"><span class="muestra sin-ficha"></span>%s</span></p>'
-               % (_esc(T['esquema_leyenda_con']), _esc(T['esquema_leyenda_sin'])))
+    items = ['<span class="item"><span class="muestra region" style="--rc: var(--region-%s); --rs: var(--region-%s-suave)"></span>%s</span>'
+             % (r, r, _esc(nombre_de(fichas, r, idioma))) for r in sorted(regiones_vistas, key=mapa['orden'].index)]
+    items.append('<span class="item"><span class="muestra con-ficha"></span>%s</span>' % _esc(T['esquema_leyenda_con']))
+    items.append('<span class="item"><span class="muestra sin-ficha"></span>%s</span>' % _esc(T['esquema_leyenda_sin']))
+    leyenda = '<p class="esquema-leyenda">%s</p>' % ''.join(items)
     return '<div class="esquema" id="esquema">%s%s</div>' % (''.join(out), leyenda)
 
 
@@ -1145,10 +1167,10 @@ def escribir(fichas, activos, paginas, idiomas):
                 # El nombre va antes del esquema: quien llega debe saber qué circuito mira
                 # antes de verlo dibujado.
                 cuerpo.append('<div class="cabecera-sistema">%s</div>' % cabecera)
-                cuerpo.append(_esquema_svg(ficha, vista, fichas, enlace, T, idioma))
+                cuerpo.append(_esquema_svg(ficha, vista, fichas, padres, mapa, enlace, T, idioma))
             cuerpo.append('<section class="panel">')
             if es_sistema:
-                cuerpo.append(_sistema_nav(ficha, fichas, enlace, T, idioma))
+                cuerpo.append(_sistema_nav(ficha, fichas, padres, mapa, enlace, T, idioma))
             else:
                 cuerpo.append(cabecera)
                 cuerpo.append(_navegacion(ficha, fichas, padres, enlace,

@@ -374,14 +374,14 @@ header.sitio .acciones { display: flex; align-items: center; gap: 14px; flex-wra
 .cabecera-sistema .cabecera { margin-bottom: 14px; }
 .esquema svg.circuito { display: block; width: 100%; min-width: 960px; height: auto; font-family: var(--sans); }
 .esquema .columna { font-size: 10.5px; text-transform: uppercase; letter-spacing: .07em; fill: var(--tinta-3); font-weight: 600; }
-.esquema .nodo rect { fill: var(--papel); stroke: var(--borde); stroke-width: 1.2; transition: stroke .15s, fill .15s; }
+.esquema .nodo rect { fill: var(--papel); stroke: var(--borde); stroke-width: 1.2; transition: stroke .15s, fill .15s, filter .15s; }
 .esquema .nodo text { font-size: 12.5px; fill: var(--tinta); pointer-events: none; }
-.esquema .nodo.con-ficha rect { stroke: var(--acento); }
+.esquema .nodo.con-ficha rect { stroke: var(--rc, var(--acento)); fill: var(--rs, var(--papel)); }
 .esquema .nodo.con-ficha text { font-weight: 600; }
 .esquema .nodo.sin-ficha rect { stroke-dasharray: 4 3; }
 .esquema .nodo.sin-ficha text { fill: var(--tinta-2); }
 .esquema .nodo a { cursor: pointer; outline: none; }
-.esquema .nodo a:hover rect, .esquema .nodo a:focus rect, .esquema .nodo.activo rect { fill: var(--acento-suave); stroke-width: 2; }
+.esquema .nodo a:hover rect, .esquema .nodo a:focus rect, .esquema .nodo.activo rect { stroke-width: 2.2; filter: brightness(.96) saturate(1.2); }
 .esquema .flecha path { fill: none; stroke: var(--tinta-3); stroke-width: 1.4; transition: opacity .15s, stroke .15s; }
 .esquema .flecha text { font-size: 10.5px; fill: var(--tinta-2); paint-order: stroke; stroke: var(--papel-2); stroke-width: 3px; stroke-linejoin: round; }
 .esquema marker path { fill: var(--tinta-3); }
@@ -393,6 +393,8 @@ header.sitio .acciones { display: flex; align-items: center; gap: 14px; flex-wra
 .esquema-leyenda .item { white-space: nowrap; }
 .esquema-leyenda .muestra { display: inline-block; width: 14px; height: 10px; border-radius: 3px; border: 1.5px solid var(--acento); vertical-align: middle; margin-right: 5px; background: var(--papel); }
 .esquema-leyenda .muestra.sin-ficha { border-color: var(--tinta-3); border-style: dashed; }
+.esquema-leyenda .muestra.region { border-color: var(--rc); background: var(--rs); }
+.esquema-leyenda .item + .item.item { margin-left: 0; }
 .sistemas-de { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px; }
 .sistemas-de li a {
   font-size: 13px; text-decoration: none; color: var(--tinta-2);
@@ -400,3 +402,15 @@ header.sitio .acciones { display: flex; align-items: center; gap: 14px; flex-wra
 }
 .sistemas-de li a:hover { border-color: var(--acento); color: var(--tinta); }
 .sistemas-de .nv { font-size: 10px; color: var(--tinta-3); letter-spacing: .04em; }
+
+/* ---------------------------------------------------------- sistema: lista de estructuras plegada */
+
+details.sistema-nav { margin-top: 10px; }
+details.sistema-nav summary { cursor: pointer; list-style: none; display: flex; align-items: center; gap: 8px; }
+details.sistema-nav summary::-webkit-details-marker { display: none; }
+details.sistema-nav summary::before { content: ""; width: 7px; height: 7px; border-right: 1.5px solid var(--tinta-3); border-bottom: 1.5px solid var(--tinta-3); transform: rotate(-45deg); transition: transform .15s; margin-top: -2px; }
+details.sistema-nav[open] summary::before { transform: rotate(45deg); }
+details.sistema-nav summary h2 { margin: 0; }
+details.sistema-nav summary:hover h2 { color: var(--acento); }
+details.sistema-nav nav { margin-top: 10px; }
+.sistema-nav .punto { border-radius: 50%; }

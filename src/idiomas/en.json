@@ -109,5 +109,6 @@
   "vistazo_conexiones": "Main connections",
   "vistazo_neurotransmisores": "Neurotransmitters",
   "fuentes_n": "Sources ({n})",
-  "mapa_localizador_pie": "Where it is · schematic sagittal section"
+  "mapa_localizador_pie": "Where it is · schematic sagittal section",
+  "estructuras_implicadas_n": "Structures involved ({n})"
 }
