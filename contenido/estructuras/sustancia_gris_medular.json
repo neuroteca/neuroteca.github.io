@@ -1,0 +1,53 @@
+{
+  "id": "sustancia_gris_medular",
+  "tipo": "estructura",
+  "nombre": "Sustancia gris medular",
+  "termino_latin": "Substantia grisea medullae spinalis",
+  "sinonimos": [
+    "astas de la médula"
+  ],
+  "nivel_detalle": "N2",
+  "anatomia": [
+    "Ocupa el centro de la [[medula_espinal]] con forma de H o de mariposa; las dos mitades se unen por las comisuras gris y blanca alrededor del conducto central, revestido de células ependimarias.[^1][^2][^3] Cada mitad tiene tres astas o columnas.[^2][^1] El asta posterior recibe las fibras sensitivas; en su punta están la zona marginal y la sustancia gelatinosa, que relevan dolor, temperatura y tacto ligero.[^1][^3] El asta anterior contiene las [[motoneurona|motoneuronas]] del músculo esquelético, grandes neuronas multipolares cuyo axón puede medir un metro.[^2][^1] El asta lateral, solo en los segmentos torácicos, lumbares altos y sacros, aloja las neuronas del [[sistema_nervioso_autonomo]].[^2][^1]",
+    "Rexed la dividió en diez láminas según el tipo de células: las I a IV procesan la sensibilidad exteroceptiva, las V y VI la [[propiocepcion]], la VII es la zona intermedia con los núcleos viscerales, las VIII y IX contienen las motoneuronas y la X rodea el conducto central.[^1][^3]"
+  ],
+  "fisiologia": [
+    "Es donde la información sensitiva hace su primera [[sinapsis]] y donde se cierran los [[reflejo|reflejos]]: en el reflejo de estiramiento, la fibra del [[huso_muscular]] entra por la raíz posterior y hace sinapsis directamente sobre la motoneurona del asta anterior que contrae el músculo.[^4] Las motoneuronas de un mismo músculo se agrupan en columnas, los núcleos motores.[^5]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Anatomy of the Spinal Cord. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 2, capítulo 3",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§3.1, 3.3, 3.4, 3.6 a 3.9, 3.11 y 3.12",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s2/chapter03.html"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.2 The Central Nervous System",
+      "paginas": "apartado The Spinal Cord; figura 13.14",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system"
+    },
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "términos 6063 a 6084 (sustancia gris: astas y láminas)",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §16.4 The Sensory and Motor Exams",
+      "paginas": "apartados Sensory Modalities and Location, Reflexes y Upper and Lower Motor Neurons",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/16-4-the-sensory-and-motor-exams"
+    },
+    {
+      "obra": "Knierim J. Motor Units and Muscle Receptors. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 3, capítulo 1",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§1.6, 1.8 y 1.12",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter01.html"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}

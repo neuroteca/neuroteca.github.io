@@ -1,0 +1,38 @@
+{
+  "id": "ganglio",
+  "tipo": "fundacional",
+  "nombre": "Ganglio",
+  "termino_latin": "Ganglion",
+  "sinonimos": [
+    "ganglio nervioso"
+  ],
+  "nivel_detalle": "N1",
+  "definicion": "Grupo de cuerpos neuronales situado fuera del sistema nervioso central.",
+  "explicacion": [
+    "Es el equivalente periférico de un [[nucleo]].[^1] El ganglio de la raíz posterior de cada [[nervio_espinal]] contiene las neuronas sensitivas de primer orden, que llevan a la [[medula_espinal]] la información de la piel, los músculos y las articulaciones.[^2][^1] Los ganglios autónomos son la estación intermedia entre las dos neuronas en cadena del [[sistema_nervioso_autonomo]].[^3]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.4 The Peripheral Nervous System",
+      "paginas": "apartados Ganglia y Spinal Nerves",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-4-the-peripheral-nervous-system"
+    },
+    {
+      "obra": "Anatomy of the Spinal Cord. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 2, capítulo 3",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§3.1, 3.3, 3.4, 3.6 a 3.9, 3.11 y 3.12",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s2/chapter03.html"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §15.1 Divisions of the Autonomic Nervous System",
+      "paginas": "apartados Sympathetic Division y Parasympathetic Division",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/15-1-divisions-of-the-autonomic-nervous-system"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}
