@@ -7,12 +7,12 @@
   "nivel_detalle": "N2",
   "funcion": [
     "El [[cerebelo]] no genera las órdenes de movimiento: recibe una copia, la compara con lo que el cuerpo informa y corrige sobre la marcha.[^1][^3] El resultado es un movimiento preciso, suave y a tiempo; cuando el sistema falla aparecen la ataxia y la dismetría.[^4]",
-    "Este sistema reúne las estructuras por las que pasa esa comparación: de dónde vienen las entradas, qué hace con ellas la corteza cerebelosa, por dónde sale la respuesta y a quién llega.[^1][^2] El esquema y el texto siguiente cuentan el mismo recorrido."
+    "Este sistema reúne las estructuras por las que pasa esa comparación: de dónde vienen las entradas, qué hace con ellas la [[corteza_cerebelosa]], por dónde sale la respuesta y a quién llega.[^1][^2] El esquema y el texto siguiente cuentan el mismo recorrido."
   ],
   "circuito": [
     "**Entradas.** Dos tipos de señal llegan al cerebelo. Una copia de la orden motora viene de la corteza cerebral: por los [[nucleos_pontinos|núcleos del puente]] y el [[pedunculo]] medio hacia los [[hemisferios_cerebelosos|hemisferios]], y por la [[oliva_inferior]], en el [[bulbo_raquideo|bulbo]].[^2][^3] La información de retorno entra por el pedúnculo inferior: la [[propiocepcion]] del tronco y las extremidades por el [[tracto]] espinocerebeloso, y el equilibrio desde el oído interno.[^2][^1]",
-    "**Corteza cerebelosa.** Las fibras musgosas, que vienen del [[puente]], la médula, los [[nucleos_vestibulares]] y la [[formacion_reticular]], excitan a las células granulares; las fibras paralelas de estas excitan a las células de Purkinje.[^1] Las fibras trepadoras, que nacen solo en la oliva inferior, excitan a las células de Purkinje directamente.[^1] Musgosas y trepadoras mandan además una proyección excitadora a los [[nucleo|núcleos]] cerebelosos.[^1]",
-    "**Salida de la corteza.** La célula de Purkinje es la única salida de la corteza cerebelosa y es inhibidora: su descarga tónica frena a los núcleos cerebelosos, que son a su vez la única salida del cerebelo.[^1] Cada región frena a su núcleo: el [[vermis]] al núcleo del fastigio, la zona intermedia a los núcleos interpuestos, los hemisferios laterales al núcleo dentado, y el [[lobulo_floculonodular]] a los núcleos vestibulares, que hacen para él de núcleo cerebeloso.[^1]",
+    "**Corteza cerebelosa.** Las [[fibra_musgosa|fibras musgosas]], que vienen del [[puente]], la médula, los [[nucleos_vestibulares]] y la [[formacion_reticular]], excitan a las células granulares; las fibras paralelas de estas excitan a las [[celula_de_purkinje|células de Purkinje]].[^1] Las [[fibra_trepadora|fibras trepadoras]], que nacen solo en la oliva inferior, excitan a las células de Purkinje directamente.[^1] Musgosas y trepadoras mandan además una proyección excitadora a los [[nucleo|núcleos]] cerebelosos.[^1]",
+    "**Salida de la corteza.** La célula de Purkinje es la única salida de la corteza cerebelosa y es inhibidora: su descarga tónica frena a los núcleos cerebelosos, que son a su vez la única salida del cerebelo.[^1] Cada región frena a su núcleo: el [[vermis]] al [[nucleo_fastigio]], la zona intermedia a los [[nucleos_interpuestos]], los hemisferios laterales al [[nucleo_dentado]], y el [[lobulo_floculonodular]] a los núcleos vestibulares, que hacen para él de núcleo cerebeloso.[^1]",
     "**Destino.** Por el pedúnculo superior, el núcleo dentado proyecta al tálamo y al [[nucleo_rojo]] del lado contrario, y los núcleos interpuestos al núcleo rojo.[^1] El tálamo devuelve la señal a la corteza motora, que ajusta la orden siguiente; el núcleo rojo baja a la médula por el tracto rubroespinal.[^2][^1] El núcleo del fastigio y los núcleos vestibulares actúan sobre la médula por los tractos vestibuloespinal y reticuloespinal, que gobiernan la postura y el tronco.[^1]",
     "**Predicción.** Más que corregir después, el cerebelo se adelanta: contiene modelos internos que emulan el movimiento y se ajustan con la práctica, por ensayo y error.[^4]"
   ],
@@ -26,7 +26,12 @@
     "nucleos_pontinos",
     "oliva_inferior",
     "nucleos_vestibulares",
-    "nucleo_rojo"
+    "nucleo_rojo",
+    "corteza_cerebelosa",
+    "nucleo_fastigio",
+    "nucleos_interpuestos",
+    "nucleo_dentado",
+    "pedunculos_cerebelosos"
   ],
   "esquema": {
     "columnas": [
