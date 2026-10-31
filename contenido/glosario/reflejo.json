@@ -1,0 +1,33 @@
+{
+  "id": "reflejo",
+  "tipo": "fundacional",
+  "nombre": "Reflejo",
+  "termino_latin": "",
+  "sinonimos": [
+    "arco reflejo"
+  ],
+  "nivel_detalle": "N1",
+  "definicion": "Respuesta motora automática que una entrada sensitiva genera directamente, sin decisión consciente.",
+  "explicacion": [
+    "Combina los componentes sensitivo y motor de la [[medula_espinal]]: la señal entra por la raíz posterior y sale por la [[motoneurona]] sin necesidad de pasar por el encéfalo.[^1] El ejemplo clásico es el reflejo de estiramiento, como el rotuliano: el golpe en el tendón estira el músculo, el [[huso_muscular]] envía la señal a la médula y la fibra sensitiva hace [[sinapsis]] directamente sobre la motoneurona del asta anterior, que contrae el músculo.[^1]",
+    "Otros reflejos espinales incluyen una interneurona, como la inhibición autógena, y pueden iniciarse desde receptores que no son propioceptivos.[^2] Su exploración informa del estado de la médula y de las vías que la controlan: los reflejos se exageran cuando falla la motoneurona superior y se pierden cuando falla la inferior.[^1]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §16.4 The Sensory and Motor Exams",
+      "paginas": "apartados Sensory Modalities and Location, Reflexes y Upper and Lower Motor Neurons",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/16-4-the-sensory-and-motor-exams"
+    },
+    {
+      "obra": "Knierim J. Spinal Reflexes and Descending Motor Pathways. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 3, capítulo 2",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§2.1 y 2.2",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter02.html"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}

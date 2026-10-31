@@ -1,0 +1,54 @@
+{
+  "id": "sustancia_blanca_medular",
+  "tipo": "estructura",
+  "nombre": "Sustancia blanca medular",
+  "termino_latin": "Substantia alba medullae spinalis",
+  "sinonimos": [
+    "cordones de la médula",
+    "funículos"
+  ],
+  "nivel_detalle": "N2",
+  "anatomia": [
+    "Rodea la [[sustancia_gris_medular|sustancia gris]] y está hecha de axones mielínicos y amielínicos agrupados en tres cordones o funículos a cada lado: posterior, lateral y anterior.[^1][^2][^3] Los tres llevan [[tracto|tractos]] ascendentes; los descendentes solo van por el lateral y el anterior.[^1]"
+  ],
+  "fisiologia": [
+    "El cordón posterior lleva los fascículos grácil y cuneiforme, que suben sin cruzar el tacto discriminativo, la vibración y la [[propiocepcion]] consciente hasta el bulbo, donde la vía cruza como lemnisco medial.[^1][^4] El cordón lateral lleva el tracto espinotalámico lateral, con el dolor y la temperatura, cuyas fibras ya cruzaron en la comisura blanca anterior, y los tractos espinocerebelosos, que llevan la propiocepción inconsciente al [[cerebelo]].[^1][^4] Por él baja también el tracto corticoespinal lateral, con el 90 % de las fibras que cruzaron en la [[decusacion]] piramidal, y el rubroespinal.[^1][^5]",
+    "El cordón anterior lleva el espinotalámico anterior y las vías que suben a la [[formacion_reticular]] y la [[oliva_inferior]], y por él bajan los tractos reticuloespinal, vestibuloespinal y corticoespinal anterior, que gobiernan la postura y el equilibrio.[^1][^5]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Anatomy of the Spinal Cord. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 2, capítulo 3",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§3.1, 3.3, 3.4, 3.6 a 3.9, 3.11 y 3.12",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s2/chapter03.html"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.2 The Central Nervous System",
+      "paginas": "apartado The Spinal Cord; figura 13.14",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system"
+    },
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "términos 6085 a 6120 (sustancia blanca: funículos y tractos)",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
+    },
+    {
+      "obra": "Somatosensory Pathways. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 2, capítulo 4",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§4.5, 4.6 y 4.8",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s2/chapter04.html"
+    },
+    {
+      "obra": "Knierim J. Spinal Reflexes and Descending Motor Pathways. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 3, capítulo 2",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§2.1 y 2.2",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter02.html"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}

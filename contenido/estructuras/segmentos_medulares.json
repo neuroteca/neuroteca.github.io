@@ -1,0 +1,48 @@
+{
+  "id": "segmentos_medulares",
+  "tipo": "estructura",
+  "nombre": "Segmentos medulares",
+  "termino_latin": "Segmenta medullae spinalis",
+  "sinonimos": [
+    "niveles medulares"
+  ],
+  "nivel_detalle": "N2",
+  "anatomia": [
+    "Cada segmento es el trozo de [[medula_espinal]] del que salen un par de raíces posteriores y un par de anteriores, que se unen en un [[nervio_espinal]].[^1] Hay 31: 8 cervicales, 12 torácicos, 5 lumbares, 5 sacros y 1 coccígeo.[^1][^2][^3]",
+    "Como la médula deja de crecer antes que la columna, los segmentos no coinciden con las vértebras del mismo nombre: en la región torácica y lumbar alta quedan unos tres niveles por encima, la médula sacra está a la altura de las vértebras lumbares altas y las raíces lumbosacras bajan por el conducto hasta su agujero formando la cola de caballo.[^1][^4] Los nervios C1 a C7 salen por encima de su vértebra, C8 por debajo de la séptima cervical y los demás por debajo de la suya.[^1]",
+    "Los ensanchamientos cervical (C3 a T1) y lumbosacro (L1 a S2) corresponden a los segmentos que inervan los brazos y las piernas, con más neuronas.[^1][^4][^3]"
+  ],
+  "fisiologia": [
+    "Cada segmento inerva un [[dermatoma]], y los nervios de varios segmentos se reordenan en plexos: cervical (C1 a C5), braquial (C4 a T1), lumbar (L1 a L5) y sacro (L4 a S4).[^1][^2] El asta lateral, con las neuronas del [[sistema_nervioso_autonomo]], solo existe en los segmentos torácicos, lumbares altos y sacros.[^4][^1]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Anatomy of the Spinal Cord. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 2, capítulo 3",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§3.1, 3.3, 3.4, 3.6 a 3.9, 3.11 y 3.12",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s2/chapter03.html"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.4 The Peripheral Nervous System",
+      "paginas": "apartados Ganglia y Spinal Nerves",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-4-the-peripheral-nervous-system"
+    },
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "términos 6050 a 6062 (ensanchamientos, cono medular y partes)",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.2 The Central Nervous System",
+      "paginas": "apartado The Spinal Cord; figura 13.14",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}
