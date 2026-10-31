@@ -1,0 +1,40 @@
+{
+  "id": "subtalamo",
+  "tipo": "estructura",
+  "nombre": "Subtálamo",
+  "termino_latin": "Subthalamus",
+  "sinonimos": [
+    "tálamo ventral"
+  ],
+  "nivel_detalle": "N2",
+  "anatomia": [
+    "Región pequeña del [[diencefalo]] situada, como indica su nombre, justo debajo del [[talamo]].[^1][^2][^3] Contiene el núcleo subtalámico, que forma parte de los ganglios basales.[^1][^2]"
+  ],
+  "fisiologia": [
+    "El núcleo subtalámico recibe una conexión inhibidora, gabaérgica, del segmento externo del globo pálido, y envía conexiones excitadoras, glutamatérgicas, a los dos segmentos del globo pálido y a la pars reticulata de la [[sustancia_negra]]: es la única vía puramente excitadora de los circuitos internos de los ganglios basales.[^2] Es así un eslabón de la vía indirecta de esos circuitos.[^2]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.2 The Central Nervous System",
+      "paginas": "apartados The Diencephalon, Thalamus e Hypothalamus; figura 13.11",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system"
+    },
+    {
+      "obra": "Knierim J. Basal Ganglia. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 3, capítulo 4",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§4.2, 4.4 y 4.5",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter04.html"
+    },
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "términos 5708 a 5713 (subtálamo)",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}

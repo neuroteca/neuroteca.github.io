@@ -1,0 +1,30 @@
+{
+  "id": "ritmo_circadiano",
+  "tipo": "fundacional",
+  "nombre": "Ritmo circadiano",
+  "termino_latin": "",
+  "sinonimos": [],
+  "nivel_detalle": "N1",
+  "definicion": "Variación de una función del organismo que se repite cada día, ajustada a la luz y la oscuridad.",
+  "explicacion": [
+    "El núcleo supraquiasmático del [[hipotalamo]] se considera el reloj maestro del cuerpo: coordina la temporización diaria y anual.[^1] Recibe la señal de la luz desde la retina y, a través de él, la luz frena la producción de melatonina en la glándula pineal del [[epitalamo]]; al caer la luz, la melatonina sube.[^2] Esas fluctuaciones de luz y oscuridad afectan al sueño y la vigilia, entre otras funciones.[^2]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Hypothalamus: Structural Organization. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 4, capítulo 1",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§1.1 a 1.4",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s4/chapter01.html"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §17.7 The Pineal Gland",
+      "paginas": "",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/17-7-the-pineal-gland"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}

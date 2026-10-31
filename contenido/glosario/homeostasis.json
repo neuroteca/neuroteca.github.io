@@ -1,0 +1,30 @@
+{
+  "id": "homeostasis",
+  "tipo": "fundacional",
+  "nombre": "Homeostasis",
+  "termino_latin": "",
+  "sinonimos": [],
+  "nivel_detalle": "N1",
+  "definicion": "Mantenimiento de un estado estable y constante del medio interno del organismo.",
+  "explicacion": [
+    "El [[hipotalamo]] es la región clave para la homeostasis porque reúne la mayor concentración de núcleos en los que están codificados los puntos de ajuste: temperatura, ingesta, balance de líquidos.[^1] Lo consigue integrando tres sistemas: el [[sistema_nervioso_autonomo]], el neuroendocrino y el límbico.[^1] Los centros del [[bulbo_raquideo]] que ajustan la circulación a partir de los barorreceptores son otro ejemplo de [[reflejo]] que mantiene la homeostasis.[^2]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Hypothalamus: Structural Organization. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 4, capítulo 1",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§1.1 a 1.4",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s4/chapter01.html"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §20.4 Homeostatic Regulation of the Vascular System",
+      "paginas": "apartado Baroreceptor Reflexes",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/20-4-homeostatic-regulation-of-the-vascular-system"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}
