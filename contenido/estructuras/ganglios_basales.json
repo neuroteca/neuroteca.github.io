@@ -1,0 +1,62 @@
+{
+  "id": "ganglios_basales",
+  "tipo": "estructura",
+  "nombre": "Ganglios basales",
+  "termino_latin": "Nuclei basales",
+  "sinonimos": [
+    "núcleos basales",
+    "cuerpo estriado"
+  ],
+  "nivel_detalle": "N2",
+  "anatomia": [
+    "Conjunto de [[nucleo|núcleos]] situados en lo profundo del [[telencefalo]], bajo la [[corteza_cerebral]].[^1] En el telencéfalo son el [[nucleo_caudado|núcleo caudado]], el [[putamen]], el núcleo accumbens y el [[globo_palido]], que juntos forman el cuerpo estriado; funcionan con ellos el núcleo subtalámico, del [[subtalamo]], y la [[sustancia_negra]], del [[mesencefalo]].[^2][^4]",
+    "Caudado y putamen forman el estriado: el mismo tejido, separado por el brazo anterior de la [[capsula_interna]] y unido por puentes de células; putamen y globo pálido forman el núcleo lenticular.[^2][^1][^4] El globo pálido tiene un segmento externo y otro interno, y la sustancia negra una pars compacta, dopaminérgica, y una pars reticulata.[^1][^2]"
+  ],
+  "fisiologia": [
+    "No inician el movimiento voluntario: lo permiten y lo regulan actuando sobre los programas motores guardados en la corteza, y comparan lo que la corteza procesa con el estado general de actividad del sistema nervioso para influir en si un movimiento ocurre.[^2][^1]",
+    "Toda su entrada llega de la corteza al estriado.[^1] La salida nace en el segmento interno del globo pálido y en la pars reticulata de la sustancia negra, ambas gabaérgicas, que inhiben de forma tónica a los núcleos ventral anterior y ventral lateral del [[talamo]].[^2]",
+    "Dos vías internas compiten.[^1] En la directa, el estriado inhibe al pálido interno, el tálamo queda desinhibido y excita a la corteza: un «doble negativo».[^2][^1] En la indirecta, el estriado inhibe al pálido externo, este deja de frenar al núcleo subtalámico, que excita al pálido interno, y el tálamo queda más inhibido.[^2][^1] La [[dopamina]] de la pars compacta excita la vía directa por receptores D1 e inhibe la indirecta por receptores D2.[^2][^1]",
+    "Otros bucles iguales pasan por la corteza prefrontal y la límbica y seleccionan programas cognitivos y emocionales; el estriado sostiene la [[memoria]] de destrezas y hábitos.[^2][^3] Su fallo produce enfermedades del movimiento: la pérdida de las neuronas dopaminérgicas causa la enfermedad de Parkinson, con lentitud, rigidez y temblor de reposo; la pérdida de las neuronas estriatales de la vía indirecta, la corea de Huntington.[^2]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.2 The Central Nervous System",
+      "paginas": "apartado The Cerebrum, subapartado Subcortical structures (Basal Nuclei); figuras 13.9 y 13.10",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system"
+    },
+    {
+      "obra": "Knierim J. Basal Ganglia. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 3, capítulo 4",
+      "edicion": "revisado el 20 de octubre de 2020",
+      "paginas": "§4.2 a 4.7",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter04.html"
+    },
+    {
+      "obra": "Byrne JH. Learning and Memory. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 4, capítulo 7",
+      "edicion": "revisado el 20 de octubre de 2020",
+      "paginas": "§7.1 y 7.3, figura 7.7",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s4/chapter07.html"
+    },
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "términos 5536 (pars basalis telencephali), 5558 (nucleus accumbens), 5559 (corpus striatum; sinónimo nuclei basales telencephali), 5560 (striatum dorsale), 5561 (nucleus caudatus), 5566 (putamen), 5567 (nucleus lentiformis), 5569 a 5572 (globus pallidus y sus segmentos)",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [
+    {
+      "eje": "partes",
+      "nombre_visible": "Por partes",
+      "principal": true,
+      "partes": [
+        "nucleo_caudado",
+        "putamen",
+        "globo_palido"
+      ]
+    }
+  ],
+  "activos": []
+}

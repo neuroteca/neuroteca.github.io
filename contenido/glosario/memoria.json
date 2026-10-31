@@ -1,0 +1,31 @@
+{
+  "id": "memoria",
+  "tipo": "fundacional",
+  "nombre": "Memoria",
+  "termino_latin": "",
+  "sinonimos": [],
+  "nivel_detalle": "N1",
+  "definicion": "Capacidad de guardar lo aprendido y recuperarlo después.",
+  "explicacion": [
+    "Se distingue la memoria declarativa o explícita, con componente consciente, de hechos y acontecimientos (semántica y episódica), de la no declarativa o implícita: destrezas y hábitos, cebado, condicionamiento y aprendizaje no asociativo.[^1] No se guarda en un solo sitio: los hechos y acontecimientos dependen del lóbulo temporal medial y del [[hipocampo]]; las destrezas y hábitos, del estriado de los [[ganglios_basales]]; el cebado, de la neocorteza; las memorias emocionales, de la [[amigdala|amígdala]]; el condicionamiento motor simple, del [[cerebelo]].[^1]",
+    "La consolidación transforma una memoria lábil en una duradera y la traslada a otra región distinta de donde se codificó; la memoria a largo plazo implica síntesis de proteínas, regulación de genes y sinapsis nuevas.[^1] La memoria de trabajo se liga a la corteza prefrontal.[^2]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Byrne JH. Learning and Memory. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 4, capítulo 7",
+      "edicion": "revisado el 20 de octubre de 2020",
+      "paginas": "§7.1 y 7.3, figura 7.7",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s4/chapter07.html"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §16.2 The Mental Status Exam",
+      "paginas": "apartados Orientation and Memory y Language and Speech",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/16-2-the-mental-status-exam"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}

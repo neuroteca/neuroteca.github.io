@@ -12,10 +12,10 @@
     "Es la porción mayor del encéfalo humano y su nivel más alto de organización neuronal.[^1][^2] Lo forman dos hemisferios cerebrales, separados en parte por la fisura longitudinal, que aloja la hoz del cerebro; otra fisura, la transversa, los separa del [[cerebelo]].[^3][^2][^7]",
     "En el embrión nace del prosencéfalo, que se divide en telencéfalo y [[diencefalo]]: el telencéfalo se convierte en el cerebro y su cavidad, en los [[ventriculo|ventrículos]] laterales.[^1] La TA2 agrupa telencéfalo y diencéfalo bajo el nombre latino de «cerebro» (cerebrum); en estas fichas «cerebro» se usa, como en el habla común, por telencéfalo.[^7]",
     "Su superficie es la [[corteza_cerebral]], una capa continua de [[sustancia_gris]] plegada en [[circunvolucion|circunvoluciones]] y [[surco|surcos]]; debajo hay [[sustancia_blanca]] de fibras mielínicas y, dentro de ella, núcleos grises.[^3][^2] Cada hemisferio se divide en cuatro lóbulos, [[lobulo_frontal|frontal]], [[lobulo_parietal|parietal]], [[lobulo_temporal|temporal]] y [[lobulo_occipital|occipital]], más la [[insula|ínsula]], escondida en el fondo del surco lateral, y el llamado lóbulo límbico, de la cara medial, que no son lóbulos verdaderos.[^3][^2] El [[cuerpo_calloso]], un gran haz de sustancia blanca, comunica ambos hemisferios.[^3][^2]",
-    "Entre las estructuras subcorticales de cada hemisferio están los ganglios basales, la amígdala y la formación del hipocampo.[^2]"
+    "Entre las estructuras subcorticales de cada hemisferio están los [[ganglios_basales|ganglios basales]], la [[amigdala|amígdala]] y la formación del [[hipocampo]].[^2]"
   ],
   "fisiologia": [
-    "La corteza cerebral se encarga de las funciones superiores del sistema nervioso: la memoria, la emoción y la conciencia son resultado de la función cerebral.[^3] Cada hemisferio controla el lado opuesto del cuerpo, y ambos se comunican por el cuerpo calloso.[^4]",
+    "La corteza cerebral se encarga de las funciones superiores del sistema nervioso: la [[memoria]], la emoción y la conciencia son resultado de la función cerebral.[^3] Cada hemisferio controla el lado opuesto del cuerpo, y ambos se comunican por el cuerpo calloso.[^4]",
     "A grandes rasgos, el lóbulo frontal mueve y planifica, el parietal siente el cuerpo, el temporal oye y guarda la memoria a largo plazo, y el occipital ve.[^3] Lo que queda entre esas cortezas primarias, la [[corteza_de_asociacion]], integra la información y sostiene el lenguaje, la atención y el razonamiento.[^4][^6]",
     "Toda la información sensitiva que llega a la corteza pasa antes por el [[talamo]], salvo el olfato, que se conecta directamente con el cerebro.[^3] La salida motora baja desde la corteza por el tracto corticoespinal hasta la [[medula_espinal]], y los ganglios basales y el cerebelo ajustan esa orden.[^5]"
   ],
@@ -83,7 +83,17 @@
       "nombre_visible": "Por dentro",
       "partes": [
         "corteza_cerebral",
-        "cuerpo_calloso"
+        "cuerpo_calloso",
+        "capsula_interna"
+      ]
+    },
+    {
+      "eje": "nucleos",
+      "nombre_visible": "Por núcleos",
+      "partes": [
+        "ganglios_basales",
+        "hipocampo",
+        "amigdala"
       ]
     }
   ],

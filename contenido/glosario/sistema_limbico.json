@@ -1,0 +1,51 @@
+{
+  "id": "sistema_limbico",
+  "tipo": "fundacional",
+  "nombre": "Sistema límbico",
+  "termino_latin": "",
+  "sinonimos": [
+    "lóbulo límbico"
+  ],
+  "nivel_detalle": "N1",
+  "definicion": "Conjunto de estructuras del borde entre la neocorteza y las estructuras subcorticales, ligadas a la emoción, la memoria y la conducta.",
+  "explicacion": [
+    "«Límbico» viene del latín limbus, borde: se sitúa entre la neocorteza y las estructuras subcorticales.[^1] Comprende la formación del [[hipocampo]], la [[amigdala|amígdala]], los núcleos septales y las cortezas cingulada, entorrinal, perirrinal y parahipocampal; algunos autores añaden partes del [[hipotalamo]], del [[talamo]], de la [[formacion_reticular]] y áreas olfatorias.[^1]",
+    "Su corteza, las circunvoluciones cingulada y parahipocampal de la cara medial del hemisferio, forma el llamado lóbulo límbico, que no es un lóbulo verdadero.[^2][^5] Esa corteza límbica es la parte de la corteza cerebral que pertenece al sistema, implicado en la emoción, la [[memoria]] y la conducta.[^3] El hipotálamo controla el sistema límbico, y la amígdala le envía por él las respuestas autónomas de la emoción.[^3][^4]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Wright A. Limbic System: Hippocampus. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 4, capítulo 5",
+      "edicion": "revisado el 10 de octubre de 2020",
+      "paginas": "§5.1 a 5.7",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s4/chapter05.html"
+    },
+    {
+      "obra": "Overview of the Nervous System. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 2, capítulo 1",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§1.1, 1.2 y 1.6",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s2/chapter01.html"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.2 The Central Nervous System",
+      "paginas": "apartado The Cerebrum, subapartado Subcortical structures (Basal Nuclei); figuras 13.9 y 13.10",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system"
+    },
+    {
+      "obra": "Wright A. Limbic System: Amygdala. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 4, capítulo 6",
+      "edicion": "revisado el 10 de octubre de 2020",
+      "paginas": "§6.1 a 6.6",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s4/chapter06.html"
+    },
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "términos 5507 (lobus limbicus), 5513 (gyrus cinguli) y 5515 (gyrus parahippocampalis)",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}

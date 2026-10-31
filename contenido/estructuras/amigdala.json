@@ -1,0 +1,49 @@
+{
+  "id": "amigdala",
+  "tipo": "estructura",
+  "nombre": "Amígdala",
+  "termino_latin": "Corpus amygdaloideum",
+  "sinonimos": [
+    "complejo amigdalino",
+    "cuerpo amigdalino"
+  ],
+  "nivel_detalle": "N2",
+  "anatomia": [
+    "Complejo de [[nucleo|núcleos]] de la región temporal medial anterior, bajo el uncus, que se apoya en la parte anterior del [[hipocampo]].[^1][^4] Se distinguen los núcleos basolaterales y el núcleo central.[^1]"
+  ],
+  "fisiologia": [
+    "Es el centro integrador de las emociones, la conducta emocional y la motivación.[^1] Recibe de todos los sentidos: el olfato directo del bulbo olfatorio, pues forma parte de la corteza olfatoria; la audición, la visión y la somestesia desde las cortezas temporal y cingulada anterior; y una vía rápida y tosca desde el [[talamo]], importante en el aprendizaje emocional.[^1][^2] Recibe además información visceral del [[hipotalamo]], el área septal, la corteza orbitaria y el núcleo parabraquial.[^1]",
+    "Sale por la vía amigdalófuga ventral hacia las cortezas orbitofrontal, cingulada anterior y piriforme y el estriado ventral, y por la estría terminal hacia el área septal, el hipotálamo y la habénula.[^1] El núcleo central produce los componentes autónomos de la emoción por sus salidas al hipotálamo lateral y al [[tronco_encefalico]].[^1]",
+    "Sostiene el condicionamiento del miedo: un estímulo neutro emparejado con una descarga pasa a provocar inmovilidad, subida de la presión y del pulso y sobresalto; la vía talámica permite responder deprisa y la cortical, discriminar entre estímulos.[^1] Guarda las [[memoria|memorias]] emocionales: los pacientes con lesión amigdalina no se condicionan pero recuerdan el emparejamiento, y los de lesión hipocampal, al revés.[^1][^3] Su estimulación produce miedo o agresión; su destrucción, placidez y aplanamiento afectivo, como en el síndrome de Klüver-Bucy; en la enfermedad de Urbach-Wiethe falla el reconocimiento de las emociones en las caras.[^1]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Wright A. Limbic System: Amygdala. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 4, capítulo 6",
+      "edicion": "revisado el 10 de octubre de 2020",
+      "paginas": "§6.1 a 6.6",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s4/chapter06.html"
+    },
+    {
+      "obra": "Hutchins MO. Chemical Senses: Olfaction and Gustation. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 2, capítulo 9",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§9.3",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s2/chapter09.html"
+    },
+    {
+      "obra": "Byrne JH. Learning and Memory. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 4, capítulo 7",
+      "edicion": "revisado el 20 de octubre de 2020",
+      "paginas": "§7.1 y 7.3, figura 7.7",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s4/chapter07.html"
+    },
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "términos 5549 (corpus amygdaloideum) y 5516 (uncus)",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}

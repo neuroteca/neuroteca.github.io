@@ -1,0 +1,48 @@
+{
+  "id": "hipocampo",
+  "tipo": "estructura",
+  "nombre": "Hipocampo",
+  "termino_latin": "Hippocampus",
+  "sinonimos": [
+    "formación del hipocampo",
+    "asta de Amón"
+  ],
+  "nivel_detalle": "N2",
+  "anatomia": [
+    "Estructura cortical enrollada en la parte medial del [[lobulo_temporal]], medial al asta inferior del [[ventriculo]] lateral.[^1][^2][^4] Su nombre significa «caballito de mar» en griego; también se llama asta de Amón.[^1] La formación del hipocampo reúne la circunvolución dentada, el hipocampo propiamente dicho, con sus campos CA1 y CA3, y el subículo, zona de paso hacia la circunvolución parahipocampal.[^1][^4] A diferencia de la neocorteza de seis capas, es corteza de tres capas, y la circunvolución dentada y el hipocampo forman dos «C» encajadas.[^1]"
+  ],
+  "fisiologia": [
+    "Su entrada principal viene de la corteza entorrinal, por la vía perforante, a las células granulares de la circunvolución dentada; estas envían fibras musgosas a las piramidales de CA3, que proyectan por las colaterales de Schaffer a CA1, y la salida pasa por el subículo al fórnix.[^1] El fórnix lleva fibras a los núcleos septales, el estriado ventral y la corteza cingulada y, tras la comisura anterior, a los cuerpos mamilares del [[hipotalamo]] y a los núcleos anteriores del [[talamo]]; con la corteza cingulada y la entorrinal cierra el circuito de Papez.[^1]",
+    "Es crítico para formar [[memoria|recuerdos]] nuevos de hechos y acontecimientos: el paciente H. M., tras perder ambos hipocampos, no pudo formar memorias nuevas, aunque conservó las antiguas y siguió aprendiendo destrezas.[^1][^3][^2] Consolida la memoria a corto plazo en memoria a largo plazo, que se guarda en otra parte, como la corteza.[^2][^3] La destrucción de los cuerpos mamilares, en el síndrome de Korsakoff, produce la misma dificultad para formar recuerdos.[^1] En él se describió la potenciación a largo plazo, el cambio de fuerza de las sinapsis con la actividad que se propone como mecanismo de almacenamiento.[^1]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Wright A. Limbic System: Hippocampus. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 4, capítulo 5",
+      "edicion": "revisado el 10 de octubre de 2020",
+      "paginas": "§5.1 a 5.7",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s4/chapter05.html"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §16.2 The Mental Status Exam",
+      "paginas": "apartados Orientation and Memory y Language and Speech",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/16-2-the-mental-status-exam"
+    },
+    {
+      "obra": "Byrne JH. Learning and Memory. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 4, capítulo 7",
+      "edicion": "revisado el 20 de octubre de 2020",
+      "paginas": "§7.1 y 7.3, figura 7.7",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s4/chapter07.html"
+    },
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "términos 5518 (hippocampus), 5519 (subiculum), 5520 (cornu ammonis), 5521 (gyrus dentatus), 5633 (fornix) y 5645 (cornu temporale ventriculi lateralis)",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}

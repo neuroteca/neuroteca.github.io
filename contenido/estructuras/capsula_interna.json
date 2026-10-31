@@ -1,0 +1,56 @@
+{
+  "id": "capsula_interna",
+  "tipo": "estructura",
+  "nombre": "Cápsula interna",
+  "termino_latin": "Capsula interna",
+  "sinonimos": [],
+  "nivel_detalle": "N2",
+  "anatomia": [
+    "Lámina gruesa de [[sustancia_blanca]] en la que se reúnen las fibras que bajan de la [[corteza_cerebral]] y las que suben a ella.[^1][^2] Tiene un brazo anterior, que separa la cabeza del [[nucleo_caudado]] del [[putamen]], una rodilla y un brazo posterior, que separa el [[talamo]] del [[globo_palido]] y del putamen.[^2][^3][^6]"
+  ],
+  "fisiologia": [
+    "Por ella pasan los axones de las neuronas de proyección motoras, que siguen por el pedúnculo cerebral del [[mesencefalo]], atraviesan el [[puente]] y forman las pirámides del [[bulbo_raquideo]] como tracto corticoespinal.[^1][^4] La atraviesan en sentido contrario las proyecciones talamocorticales, como la que va del cuerpo geniculado lateral a la corteza visual del [[lobulo_occipital]].[^5]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Knierim J. Spinal Reflexes and Descending Motor Pathways. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 3, capítulo 2",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§2.2, apartado Corticospinal tracts",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter02.html"
+    },
+    {
+      "obra": "Overview of the Nervous System. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 2, capítulo 1",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§1.1, 1.2 y 1.6",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s2/chapter01.html"
+    },
+    {
+      "obra": "Knierim J. Basal Ganglia. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 3, capítulo 4",
+      "edicion": "revisado el 20 de octubre de 2020",
+      "paginas": "§4.2 a 4.7",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter04.html"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §14.3 Motor Responses",
+      "paginas": "apartados Descending Pathways y Extrapyramidal Controls",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/14-3-motor-responses"
+    },
+    {
+      "obra": "Visual Processing: Cortical Pathways. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 2, capítulo 15",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§15.1",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s2/chapter15.html"
+    },
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "términos 5576 a 5580 (capsula interna, crus anterius, genu, crus posterius)",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}
