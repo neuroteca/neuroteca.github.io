@@ -1,34 +1,32 @@
 # Neuroteca
 
-*Atlas vivo del sistema nervioso.* Atlas interactivo de neuroanatomía y neurofisiología, de acceso libre, publicado en
-GitHub Pages y usable sin conocimientos de programación.
+*Atlas vivo del sistema nervioso.* Atlas interactivo de neuroanatomía y neurofisiología, de acceso
+libre, publicado en GitHub Pages (https://neuroteca.github.io) y usable sin conocimientos de
+programación.
 
 ## Si eres un agente, empieza aquí
 
-**Lee `atlas-desarrollo/EMPIEZA-AQUI.md` completo antes de hacer cualquier otra cosa**,
-y sigue su orden de lectura obligatorio. No escribas ni construyas nada hasta haber
-entregado el reporte de orientación y recibido el `sigue` de Max.
+**Lee [`GUIA.md`](GUIA.md) completa.** Es la única guía: dice cómo está hecho el atlas, cómo se
+trabaja (una rama y un pull request por cambio, Max revisa y aprueba) y qué reglas no cambian.
+No hay reporte de orientación ni ritual de cierre; el pull request es el reporte.
 
-Este proyecto está diseñado para que lo opere **cualquier agente sin memoria de sesiones
-anteriores**. Todo lo que necesitas saber está en archivos. Si algo no está escrito, no
-está decidido: se pregunta, no se rellena.
+## Reglas que no se negocian
+
+- **Lo que no está escrito no está decidido.** No asumas ni completes huecos: pregunta en el PR
+  o abre un issue.
+- **Ninguna afirmación neurocientífica sin fuente localizable.** Un agente no es una fuente.
+- **`revisado` lo pone Max**, nunca el agente.
+- **`_referencia/` nunca entra a git.** Contiene datos personales y este repositorio es público.
+- **El contenido vive como datos** en `contenido/`; la aplicación en `src/`; `docs/` se genera,
+  no se edita.
 
 ## Estructura
 
 | Carpeta | Qué contiene |
 |---|---|
-| `atlas-desarrollo/` | El **proceso** de construcción. No se publica en el sitio. |
-| `contenido/` | Los datos del atlas: fichas neuro y activos visuales. *(aún no existe)* |
-| `src/` | La aplicación. *(aún no existe)* |
-| `_referencia/` | Material privado, **excluido de git**. No se lee salvo que Max lo pida. |
-
-## Reglas que no se negocian
-
-- **Lo que no está escrito no está decidido.** No asumas, no completes huecos, no digas
-  "como habíamos quedado": no tienes memoria, solo tienes estos archivos.
-- **Ninguna sesión termina sin ejecutar el protocolo de cierre**
-  (`atlas-desarrollo/00-metodo/protocolo-de-sesion.md`), aunque el trabajo quede a la
-  mitad — sobre todo si quedó a la mitad.
-- **`_referencia/` nunca entra a git.** Contiene datos personales y este repositorio es
-  público.
-- **Las compuertas las aprueba Max**, nunca el agente.
+| `contenido/` | Los datos del atlas: fichas neuro y activos visuales |
+| `src/` | La aplicación |
+| `herramientas/` | El generador y las herramientas de geometría |
+| `docs/` | El sitio generado que publica GitHub Pages |
+| `archivo/` | Material retirado, incluido el método anterior. No rige |
+| `_referencia/` | Material privado, **excluido de git**. No se lee salvo que Max lo pida |

@@ -8,6 +8,11 @@ techo: 150 lineas
 
 # Estado de Neuroteca
 
+> **Archivado el 2026-10-31.** La compuerta C de `v0.1-cerebelo` se aprobó ese día y el método
+> por compuertas se retiró. El estado del proyecto ya no vive aquí: vive en `GUIA.md`, en los
+> issues y en los pull requests del repositorio. Lo que sigue es el último estado registrado por el
+> método, sin actualizar.
+
 > **Este archivo describe el presente, no la historia.** Techo duro: 150 líneas. Lo que
 > deje de explicar dónde estamos hoy se mueve a `historial/`, aunque haya costado
 > escribirlo. El histórico completo está en `bitacora/`.
