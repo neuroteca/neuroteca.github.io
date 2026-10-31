@@ -1,0 +1,33 @@
+{
+  "id": "lateralizacion_hemisferica",
+  "tipo": "fundacional",
+  "nombre": "Lateralización hemisférica",
+  "termino_latin": "",
+  "sinonimos": [
+    "dominancia hemisférica"
+  ],
+  "nivel_detalle": "N1",
+  "definicion": "Reparto desigual de una función entre los dos hemisferios cerebrales.",
+  "explicacion": [
+    "El lenguaje está lateralizado al hemisferio izquierdo en alrededor del 95 % de la población, algo menos entre los zurdos que entre los diestros.[^1][^2] Las pruebas vienen de los estudios de lesiones, de la imagen funcional, de la estimulación eléctrica durante la cirugía y de los pacientes con el [[cuerpo_calloso|cuerpo calloso]] seccionado.[^2]",
+    "El hemisferio derecho produce y comprende la prosodia, la entonación del habla.[^2] Cada hemisferio controla el lado opuesto del cuerpo.[^1]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §16.2 The Mental Status Exam",
+      "paginas": "apartados The Cerebrum, Orientation and Memory, Language and Speech, Sensorium, Judgment and Abstract Reasoning",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/16-2-the-mental-status-exam"
+    },
+    {
+      "obra": "Wright A. Higher Cortical Functions: Language. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 4, capítulo 8",
+      "edicion": "revisado el 1 de marzo de 2025",
+      "paginas": "§8.1 a 8.4",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s4/chapter08.html"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}

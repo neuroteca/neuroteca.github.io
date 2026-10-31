@@ -1,0 +1,44 @@
+{
+  "id": "cuerpo_calloso",
+  "tipo": "estructura",
+  "nombre": "Cuerpo calloso",
+  "termino_latin": "Corpus callosum",
+  "sinonimos": [],
+  "nivel_detalle": "N2",
+  "anatomia": [
+    "Gran haz de fibras en forma de C que une los dos hemisferios por encima de los [[ventriculo|ventrículos]] laterales.[^1][^4] Se divide en pico, rodilla, cuerpo y esplenio.[^1] Es [[sustancia_blanca]]; otra comisura más pequeña, la anterior, une los lóbulos frontales.[^2][^1]"
+  ],
+  "fisiologia": [
+    "Es la vía principal de comunicación entre los dos hemisferios de la corteza.[^2] Cuando se secciona, como en los pacientes de «cerebro dividido», una mano puede no informar de lo que siente la otra, porque cada hemisferio controla el lado opuesto del cuerpo y la información ya no cruza.[^3]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Overview of the Nervous System. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 2, capítulo 1",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§1.1, 1.2 y 1.6",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s2/chapter01.html"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.2 The Central Nervous System",
+      "paginas": "apartado The Cerebrum (Cerebral Cortex, Lobes of the Cerebral Cortex, Brodmann, Subcortical Structures); figuras 13.6 a 13.8",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §16.2 The Mental Status Exam",
+      "paginas": "apartados The Cerebrum, Orientation and Memory, Language and Speech, Sensorium, Judgment and Abstract Reasoning",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/16-2-the-mental-status-exam"
+    },
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "término 5604 (corpus callosum)",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}

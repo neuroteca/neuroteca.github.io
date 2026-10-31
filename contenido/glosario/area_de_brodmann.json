@@ -1,0 +1,36 @@
+{
+  "id": "area_de_brodmann",
+  "tipo": "fundacional",
+  "nombre": "Área de Brodmann",
+  "termino_latin": "",
+  "sinonimos": [],
+  "nivel_detalle": "N1",
+  "definicion": "Cada una de las regiones en que Korbinian Brodmann dividió la corteza cerebral según la forma y la disposición de sus células.",
+  "explicacion": [
+    "Brodmann describió 52 regiones a partir de la citoarquitectura, vista al microscopio.[^1][^2] Después se vio que muchas coinciden con funciones: las áreas 1, 2, 3, 4, 17 y 22 son cortezas primarias, y las 44 y 45 forman el área de Broca.[^2][^3]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.2 The Central Nervous System",
+      "paginas": "apartado The Cerebrum (Cerebral Cortex, Lobes of the Cerebral Cortex, Brodmann, Subcortical Structures); figuras 13.6 a 13.8",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §16.2 The Mental Status Exam",
+      "paginas": "apartados The Cerebrum, Orientation and Memory, Language and Speech, Sensorium, Judgment and Abstract Reasoning",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/16-2-the-mental-status-exam"
+    },
+    {
+      "obra": "Wright A. Higher Cortical Functions: Language. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 4, capítulo 8",
+      "edicion": "revisado el 1 de marzo de 2025",
+      "paginas": "§8.1 a 8.4",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s4/chapter08.html"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}
