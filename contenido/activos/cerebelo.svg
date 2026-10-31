@@ -17,15 +17,15 @@
 
   <g clip-path="url(#recorte)">
     <a href="{{BASE}}estructura/lobulo_anterior/" class="parte" data-parte="lobulo_anterior">
-      <rect x="40" y="70" width="440" height="72" fill="var(--c-anterior)">
+      <rect x="40" y="70" width="440" height="72" fill="var(--c-lobulo_anterior)">
         <title>Lóbulo anterior</title></rect>
     </a>
     <a href="{{BASE}}estructura/lobulo_posterior/" class="parte" data-parte="lobulo_posterior">
-      <rect x="40" y="142" width="440" height="116" fill="var(--c-posterior)">
+      <rect x="40" y="142" width="440" height="116" fill="var(--c-lobulo_posterior)">
         <title>Lóbulo posterior</title></rect>
     </a>
     <a href="{{BASE}}estructura/lobulo_floculonodular/" class="parte" data-parte="lobulo_floculonodular">
-      <rect x="40" y="258" width="440" height="60" fill="var(--c-floculonodular)">
+      <rect x="40" y="258" width="440" height="60" fill="var(--c-lobulo_floculonodular)">
         <title>Lóbulo floculonodular</title></rect>
     </a>
     <a href="{{BASE}}estructura/vermis/" class="parte" data-parte="vermis">

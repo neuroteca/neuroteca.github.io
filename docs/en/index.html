@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neuroteca — a living atlas of the nervous system</title>
+<meta name="description" content="Open-access interactive atlas of neuroanatomy and neurophysiology together, with no prior background assumed.">
+<link rel="alternate" hreflang="es" href="https://neuroteca.github.io/">
+<link rel="alternate" hreflang="en" href="https://neuroteca.github.io/en/">
+<link rel="alternate" hreflang="x-default" href="https://neuroteca.github.io/">
+<link rel="stylesheet" href="../estilos/tokens.css?v=fdab9256">
+<link rel="stylesheet" href="../estilos/sitio.css?v=c12a8d33">
+
+<script>
+  // Tema antes de pintar, para que no haya destello. Si el almacenamiento falla,
+  // se usa la preferencia del sistema y el sitio funciona igual.
+  try {
+    var t = localStorage.getItem('neuroteca-tema');
+    if (t) { document.documentElement.setAttribute('data-tema', t); }
+  } catch (e) {}
+</script>
+</head>
+<body>
+
+<a class="saltar" href="#contenido">Skip to content</a>
+
+<header class="sitio">
+  <a class="marca" href="../en/">Neuroteca</a>
+  <span class="bajada">a living atlas of the nervous system</span>
+  <span class="acciones">
+    <nav class="sitio-nav" aria-label="Language"><a href="../en/">Home</a><a href="../en/acerca/">About</a><a href="../" lang="es" hreflang="es">Español</a></nav>
+    <button class="tema-btn" id="btn-tema" type="button">Switch theme</button>
+  </span>
+</header>
+
+
+
+<main class="lectura" id="contenido"><article class="ficha portada"><h1>Neuroteca</h1><p class="lead">An open-access interactive atlas that presents neuroanatomy and neurophysiology together. Every structure states what it is, what it does, the level of detail at which it is represented, and where each statement comes from. No neuroscience background is needed: technical terms link to their explanation.</p><p class="estado-proyecto">Work in progress, in use. Entries labelled as test content are being replaced by verified content. Content is written in Spanish; entries not yet translated are shown in Spanish and labelled as such.</p><h2>Regions</h2><p class="nota">Each region can be rotated, tapped and read. Its parts appear once you enter.</p><ul class="indice"><li><a href="../en/estructura/cerebelo/"><strong>Cerebellum</strong> <span class="latin-inline" lang="la">Cerebellum</span></a><span class="meta"><span class="nv">N1</span> &middot; 5 parts &middot; <span class="prueba-txt">Test content</span></span></li></ul><h2>Glossary <span class="nv">7 entries</span></h2><p class="nota">Foundational entries: the concepts the other entries take for granted, explained with the same rigour.</p><ul class="indice glosario"><li><a href="../en/estructura/aferente/">Aferente</a> <span class="meta">Que lleva información hacia una estructura.</span></li><li><a href="../en/estructura/corteza/">Corteza</a> <span class="meta">Capa superficial de sustancia gris que recubre una estructura nerviosa.</span></li><li><a href="../en/estructura/eferente/">Eferente</a> <span class="meta">Que lleva información desde una estructura hacia otra.</span></li><li><a href="../en/estructura/propiocepcion/">Propiocepción</a> <span class="meta">Sentido de la posición y el movimiento del propio cuerpo.</span></li><li><a href="../en/estructura/sustancia_blanca/">Sustancia blanca</a> <span class="meta">Tejido nervioso formado sobre todo por axones recubiertos de mielina.</span></li><li><a href="../en/estructura/sustancia_gris/">Sustancia gris</a> <span class="meta">Tejido nervioso formado sobre todo por cuerpos neuronales.</span></li><li><a href="../en/estructura/tono_muscular/">Tono muscular</a> <span class="meta">Grado de contracción sostenida de un músculo en reposo.</span></li></ul></article></main>
+
+<footer class="sitio">
+  <strong>Neuroteca</strong> · Content under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> · A <strong>teaching resource, schematic by design</strong>: not a clinical or surgical reference.
+</footer>
+
+<script src="../js/sitio.js?v=fc52503a"></script>
+
+</body>
+</html>

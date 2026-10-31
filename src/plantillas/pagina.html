@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="es"{{ATRIBUTO_TEMA}}>
+<html lang="{{IDIOMA}}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{TITULO}}</title>
 <meta name="description" content="{{DESCRIPCION}}">
+{{ALTERNAS}}
 <link rel="stylesheet" href="{{BASE}}estilos/tokens.css?v={{V_TOKENS}}">
 <link rel="stylesheet" href="{{BASE}}estilos/sitio.css?v={{V_ESTILOS}}">
+{{COLORES}}
 <script>
   // Tema antes de pintar, para que no haya destello. Si el almacenamiento falla,
-  // se usa la preferencia del sistema y el sitio funciona igual (DEC-08).
+  // se usa la preferencia del sistema y el sitio funciona igual.
   try {
     var t = localStorage.getItem('neuroteca-tema');
     if (t) { document.documentElement.setAttribute('data-tema', t); }
@@ -18,31 +20,23 @@
 </head>
 <body>
 
-<a class="saltar" href="#contenido">Saltar al contenido</a>
+<a class="saltar" href="#contenido">{{T_SALTAR}}</a>
 
 <header class="sitio">
-  <a class="marca" href="{{BASE}}">Neuroteca</a>
-  <span class="bajada">atlas vivo del sistema nervioso</span>
+  <a class="marca" href="{{INICIO}}">Neuroteca</a>
+  <span class="bajada">{{T_BAJADA}}</span>
   <span class="acciones">
-    <button class="tema-btn" id="btn-tema" type="button">Cambiar tema</button>
+    {{NAV_SITIO}}
+    <button class="tema-btn" id="btn-tema" type="button">{{T_TEMA}}</button>
   </span>
 </header>
 
 {{AVISO}}
 
-<main class="atlas" id="contenido">
-{{VISOR}}
-<section class="panel">
-{{NAVEGACION}}
-{{FICHA}}
-</section>
-</main>
+{{CUERPO}}
 
 <footer class="sitio">
-  <strong>Neuroteca</strong> · Contenido bajo
-  <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">CC BY-SA 4.0</a> ·
-  Recurso <strong>didáctico y esquemático</strong>: no es una referencia clínica ni
-  quirúrgica.
+  <strong>Neuroteca</strong> · {{PIE}}
 </footer>
 
 <script src="{{BASE}}js/sitio.js?v={{V_JS}}"></script>

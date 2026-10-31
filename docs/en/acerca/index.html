@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About Neuroteca — Neuroteca</title>
+<meta name="description" content="What Neuroteca is, how it is built, how it is verified and how to cite it.">
+<link rel="alternate" hreflang="es" href="https://neuroteca.github.io/acerca/">
+<link rel="alternate" hreflang="en" href="https://neuroteca.github.io/en/acerca/">
+<link rel="alternate" hreflang="x-default" href="https://neuroteca.github.io/acerca/">
+<link rel="stylesheet" href="../../estilos/tokens.css?v=fdab9256">
+<link rel="stylesheet" href="../../estilos/sitio.css?v=c12a8d33">
+
+<script>
+  // Tema antes de pintar, para que no haya destello. Si el almacenamiento falla,
+  // se usa la preferencia del sistema y el sitio funciona igual.
+  try {
+    var t = localStorage.getItem('neuroteca-tema');
+    if (t) { document.documentElement.setAttribute('data-tema', t); }
+  } catch (e) {}
+</script>
+</head>
+<body>
+
+<a class="saltar" href="#contenido">Skip to content</a>
+
+<header class="sitio">
+  <a class="marca" href="../../en/">Neuroteca</a>
+  <span class="bajada">a living atlas of the nervous system</span>
+  <span class="acciones">
+    <nav class="sitio-nav" aria-label="Language"><a href="../../en/">Home</a><a href="../../en/acerca/">About</a><a href="../../acerca/" lang="es" hreflang="es">Español</a></nav>
+    <button class="tema-btn" id="btn-tema" type="button">Switch theme</button>
+  </span>
+</header>
+
+
+
+<main class="lectura" id="contenido"><article class="ficha texto"><h1>About Neuroteca</h1><h2>What it is</h2><p>Neuroteca is an open-access interactive atlas that presents <strong>neuroanatomy and neurophysiology together</strong>. It is written for students of medicine, neuroscience and psychology, but it assumes no prior background: the fundamentals are part of the atlas itself, as glossary entries, rather than a prerequisite.</p><p>It is a <strong>teaching resource, schematic by design</strong>. It is not a clinical or surgical reference and must not be used for diagnostic or therapeutic decisions.</p><h2>How it is built</h2><p>Every structure is an entry with its anatomy, its physiology, its Latin term according to the <em>Terminologia Anatomica</em>, its synonyms and its sources. Entries are data kept apart from the application, so the content can grow for years while the site is rewritten.</p><p><strong>Declared granularity.</strong> Every entry states the level of detail at which it is currently represented, from overall shape (N1) to circuit (N5), and that level is always shown. A correct N1 has no nuclei inside it, and that is fine: the atlas never claims more precision than it has.</p><p><strong>The nervous system is not a tree.</strong> A structure can belong to several divisions at once; the flocculonodular lobe, for instance, is part of both the vermis and the hemispheres. The data model reflects this with division axes instead of forcing a false hierarchy.</p><p><strong>Citable.</strong> Every structure has a stable address by identifier, which does not change as the hierarchy evolves. The site is static, works without JavaScript and depends on no external service that could disappear.</p><h2>How it is verified</h2><p>No statement is published without a locatable source: work, edition and page, or DOI, or section of an open-access textbook. Every entry records who wrote it and whether it has been reviewed; only the author's review moves an entry from <em>draft</em> to <em>reviewed</em>, and readers see that status.</p><p>Visual models declare their origin, licence, level of detail and whether they are provisional or definitive. An approximate model is never presented as definitive.</p><h2>Author and licences</h2><p>Neuroteca is written and maintained by <strong>Maximiliano Alamilla Rodríguez</strong> (<a href="https://orcid.org/0009-0000-7890-4569" rel="noopener">ORCID 0009-0000-7890-4569</a>) as an independent open-access project, with the help of artificial-intelligence tools to draft text that is then verified against the sources. A tool is not a source: whatever lacks a reference is not published.</p><p>The code is free under the MIT licence. The content (entries, models and diagrams) is under <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener">CC BY-SA 4.0</a>, except for models derived from third parties, which carry their own licence and attribution on their entry. The full repository is at <a href="https://github.com/neuroteca/neuroteca.github.io" rel="noopener">github.com/neuroteca/neuroteca.github.io</a>.</p><h2>How to cite</h2><p>Alamilla Rodríguez, M. <em>Neuroteca: a living atlas of the nervous system</em>. https://neuroteca.github.io. Licence CC BY-SA 4.0.</p><p>To cite a specific structure, use the address of its entry: it is stable and will not change. Machine-readable citation metadata is in the repository's <code>CITATION.cff</code> file.</p></article></main>
+
+<footer class="sitio">
+  <strong>Neuroteca</strong> · Content under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> · A <strong>teaching resource, schematic by design</strong>: not a clinical or surgical reference.
+</footer>
+
+<script src="../../js/sitio.js?v=fc52503a"></script>
+
+</body>
+</html>

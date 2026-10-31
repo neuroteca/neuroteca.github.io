@@ -1,0 +1,89 @@
+{
+  "id": "acerca",
+  "es": {
+    "titulo": "Acerca de Neuroteca",
+    "descripcion": "Qué es Neuroteca, cómo se construye, cómo se verifica y cómo citarla.",
+    "secciones": [
+      {
+        "titulo": "Qué es",
+        "parrafos": [
+          "Neuroteca es un atlas interactivo de **neuroanatomía y neurofisiología juntas**, de acceso libre. Está pensado para estudiantes de medicina, neurociencia y psicología, pero no asume formación previa: los fundamentos son contenido del propio atlas, en forma de fichas del glosario, y no un requisito para entrar.",
+          "Es un recurso **didáctico y esquemático**. No es una referencia clínica ni quirúrgica y no debe usarse para decisiones diagnósticas o terapéuticas."
+        ]
+      },
+      {
+        "titulo": "Cómo se construye",
+        "parrafos": [
+          "Cada estructura es una ficha con su anatomía, su fisiología, su término en latín según la *Terminologia Anatomica*, sus sinónimos y sus fuentes. Las fichas son datos separados de la aplicación, de modo que el contenido puede crecer durante años mientras el sitio se reescribe.",
+          "**Granularidad declarada.** Cada ficha dice a qué nivel de detalle está representada hoy, de la forma general (N1) al circuito (N5), y ese nivel se muestra siempre. Un N1 correcto no tiene núcleos dentro, y está bien: el atlas nunca aparenta más precisión de la que tiene.",
+          "**El sistema nervioso no es un árbol.** Una estructura puede pertenecer a varias divisiones a la vez; el lóbulo floculonodular, por ejemplo, es parte del vermis y de los hemisferios. El modelo de datos lo refleja con ejes de división en vez de forzar una jerarquía falsa.",
+          "**Citable.** Cada estructura tiene una dirección estable por identificador, que no cambia aunque la jerarquía evolucione. El sitio es estático, funciona sin JavaScript y no depende de servicios externos que puedan desaparecer."
+        ]
+      },
+      {
+        "titulo": "Cómo se verifica",
+        "parrafos": [
+          "Ninguna afirmación se publica sin una fuente localizable: obra, edición y página, o DOI, o sección de un libro de acceso abierto. Cada ficha registra quién la redactó y si ya fue revisada; solo la revisión del autor cambia una ficha de *borrador* a *revisado*, y el lector ve ese estado.",
+          "Los modelos visuales declaran su origen, su licencia, su nivel de detalle y si son provisionales o definitivos. Un modelo aproximado nunca se presenta como definitivo."
+        ]
+      },
+      {
+        "titulo": "Autor y licencias",
+        "parrafos": [
+          "Neuroteca la escribe y mantiene **Maximiliano Alamilla Rodríguez** ([ORCID 0009-0000-7890-4569](https://orcid.org/0009-0000-7890-4569)) como proyecto independiente de acceso libre, con ayuda de herramientas de inteligencia artificial para redactar borradores que después se verifican contra las fuentes. Una herramienta no es una fuente: lo que no tiene referencia no se publica.",
+          "El código es libre bajo licencia MIT. El contenido (fichas, modelos y diagramas) está bajo [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.es), salvo los modelos derivados de terceros, que llevan su propia licencia y atribución en su ficha. El repositorio completo está en [github.com/neuroteca/neuroteca.github.io](https://github.com/neuroteca/neuroteca.github.io)."
+        ]
+      },
+      {
+        "titulo": "Cómo citar",
+        "parrafos": [
+          "Alamilla Rodríguez, M. *Neuroteca: atlas vivo del sistema nervioso*. https://neuroteca.github.io. Licencia CC BY-SA 4.0.",
+          "Para citar una estructura concreta, usa la dirección de su ficha: es estable y no cambiará. Los metadatos de cita en formato legible por máquina están en el archivo `CITATION.cff` del repositorio."
+        ]
+      }
+    ]
+  },
+  "en": {
+    "titulo": "About Neuroteca",
+    "descripcion": "What Neuroteca is, how it is built, how it is verified and how to cite it.",
+    "secciones": [
+      {
+        "titulo": "What it is",
+        "parrafos": [
+          "Neuroteca is an open-access interactive atlas that presents **neuroanatomy and neurophysiology together**. It is written for students of medicine, neuroscience and psychology, but it assumes no prior background: the fundamentals are part of the atlas itself, as glossary entries, rather than a prerequisite.",
+          "It is a **teaching resource, schematic by design**. It is not a clinical or surgical reference and must not be used for diagnostic or therapeutic decisions."
+        ]
+      },
+      {
+        "titulo": "How it is built",
+        "parrafos": [
+          "Every structure is an entry with its anatomy, its physiology, its Latin term according to the *Terminologia Anatomica*, its synonyms and its sources. Entries are data kept apart from the application, so the content can grow for years while the site is rewritten.",
+          "**Declared granularity.** Every entry states the level of detail at which it is currently represented, from overall shape (N1) to circuit (N5), and that level is always shown. A correct N1 has no nuclei inside it, and that is fine: the atlas never claims more precision than it has.",
+          "**The nervous system is not a tree.** A structure can belong to several divisions at once; the flocculonodular lobe, for instance, is part of both the vermis and the hemispheres. The data model reflects this with division axes instead of forcing a false hierarchy.",
+          "**Citable.** Every structure has a stable address by identifier, which does not change as the hierarchy evolves. The site is static, works without JavaScript and depends on no external service that could disappear."
+        ]
+      },
+      {
+        "titulo": "How it is verified",
+        "parrafos": [
+          "No statement is published without a locatable source: work, edition and page, or DOI, or section of an open-access textbook. Every entry records who wrote it and whether it has been reviewed; only the author's review moves an entry from *draft* to *reviewed*, and readers see that status.",
+          "Visual models declare their origin, licence, level of detail and whether they are provisional or definitive. An approximate model is never presented as definitive."
+        ]
+      },
+      {
+        "titulo": "Author and licences",
+        "parrafos": [
+          "Neuroteca is written and maintained by **Maximiliano Alamilla Rodríguez** ([ORCID 0009-0000-7890-4569](https://orcid.org/0009-0000-7890-4569)) as an independent open-access project, with the help of artificial-intelligence tools to draft text that is then verified against the sources. A tool is not a source: whatever lacks a reference is not published.",
+          "The code is free under the MIT licence. The content (entries, models and diagrams) is under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), except for models derived from third parties, which carry their own licence and attribution on their entry. The full repository is at [github.com/neuroteca/neuroteca.github.io](https://github.com/neuroteca/neuroteca.github.io)."
+        ]
+      },
+      {
+        "titulo": "How to cite",
+        "parrafos": [
+          "Alamilla Rodríguez, M. *Neuroteca: a living atlas of the nervous system*. https://neuroteca.github.io. Licence CC BY-SA 4.0.",
+          "To cite a specific structure, use the address of its entry: it is stable and will not change. Machine-readable citation metadata is in the repository's `CITATION.cff` file."
+        ]
+      }
+    ]
+  }
+}
