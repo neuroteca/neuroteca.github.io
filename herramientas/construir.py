@@ -503,11 +503,19 @@ def _insignias(ficha, pendientes, T):
     return '<div class="insignias">%s</div>' % ''.join(partes)
 
 
-def _ficha_html(ficha, vista, pendientes, fichas, activo, enlace, T, idioma):
-    h = ['<article class="ficha">', '<h1>%s</h1>' % _esc(vista['nombre'])]
+def _cabecera_html(ficha, vista, pendientes, T):
+    """Nombre, latín e insignias de la ficha. En un sistema van antes del esquema."""
+    h = ['<h1>%s</h1>' % _esc(vista['nombre'])]
     if ficha.get('termino_latin'):
         h.append('<p class="latin" lang="la">%s</p>' % _esc(ficha['termino_latin']))
     h.append(_insignias(ficha, pendientes, T))
+    return ''.join(h)
+
+
+def _ficha_html(ficha, vista, pendientes, fichas, activo, enlace, T, idioma, con_cabecera=True):
+    h = ['<article class="ficha">']
+    if con_cabecera:
+        h.append(_cabecera_html(ficha, vista, pendientes, T))
 
     def lang(campo):
         # Un campo sin traducir se marca con el idioma real del texto, por honestidad y
@@ -723,8 +731,8 @@ def _esquema_svg(ficha, vista, fichas, enlace, T, idioma):
             out.append('<g class="%s" data-nodo="%s"><title>%s</title>%s</g>'
                        % (clase, _esc(idn), _esc(T['esquema_sin_ficha']), caja))
     out.append('</svg>')
-    leyenda = ('<p class="esquema-leyenda"><span class="muestra con-ficha"></span>%s '
-               '<span class="muestra sin-ficha"></span>%s</p>'
+    leyenda = ('<p class="esquema-leyenda"><span class="item"><span class="muestra con-ficha"></span>%s</span>'
+               '<span class="item"><span class="muestra sin-ficha"></span>%s</span></p>'
                % (_esc(T['esquema_leyenda_con']), _esc(T['esquema_leyenda_sin'])))
     return '<div class="esquema" id="esquema">%s%s</div>' % (''.join(out), leyenda)
 
@@ -927,6 +935,10 @@ def escribir(fichas, activos, paginas, idiomas):
             if es_estructura and activo:
                 cuerpo.append(_visor_html(ficha, vista, activo, base, enlace, con_visor, T))
             if es_sistema:
+                # El nombre va antes del esquema: quien llega debe saber qué circuito mira
+                # antes de verlo dibujado.
+                cuerpo.append('<header class="ficha cabecera-sistema">%s</header>'
+                              % _cabecera_html(ficha, vista, pendientes, T))
                 cuerpo.append(_esquema_svg(ficha, vista, fichas, enlace, T, idioma))
             cuerpo.append('<section class="panel">')
             if es_sistema:
@@ -935,7 +947,8 @@ def escribir(fichas, activos, paginas, idiomas):
                 cuerpo.append(_navegacion(ficha, fichas, padres, enlace,
                                           activo['colores'] if activo else {}, T, idioma))
             cuerpo.append(_ficha_html(ficha, vista, pendientes, fichas,
-                                      activo if es_estructura else None, enlace, T, idioma))
+                                      activo if es_estructura else None, enlace, T, idioma,
+                                      con_cabecera=not es_sistema))
             cuerpo.append('</section></main>')
             ruta = ruta_de(fichas, idf)
             guardar('%s%sindex.html' % (pre, ruta),
