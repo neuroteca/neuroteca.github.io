@@ -1,0 +1,74 @@
+{
+  "_nota": "Mapa de orientación: corte sagital esquemático con las cinco regiones N1. Versión 0, dibujada a mano para fijar la estructura del archivo; los contornos se sustituirán por la proyección sagital de las mallas de BodyParts3D (issue #5) sin tocar el generador. Las claves de `regiones` son ids de fichas raíz; cada región es una lista de trazados SVG. `detalles` son líneas decorativas por región; `etiquetas` sitúa el nombre de cada región (`dentro` = sobre la propia región, en blanco; `fuera` = con línea guía).",
+  "viewBox": "0 0 400 335",
+  "ancho_ref": 400,
+  "esquematico": true,
+  "regiones": {
+    "telencefalo": [
+      "M60 170 C52 118 92 50 180 40 C272 30 354 72 356 150 C358 196 330 230 290 234 C268 236 250 230 240 222 C225 240 198 248 170 242 C148 238 128 230 118 216 C100 220 76 212 66 196 C62 188 60 180 60 170 Z"
+    ],
+    "tronco_encefalico": [
+      "M214 206 C222 228 232 252 240 282 C243 294 246 302 248 310 L272 306 C268 290 265 270 262 250 C260 232 258 216 258 204 Z"
+    ],
+    "medula_espinal": [
+      "M248 310 C250 318 251 326 252 335 L274 335 C273 325 272 314 272 306 Z"
+    ],
+    "cerebelo": [
+      "M268 236 C290 228 335 232 346 256 C354 276 334 300 300 300 C278 300 264 288 262 270 C261 258 263 246 268 236 Z"
+    ],
+    "diencefalo": [
+      "M194 186 A34 22 0 1 0 262 186 A34 22 0 1 0 194 186 Z"
+    ]
+  },
+  "orden": [
+    "telencefalo",
+    "tronco_encefalico",
+    "medula_espinal",
+    "cerebelo",
+    "diencefalo"
+  ],
+  "detalles": {
+    "telencefalo": [
+      "M128 158 C150 104 262 98 290 152",
+      "M105 120 C140 92 200 80 250 86",
+      "M150 175 C190 160 240 158 275 170"
+    ],
+    "cerebelo": [
+      "M276 250 C296 244 326 246 338 262",
+      "M274 268 C294 262 322 264 334 280"
+    ]
+  },
+  "etiquetas": {
+    "telencefalo": {
+      "modo": "dentro",
+      "x": 195,
+      "y": 128
+    },
+    "cerebelo": {
+      "modo": "dentro",
+      "x": 304,
+      "y": 272
+    },
+    "diencefalo": {
+      "modo": "fuera",
+      "ancla": "end",
+      "x": 106,
+      "y": 58,
+      "guia": "M200 176 L112 54"
+    },
+    "tronco_encefalico": {
+      "modo": "fuera",
+      "ancla": "end",
+      "x": 144,
+      "y": 266,
+      "guia": "M236 262 L150 262"
+    },
+    "medula_espinal": {
+      "modo": "fuera",
+      "ancla": "start",
+      "x": 306,
+      "y": 326,
+      "guia": "M274 322 L300 322"
+    }
+  }
+}

@@ -79,5 +79,27 @@
   "esquema_abrir": "Abrir la ficha: {nombre}",
   "esquema_sin_ficha": "Todavía sin ficha en el atlas",
   "esquema_leyenda_con": "Con ficha: pulsa para abrir.",
-  "esquema_leyenda_sin": "Sin ficha todavía."
+  "esquema_leyenda_sin": "Sin ficha todavía.",
+  "portada_titulo": "El sistema nervioso, por partes y por funciones",
+  "recorridos": "Por dónde empezar",
+  "portada_recorridos": [
+    {
+      "texto": "Empieza por el cerebelo",
+      "ruta": "estructura/cerebelo/"
+    },
+    {
+      "texto": "Sigue un movimiento voluntario",
+      "ruta": "sistema/control_cerebeloso_del_movimiento/"
+    },
+    {
+      "texto": "Busca un término",
+      "ruta": "#glosario"
+    }
+  ],
+  "mapa_titulo": "Mapa de regiones: corte sagital esquemático del encéfalo y la médula",
+  "mapa_pie": "Corte sagital esquemático · toca una región para entrar",
+  "mapa_localizador": "Dónde está: {nombre}",
+  "glosario_buscar": "Filtra por nombre o por definición…",
+  "glosario_filtro_aria": "Filtrar el glosario",
+  "glosario_sin_resultados": "Ningún término coincide."
 }

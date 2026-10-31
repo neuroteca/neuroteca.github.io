@@ -79,5 +79,27 @@
   "esquema_abrir": "Open the entry: {nombre}",
   "esquema_sin_ficha": "No entry in the atlas yet",
   "esquema_leyenda_con": "Has an entry: click to open.",
-  "esquema_leyenda_sin": "No entry yet."
+  "esquema_leyenda_sin": "No entry yet.",
+  "portada_titulo": "The nervous system, part by part and function by function",
+  "recorridos": "Where to start",
+  "portada_recorridos": [
+    {
+      "texto": "Start with the cerebellum",
+      "ruta": "estructura/cerebelo/"
+    },
+    {
+      "texto": "Follow a voluntary movement",
+      "ruta": "sistema/control_cerebeloso_del_movimiento/"
+    },
+    {
+      "texto": "Look up a term",
+      "ruta": "#glosario"
+    }
+  ],
+  "mapa_titulo": "Region map: schematic sagittal section of the brain and spinal cord",
+  "mapa_pie": "Schematic sagittal section · tap a region to enter",
+  "mapa_localizador": "Where it is: {nombre}",
+  "glosario_buscar": "Filter by name or definition…",
+  "glosario_filtro_aria": "Filter the glossary",
+  "glosario_sin_resultados": "No term matches."
 }

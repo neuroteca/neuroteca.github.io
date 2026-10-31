@@ -42,7 +42,7 @@ header.sitio {
   padding: 18px 16px 14px;
   border-bottom: 1px solid var(--borde);
 }
-header.sitio .marca { font-size: 19px; font-weight: 700; letter-spacing: -0.01em;
+header.sitio .marca { font-family: var(--display); font-size: 22px; font-weight: 700; letter-spacing: -0.01em;
   color: inherit; text-decoration: none; }
 header.sitio .bajada { color: var(--tinta-3); font-size: 13px; }
 header.sitio .acciones { margin-left: auto; }
@@ -158,8 +158,8 @@ button.tema-btn:hover { border-color: var(--acento); color: var(--acento); }
 
 /* ---------------------------------------------------------- ficha */
 
-.ficha h1 { font-size: 26px; margin: 0 0 2px; letter-spacing: -0.015em; }
-.latin { font-family: var(--serif); font-style: italic; color: var(--tinta-2); font-size: 16px; margin: 0; }
+.ficha h1 { font-family: var(--display); font-size: 32px; font-weight: 600; line-height: 1.1; margin: 0 0 4px; letter-spacing: -0.015em; text-wrap: balance; }
+.latin { font-family: var(--serif); font-style: italic; color: var(--tinta-2); font-size: 17px; margin: 0; }
 
 .insignias { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0 18px; }
 .insignia {
@@ -218,8 +218,9 @@ header.sitio .acciones { display: flex; align-items: center; gap: 14px; flex-wra
 /* ---------------------------------------------------------- páginas de lectura: portada, acerca de, 404 */
 
 .lectura { max-width: 760px; margin: 0 auto; padding: 24px 16px 40px; }
-.lectura h1 { font-size: 30px; margin: 0 0 10px; letter-spacing: -0.015em; }
+.lectura h1 { font-family: var(--display); font-size: 34px; font-weight: 600; line-height: 1.1; margin: 0 0 10px; letter-spacing: -0.015em; text-wrap: balance; }
 .lectura .lead { font-size: 19px; }
+.lectura.ancha { max-width: 1120px; }
 .lectura .estado-proyecto, .lectura .nota {
   font-family: var(--sans) !important; font-size: 14px !important; color: var(--tinta-2);
   line-height: 1.5 !important;
@@ -230,7 +231,7 @@ header.sitio .acciones { display: flex; align-items: center; gap: 14px; flex-wra
 }
 .indice { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
 .indice li {
-  background: var(--papel-2); border: 1px solid var(--borde); border-radius: var(--radio);
+  background: var(--tarjeta); border: 1px solid var(--borde); border-radius: var(--radio);
   padding: 12px 14px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px;
 }
 .indice li a { color: var(--tinta); text-decoration: none; font-size: 17px; }
@@ -243,6 +244,87 @@ header.sitio .acciones { display: flex; align-items: center; gap: 14px; flex-wra
 .indice.glosario li a { font-size: 15px; font-weight: 600; }
 .indice.glosario li .meta { margin-left: 0; font-family: var(--serif); font-size: 14.5px; color: var(--tinta-2); flex: 1 1 100%; }
 .texto p { max-width: 68ch; }
+
+/* ---------------------------------------------------------- portada */
+
+.portada .entrada {
+  display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 28px 40px; align-items: center; padding: 20px 0 8px;
+}
+@media (max-width: 820px) { .portada .entrada { grid-template-columns: 1fr; gap: 20px; } }
+.portada .entrada h1 { font-size: clamp(32px, 4.6vw, 48px); font-weight: 700; margin-bottom: 14px; }
+.portada .lead { max-width: 48ch; }
+.portada .estado-proyecto { max-width: 60ch; }
+.recorridos { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; font-family: var(--sans); font-size: 14.5px; }
+.recorridos a {
+  text-decoration: none; color: var(--tinta); background: var(--papel-2);
+  border: 1px solid var(--borde); border-radius: 99px; padding: 7px 14px;
+}
+.recorridos a:hover { border-color: var(--acento); color: var(--acento); }
+.recorridos a.principal { background: var(--acento); border-color: var(--acento); color: #fff; }
+.recorridos a.principal:hover { color: #fff; filter: brightness(1.08); }
+
+.mapa-caja { background: var(--mapa-fondo); border-radius: 12px; padding: 14px; }
+.mapa-pie { font-family: var(--sans) !important; font-size: 12.5px !important; color: var(--tinta-3); text-align: center; margin: 8px 0 0 !important; }
+.mapa { display: block; width: 100%; height: auto; }
+.mapa.interactivo { max-width: 520px; margin: 0 auto; }
+.mapa.interactivo .region path { fill: var(--f); stroke: var(--papel); stroke-width: 2; stroke-linejoin: round; transition: filter .15s; }
+.mapa.interactivo .region path.detalle { fill: none; stroke: rgba(255,255,255,.4); stroke-width: 1.4; stroke-linecap: round; }
+.mapa.interactivo .region:hover path, .mapa.interactivo .region:focus path { filter: brightness(1.1) saturate(1.15); }
+.mapa.interactivo .region:focus { outline: none; }
+.mapa.interactivo .region:focus-visible path { stroke: var(--tinta); stroke-width: 3; }
+.mapa.interactivo text { font-family: var(--sans); font-size: 12.5px; font-weight: 600; fill: var(--tinta); pointer-events: none; }
+.mapa.interactivo text.dentro { fill: #fff; }
+.mapa.interactivo .guia { fill: none; stroke: var(--tinta-3); stroke-width: 1; }
+.mapa-def { position: absolute; }
+.mapa.localizador { width: 100%; height: auto; display: block; }
+
+.portada .bloque { margin-top: 44px; }
+.portada .bloque h2 { font-size: 12.5px; text-transform: uppercase; letter-spacing: .09em; color: var(--tinta-3); font-weight: 600; margin: 0 0 4px; }
+.portada .bloque h2 .nv { letter-spacing: 0; text-transform: none; font-weight: 400; }
+.portada .bloque .nota { margin-bottom: 14px; }
+
+.regiones { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); }
+@media (max-width: 560px) { .regiones { grid-template-columns: 1fr 1fr; gap: 8px; } .region-tarjeta .mini { padding: 8px 18px 0; } .region-tarjeta strong { font-size: 16px; } .region-tarjeta .texto { padding: 8px 10px 10px; } }
+.region-tarjeta {
+  display: flex; flex-direction: column; height: 100%; text-decoration: none; color: inherit;
+  background: var(--tarjeta); border: 1px solid var(--borde); border-radius: var(--radio); overflow: hidden;
+  --rc: var(--acento); --rs: var(--acento-suave);
+}
+.region-tarjeta:hover { border-color: var(--rc); }
+.region-tarjeta .mini { display: block; background: var(--rs); padding: 10px 16px 0; }
+.region-tarjeta .texto { display: block; padding: 10px 14px 12px; border-top: 3px solid var(--rc); font-family: var(--sans); }
+.region-tarjeta strong { font-family: var(--display); font-size: 19px; font-weight: 600; display: block; line-height: 1.2; }
+.region-tarjeta .latin-inline { font-family: var(--serif); font-style: italic; color: var(--tinta-3); font-size: 13.5px; }
+.region-tarjeta .meta { display: block; color: var(--tinta-2); font-size: 13px; margin-top: 6px; line-height: 1.4; }
+.region-tarjeta .meta .ejes { display: block; color: var(--tinta-3); }
+.region-tarjeta .meta .nv, .sistema-tarjeta .meta .nv { font-size: 11px; letter-spacing: .04em; color: var(--tinta-3); }
+
+.sistemas { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr)); }
+.sistema-tarjeta {
+  display: block; height: 100%; text-decoration: none; color: inherit; font-family: var(--sans);
+  background: var(--tarjeta); border: 1px solid var(--borde); border-radius: var(--radio); padding: 14px 16px;
+}
+.sistema-tarjeta:hover { border-color: var(--acento); }
+.sistema-tarjeta strong { font-family: var(--display); font-size: 19px; font-weight: 600; display: block; line-height: 1.2; }
+.recorrido-mini { list-style: none; padding: 0; margin: 10px 0 8px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.recorrido-mini li {
+  font-size: 12px; line-height: 1.2; padding: 4px 9px; border-radius: 6px;
+  background: var(--rs, var(--papel-2)); border: 1px solid var(--rc, var(--borde)); color: var(--tinta);
+}
+.recorrido-mini li + li::before { content: "\2192"; color: var(--tinta-3); margin: 0 7px 0 -3px; font-size: 11px; }
+.recorrido-mini li.sin-ficha { border-style: dashed; color: var(--tinta-2); }
+.sistema-tarjeta .meta { display: block; color: var(--tinta-2); font-size: 13px; }
+
+.glosario-filtro { margin: 0 0 12px !important; }
+#glosario-buscar {
+  font: inherit; font-family: var(--sans); font-size: 15px; width: 100%; max-width: 520px;
+  padding: 9px 14px; border: 1px solid var(--borde); border-radius: 99px;
+  background: var(--tarjeta); color: var(--tinta);
+}
+#glosario-buscar:focus { outline: 2px solid var(--acento); outline-offset: 1px; border-color: transparent; }
+.glosario-vacio { font-family: var(--sans) !important; color: var(--tinta-3); font-size: 14px !important; }
+@media (min-width: 900px) { .indice.glosario { grid-template-columns: 1fr 1fr 1fr; } }
 
 /* ---------------------------------------------------------- sistemas: esquema del circuito */
 

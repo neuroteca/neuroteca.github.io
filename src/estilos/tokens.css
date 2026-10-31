@@ -1,29 +1,41 @@
 /* Tokens de Neuroteca.
-   Extraídos de la maqueta aprobada por Max el 2026-09-18
-   (atlas-desarrollo/motor/hitos/v0.1-cerebelo/identidad-visual/opcion-mixta.html).
-   DEC-12: la maqueta es la referencia normativa. No se inventan valores aquí. */
+   Identidad revisada el 2026-10-31 (decisión D1 de la revisión visual, aprobada por Max):
+   sustituye a la maqueta neutra del 2026-09-18. Claro por defecto; el oscuro es una opción.
+   Tres familias libres (OFL) servidas desde el repositorio (ver estilos/fuentes.css) y un
+   color fijo por región N1, que se repite en el mapa, los chips, los esquemas y las láminas. */
 
 :root {
-  --papel: #FBFAF7;
-  --papel-2: #F2EFE9;
-  --tinta: #1C1B19;
-  --tinta-2: #57534E;
-  --tinta-3: #8A837C;
-  --borde: #E2DDD4;
+  --papel: #F6F3EC;
+  --papel-2: #ECE7DC;
+  --tarjeta: #FFFDF8;
+  --tinta: #1E1C19;
+  --tinta-2: #5A554D;
+  --tinta-3: #8B847A;
+  --borde: #DCD5C8;
   --acento: #1F6F63;
-  --acento-suave: #E4F0ED;
+  --acento-suave: #DDEBE6;
   --aviso: #8A5A00;
-  --aviso-fondo: #FDF4E3;
+  --aviso-fondo: #FBF1DC;
 
-  /* El lienzo del visor es SIEMPRE oscuro, sea cual sea el tema (regla de C-01). */
+  /* Un color por región N1. La clave es el id de la ficha raíz. */
+  --region-telencefalo: #C9654F;      --region-telencefalo-suave: #F3DCD5;
+  --region-diencefalo: #D99A2B;       --region-diencefalo-suave: #F5E6C4;
+  --region-tronco_encefalico: #3E8C86; --region-tronco_encefalico-suave: #D3E8E5;
+  --region-cerebelo: #4A6FB3;         --region-cerebelo-suave: #D8E1F2;
+  --region-medula_espinal: #8B63AE;   --region-medula_espinal-suave: #E6DCEF;
+  --mapa-fondo: #EFEAE0;
+  --mapa-apagado: #D9D2C4;
+
+  /* El lienzo del visor 3D (se revisa cuando haya mallas reales). */
   --lienzo: #0F1419;
   --lienzo-borde: #2B333C;
   --lienzo-tinta: #E8E6E3;
   --lienzo-tinta-2: #A0A8B0;
 
-  --radio: 10px;
-  --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --serif: Charter, Georgia, "Iowan Old Style", serif;
+  --radio: 8px;
+  --display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --serif: "Source Serif 4", Charter, Georgia, "Iowan Old Style", serif;
+  --sans: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 
   /* Los colores por estructura (--c-<id>) los declara cada activo en
      contenido/activos/<id>.json y el generador los inyecta en la página. */
@@ -31,28 +43,46 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-tema="claro"]) {
-    --papel: #14171A;
-    --papel-2: #1B1F24;
-    --tinta: #E8E6E3;
-    --tinta-2: #ADB4BB;
-    --tinta-3: #7D858D;
-    --borde: #2A2F35;
-    --acento: #5FC2B0;
-    --acento-suave: #14312C;
-    --aviso: #E0B060;
-    --aviso-fondo: #2A2113;
+    --papel: #16181B;
+    --papel-2: #1F2227;
+    --tarjeta: #1B1E22;
+    --tinta: #E9E6E0;
+    --tinta-2: #B3ADA3;
+    --tinta-3: #837D74;
+    --borde: #2E3238;
+    --acento: #62C1AE;
+    --acento-suave: #15312B;
+    --aviso: #E2B462;
+    --aviso-fondo: #2A2214;
+    --region-telencefalo: #E0806B;      --region-telencefalo-suave: #3A2520;
+    --region-diencefalo: #E6B04D;       --region-diencefalo-suave: #3A3018;
+    --region-tronco_encefalico: #5BB1A9; --region-tronco_encefalico-suave: #16322F;
+    --region-cerebelo: #7A9BDD;         --region-cerebelo-suave: #1C2638;
+    --region-medula_espinal: #B08AD0;   --region-medula_espinal-suave: #2B2236;
+    --mapa-fondo: #1F2227;
+    --mapa-apagado: #353A41;
+    color-scheme: dark;
   }
 }
 
 :root[data-tema="oscuro"] {
-  --papel: #14171A;
-  --papel-2: #1B1F24;
-  --tinta: #E8E6E3;
-  --tinta-2: #ADB4BB;
-  --tinta-3: #7D858D;
-  --borde: #2A2F35;
-  --acento: #5FC2B0;
-  --acento-suave: #14312C;
-  --aviso: #E0B060;
-  --aviso-fondo: #2A2113;
+  --papel: #16181B;
+  --papel-2: #1F2227;
+  --tarjeta: #1B1E22;
+  --tinta: #E9E6E0;
+  --tinta-2: #B3ADA3;
+  --tinta-3: #837D74;
+  --borde: #2E3238;
+  --acento: #62C1AE;
+  --acento-suave: #15312B;
+  --aviso: #E2B462;
+  --aviso-fondo: #2A2214;
+  --region-telencefalo: #E0806B;      --region-telencefalo-suave: #3A2520;
+  --region-diencefalo: #E6B04D;       --region-diencefalo-suave: #3A3018;
+  --region-tronco_encefalico: #5BB1A9; --region-tronco_encefalico-suave: #16322F;
+  --region-cerebelo: #7A9BDD;         --region-cerebelo-suave: #1C2638;
+  --region-medula_espinal: #B08AD0;   --region-medula_espinal-suave: #2B2236;
+  --mapa-fondo: #1F2227;
+  --mapa-apagado: #353A41;
+  color-scheme: dark;
 }
