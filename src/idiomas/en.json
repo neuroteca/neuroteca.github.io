@@ -58,7 +58,7 @@
   "portada_lead": "An open-access interactive atlas that presents neuroanatomy and neurophysiology together. Every structure states what it is, what it does, the level of detail at which it is represented, and where each statement comes from. No neuroscience background is needed: technical terms link to their explanation.",
   "portada_estado": "Work in progress, in use. Entries stay as drafts until the author verifies every statement against its source; each entry shows its status. Content is written in Spanish; entries not yet translated are shown in Spanish and labelled as such.",
   "regiones": "Regions",
-  "regiones_texto": "Each region can be rotated, tapped and read. Its parts appear once you enter.",
+  "regiones_texto": "Each region is read part by part; its parts appear once you enter. Those with a model can be rotated and tapped.",
   "glosario": "Glossary",
   "glosario_texto": "Foundational entries: the concepts the other entries take for granted, explained with the same rigour.",
   "partes": "{n} parts",
