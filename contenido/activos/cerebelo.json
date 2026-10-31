@@ -5,6 +5,17 @@
   "licencia": "CC BY-SA 4.0",
   "estado": "provisional",
   "peso_bytes": 285504,
+  "atribucion": "",
+  "modelo": "cerebelo.glb",
+  "esquema": "cerebelo.svg",
+  "eje_visor": "regiones",
+  "colores": {
+    "vermis": "#C9A227",
+    "hemisferios_cerebelosos": "#3E7CA6",
+    "lobulo_anterior": "#6E8F3E",
+    "lobulo_posterior": "#B4643E",
+    "lobulo_floculonodular": "#9C5AA8"
+  },
   "equivalente_textual": "Esquema del cerebelo en vista posterior: dos hemisferios abultados a los lados, separados por la franja más estrecha y hundida del vermis, y recorridos de arriba abajo por los lóbulos anterior, posterior y floculonodular.",
   "sectores": [
     "hemisferios_cerebelosos__lobulo_anterior",

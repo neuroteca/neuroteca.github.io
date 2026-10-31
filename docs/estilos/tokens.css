@@ -25,12 +25,8 @@
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --serif: Charter, Georgia, "Iowan Old Style", serif;
 
-  /* Color por estructura. Se usa en el visor y en los puntos de la navegación. */
-  --c-vermis: #C9A227;
-  --c-hemisferios: #3E7CA6;
-  --c-anterior: #6E8F3E;
-  --c-posterior: #B4643E;
-  --c-floculonodular: #9C5AA8;
+  /* Los colores por estructura (--c-<id>) los declara cada activo en
+     contenido/activos/<id>.json y el generador los inyecta en la página. */
 }
 
 @media (prefers-color-scheme: dark) {

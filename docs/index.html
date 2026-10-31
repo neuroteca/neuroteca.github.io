@@ -1,1 +1,47 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><title>Neuroteca</title><meta http-equiv="refresh" content="0; url=estructura/cerebelo/"><link rel="canonical" href="estructura/cerebelo/"></head><body><p><a href="estructura/cerebelo/">Entrar en Neuroteca</a></p></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neuroteca — atlas vivo del sistema nervioso</title>
+<meta name="description" content="Atlas interactivo de neuroanatomía y neurofisiología juntas, de acceso libre y sin asumir formación previa.">
+<link rel="alternate" hreflang="es" href="https://neuroteca.github.io/">
+<link rel="alternate" hreflang="en" href="https://neuroteca.github.io/en/">
+<link rel="alternate" hreflang="x-default" href="https://neuroteca.github.io/">
+<link rel="stylesheet" href="./estilos/tokens.css?v=fdab9256">
+<link rel="stylesheet" href="./estilos/sitio.css?v=c12a8d33">
+
+<script>
+  // Tema antes de pintar, para que no haya destello. Si el almacenamiento falla,
+  // se usa la preferencia del sistema y el sitio funciona igual.
+  try {
+    var t = localStorage.getItem('neuroteca-tema');
+    if (t) { document.documentElement.setAttribute('data-tema', t); }
+  } catch (e) {}
+</script>
+</head>
+<body>
+
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+
+<header class="sitio">
+  <a class="marca" href="./">Neuroteca</a>
+  <span class="bajada">atlas vivo del sistema nervioso</span>
+  <span class="acciones">
+    <nav class="sitio-nav" aria-label="Idioma"><a href="./">Inicio</a><a href="./acerca/">Acerca de</a><a href="./en/" lang="en" hreflang="en">English</a></nav>
+    <button class="tema-btn" id="btn-tema" type="button">Cambiar tema</button>
+  </span>
+</header>
+
+
+
+<main class="lectura" id="contenido"><article class="ficha portada"><h1>Neuroteca</h1><p class="lead">Atlas interactivo de neuroanatomía y neurofisiología juntas, de acceso libre. Cada estructura dice qué es, qué hace, a qué nivel de detalle está representada y de dónde sale cada afirmación. No hace falta saber neurociencia: los términos técnicos enlazan a su explicación.</p><p class="estado-proyecto">Proyecto en construcción y en uso. Las fichas marcadas como contenido de prueba se están sustituyendo por contenido verificado.</p><h2>Regiones</h2><p class="nota">Cada región se puede girar, tocar y leer. Las partes aparecen al entrar.</p><ul class="indice"><li><a href="./estructura/cerebelo/"><strong>Cerebelo</strong> <span class="latin-inline" lang="la">Cerebellum</span></a><span class="meta"><span class="nv">N1</span> &middot; 5 partes &middot; <span class="prueba-txt">Contenido de prueba</span></span></li></ul><h2>Glosario <span class="nv">7 entradas</span></h2><p class="nota">Fichas fundacionales: los conceptos que las demás fichas dan por sabidos, explicados con el mismo rigor.</p><ul class="indice glosario"><li><a href="./estructura/aferente/">Aferente</a> <span class="meta">Que lleva información hacia una estructura.</span></li><li><a href="./estructura/corteza/">Corteza</a> <span class="meta">Capa superficial de sustancia gris que recubre una estructura nerviosa.</span></li><li><a href="./estructura/eferente/">Eferente</a> <span class="meta">Que lleva información desde una estructura hacia otra.</span></li><li><a href="./estructura/propiocepcion/">Propiocepción</a> <span class="meta">Sentido de la posición y el movimiento del propio cuerpo.</span></li><li><a href="./estructura/sustancia_blanca/">Sustancia blanca</a> <span class="meta">Tejido nervioso formado sobre todo por axones recubiertos de mielina.</span></li><li><a href="./estructura/sustancia_gris/">Sustancia gris</a> <span class="meta">Tejido nervioso formado sobre todo por cuerpos neuronales.</span></li><li><a href="./estructura/tono_muscular/">Tono muscular</a> <span class="meta">Grado de contracción sostenida de un músculo en reposo.</span></li></ul></article></main>
+
+<footer class="sitio">
+  <strong>Neuroteca</strong> · Contenido bajo <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">CC BY-SA 4.0</a> · Recurso <strong>didáctico y esquemático</strong>: no es una referencia clínica ni quirúrgica.
+</footer>
+
+<script src="./js/sitio.js?v=fc52503a"></script>
+
+</body>
+</html>

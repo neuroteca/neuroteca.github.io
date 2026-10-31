@@ -11,8 +11,8 @@ código, no está decidido: se pregunta en el pull request o se abre un issue, n
 
 | Carpeta | Qué contiene |
 |---|---|
-| `contenido/` | **El atlas, como datos.** `estructuras/<id>.json` (una ficha por estructura), `glosario/<id>.json` (fichas fundacionales: conceptos), `activos/` (modelos 3D y sus metadatos). |
-| `src/` | **La aplicación.** Plantillas, estilos, JavaScript y Three.js vendorizado. Sin gestor de paquetes. |
+| `contenido/` | **El atlas, como datos.** `estructuras/<id>.json` (una ficha por estructura), `glosario/<id>.json` (fichas fundacionales: conceptos), `<id>.<idioma>.json` junto a cada ficha (su traducción), `activos/` (modelos 3D, esquemas SVG y sus metadatos), `paginas/` (páginas sueltas como «Acerca de»). |
+| `src/` | **La aplicación.** Plantillas, estilos, JavaScript, Three.js vendorizado y los textos de la interfaz por idioma (`idiomas/<idioma>.json`). Sin gestor de paquetes. |
 | `herramientas/` | `construir.py` valida el contenido y genera el sitio. `generar-geometria.py` produce el modelo provisional. Solo biblioteca estándar de Python. |
 | `docs/` | **Salida generada.** Es lo que publica GitHub Pages. No se edita a mano; se regenera y se comitea. |
 | `archivo/` | Material retirado. No rige. |
@@ -33,12 +33,36 @@ estructuras, `definicion` y `explicacion` para fundacionales. Las estructuras de
 `divisiones` por **ejes** (una parte puede estar en varios ejes a la vez) y `activos`.
 
 Marcado permitido en la prosa: `[[id]]` o `[[id|texto]]` para enlazar al glosario, `**negrita**`,
-`*cursiva*`. Nada más. **La construcción falla** si un enlace no tiene destino o falta un campo.
+`*cursiva*`, `[texto](https://…)` para un enlace externo (fuentes abiertas, ORCID) y `` `código` ``.
+Nada más. **La construcción falla** si un enlace no tiene destino o falta un campo.
 
 El esquema completo, con la razón de cada campo, está en
 `archivo/atlas-desarrollo/motor/esquema-contenido.md` (v0.3) más la decisión DC-01 de
-`archivo/atlas-desarrollo/motor/hitos/v0.1-cerebelo/03-bitacora-construccion.md`. El generador
-es la referencia operativa: lo que `construir.py` valida es lo que vale.
+`archivo/atlas-desarrollo/motor/hitos/v0.1-cerebelo/03-bitacora-construccion.md`, que aquí queda
+formalizada: las fichas fundacionales usan `definicion` y `explicacion` en vez de `anatomia` y
+`fisiologia`. El generador es la referencia operativa: lo que `construir.py` valida es lo que vale.
+
+### La traducción de una ficha
+
+`contenido/<carpeta>/<id>.<idioma>.json` con `id`, `idioma` y solo los campos que traduce:
+`nombre`, `sinonimos`, `anatomia`, `fisiologia`, `definicion`, `explicacion` y `ejes` (nombre de
+cada eje de división). Cualquier otro campo hace fallar la construcción: `fuentes`, `estado`,
+`nivel_detalle` y `divisiones` son una sola verdad y viven en la ficha en español. Un campo
+ausente se muestra en español con la insignia «traducción pendiente».
+
+### El activo
+
+`contenido/activos/<id>.json` describe el modelo de una región: `nivel_detalle`, `origen`
+(`propio`, `derivado` o `terceros`), `licencia`, `atribucion` (obligatoria si no es propio),
+`estado` (`provisional` o `definitivo`), `peso_bytes`, `equivalente_textual`, `modelo` (el `.glb`),
+`esquema` (el `.svg` que se ve sin JavaScript), `eje_visor` (qué eje de división pintan las
+piezas) y `colores` (un color por `id` de parte; el generador los convierte en variables CSS
+`--c-<id>` que usan el SVG y el 3D). Los archivos nombrados tienen que existir.
+
+### Las páginas sueltas
+
+`contenido/paginas/<id>.json` con un bloque por idioma (`titulo`, `descripcion`, `secciones`).
+A diferencia de las fichas, una página suelta **debe** estar en todos los idiomas del sitio.
 
 ## Cómo se trabaja
 
@@ -74,7 +98,8 @@ es la referencia operativa: lo que `construir.py` valida es lo que vale.
 10. **Idiomas.** El español es el archivo canónico de cada ficha. Cada idioma adicional es una
     superposición (`<id>.en.json`) que traduce los campos que quiera; lo que falte se muestra
     en español marcado como sin traducir. Las URL en español no cambian; cada idioma añade su
-    prefijo. Los textos de la interfaz viven en `src/idiomas/`.
+    prefijo (`/en/…`). Los textos de la interfaz viven en `src/idiomas/`; añadir un idioma es
+    añadir un archivo ahí y los bloques correspondientes en `contenido/paginas/`.
 11. **Código en inglés, todo lo demás en español**: interfaz, contenido, commits, documentación.
 
 ## Qué revisa Max en un PR de contenido
@@ -99,4 +124,5 @@ de resolverla en silencio. `_referencia/` es privado y nunca entra a git.
 
 Código `MIT` (`LICENSE`). Contenido, modelos y diagramas `CC BY-SA 4.0` (`LICENSE-CONTENIDO`),
 salvo los activos derivados de terceros, que llevan su propia licencia en sus metadatos. Cómo
-citar el proyecto: `CITATION.cff`.
+citar el proyecto: `CITATION.cff`. Los metadatos que Zenodo lee al depositar cada etiqueta están
+en `.zenodo.json`; las dos cosas se actualizan juntas en cada versión.

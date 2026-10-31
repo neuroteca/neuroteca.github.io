@@ -1,0 +1,6 @@
+{
+  "id": "cerebelo",
+  "idioma": "en",
+  "nombre": "Cerebellum",
+  "ejes": { "regiones": "By region", "lobulos": "By lobe" }
+}

@@ -14,11 +14,22 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 const contenedor = document.getElementById('visor');
+// Textos visibles de la pieza. Los manda el generador en el idioma de la página;
+// si faltan, se usan los del idioma base.
+let textos = {
+  sin3d: 'Este navegador no puede mostrar 3D.',
+  falloInicio: 'No se pudo iniciar el visor.',
+  falloModelo: 'No se pudo cargar el modelo.',
+  sinPartes: 'El modelo no trae partes reconocibles.',
+  esquema: 'Se muestra el esquema.'
+};
 if (contenedor) {
   try {
-    arrancar(JSON.parse(contenedor.dataset.visor));
+    const cfg = JSON.parse(contenedor.dataset.visor);
+    textos = Object.assign(textos, cfg.textos || {});
+    arrancar(cfg);
   } catch (e) {
-    degradar('No se pudo iniciar el visor.');
+    degradar(textos.falloInicio);
     console.error('[visor]', e);
   }
 }
@@ -34,7 +45,7 @@ function degradar(motivo) {
   const lienzo = contenedor.querySelector('canvas');
   if (lienzo) lienzo.remove();
   const barra = contenedor.querySelector('.visor-barra .estado');
-  if (barra) barra.textContent = motivo + ' Se muestra el esquema.';
+  if (barra) barra.textContent = motivo + ' ' + textos.esquema;
   contenedor.dataset.degradado = 'si';
 }
 
@@ -48,7 +59,7 @@ function arrancar(cfg) {
   // ¿Hay WebGL? Si no, no se intenta siquiera (DEC-10).
   const prueba = document.createElement('canvas');
   if (!(prueba.getContext('webgl2') || prueba.getContext('webgl'))) {
-    degradar('Este navegador no puede mostrar 3D.');
+    degradar(textos.sin3d);
     return;
   }
 
@@ -97,7 +108,7 @@ function arrancar(cfg) {
       const idColor = nodo.userData.porEje[cfg.eje] || partes[0];
       const esActual = Object.values(nodo.userData.porEje).indexOf(cfg.actual) !== -1;
       nodo.material = new THREE.MeshStandardMaterial({
-        color: new THREE.Color(variable(cfg.colores[idColor] || '--c-hemisferios')),
+        color: new THREE.Color(variable(cfg.colores[idColor] || '--c-' + idColor)),
         roughness: 0.72,
         metalness: 0.0,
         emissive: new THREE.Color(esActual ? 0x222222 : 0x000000),
@@ -105,7 +116,7 @@ function arrancar(cfg) {
       sectores.push(nodo);
     });
 
-    if (!sectores.length) { degradar('El modelo no trae partes reconocibles.'); return; }
+    if (!sectores.length) { degradar(textos.sinPartes); return; }
 
     // Encuadre automático: el visor se adapta al modelo, no al revés. Así el
     // modelo definitivo de Blender entra sin tocar la cámara (RT-05).
@@ -144,7 +155,7 @@ function arrancar(cfg) {
     contenedor.insertBefore(renderizador.domElement, contenedor.firstChild);
     render();
   }, undefined, function (err) {
-    degradar('No se pudo cargar el modelo.');
+    degradar(textos.falloModelo);
     console.error('[visor]', err);
   });
 
