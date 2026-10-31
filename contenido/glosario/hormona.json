@@ -1,0 +1,31 @@
+{
+  "id": "hormona",
+  "tipo": "fundacional",
+  "nombre": "Hormona",
+  "termino_latin": "",
+  "sinonimos": [],
+  "nivel_detalle": "N1",
+  "definicion": "Sustancia química que una glándula endocrina segrega al líquido extracelular y que la sangre lleva hasta sus células diana.",
+  "explicacion": [
+    "Las glándulas endocrinas no tienen conductos: vierten su hormona al líquido que las rodea y de ahí pasa a la sangre, que la lleva por todo el cuerpo hasta las células diana, donde se une a receptores y provoca una respuesta característica.[^1] A diferencia de un [[neurotransmisor]], que actúa de forma local y rápida a través de la hendidura sináptica, la señal endocrina tarda más en producir respuesta, desde segundos hasta horas, y alcanza células lejanas.[^1]",
+    "Los dos sistemas están conectados: el [[hipotalamo]] produce hormonas y gobierna la [[hipofisis]], y el sistema nervioso puede provocar respuestas endocrinas rápidas.[^1][^2]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §17.1 An Overview of the Endocrine System",
+      "paginas": "apartados Neural and Endocrine Signaling y Endocrine Signaling",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/17-1-an-overview-of-the-endocrine-system"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §17.3 The Pituitary Gland and Hypothalamus",
+      "paginas": "apartados Posterior Pituitary y Anterior Pituitary",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/17-3-the-pituitary-gland-and-hypothalamus"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}

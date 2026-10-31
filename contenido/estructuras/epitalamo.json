@@ -1,0 +1,40 @@
+{
+  "id": "epitalamo",
+  "tipo": "estructura",
+  "nombre": "Epitálamo",
+  "termino_latin": "Epithalamus",
+  "sinonimos": [
+    "techo del tercer ventrículo"
+  ],
+  "nivel_detalle": "N2",
+  "anatomia": [
+    "La parte posterior y superior del [[diencefalo]], en el techo del tercer [[ventriculo]].[^1][^2] Comprende la estría medular, el trígono de la habénula, la glándula pineal y la comisura posterior.[^1] La glándula pineal es una glándula endocrina diminuta situada por detrás y algo por debajo del [[talamo]].[^3]"
+  ],
+  "fisiologia": [
+    "Las células de la glándula pineal, los pinealocitos, producen y segregan melatonina, una [[hormona]] derivada de la serotonina.[^3] La luz que llega a la retina avisa al núcleo supraquiasmático del [[hipotalamo]], y desde allí una señal frena la producción de melatonina; cuando la luz declina por la tarde, la producción sube.[^3] Por eso la melatonina influye en los [[ritmo_circadiano|ritmos circadianos]], las fluctuaciones de sueño y vigilia ligadas a la luz y la oscuridad.[^3] Las funciones de la glándula no están del todo claras.[^3]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Overview of the Nervous System. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 2, capítulo 1",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§1.1, 1.3 y 1.6",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s2/chapter01.html"
+    },
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "términos 5662 (Habenula) y 5675 (Epithalamus)",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §17.7 The Pineal Gland",
+      "paginas": "",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/17-7-the-pineal-gland"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}

@@ -1,0 +1,54 @@
+{
+  "id": "diencefalo",
+  "tipo": "estructura",
+  "nombre": "Diencéfalo",
+  "termino_latin": "Diencephalon",
+  "sinonimos": [
+    "cerebro intermedio"
+  ],
+  "nivel_detalle": "N1",
+  "anatomia": [
+    "Región situada en lo profundo del encéfalo, por debajo del cerebro y encajada en su cara inferior, que forma las paredes del tercer [[ventriculo]].[^1][^2] Hacia abajo se continúa con el tegmento del [[mesencefalo]], y la comisura posterior marca el límite entre ambos.[^2] Conserva su nombre embrionario, que significa «a través del cerebro».[^1]",
+    "Es un conjunto complejo de [[nucleo|núcleos]] dispuesto simétricamente a ambos lados de la línea media.[^2] En el desarrollo se diferencia en cuatro regiones: [[talamo]], [[hipotalamo]], [[subtalamo]] y [[epitalamo]].[^2][^3] Las dos mayores son el tálamo y el hipotálamo, que juntos definen las paredes del tercer ventrículo.[^1] Por fuera, el brazo posterior de la cápsula interna separa el tálamo de las estructuras del cerebro.[^2]"
+  ],
+  "fisiologia": [
+    "Es el enlace entre el cerebro y el resto del sistema nervioso: la información que llega a la corteza cerebral desde el tronco, la médula y la periferia pasa por él, y también la salida de la corteza.[^1] La única excepción es el olfato, que se conecta directamente con el cerebro.[^1]",
+    "Sus partes se reparten funciones distintas: el tálamo releva y procesa la información sensitiva y motora hacia la corteza; el hipotálamo gobierna la homeostasis, el [[sistema_nervioso_autonomo]] y el sistema endocrino; el epitálamo contiene la glándula pineal; y el subtálamo, el núcleo subtalámico de los ganglios basales.[^1]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.2 The Central Nervous System",
+      "paginas": "apartados The Diencephalon, Thalamus e Hypothalamus; figura 13.11",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system"
+    },
+    {
+      "obra": "Overview of the Nervous System. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 2, capítulo 1",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§1.1, 1.3 y 1.6",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s2/chapter01.html"
+    },
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "términos 5661 a 5787 (diencéfalo)",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [
+    {
+      "eje": "partes",
+      "nombre_visible": "Por partes",
+      "principal": true,
+      "partes": [
+        "talamo",
+        "hipotalamo",
+        "epitalamo",
+        "subtalamo"
+      ]
+    }
+  ],
+  "activos": []
+}

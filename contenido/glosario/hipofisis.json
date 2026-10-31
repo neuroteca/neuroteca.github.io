@@ -1,0 +1,33 @@
+{
+  "id": "hipofisis",
+  "tipo": "fundacional",
+  "nombre": "Hipófisis",
+  "termino_latin": "Hypophysis",
+  "sinonimos": [
+    "glándula pituitaria"
+  ],
+  "nivel_detalle": "N1",
+  "definicion": "Glándula endocrina que cuelga del hipotálamo y segrega las hormonas que gobiernan a las demás glándulas.",
+  "explicacion": [
+    "Está suspendida del [[hipotalamo]] por el tallo infundibular y alojada en la silla turca del esfenoides.[^1] Tiene dos partes.[^1] La neurohipófisis o lóbulo posterior es tejido nervioso: no fabrica [[hormona|hormonas]], sino que almacena y libera la oxitocina y la vasopresina que producen los núcleos paraventricular y supraóptico del hipotálamo, cuyos axones terminan en ella.[^1][^2]",
+    "La adenohipófisis o lóbulo anterior produce siete hormonas (GH, TSH, ACTH, FSH, LH, prolactina y betaendorfina) bajo el control de las hormonas liberadoras e inhibidoras del hipotálamo, que le llegan por el sistema porta hipofisario sin pasar por la circulación general.[^1][^2] El conjunto hipotálamo-hipófisis coordina los mensajes de los sistemas nervioso y endocrino.[^1]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §17.3 The Pituitary Gland and Hypothalamus",
+      "paginas": "apartados Posterior Pituitary y Anterior Pituitary",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/17-3-the-pituitary-gland-and-hypothalamus"
+    },
+    {
+      "obra": "Hypothalamic Control of Pituitary Hormones. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 4, capítulo 2",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§2.1 y 2.2",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s4/chapter02.html"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}

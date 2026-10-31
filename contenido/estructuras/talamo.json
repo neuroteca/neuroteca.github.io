@@ -1,0 +1,78 @@
+{
+  "id": "talamo",
+  "tipo": "estructura",
+  "nombre": "Tálamo",
+  "termino_latin": "Thalamus",
+  "sinonimos": [
+    "tálamo dorsal"
+  ],
+  "nivel_detalle": "N2",
+  "anatomia": [
+    "Dos masas ovoides alargadas, una a cada lado de la línea media, que se tocan en el centro y rodean el tercer [[ventriculo]].[^1][^2][^3] Es una colección de [[nucleo|núcleos]].[^1] Entre ellos, el ventral posterolateral recibe la sensibilidad del cuerpo; los cuerpos geniculados lateral y medial, en su parte posterior, la visión y la audición; los núcleos ventrales lateral y anterior, la salida del [[cerebelo]] y de los ganglios basales; y el núcleo anterior, la vía mamilotalámica que viene del [[hipotalamo]].[^4][^5][^6][^7][^8][^9][^3]"
+  ],
+  "fisiologia": [
+    "Releva la información entre la corteza cerebral y la periferia, la médula espinal y el tronco encefálico: toda la información sensitiva, salvo el olfato, hace [[sinapsis]] obligada en él antes de llegar a la corteza.[^1] No se limita a pasarla: también la procesa, y su parte visual, por ejemplo, influye en qué estímulos reciben atención.[^1]",
+    "Las vías somatosensitivas terminan en el núcleo ventral posterolateral.[^4] Las fibras de la retina terminan en las seis capas del cuerpo geniculado lateral, cuyas neuronas proyectan por la cápsula interna a la corteza visual del lóbulo occipital.[^5] Las auditivas hacen sinapsis en el cuerpo geniculado medial, que proyecta a la circunvolución temporal superior.[^6]",
+    "También es la puerta del movimiento: el cerebro le envía información motora que interactúa con el cerebelo y los núcleos del tronco, la salida principal de los ganglios basales va a sus núcleos ventral anterior y ventral lateral y de ahí a la corteza, y el núcleo dentado del cerebelo proyecta a su núcleo ventrolateral.[^1][^8][^7]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.2 The Central Nervous System",
+      "paginas": "apartados The Diencephalon, Thalamus e Hypothalamus; figura 13.11",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system"
+    },
+    {
+      "obra": "Overview of the Nervous System. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 2, capítulo 1",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§1.1, 1.3 y 1.6",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s2/chapter01.html"
+    },
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "términos 5678 a 5707 (tálamo)",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
+    },
+    {
+      "obra": "Somatosensory Pathways. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 2, capítulo 4",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§4.6 y 4.8",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s2/chapter04.html"
+    },
+    {
+      "obra": "Visual Processing: Cortical Pathways. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 2, capítulo 15",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§15.1",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s2/chapter15.html"
+    },
+    {
+      "obra": "Auditory System: Pathways and Reflexes. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 2, capítulo 13",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§13.1",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s2/chapter13.html"
+    },
+    {
+      "obra": "Knierim J. Cerebellum. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 3, capítulo 5",
+      "edicion": "revisado el 20 de octubre de 2020",
+      "paginas": "§5.2 y 5.3",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter05.html"
+    },
+    {
+      "obra": "Knierim J. Basal Ganglia. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 3, capítulo 4",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§4.2, 4.4 y 4.5",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter04.html"
+    },
+    {
+      "obra": "Hypothalamus: Structural Organization. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 4, capítulo 1",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§1.1 a 1.4",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s4/chapter01.html"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}
