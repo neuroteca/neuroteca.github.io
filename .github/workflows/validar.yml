@@ -1,0 +1,28 @@
+# Comprueba cada pull request y cada push a main: el contenido valida, el sitio se
+# construye y docs/ está regenerado. Es la misma orden que corre cualquiera en local.
+name: Validar y construir
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validar el contenido
+        run: python3 herramientas/construir.py --validar
+      - name: Construir el sitio
+        run: python3 herramientas/construir.py
+      - name: Comprobar que docs/ está regenerado y comiteado
+        run: |
+          if [ -n "$(git status --porcelain docs)" ]; then
+            echo "docs/ no coincide con el contenido. Ejecuta: python3 herramientas/construir.py y comitea docs/."
+            git status --porcelain docs | head -20
+            exit 1
+          fi
