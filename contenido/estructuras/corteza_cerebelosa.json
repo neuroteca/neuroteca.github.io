@@ -1,0 +1,40 @@
+{
+  "id": "corteza_cerebelosa",
+  "tipo": "estructura",
+  "nombre": "Corteza cerebelosa",
+  "termino_latin": "Cortex cerebelli",
+  "sinonimos": [],
+  "nivel_detalle": "N3",
+  "anatomia": [
+    "Capa de [[sustancia_gris]] que recubre toda la superficie del [[cerebelo]], plegada en [[folia|folias]] como la corteza del cerebro.[^1][^2][^3] Contiene casi todas las neuronas del cerebelo: las células granulares por sí solas son más de la mitad de las neuronas de todo el encéfalo.[^1]",
+    "Tiene tres capas.[^1] La granular, la más profunda, está hecha de unos 5 × 10¹⁰ células granulares pequeñas y apretadas.[^1] La capa de Purkinje, intermedia, tiene el grosor de una sola célula.[^1] La molecular, la más externa, la forman los axones de las células granulares y las dendritas de las [[celula_de_purkinje|células de Purkinje]], más algunas interneuronas: células de Golgi, en cesta y estrelladas.[^1]"
+  ],
+  "fisiologia": [
+    "Recibe dos tipos de entrada, ambas excitadoras.[^1] Las [[fibra_musgosa|fibras musgosas]], que vienen de los [[nucleos_pontinos]], la [[medula_espinal|médula espinal]], la [[formacion_reticular]] y los [[nucleos_vestibulares]], excitan a las células granulares; los axones de estas, las fibras paralelas, hacen [[sinapsis]] excitadoras con las células de Purkinje.[^1] Las [[fibra_trepadora|fibras trepadoras]], que nacen solo en la [[oliva_inferior]], dan a cada célula de Purkinje una única entrada extremadamente potente.[^1]",
+    "La célula de Purkinje es la única salida de la corteza y es inhibidora: descarga unos 70 impulsos por segundo en reposo y frena de forma tónica a los [[nucleo|núcleos]] cerebelosos.[^1] La actividad de la fibra trepadora puede cambiar de forma duradera la fuerza de las sinapsis entre las fibras paralelas y la célula de Purkinje; ese cambio es la base celular propuesta para el aprendizaje motor del cerebelo.[^1]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Knierim J. Cerebellum. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 3, capítulo 5",
+      "edicion": "revisado el 20 de octubre de 2020",
+      "paginas": "§5.1 a 5.4 y 5.6",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter05.html"
+    },
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "término 5834 (Cortex cerebelli)",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.2 The Central Nervous System",
+      "paginas": "apartado The Cerebellum",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}

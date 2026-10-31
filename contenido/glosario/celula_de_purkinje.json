@@ -1,0 +1,33 @@
+{
+  "id": "celula_de_purkinje",
+  "tipo": "fundacional",
+  "nombre": "Célula de Purkinje",
+  "termino_latin": "",
+  "sinonimos": [
+    "neurona de Purkinje"
+  ],
+  "nivel_detalle": "N1",
+  "definicion": "Neurona grande de la corteza cerebelosa, la única que envía su axón fuera de ella.",
+  "explicacion": [
+    "Es una neurona multipolar, cuyas dendritas ocupan la capa molecular de la [[corteza_cerebelosa]], y lleva el nombre del anatomista que la describió, Jan Evangelista Purkinje.[^1][^2] Recibe [[sinapsis]] excitadoras de muchas fibras paralelas y de una sola [[fibra_trepadora]], extremadamente potente.[^2]",
+    "Su axón es inhibidor: descarga a un ritmo alto en reposo, unos 70 impulsos por segundo, y frena de forma tónica a los núcleos cerebelosos, que son la salida del [[cerebelo]].[^2] Cuando la fibra trepadora señala un error, cambia la fuerza de sus sinapsis con las fibras paralelas; así aprende el cerebelo.[^2]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §12.2 Nervous Tissue",
+      "paginas": "apartado Types of Neurons",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/12-2-nervous-tissue"
+    },
+    {
+      "obra": "Knierim J. Cerebellum. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 3, capítulo 5",
+      "edicion": "revisado el 20 de octubre de 2020",
+      "paginas": "§5.1 a 5.4 y 5.6",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter05.html"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}
