@@ -1,0 +1,33 @@
+{
+  "id": "tracto",
+  "tipo": "fundacional",
+  "nombre": "Tracto",
+  "termino_latin": "",
+  "sinonimos": [
+    "vía",
+    "fascículo"
+  ],
+  "nivel_detalle": "N1",
+  "definicion": "Haz de axones que viajan juntos dentro del sistema nervioso central.",
+  "explicacion": [
+    "Los tractos forman la [[sustancia_blanca]]. Suelen llamarse por su origen y su destino: el tracto espinocerebeloso va de la médula espinal al [[cerebelo]].[^1] El mismo tipo de haz, fuera del sistema nervioso central, se llama nervio.[^1][^2]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §12.1 Basic Structure and Function of the Nervous System",
+      "paginas": "",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/12-1-basic-structure-and-function-of-the-nervous-system"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.4 The Peripheral Nervous System",
+      "paginas": "",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-4-the-peripheral-nervous-system"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}

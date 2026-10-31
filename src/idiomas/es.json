@@ -32,7 +32,10 @@
     "N5": "circuito"
   },
   "prueba": "Contenido de prueba",
-  "estados": { "borrador": "Borrador", "revisado": "Revisado" },
+  "estados": {
+    "borrador": "Borrador",
+    "revisado": "Revisado"
+  },
   "sin_traducir": "Traducción pendiente: parte del texto está en español",
   "anatomia": "Anatomía",
   "fisiologia": "Fisiología",
@@ -41,12 +44,19 @@
   "fuentes": "Fuentes",
   "modelo": "Modelo visual",
   "modelo_linea": "Modelo {estado}, de origen {origen}, licencia {licencia}.",
-  "modelo_estados": { "provisional": "provisional", "definitivo": "definitivo" },
-  "modelo_origenes": { "propio": "propio", "derivado": "derivado", "terceros": "de terceros" },
+  "modelo_estados": {
+    "provisional": "provisional",
+    "definitivo": "definitivo"
+  },
+  "modelo_origenes": {
+    "propio": "propio",
+    "derivado": "derivado",
+    "terceros": "de terceros"
+  },
   "modelo_atribucion": "Atribución:",
   "modelo_descripcion": "Descripción:",
   "portada_lead": "Atlas interactivo de neuroanatomía y neurofisiología juntas, de acceso libre. Cada estructura dice qué es, qué hace, a qué nivel de detalle está representada y de dónde sale cada afirmación. No hace falta saber neurociencia: los términos técnicos enlazan a su explicación.",
-  "portada_estado": "Proyecto en construcción y en uso. Las fichas marcadas como contenido de prueba se están sustituyendo por contenido verificado.",
+  "portada_estado": "Proyecto en construcción y en uso. Las fichas están en borrador hasta que el autor verifica cada afirmación contra su fuente; cada ficha muestra su estado.",
   "regiones": "Regiones",
   "regiones_texto": "Cada región se puede girar, tocar y leer. Las partes aparecen al entrar.",
   "glosario": "Glosario",
@@ -57,5 +67,17 @@
   "no_encontrada_texto": "Puede que la estructura se llame de otra forma o que todavía no esté publicada.",
   "no_encontrada_volver": "Volver al principio",
   "pie": "Contenido bajo <a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.es\">CC BY-SA 4.0</a> · Recurso <strong>didáctico y esquemático</strong>: no es una referencia clínica ni quirúrgica.",
-  "meta_portada": "Atlas interactivo de neuroanatomía y neurofisiología juntas, de acceso libre y sin asumir formación previa."
+  "meta_portada": "Atlas interactivo de neuroanatomía y neurofisiología juntas, de acceso libre y sin asumir formación previa.",
+  "funcion": "Función",
+  "circuito": "Circuito",
+  "estructuras_implicadas": "Estructuras implicadas",
+  "sistemas_de": "Sistemas en los que participa",
+  "sistemas": "Sistemas",
+  "sistemas_texto": "Una función real atraviesa varias estructuras. Cada sistema muestra el circuito completo y enlaza a cada parte.",
+  "estructuras_n": "{n} estructuras con ficha",
+  "esquema_alt": "Esquema del circuito: {nombre}. El texto de la sección Circuito describe el mismo recorrido.",
+  "esquema_abrir": "Abrir la ficha: {nombre}",
+  "esquema_sin_ficha": "Todavía sin ficha en el atlas",
+  "esquema_leyenda_con": "Con ficha: pulsa para abrir.",
+  "esquema_leyenda_sin": "Sin ficha todavía."
 }

@@ -1,0 +1,249 @@
+{
+  "id": "control_cerebeloso_del_movimiento",
+  "tipo": "sistema",
+  "nombre": "Control cerebeloso del movimiento",
+  "termino_latin": "",
+  "sinonimos": [],
+  "nivel_detalle": "N2",
+  "funcion": [
+    "El [[cerebelo]] no genera las órdenes de movimiento: recibe una copia, la compara con lo que el cuerpo informa y corrige sobre la marcha.[^1][^3] El resultado es un movimiento preciso, suave y a tiempo; cuando el sistema falla aparecen la ataxia y la dismetría.[^4]",
+    "Este sistema reúne las estructuras por las que pasa esa comparación: de dónde vienen las entradas, qué hace con ellas la corteza cerebelosa, por dónde sale la respuesta y a quién llega.[^1][^2] El esquema y el texto siguiente cuentan el mismo recorrido."
+  ],
+  "circuito": [
+    "**Entradas.** Dos tipos de señal llegan al cerebelo. Una copia de la orden motora viene de la corteza cerebral: por los núcleos del puente y el [[pedunculo]] medio hacia los [[hemisferios_cerebelosos|hemisferios]], y por la oliva inferior, en el bulbo.[^2][^3] La información de retorno entra por el pedúnculo inferior: la [[propiocepcion]] del tronco y las extremidades por el [[tracto]] espinocerebeloso, y el equilibrio desde el oído interno.[^2][^1]",
+    "**Corteza cerebelosa.** Las fibras musgosas, que vienen del puente, la médula, los núcleos vestibulares y la formación reticular, excitan a las células granulares; las fibras paralelas de estas excitan a las células de Purkinje.[^1] Las fibras trepadoras, que nacen solo en la oliva inferior, excitan a las células de Purkinje directamente.[^1] Musgosas y trepadoras mandan además una proyección excitadora a los [[nucleo|núcleos]] cerebelosos.[^1]",
+    "**Salida de la corteza.** La célula de Purkinje es la única salida de la corteza cerebelosa y es inhibidora: su descarga tónica frena a los núcleos cerebelosos, que son a su vez la única salida del cerebelo.[^1] Cada región frena a su núcleo: el [[vermis]] al núcleo del fastigio, la zona intermedia a los núcleos interpuestos, los hemisferios laterales al núcleo dentado, y el [[lobulo_floculonodular]] a los núcleos vestibulares, que hacen para él de núcleo cerebeloso.[^1]",
+    "**Destino.** Por el pedúnculo superior, el núcleo dentado proyecta al tálamo y al núcleo rojo del lado contrario, y los núcleos interpuestos al núcleo rojo.[^1] El tálamo devuelve la señal a la corteza motora, que ajusta la orden siguiente; el núcleo rojo baja a la médula por el tracto rubroespinal.[^2][^1] El núcleo del fastigio y los núcleos vestibulares actúan sobre la médula por los tractos vestibuloespinal y reticuloespinal, que gobiernan la postura y el tronco.[^1]",
+    "**Predicción.** Más que corregir después, el cerebelo se adelanta: contiene modelos internos que emulan el movimiento y se ajustan con la práctica, por ensayo y error.[^4]"
+  ],
+  "estructuras": [
+    "cerebelo",
+    "hemisferios_cerebelosos",
+    "vermis",
+    "lobulo_floculonodular"
+  ],
+  "esquema": {
+    "columnas": [
+      {
+        "titulo": "Origen",
+        "nodos": [
+          {
+            "id": "corteza_cerebral",
+            "nombre": "Corteza cerebral motora"
+          },
+          {
+            "id": "medula_espinal",
+            "nombre": "Médula espinal: propiocepción"
+          },
+          {
+            "id": "oido_interno",
+            "nombre": "Oído interno: vestíbulo"
+          }
+        ]
+      },
+      {
+        "titulo": "Relevo",
+        "nodos": [
+          {
+            "id": "nucleos_pontinos",
+            "nombre": "Núcleos del puente"
+          },
+          {
+            "id": "oliva_inferior",
+            "nombre": "Oliva inferior (bulbo)"
+          }
+        ]
+      },
+      {
+        "titulo": "Corteza cerebelosa",
+        "nodos": [
+          {
+            "id": "hemisferios_cerebelosos",
+            "nombre": "Hemisferios laterales"
+          },
+          {
+            "id": "vermis",
+            "nombre": "Vermis y zona intermedia"
+          },
+          {
+            "id": "lobulo_floculonodular",
+            "nombre": "Lóbulo floculonodular"
+          }
+        ]
+      },
+      {
+        "titulo": "Núcleos cerebelosos",
+        "nodos": [
+          {
+            "id": "nucleo_dentado",
+            "nombre": "Núcleo dentado"
+          },
+          {
+            "id": "nucleos_interpuestos",
+            "nombre": "Núcleos interpuestos"
+          },
+          {
+            "id": "nucleo_fastigio",
+            "nombre": "Núcleo del fastigio"
+          },
+          {
+            "id": "nucleos_vestibulares",
+            "nombre": "Núcleos vestibulares"
+          }
+        ]
+      },
+      {
+        "titulo": "Salida",
+        "nodos": [
+          {
+            "id": "talamo",
+            "nombre": "Tálamo (ventrolateral)"
+          },
+          {
+            "id": "nucleo_rojo",
+            "nombre": "Núcleo rojo"
+          },
+          {
+            "id": "tractos_descendentes",
+            "nombre": "Tractos vestíbulo- y reticuloespinal"
+          }
+        ]
+      },
+      {
+        "titulo": "Efecto",
+        "nodos": [
+          {
+            "id": "musculos_extremidades",
+            "nombre": "Extremidades: tracto rubroespinal"
+          },
+          {
+            "id": "musculos_tronco",
+            "nombre": "Tronco y postura"
+          }
+        ]
+      }
+    ],
+    "flechas": [
+      {
+        "de": "corteza_cerebral",
+        "a": "nucleos_pontinos",
+        "texto": "copia de la orden"
+      },
+      {
+        "de": "corteza_cerebral",
+        "a": "oliva_inferior",
+        "texto": "copia de la orden"
+      },
+      {
+        "de": "nucleos_pontinos",
+        "a": "hemisferios_cerebelosos",
+        "texto": "ped. medio · fibras musgosas"
+      },
+      {
+        "de": "oliva_inferior",
+        "a": "vermis",
+        "texto": "fibras trepadoras"
+      },
+      {
+        "de": "medula_espinal",
+        "a": "vermis",
+        "texto": "tracto espinocerebeloso"
+      },
+      {
+        "de": "oido_interno",
+        "a": "lobulo_floculonodular",
+        "texto": "pedúnculo inferior"
+      },
+      {
+        "de": "hemisferios_cerebelosos",
+        "a": "nucleo_dentado",
+        "texto": "Purkinje: inhibición"
+      },
+      {
+        "de": "vermis",
+        "a": "nucleo_fastigio",
+        "texto": ""
+      },
+      {
+        "de": "vermis",
+        "a": "nucleos_interpuestos",
+        "texto": "zona intermedia"
+      },
+      {
+        "de": "lobulo_floculonodular",
+        "a": "nucleos_vestibulares",
+        "texto": ""
+      },
+      {
+        "de": "nucleo_dentado",
+        "a": "talamo",
+        "texto": "pedúnculo superior"
+      },
+      {
+        "de": "nucleo_dentado",
+        "a": "nucleo_rojo",
+        "texto": ""
+      },
+      {
+        "de": "nucleos_interpuestos",
+        "a": "nucleo_rojo",
+        "texto": "pedúnculo superior"
+      },
+      {
+        "de": "nucleo_fastigio",
+        "a": "tractos_descendentes",
+        "texto": ""
+      },
+      {
+        "de": "nucleos_vestibulares",
+        "a": "tractos_descendentes",
+        "texto": ""
+      },
+      {
+        "de": "talamo",
+        "a": "corteza_cerebral",
+        "texto": "vuelta a la corteza motora: ajusta la orden siguiente"
+      },
+      {
+        "de": "nucleo_rojo",
+        "a": "musculos_extremidades",
+        "texto": ""
+      },
+      {
+        "de": "tractos_descendentes",
+        "a": "musculos_tronco",
+        "texto": ""
+      }
+    ]
+  },
+  "fuentes": [
+    {
+      "obra": "Knierim J. Cerebellum. En: Byrne JH (ed.). Neuroscience Online, sección 3, capítulo 5. Houston: UTHealth McGovern Medical School",
+      "edicion": "revisado el 20 de octubre de 2020",
+      "paginas": "§5.1 a 5.5",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter05.html"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §16.5 The Coordination and Gait Exams",
+      "paginas": "",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/16-5-the-coordination-and-gait-exams"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.2 The Central Nervous System",
+      "paginas": "",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system"
+    },
+    {
+      "obra": "Manto M, Bower JM, Conforto AB, et al. Consensus paper: roles of the cerebellum in motor control. The diversity of ideas on cerebellar involvement in movement. The Cerebellum",
+      "edicion": "2012; 11(2)",
+      "paginas": "457–487",
+      "doi": "10.1007/s12311-011-0331-9"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}

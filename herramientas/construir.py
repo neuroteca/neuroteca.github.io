@@ -30,6 +30,7 @@ import io
 import json
 import os
 import re
+import textwrap
 import shutil
 import sys
 
@@ -41,7 +42,7 @@ SALIDA = os.path.join(RAIZ, 'docs')
 IDIOMA_BASE = 'es'
 
 NIVELES = ('N1', 'N2', 'N3', 'N4', 'N5')
-TIPOS = ('estructura', 'fundacional')
+TIPOS = ('estructura', 'fundacional', 'sistema')
 ESTADOS = ('borrador', 'revisado')
 ESTADOS_ACTIVO = ('provisional', 'definitivo')
 ORIGENES_ACTIVO = ('propio', 'derivado', 'terceros')
@@ -51,11 +52,14 @@ COMUNES = ('id', 'tipo', 'nombre', 'nivel_detalle', 'fuentes', 'autoria', 'estad
 PROPIOS = {
     'estructura': ('anatomia', 'fisiologia'),
     'fundacional': ('definicion', 'explicacion'),
+    'sistema': ('funcion', 'circuito', 'estructuras', 'esquema'),
 }
 # Campos de prosa donde se buscan enlaces de glosario, por tipo.
-PROSA = PROPIOS
+PROSA = {'estructura': PROPIOS['estructura'], 'fundacional': PROPIOS['fundacional'],
+         'sistema': ('funcion', 'circuito')}
 # Campos que una superposición de idioma puede traducir.
-TRADUCIBLES = ('nombre', 'sinonimos', 'anatomia', 'fisiologia', 'definicion', 'explicacion')
+TRADUCIBLES = ('nombre', 'sinonimos', 'anatomia', 'fisiologia', 'definicion', 'explicacion',
+               'funcion', 'circuito', 'nodos')
 # Campos obligatorios de un activo visual.
 ACTIVO = ('id', 'nivel_detalle', 'origen', 'licencia', 'estado', 'peso_bytes',
           'equivalente_textual', 'modelo', 'esquema', 'colores')
@@ -100,7 +104,7 @@ def cargar_fichas(idiomas):
     """Devuelve {id: ficha}. Cada ficha lleva `_trad` = {idioma: superposición}."""
     fichas = {}
     superposiciones = []
-    for sub in ('estructuras', 'glosario'):
+    for sub in ('estructuras', 'glosario', 'sistemas'):
         carpeta = os.path.join(CONTENIDO, sub)
         if not os.path.isdir(carpeta):
             continue
@@ -180,6 +184,8 @@ def cargar_paginas():
 # ---------------------------------------------------------------- validación
 
 RE_ENLACE = re.compile(r'\[\[([^\]\|]+)(?:\|([^\]]+))?\]\]')
+# [^3] al final de una frase: la afirmación se apoya en la fuente número 3 de la ficha.
+RE_REF = re.compile(r'\[\^(\d+)\]')
 
 
 def _parrafos(ficha, campo):
@@ -201,6 +207,11 @@ def validar(fichas, activos, paginas, idiomas):
                     if destino not in fichas:
                         problemas.append(
                             '%s: el enlace [[%s]] en `%s` no tiene destino' % (donde, destino, campo))
+                for n in RE_REF.findall(parrafo):
+                    if not 1 <= int(n) <= len(ficha.get('fuentes') or ()):
+                        problemas.append(
+                            '%s: la referencia [^%s] en `%s` no corresponde a ninguna fuente'
+                            % (donde, n, campo))
 
     for idf, ficha in sorted(fichas.items()):
         donde = ficha['_ruta']
@@ -241,6 +252,33 @@ def validar(fichas, activos, paginas, idiomas):
             if ida not in activos:
                 problemas.append('%s: el activo «%s» no existe en contenido/activos/' % (donde, ida))
 
+        if tipo == 'sistema':
+            for ide in ficha.get('estructuras', []):
+                if ide not in fichas or fichas[ide]['tipo'] != 'estructura':
+                    problemas.append('%s: `estructuras` nombra «%s», que no es una estructura'
+                                     % (donde, ide))
+            esquema = ficha.get('esquema') or {}
+            nodos = {}
+            for columna in esquema.get('columnas', []):
+                if not columna.get('titulo'):
+                    problemas.append('%s: una columna del esquema no tiene `titulo`' % donde)
+                for nodo in columna.get('nodos', []):
+                    if not nodo.get('id') or not nodo.get('nombre'):
+                        problemas.append('%s: un nodo del esquema no tiene `id` o `nombre`' % donde)
+                    elif nodo['id'] in nodos:
+                        problemas.append('%s: nodo repetido «%s» en el esquema' % (donde, nodo['id']))
+                    nodos[nodo.get('id')] = nodo
+            for flecha in esquema.get('flechas', []):
+                for extremo in ('de', 'a'):
+                    if flecha.get(extremo) not in nodos:
+                        problemas.append('%s: la flecha %s → %s apunta a un nodo que no existe'
+                                         % (donde, flecha.get('de'), flecha.get('a')))
+            for idioma, trad in ficha['_trad'].items():
+                for idn in trad.get('nodos', {}):
+                    if idn not in nodos:
+                        problemas.append('%s: traduce el nodo «%s», que el esquema no tiene'
+                                         % (trad['_ruta'], idn))
+
     for ida, activo in sorted(activos.items()):
         donde = activo['_ruta']
         for campo in ACTIVO:
@@ -280,7 +318,7 @@ def ver(ficha, idioma):
     lo diga en vez de disimularlo.
     """
     if idioma == IDIOMA_BASE:
-        return ficha, []
+        return dict(ficha, _ejes={}, _nodos={}), []
     trad = ficha['_trad'].get(idioma, {})
     vista = dict(ficha)
     pendientes = []
@@ -292,6 +330,7 @@ def ver(ficha, idioma):
     if 'sinonimos' in trad:
         vista['sinonimos'] = trad['sinonimos']
     vista['_ejes'] = trad.get('ejes', {})
+    vista['_nodos'] = trad.get('nodos', {})
     return vista, pendientes
 
 
@@ -301,6 +340,13 @@ def nombre_eje(ficha_duena, division, idioma):
         if traducido:
             return traducido
     return division['nombre_visible']
+
+
+def ruta_de(fichas, idf):
+    """Ruta relativa de la página de una ficha. Los sistemas viven aparte de las estructuras."""
+    if fichas[idf]['tipo'] == 'sistema':
+        return 'sistema/%s/' % idf
+    return 'estructura/%s/' % idf
 
 
 def nombre_de(fichas, idf, idioma):
@@ -348,11 +394,21 @@ RE_EXTERNO = re.compile(r'\[([^\]]+)\]\((https?://[^)\s]+)\)')
 RE_CODIGO = re.compile(r'`([^`]+)`')
 
 
+RE_REFS = re.compile(r'(?:\[\^\d+\])+')
+
+
+def _refs(m):
+    """[^2][^4] → un solo superíndice «2, 4», cada número enlazado a su fuente."""
+    numeros = RE_REF.findall(m.group(0))
+    return '<sup class="ref">%s</sup>' % ', '.join(
+        '<a href="#fuente-%s">%s</a>' % (n, n) for n in numeros)
+
+
 def _marcado(texto, fichas, enlace, idioma):
     """Convierte el subconjunto permitido a HTML.
 
-    [[id|texto]] enlaza al glosario; [texto](https://…) a fuera; **negrita**, *cursiva*,
-    `código`. Nada más.
+    [[id|texto]] enlaza al glosario; [texto](https://…) a fuera; [^n] a la fuente n de la
+    ficha; **negrita**, *cursiva*, `código`. Nada más.
     """
     salida = _esc(texto)
 
@@ -360,10 +416,11 @@ def _marcado(texto, fichas, enlace, idioma):
         destino, visible = m.group(1), m.group(2)
         nombre = nombre_de(fichas, destino, idioma)
         return ('<a class="glos" href="%s">%s</a>'
-                % (enlace('estructura/%s/' % destino), _esc(visible or nombre.lower())))
+                % (enlace(ruta_de(fichas, destino)), _esc(visible or nombre.lower())))
 
     salida = RE_ENLACE.sub(glosario, salida)
     salida = RE_EXTERNO.sub(r'<a href="\2" rel="noopener">\1</a>', salida)
+    salida = RE_REFS.sub(_refs, salida)
     salida = re.sub(r'\*\*([^*]+)\*\*', r'<strong>\1</strong>', salida)
     salida = re.sub(r'(?<!\*)\*([^*]+)\*(?!\*)', r'<em>\1</em>', salida)
     salida = RE_CODIGO.sub(r'<code>\1</code>', salida)
@@ -453,6 +510,8 @@ def _ficha_html(ficha, vista, pendientes, fichas, activo, enlace, T, idioma):
 
     if ficha['tipo'] == 'estructura':
         secciones = [('anatomia', 'anatomia'), ('fisiologia', 'fisiologia')]
+    elif ficha['tipo'] == 'sistema':
+        secciones = [('funcion', 'funcion'), ('circuito', 'circuito')]
     else:
         h.append('<h2>%s</h2>' % _esc(T['definicion']))
         h.append('<p%s>%s</p>' % (lang('definicion'),
@@ -464,13 +523,29 @@ def _ficha_html(ficha, vista, pendientes, fichas, activo, enlace, T, idioma):
         for parrafo in _parrafos(vista, campo):
             h.append('<p%s>%s</p>' % (lang(campo), _marcado(parrafo, fichas, enlace, idioma)))
 
-    h.append('<h2>%s</h2><ul class="fuentes">' % _esc(T['fuentes']))
-    for f in ficha['fuentes']:
-        trozos = [f.get('obra', ''), f.get('edicion', ''), f.get('paginas', ''), f.get('doi', '')]
+    if ficha['tipo'] == 'estructura':
+        sistemas = sorted(i for i, f in fichas.items()
+                          if f['tipo'] == 'sistema' and ficha['id'] in f.get('estructuras', []))
+        if sistemas:
+            h.append('<h2>%s</h2><ul class="sistemas-de">' % _esc(T['sistemas_de']))
+            for ids in sistemas:
+                h.append('<li><a href="%s">%s <span class="nv">%s</span></a></li>'
+                         % (enlace(ruta_de(fichas, ids)), _esc(nombre_de(fichas, ids, idioma)),
+                            fichas[ids]['nivel_detalle']))
+            h.append('</ul>')
+
+    h.append('<h2>%s</h2><ol class="fuentes">' % _esc(T['fuentes']))
+    for n, f in enumerate(ficha['fuentes'], 1):
+        trozos = [_esc(t) for t in (f.get('obra', ''), f.get('edicion', ''), f.get('paginas', ''))
+                  if t and t not in ('-', '—')]
         # Se escapa cada trozo y luego se unen: al revés, el separador se escaparía a sí mismo.
-        h.append('<li>%s</li>'
-                 % ' &middot; '.join([_esc(t) for t in trozos if t and t not in ('-', '—')]))
-    h.append('</ul>')
+        if f.get('doi'):
+            trozos.append('<a href="https://doi.org/%s" rel="noopener">doi:%s</a>'
+                          % (_esc(f['doi']), _esc(f['doi'])))
+        if f.get('url'):
+            trozos.append('<a href="%s" rel="noopener">%s</a>' % (_esc(f['url']), _esc(f['url'])))
+        h.append('<li id="fuente-%d">%s</li>' % (n, ' &middot; '.join(trozos)))
+    h.append('</ol>')
 
     if activo:
         h.append('<h2>%s</h2><p class="modelo-info">%s' % (
@@ -548,6 +623,106 @@ def _visor_html(ficha, vista, activo, base, enlace, con_pieza, T):
             % (_esc(_t(T, 'visor_aria', nombre=vista['nombre'])), datos, svg, barra))
 
 
+def _sistema_nav(ficha, fichas, enlace, T, idioma):
+    """Estructuras implicadas en un sistema, como botones. Vive en el motor, no en la pieza."""
+    botones = []
+    for ide in ficha.get('estructuras', []):
+        botones.append('<li><a href="%s" data-nodo="%s">%s <span class="nv">%s</span></a></li>'
+                       % (enlace(ruta_de(fichas, ide)), _esc(ide),
+                          _esc(nombre_de(fichas, ide, idioma)), fichas[ide]['nivel_detalle']))
+    return ('<nav class="partes-nav sistema-nav" aria-label="%s"><div class="eje">'
+            '<span class="eje-nombre">%s</span><ul>%s</ul></div></nav>'
+            % (_esc(T['nav_aria']), _esc(T['estructuras_implicadas']), ''.join(botones)))
+
+
+def _esquema_svg(ficha, vista, fichas, enlace, T, idioma):
+    """Diagrama del circuito, generado desde `esquema`. Un nodo con ficha es un enlace."""
+    esq = ficha['esquema']
+    nombres = vista.get('_nodos', {})
+    ANCHO, LINEA, RELLENO, SEP_Y, SEP_X, MARGEN = 160, 15, 11, 18, 132, 16
+    columnas = esq.get('columnas', [])
+    flechas = esq.get('flechas', [])
+    columna_de = {}
+    for ci, col in enumerate(columnas):
+        for nodo in col.get('nodos', []):
+            columna_de[nodo['id']] = ci
+    hay_vuelta = any(columna_de[f['a']] <= columna_de[f['de']] for f in flechas)
+    arriba = 92 if hay_vuelta else 40
+
+    pos = {}
+    alto = 0
+    for ci, col in enumerate(columnas):
+        x = MARGEN + ci * (ANCHO + SEP_X)
+        y = arriba
+        for nodo in col.get('nodos', []):
+            lineas = textwrap.wrap(nombres.get(nodo['id'], nodo['nombre']), 23)[:3]
+            h = RELLENO * 2 + LINEA * len(lineas)
+            pos[nodo['id']] = (x, y, h, lineas, nodo)
+            y += h + SEP_Y
+        alto = max(alto, y)
+    ancho_total = MARGEN * 2 + len(columnas) * ANCHO + (len(columnas) - 1) * SEP_X
+    alto_total = alto + 8
+
+    out = ['<svg class="circuito" viewBox="0 0 %d %d" role="img" aria-label="%s" '
+           'xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">'
+           % (ancho_total, alto_total, _esc(_t(T, 'esquema_alt', nombre=vista['nombre'])))]
+    out.append('<title>%s</title>' % _esc(_t(T, 'esquema_alt', nombre=vista['nombre'])))
+    out.append('<defs><marker id="punta" viewBox="0 0 10 10" refX="9" refY="5" '
+               'markerWidth="7" markerHeight="7" orient="auto-start-reverse">'
+               '<path d="M0,0 L10,5 L0,10 z"/></marker></defs>')
+    for ci, col in enumerate(columnas):
+        x = MARGEN + ci * (ANCHO + SEP_X)
+        out.append('<text class="columna" x="%d" y="%d">%s</text>'
+                   % (x, arriba - 12, _esc(col['titulo'])))
+
+    def centro(idn):
+        x, y, h, _l, _n = pos[idn]
+        return x, y, h
+
+    for f in flechas:
+        sx, sy, sh = centro(f['de'])
+        tx, ty, th = centro(f['a'])
+        atras = columna_de[f['a']] <= columna_de[f['de']]
+        if not atras:
+            x1, y1 = sx + ANCHO, sy + sh / 2
+            x2, y2 = tx, ty + th / 2
+            cx = (x1 + x2) / 2
+            d = 'M%.1f,%.1f C%.1f,%.1f %.1f,%.1f %.1f,%.1f' % (x1, y1, cx, y1, cx, y2, x2, y2)
+            lx, ly = cx, (y1 + y2) / 2 - 5
+        else:
+            x1, y1 = sx + ANCHO / 2, sy
+            x2, y2 = tx + ANCHO / 2, ty
+            techo = 22
+            d = 'M%.1f,%.1f C%.1f,%.1f %.1f,%.1f %.1f,%.1f' % (x1, y1, x1, techo, x2, techo, x2, y2)
+            lx, ly = (x1 + x2) / 2, techo + 6
+        out.append('<g class="flecha" data-de="%s" data-a="%s"><path d="%s" marker-end="url(#punta)"/>'
+                   % (_esc(f['de']), _esc(f['a']), d))
+        if f.get('texto'):
+            out.append('<text x="%.1f" y="%.1f" text-anchor="middle">%s</text>' % (lx, ly, _esc(f['texto'])))
+        out.append('</g>')
+
+    for idn, (x, y, h, lineas, nodo) in pos.items():
+        con_ficha = idn in fichas
+        clase = 'nodo con-ficha' if con_ficha else 'nodo sin-ficha'
+        texto = ''.join('<tspan x="%d" dy="%s">%s</tspan>'
+                        % (x + ANCHO / 2, '0' if i == 0 else LINEA, _esc(l)) for i, l in enumerate(lineas))
+        caja = ('<rect x="%d" y="%d" width="%d" height="%d" rx="7"/>'
+                '<text x="%d" y="%.1f" text-anchor="middle">%s</text>'
+                % (x, y, ANCHO, h, x + ANCHO / 2, y + RELLENO + LINEA - 4, texto))
+        if con_ficha:
+            out.append('<g class="%s" data-nodo="%s"><a href="%s"><title>%s</title>%s</a></g>'
+                       % (clase, _esc(idn), enlace(ruta_de(fichas, idn)),
+                          _esc(_t(T, 'esquema_abrir', nombre=nombre_de(fichas, idn, idioma))), caja))
+        else:
+            out.append('<g class="%s" data-nodo="%s"><title>%s</title>%s</g>'
+                       % (clase, _esc(idn), _esc(T['esquema_sin_ficha']), caja))
+    out.append('</svg>')
+    leyenda = ('<p class="esquema-leyenda"><span class="muestra con-ficha"></span>%s '
+               '<span class="muestra sin-ficha"></span>%s</p>'
+               % (_esc(T['esquema_leyenda_con']), _esc(T['esquema_leyenda_sin'])))
+    return '<div class="esquema" id="esquema">%s%s</div>' % (''.join(out), leyenda)
+
+
 def _eje_principal(ficha):
     for division in ficha.get('divisiones', []):
         if division.get('principal'):
@@ -576,6 +751,19 @@ def _portada_html(fichas, padres, activos, enlace, T, idioma):
                     _esc(ficha.get('termino_latin', '')), ficha['nivel_detalle'],
                     _esc(_t(T, 'partes', n=n)), extra))
     h.append('</ul>')
+
+    sistemas = sorted((ver(f, idioma)[0]['nombre'].lower(), i)
+                      for i, f in fichas.items() if f['tipo'] == 'sistema')
+    if sistemas:
+        h.append('<h2>%s</h2><p class="nota">%s</p><ul class="indice">'
+                 % (_esc(T['sistemas']), _esc(T['sistemas_texto'])))
+        for _n, ids in sistemas:
+            vista, _p = ver(fichas[ids], idioma)
+            h.append('<li><a href="%s"><strong>%s</strong></a><span class="meta"><span class="nv">%s</span>'
+                     ' &middot; %s</span></li>'
+                     % (enlace(ruta_de(fichas, ids)), _esc(vista['nombre']), fichas[ids]['nivel_detalle'],
+                        _esc(_t(T, 'estructuras_n', n=len(fichas[ids].get('estructuras', []))))))
+        h.append('</ul>')
 
     fundacionales = sorted((ver(f, idioma)[0]['nombre'].lower(), i)
                            for i, f in fichas.items() if f['tipo'] == 'fundacional')
@@ -615,6 +803,7 @@ def escribir(fichas, activos, paginas, idiomas):
 
     manifiesto = piezas()
     con_visor = manifiesto.get('visor', {}).get('activa', False)
+    con_esquema = manifiesto.get('esquema', {}).get('activa', False)
     if con_visor:
         shutil.copytree(os.path.join(FUENTE, 'vendor'), os.path.join(SALIDA, 'vendor'))
         destino_activos = os.path.join(SALIDA, 'activos')
@@ -631,6 +820,7 @@ def escribir(fichas, activos, paginas, idiomas):
         'V_TOKENS': version_de('estilos/tokens.css'),
         'V_JS': version_de('js/sitio.js'),
         'V_VISOR': version_de('js/visor.js'),
+        'V_ESQUEMA': version_de('js/esquema.js'),
     }
 
     def guion_visor(base):
@@ -643,6 +833,11 @@ def escribir(fichas, activos, paginas, idiomas):
         return ('<script type="importmap">%s</script>\n'
                 '<script type="module" src="%sjs/visor.js?v=%s"></script>'
                 % (mapa, base, versiones['V_VISOR']))
+
+    def guion_esquema(base):
+        if not con_esquema:
+            return ''
+        return '<script src="%sjs/esquema.js?v=%s" defer></script>' % (base, versiones['V_ESQUEMA'])
 
     def prefijo(idioma):
         return '' if idioma == IDIOMA_BASE else idioma + '/'
@@ -672,7 +867,7 @@ def escribir(fichas, activos, paginas, idiomas):
         return '\n'.join(etiquetas)
 
     def pagina(ruta, idioma, titulo, descripcion, base, cuerpo, activo=None,
-               aviso=False, visor_js=False, base_enlaces=None):
+               aviso=False, visor_js=False, base_enlaces=None, esquema_js=False):
         T = idiomas[idioma]
         html = plantilla
         for k, v in versiones.items():
@@ -692,7 +887,8 @@ def escribir(fichas, activos, paginas, idiomas):
                 .replace('{{AVISO}}', _aviso(T) if aviso else '')
                 .replace('{{CUERPO}}', cuerpo)
                 .replace('{{PIE}}', T['pie'])
-                .replace('{{GUION_VISOR}}', guion_visor(base) if visor_js else ''))
+                .replace('{{GUION_VISOR}}', (guion_visor(base) if visor_js else '')
+                         + (guion_esquema(base) if esquema_js else '')))
         return html
 
     def guardar(ruta_relativa, html):
@@ -714,23 +910,32 @@ def escribir(fichas, activos, paginas, idiomas):
             vista, pendientes = ver(ficha, idioma)
             activo = activos.get((ficha.get('activos') or [None])[0])
             es_estructura = ficha['tipo'] == 'estructura'
-            descripcion = vista.get('definicion') or _parrafos(vista, 'anatomia')[0]
-            cuerpo = ['<main class="atlas" id="contenido">']
+            es_sistema = ficha['tipo'] == 'sistema'
+            descripcion = (vista.get('definicion') or _parrafos(vista, 'anatomia' if es_estructura
+                                                                 else 'funcion')[0])
+            cuerpo = ['<main class="atlas%s" id="contenido">' % (' sistema' if es_sistema else '')]
             if es_estructura and activo:
                 cuerpo.append(_visor_html(ficha, vista, activo, base, enlace, con_visor, T))
+            if es_sistema:
+                cuerpo.append(_esquema_svg(ficha, vista, fichas, enlace, T, idioma))
             cuerpo.append('<section class="panel">')
-            cuerpo.append(_navegacion(ficha, fichas, padres, enlace,
-                                      activo['colores'] if activo else {}, T, idioma))
+            if es_sistema:
+                cuerpo.append(_sistema_nav(ficha, fichas, enlace, T, idioma))
+            else:
+                cuerpo.append(_navegacion(ficha, fichas, padres, enlace,
+                                          activo['colores'] if activo else {}, T, idioma))
             cuerpo.append(_ficha_html(ficha, vista, pendientes, fichas,
                                       activo if es_estructura else None, enlace, T, idioma))
             cuerpo.append('</section></main>')
-            guardar('%sestructura/%s/index.html' % (pre, idf),
-                    pagina('estructura/%s/' % idf, idioma,
+            ruta = ruta_de(fichas, idf)
+            guardar('%s%sindex.html' % (pre, ruta),
+                    pagina(ruta, idioma,
                            '%s — %s' % (vista['nombre'], T['titulo_sitio']),
-                           RE_ENLACE.sub(lambda m: m.group(2) or m.group(1), descripcion),
+                           RE_REF.sub('', RE_ENLACE.sub(lambda m: m.group(2) or m.group(1),
+                                                        descripcion)),
                            base, ''.join(cuerpo), activo=activo,
                            aviso=bool(es_estructura and activo),
-                           visor_js=bool(es_estructura and activo)))
+                           visor_js=bool(es_estructura and activo), esquema_js=es_sistema))
             paginas_escritas += 1
 
         # Portada: /[idioma/]

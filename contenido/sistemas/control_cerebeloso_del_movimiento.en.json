@@ -1,0 +1,24 @@
+{
+  "id": "control_cerebeloso_del_movimiento",
+  "idioma": "en",
+  "nombre": "Cerebellar control of movement",
+  "nodos": {
+    "corteza_cerebral": "Motor cerebral cortex",
+    "medula_espinal": "Spinal cord: proprioception",
+    "oido_interno": "Inner ear: vestibule",
+    "nucleos_pontinos": "Pontine nuclei",
+    "oliva_inferior": "Inferior olive (medulla)",
+    "hemisferios_cerebelosos": "Lateral hemispheres",
+    "vermis": "Vermis and intermediate zone",
+    "lobulo_floculonodular": "Flocculonodular lobe",
+    "nucleo_dentado": "Dentate nucleus",
+    "nucleos_interpuestos": "Interposed nuclei",
+    "nucleo_fastigio": "Fastigial nucleus",
+    "nucleos_vestibulares": "Vestibular nuclei",
+    "talamo": "Thalamus (ventrolateral)",
+    "nucleo_rojo": "Red nucleus",
+    "tractos_descendentes": "Vestibulo- and reticulospinal tracts",
+    "musculos_extremidades": "Limbs: rubrospinal tract",
+    "musculos_tronco": "Trunk and posture"
+  }
+}

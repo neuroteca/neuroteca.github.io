@@ -1,22 +1,42 @@
 {
   "id": "vermis",
   "tipo": "estructura",
-  "prueba": true,
   "nombre": "Vermis",
   "termino_latin": "Vermis cerebelli",
   "sinonimos": [],
   "nivel_detalle": "N2",
   "anatomia": [
-    "Texto de prueba. Franja estrecha de [[corteza]] que ocupa la línea media y une los dos hemisferios."
+    "Franja de corteza cerebelosa que recorre la línea media del [[cerebelo]], entre los dos [[hemisferios_cerebelosos]].[^1][^2] Su nombre es la palabra latina para «gusano».[^1]",
+    "Las fisuras que dividen el cerebelo en lóbulos corren de lado a lado y lo atraviesan, de modo que el vermis tiene una parte en el [[lobulo_anterior]], otra en el [[lobulo_posterior]] y una última, el nódulo, que pertenece al [[lobulo_floculonodular]].[^1][^2]"
   ],
   "fisiologia": [
-    "Texto de prueba. Participa en el control del [[tono_muscular]] y del equilibrio del tronco, con información de [[propiocepcion|propiocepción]]."
+    "Junto con la zona intermedia de los hemisferios forma el espinocerebelo: recibe sobre todo la información [[propiocepcion|propioceptiva]] que sube por el [[tracto]] espinocerebeloso y la integra con las órdenes motoras.[^1][^3]",
+    "Su salida pasa por el núcleo del fastigio, el más medial de los [[nucleo|núcleos]] cerebelosos, hacia los núcleos vestibulares y la formación reticular del [[tronco_encefalico]], que gobiernan la musculatura del tronco.[^1][^3] Por eso el vermis controla la postura, la estancia y la marcha.[^3][^4]"
   ],
   "fuentes": [
     {
-      "obra": "CONTENIDO DE PRUEBA — sin verificar",
-      "edicion": "—",
-      "paginas": "—"
+      "obra": "Knierim J. Cerebellum. En: Byrne JH (ed.). Neuroscience Online, sección 3, capítulo 5. Houston: UTHealth McGovern Medical School",
+      "edicion": "revisado el 20 de octubre de 2020",
+      "paginas": "§5.1 a 5.3 y 5.5",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter05.html"
+    },
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "términos 5788 a 5850 (cerebelo)",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §16.5 The Coordination and Gait Exams",
+      "paginas": "",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/16-5-the-coordination-and-gait-exams"
+    },
+    {
+      "obra": "Manto M, Bower JM, Conforto AB, et al. Consensus paper: roles of the cerebellum in motor control. The diversity of ideas on cerebellar involvement in movement. The Cerebellum",
+      "edicion": "2012; 11(2)",
+      "paginas": "457–487",
+      "doi": "10.1007/s12311-011-0331-9"
     }
   ],
   "autoria": "agente",

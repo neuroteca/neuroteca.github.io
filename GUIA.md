@@ -11,7 +11,7 @@ código, no está decidido: se pregunta en el pull request o se abre un issue, n
 
 | Carpeta | Qué contiene |
 |---|---|
-| `contenido/` | **El atlas, como datos.** `estructuras/<id>.json` (una ficha por estructura), `glosario/<id>.json` (fichas fundacionales: conceptos), `<id>.<idioma>.json` junto a cada ficha (su traducción), `activos/` (modelos 3D, esquemas SVG y sus metadatos), `paginas/` (páginas sueltas como «Acerca de»). |
+| `contenido/` | **El atlas, como datos.** `estructuras/<id>.json` (una ficha por estructura), `glosario/<id>.json` (fichas fundacionales: conceptos), `sistemas/<id>.json` (funciones que atraviesan varias estructuras, con su circuito), `<id>.<idioma>.json` junto a cada ficha (su traducción), `activos/` (modelos 3D, esquemas SVG y sus metadatos), `paginas/` (páginas sueltas como «Acerca de»). |
 | `src/` | **La aplicación.** Plantillas, estilos, JavaScript, Three.js vendorizado y los textos de la interfaz por idioma (`idiomas/<idioma>.json`). Sin gestor de paquetes. |
 | `herramientas/` | `construir.py` valida el contenido y genera el sitio. `generar-geometria.py` produce el modelo provisional. Solo biblioteca estándar de Python. |
 | `docs/` | **Salida generada.** Es lo que publica GitHub Pages. No se edita a mano; se regenera y se comitea. |
@@ -33,8 +33,14 @@ estructuras, `definicion` y `explicacion` para fundacionales. Las estructuras de
 `divisiones` por **ejes** (una parte puede estar en varios ejes a la vez) y `activos`.
 
 Marcado permitido en la prosa: `[[id]]` o `[[id|texto]]` para enlazar al glosario, `**negrita**`,
-`*cursiva*`, `[texto](https://…)` para un enlace externo (fuentes abiertas, ORCID) y `` `código` ``.
-Nada más. **La construcción falla** si un enlace no tiene destino o falta un campo.
+`*cursiva*`, `[texto](https://…)` para un enlace externo (fuentes abiertas, ORCID), `` `código` ``
+y `[^n]` al final de una frase para decir en qué fuente de la ficha (la número *n*) se apoya.
+Nada más. **La construcción falla** si un enlace no tiene destino, una referencia apunta a una
+fuente que no existe o falta un campo.
+
+Cada fuente es `{obra, edicion, paginas}` y, cuando lo tiene, `doi` o `url`, que el sitio
+muestra como enlace. Una fuente abierta (libro de texto libre, terminología oficial, artículo
+con DOI) vale tanto como una de pago: lo que importa es que cualquiera pueda ir y comprobar.
 
 El esquema completo, con la razón de cada campo, está en
 `archivo/atlas-desarrollo/motor/esquema-contenido.md` (v0.3) más la decisión DC-01 de
@@ -42,11 +48,22 @@ El esquema completo, con la razón de cada campo, está en
 formalizada: las fichas fundacionales usan `definicion` y `explicacion` en vez de `anatomia` y
 `fisiologia`. El generador es la referencia operativa: lo que `construir.py` valida es lo que vale.
 
+### La ficha de sistema
+
+Una función real atraviesa varias estructuras. El tercer tipo, `sistema`, vive en
+`contenido/sistemas/<id>.json` y se publica en `/sistema/<id>/`. Lleva los campos comunes más
+`funcion` y `circuito` (prosa, con el mismo marcado), `estructuras` (lista ordenada de ids de
+estructuras implicadas; cada una muestra a cambio «Sistemas en los que participa») y `esquema`:
+`columnas` (cada una con `titulo` y `nodos` `{id, nombre}`) y `flechas` (`{de, a, texto}`). El
+generador dibuja el diagrama desde ahí; un nodo cuyo `id` es una ficha se convierte en enlace, y
+los demás se marcan como «sin ficha todavía». La prosa de `circuito` es el equivalente textual
+del diagrama: tiene que contar lo mismo. La pieza `esquema` (JavaScript) solo añade el resaltado.
+
 ### La traducción de una ficha
 
 `contenido/<carpeta>/<id>.<idioma>.json` con `id`, `idioma` y solo los campos que traduce:
-`nombre`, `sinonimos`, `anatomia`, `fisiologia`, `definicion`, `explicacion` y `ejes` (nombre de
-cada eje de división). Cualquier otro campo hace fallar la construcción: `fuentes`, `estado`,
+`nombre`, `sinonimos`, `anatomia`, `fisiologia`, `definicion`, `explicacion`, `funcion`,
+`circuito`, `ejes` (nombre de cada eje de división) y `nodos` (nombre de cada nodo del esquema). Cualquier otro campo hace fallar la construcción: `fuentes`, `estado`,
 `nivel_detalle` y `divisiones` son una sola verdad y viven en la ficha en español. Un campo
 ausente se muestra en español con la insignia «traducción pendiente».
 

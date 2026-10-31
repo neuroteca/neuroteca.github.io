@@ -183,8 +183,13 @@ a.glos {
 a.glos:hover { color: var(--acento); border-bottom-style: solid; }
 a.glos::after { content: "\00B0"; color: var(--acento); font-size: .8em; vertical-align: super; }
 
-.fuentes { font-size: 13.5px; color: var(--tinta-2); padding-left: 18px; margin: 0; }
+.fuentes { font-size: 13.5px; color: var(--tinta-2); padding-left: 22px; margin: 0; }
 .fuentes li { margin-bottom: 4px; }
+.fuentes li:target { background: var(--acento-suave); border-radius: 4px; }
+.fuentes a { color: var(--acento); overflow-wrap: anywhere; }
+sup.ref { font-size: .62em; line-height: 0; margin-left: 1px; }
+sup.ref a { color: var(--acento); text-decoration: none; }
+sup.ref a:hover { text-decoration: underline; }
 
 /* ---------------------------------------------------------- pie */
 
@@ -237,3 +242,41 @@ header.sitio .acciones { display: flex; align-items: center; gap: 14px; flex-wra
 .indice.glosario li a { font-size: 15px; font-weight: 600; }
 .indice.glosario li .meta { margin-left: 0; font-family: var(--serif); font-size: 14.5px; color: var(--tinta-2); flex: 1 1 100%; }
 .texto p { max-width: 68ch; }
+
+/* ---------------------------------------------------------- sistemas: esquema del circuito */
+
+.esquema {
+  background: var(--papel-2); border: 1px solid var(--borde); border-radius: var(--radio);
+  padding: 10px 12px 6px; overflow-x: auto;
+}
+/* Un sistema ocupa todo el ancho: el esquema arriba, el texto debajo. Seis columnas de
+   circuito no caben legibles en media pantalla. */
+.atlas.sistema { grid-template-columns: 1fr; }
+.atlas.sistema .panel { max-width: 860px; }
+.esquema svg.circuito { display: block; width: 100%; min-width: 960px; height: auto; font-family: var(--sans); }
+.esquema .columna { font-size: 10.5px; text-transform: uppercase; letter-spacing: .07em; fill: var(--tinta-3); font-weight: 600; }
+.esquema .nodo rect { fill: var(--papel); stroke: var(--borde); stroke-width: 1.2; transition: stroke .15s, fill .15s; }
+.esquema .nodo text { font-size: 12.5px; fill: var(--tinta); pointer-events: none; }
+.esquema .nodo.con-ficha rect { stroke: var(--acento); }
+.esquema .nodo.con-ficha text { font-weight: 600; }
+.esquema .nodo.sin-ficha rect { stroke-dasharray: 4 3; }
+.esquema .nodo.sin-ficha text { fill: var(--tinta-2); }
+.esquema .nodo a { cursor: pointer; outline: none; }
+.esquema .nodo a:hover rect, .esquema .nodo a:focus rect, .esquema .nodo.activo rect { fill: var(--acento-suave); stroke-width: 2; }
+.esquema .flecha path { fill: none; stroke: var(--tinta-3); stroke-width: 1.4; transition: opacity .15s, stroke .15s; }
+.esquema .flecha text { font-size: 10.5px; fill: var(--tinta-2); paint-order: stroke; stroke: var(--papel-2); stroke-width: 3px; stroke-linejoin: round; }
+.esquema marker path { fill: var(--tinta-3); }
+.esquema[data-activo] .flecha { opacity: .18; }
+.esquema[data-activo] .flecha.activa { opacity: 1; }
+.esquema[data-activo] .flecha.activa path { stroke: var(--acento); stroke-width: 2; }
+.esquema[data-activo] .nodo:not(.activo):not(.vecino) { opacity: .45; }
+.esquema-leyenda { font-size: 12px; color: var(--tinta-3); margin: 8px 2px 4px; display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+.esquema-leyenda .muestra { display: inline-block; width: 14px; height: 10px; border-radius: 3px; border: 1.5px solid var(--acento); vertical-align: middle; margin-right: 5px; background: var(--papel); }
+.esquema-leyenda .muestra.sin-ficha { border-color: var(--tinta-3); border-style: dashed; }
+.sistemas-de { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.sistemas-de li a {
+  font-size: 13px; text-decoration: none; color: var(--tinta-2);
+  background: var(--papel-2); border: 1px solid var(--borde); border-radius: 99px; padding: 5px 11px;
+}
+.sistemas-de li a:hover { border-color: var(--acento); color: var(--tinta); }
+.sistemas-de .nv { font-size: 10px; color: var(--tinta-3); letter-spacing: .04em; }

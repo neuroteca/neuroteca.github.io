@@ -1,20 +1,26 @@
 {
   "id": "propiocepcion",
   "tipo": "fundacional",
-  "prueba": true,
   "nombre": "Propiocepción",
   "termino_latin": "",
   "sinonimos": [],
   "nivel_detalle": "N1",
-  "definicion": "Sentido de la posición y el movimiento del propio cuerpo.",
+  "definicion": "Sentido de la posición del cuerpo en el espacio.",
   "explicacion": [
-    "Texto de prueba. Permite saber dónde está un brazo sin mirarlo. La información viaja por vías [[aferente|aferentes]] hasta el cerebelo."
+    "Se basa en receptores situados en los músculos y los tendones.[^1] El huso muscular señala la longitud del músculo y sus cambios; el órgano tendinoso de Golgi, la fuerza que se le aplica.[^1] Las cápsulas de las articulaciones tienen también receptores de estiramiento.[^2] Es la información que el [[cerebelo]] compara con las órdenes motoras para corregir el movimiento en marcha.[^1]"
   ],
   "fuentes": [
     {
-      "obra": "CONTENIDO DE PRUEBA — sin verificar",
-      "edicion": "—",
-      "paginas": "—"
+      "obra": "Knierim J. Motor Units and Muscle Receptors. En: Byrne JH (ed.). Neuroscience Online, sección 3, capítulo 1. Houston: UTHealth McGovern Medical School",
+      "edicion": "",
+      "paginas": "§1.2 y 1.8",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter01.html"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §14.1 Sensory Perception",
+      "paginas": "",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/14-1-sensory-perception"
     }
   ],
   "autoria": "agente",

@@ -3,5 +3,9 @@
   "visor": {
     "activa": true,
     "descripcion": "Muestra el modelo 3D de una region y abre la ficha de la parte que se toca."
+  },
+  "esquema": {
+    "activa": true,
+    "descripcion": "En la ficha de un sistema, resalta las flechas de la estructura que se señala. Sin ella, el esquema sigue siendo una imagen con enlaces."
   }
 }
