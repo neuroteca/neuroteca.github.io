@@ -1,0 +1,85 @@
+{
+  "id": "mesencefalo",
+  "tipo": "estructura",
+  "nombre": "Mesencéfalo",
+  "termino_latin": "Mesencephalon",
+  "sinonimos": [
+    "cerebro medio"
+  ],
+  "nivel_detalle": "N2",
+  "anatomia": [
+    "Es la parte más alta y más pequeña del [[tronco_encefalico]], de unos 2 cm de longitud, situada entre el tálamo y el [[puente]].[^2][^1] Es la única de las tres vesículas primarias del embrión que no se subdivide, y conserva su nombre en el adulto.[^3]",
+    "Lo atraviesa el acueducto, un conducto estrecho que comunica el tercer y el cuarto [[ventriculo]]; lo que queda por detrás del acueducto es el techo o tectum y lo que queda por delante, el tegmento, de las palabras latinas para «techo» y «suelo».[^1][^4]",
+    "El tectum está formado por cuatro abultamientos, los colículos: el par superior y el par inferior.[^1][^2][^5] El tegmento, continuo con la [[sustancia_gris]] del resto del tronco, aloja los [[nucleo|núcleos]] de los [[nervio_craneal|nervios craneales]] III y IV y parte del V, el [[nucleo_rojo]] y la [[sustancia_negra]].[^2][^1]",
+    "La base, la parte más anterior, la forman los pedúnculos cerebrales, dos gruesos haces de fibras que bajan desde la corteza cerebral.[^2][^5]"
+  ],
+  "fisiologia": [
+    "Los colículos inferiores son una estación de la vía auditiva: proyectan al tálamo, que envía la información del sonido a la corteza cerebral para su percepción consciente.[^1] Los colículos superiores combinan mapas del espacio visual, auditivo y somatosensorial, y su actividad orienta los ojos hacia un sonido o un contacto.[^1]",
+    "Por el [[nucleo_rojo]] pasa parte de la salida del [[cerebelo]], y de él nace un [[tracto]] descendente menor en el ser humano.[^6][^7] La [[sustancia_negra]] envía dopamina al cuerpo estriado; cuando sus neuronas mueren aparece la enfermedad de Parkinson.[^1][^8]",
+    "Como el resto del tronco, por él cruzan las vías entre la médula espinal y el cerebro, y su tegmento contiene regiones que regulan funciones cardiovasculares y respiratorias.[^1]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.2 The Central Nervous System",
+      "paginas": "apartados The Brain Stem, The Midbrain, The Pons, The Medulla",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system"
+    },
+    {
+      "obra": "Overview of the Nervous System. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 2, capítulo 1",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§1.1, 1.4 y 1.6",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s2/chapter01.html"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.1 The Embryologic Perspective",
+      "paginas": "apartados Primary Vesicles y Secondary Vesicles; tabla 13.1",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-1-the-embryologic-perspective"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.3 Circulation and the Central Nervous System",
+      "paginas": "apartado Ventricular System",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-3-circulation-and-the-central-nervous-system"
+    },
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "términos 5874 a 5920 (mesencéfalo)",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
+    },
+    {
+      "obra": "Knierim J. Cerebellum. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 3, capítulo 5",
+      "edicion": "revisado el 20 de octubre de 2020",
+      "paginas": "§5.2 a 5.4 y 5.6",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter05.html"
+    },
+    {
+      "obra": "Knierim J. Spinal Reflexes and Descending Motor Pathways. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 3, capítulo 2",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§2.2 Descending Motor Pathways",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter02.html"
+    },
+    {
+      "obra": "Knierim J. Basal Ganglia. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 3, capítulo 4",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§4.2, 4.4, 4.5 y 4.7",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter04.html"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [
+    {
+      "eje": "nucleos",
+      "nombre_visible": "Por núcleos",
+      "principal": true,
+      "partes": [
+        "nucleo_rojo",
+        "sustancia_negra"
+      ]
+    }
+  ],
+  "activos": []
+}

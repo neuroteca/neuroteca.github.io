@@ -1,0 +1,85 @@
+{
+  "id": "puente",
+  "tipo": "estructura",
+  "nombre": "Puente",
+  "termino_latin": "Pons",
+  "sinonimos": [
+    "protuberancia",
+    "puente de Varolio"
+  ],
+  "nivel_detalle": "N2",
+  "anatomia": [
+    "Debe su nombre a la palabra latina para «puente»: se ve en la cara anterior del [[tronco_encefalico]] como un grueso haz transversal de [[sustancia_blanca]] unido al [[cerebelo]], con el que se continúa a cada lado por el [[pedunculo|pedúnculo]] cerebeloso medio.[^1][^2] Deriva del metencéfalo, la misma vesícula embrionaria que da origen al cerebelo.[^3]",
+    "Tiene dos partes: la base o puente basilar, anterior, con las fibras que bajan de la corteza cerebral y los [[nucleos_pontinos]] intercalados entre ellas, y el tegmento, posterior, que continúa la [[sustancia_gris]] del [[mesencefalo]].[^1][^4]",
+    "En su tegmento están los [[nucleo|núcleos]] de los [[nervio_craneal|nervios craneales]] V, VI, VII y VIII, entre ellos los [[nucleos_vestibulares]], y la parte pontina de la [[formacion_reticular]].[^4][^5] Su cara posterior forma la mitad superior del suelo del cuarto [[ventriculo]].[^6]"
+  ],
+  "fisiologia": [
+    "Es la principal conexión entre el cerebelo y el resto del encéfalo: los núcleos pontinos reciben las órdenes que bajan de la corteza cerebral y las reenvían al cerebelo del lado opuesto por el pedúnculo medio.[^1][^4]",
+    "Junto con el [[bulbo_raquideo]] regula funciones vitales.[^1] Su grupo respiratorio modifica el ritmo que genera el bulbo: el centro apnéustico prolonga la inspiración y el neumotáxico la corta.[^7]",
+    "Su formación reticular origina un [[tracto]] reticuloespinal que ayuda a mantener la postura y el equilibrio.[^8]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.2 The Central Nervous System",
+      "paginas": "apartados The Brain Stem, The Midbrain, The Pons, The Medulla",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system"
+    },
+    {
+      "obra": "Knierim J. Cerebellum. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 3, capítulo 5",
+      "edicion": "revisado el 20 de octubre de 2020",
+      "paginas": "§5.2 a 5.4 y 5.6",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter05.html"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.1 The Embryologic Perspective",
+      "paginas": "apartados Primary Vesicles y Secondary Vesicles; tabla 13.1",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-1-the-embryologic-perspective"
+    },
+    {
+      "obra": "Overview of the Nervous System. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 2, capítulo 1",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§1.1, 1.4 y 1.6",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s2/chapter01.html"
+    },
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "términos 5921 a 5982 (puente)",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.3 Circulation and the Central Nervous System",
+      "paginas": "apartado Ventricular System",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-3-circulation-and-the-central-nervous-system"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §22.3 The Process of Breathing",
+      "paginas": "apartado Ventilation Control Centers; tabla 22.1",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/22-3-the-process-of-breathing"
+    },
+    {
+      "obra": "Knierim J. Spinal Reflexes and Descending Motor Pathways. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 3, capítulo 2",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§2.2 Descending Motor Pathways",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter02.html"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [
+    {
+      "eje": "nucleos",
+      "nombre_visible": "Por núcleos",
+      "principal": true,
+      "partes": [
+        "nucleos_pontinos",
+        "nucleos_vestibulares"
+      ]
+    }
+  ],
+  "activos": []
+}

@@ -1,0 +1,39 @@
+{
+  "id": "sistema_nervioso_autonomo",
+  "tipo": "fundacional",
+  "nombre": "Sistema nervioso autónomo",
+  "termino_latin": "Pars autonomica systematis nervosi",
+  "sinonimos": [
+    "sistema nervioso vegetativo"
+  ],
+  "nivel_detalle": "N1",
+  "definicion": "Parte del sistema nervioso que gobierna el músculo liso, el músculo cardíaco y las glándulas, sin control voluntario.",
+  "explicacion": [
+    "Tiene dos divisiones.[^1] La simpática sale de los segmentos torácicos y lumbares altos de la médula espinal; la parasimpática, de núcleos del [[tronco_encefalico]] y de la médula sacra, y viaja en los [[nervio_craneal|nervios craneales]] III, VII, IX y X.[^1] Cada vía usa dos neuronas en cadena: una preganglionar, que hace [[sinapsis]] en un ganglio, y otra posganglionar, que llega al órgano.[^1]",
+    "Los centros del [[bulbo_raquideo]] que regulan el corazón y los vasos actúan a través de sus fibras simpáticas y parasimpáticas.[^2] El hipotálamo es el sitio clave de su control central.[^3]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §15.1 Divisions of the Autonomic Nervous System",
+      "paginas": "apartados Sympathetic Division y Parasympathetic Division",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/15-1-divisions-of-the-autonomic-nervous-system"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §20.4 Homeostatic Regulation of the Vascular System",
+      "paginas": "apartados The Cardiovascular Centers in the Brain, Baroreceptor Reflexes y Chemoreceptor Reflexes",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/20-4-homeostatic-regulation-of-the-vascular-system"
+    },
+    {
+      "obra": "Central Control of the Autonomic Nervous System and Thermoregulation. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 4, capítulo 3",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§3.1, 3.2 y 3.9",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s4/chapter03.html"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}

@@ -1,0 +1,24 @@
+{
+  "id": "sinapsis",
+  "tipo": "fundacional",
+  "nombre": "Sinapsis",
+  "termino_latin": "Synapsis",
+  "sinonimos": [],
+  "nivel_detalle": "N1",
+  "definicion": "Punto de contacto por el que una neurona transmite su señal a otra célula.",
+  "explicacion": [
+    "En la sinapsis química, la más común, la neurona presináptica libera un [[neurotransmisor]] a la hendidura sináptica, un espacio estrecho entre las dos células, y este actúa sobre receptores de la célula postsináptica.[^1] En la sinapsis eléctrica las dos células están conectadas directamente y los iones pasan de una a otra.[^1] Según el receptor, el efecto es excitador, si despolariza la célula postsináptica, o inhibidor, si la hiperpolariza.[^1]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §12.5 Communication Between Neurons",
+      "paginas": "apartados Synapses, Neurotransmitter Release y Neurotransmitter Systems",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/12-5-communication-between-neurons"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}
