@@ -4,9 +4,9 @@ pieza: motor
 hito: v0.1-cerebelo
 tipo: bitacora-construccion
 fase: 3
-version: "1.1"
-ultima_actualizacion: 2026-09-19
-estado_compuerta_C: Pendiente
+version: "1.6"
+ultima_actualizacion: 2026-10-31
+estado_compuerta_C: Aprobada
 ---
 
 # Fase 3 — Bitácora de construcción · v0.1 «cerebelo»
@@ -223,18 +223,19 @@ atlas —HTML, CSS, JavaScript— suma 10 KB.**
 - [x] `CA-A1` y `CA-A2` probados de verdad, apagando y rompiendo la pieza.
 - [x] `esquema-contenido.md` y `arquitectura.md` actualizados.
 - [x] **Snapshot tomado** y **etiqueta `v0.1`** creada.
-- [ ] **Max aprobó el cierre de la construcción.**
+- [x] **Max aprobó el cierre de la construcción.**
 
 > **Lo que este hito NO entrega:** el cerebelo de verdad. Las 13 fichas son contenido de
 > prueba marcado como tal, y el modelo es una forma aproximada. Eso llega por el lote
 > `L-001-cerebelo`, con su compuerta V. La frase de valor no se cumple del todo hasta
 > entonces, y estaba previsto desde la fase 1.
 
-**Aprobado por Max el:** ____-__-__
+**Aprobado por Max el:** 2026-10-31 (por chat, en el hilo «Revisar repo y replantear el plan del atlas»). La etiqueta `v0.1` se creó ese mismo día sobre el último commit de `main`; la casilla de arriba se había marcado antes de que existiera.
 
 ## Historial de versiones
 | Versión | Fecha | Cambio principal |
 |---|---|---|
+| 1.6 | 2026-10-31 | Compuerta C aprobada por Max. Etiqueta `v0.1` creada. El método se retira ese mismo día (ver `archivo/LEEME.md`); este hito no tendrá fases 4 y 5 formales. |
 | 1.5 | 2026-09-19 | Defecto encontrado por Max al revisar la compuerta C: destello del esquema y reinicio de la vista al cambiar de ficha. Corregido. `DC-09` y `DC-10`. |
 | 1.4 | 2026-09-19 | Pasos 14 y 15 completados. Los 10 criterios verificados en el sitio publicado. Compuerta C presentada a Max. |
 | 1.3 | 2026-09-19 | Pasos 11, 12 y 13 completados. `CA-A1` y `CA-A2` probados de verdad. `DC-06`, `DC-07` y `DC-08` registradas. |

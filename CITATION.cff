@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "Si usas Neuroteca, cítala así. / If you use Neuroteca, please cite it as below."
+type: software
+title: "Neuroteca: atlas vivo del sistema nervioso"
+abstract: >-
+  Atlas interactivo de neuroanatomía y neurofisiología juntas, de acceso libre, pensado para
+  estudiantes de medicina, neurociencia y psicología sin asumir formación previa. Cada estructura
+  declara su nivel de detalle, sus fuentes y su estado de revisión. /
+  Open-access interactive atlas that presents neuroanatomy and neurophysiology together, for
+  students of medicine, neuroscience and psychology, with no prior background assumed. Every
+  structure declares its level of detail, its sources and its review status.
+authors:
+  - family-names: "Alamilla Rodríguez"
+    given-names: "Maximiliano"
+    orcid: "https://orcid.org/0009-0000-7890-4569"
+repository-code: "https://github.com/neuroteca/neuroteca.github.io"
+url: "https://neuroteca.github.io"
+license: MIT
+license-url: "https://github.com/neuroteca/neuroteca.github.io/blob/main/LICENSE"
+keywords:
+  - neuroanatomía
+  - neurofisiología
+  - atlas
+  - educación médica
+  - neuroanatomy
+  - neurophysiology
+  - open educational resource
+version: "0.1"
+date-released: "2026-10-31"
