@@ -1,22 +1,43 @@
 {
   "id": "hemisferios_cerebelosos",
   "tipo": "estructura",
-  "prueba": true,
   "nombre": "Hemisferios cerebelosos",
-  "termino_latin": "Hemispherium cerebelli",
-  "sinonimos": [],
+  "termino_latin": "Hemisphaerium cerebelli",
+  "sinonimos": [
+    "hemisferios del cerebelo"
+  ],
   "nivel_detalle": "N2",
   "anatomia": [
-    "Texto de prueba. Las dos masas laterales, a ambos lados del [[vermis]]."
+    "Las dos masas laterales del [[cerebelo]], una a cada lado del [[vermis]].[^1][^2] En cada hemisferio se distinguen una zona intermedia, pegada al vermis, y una zona lateral.[^1] El flóculo, la porción hemisférica del [[lobulo_floculonodular]], se cuenta también entre sus partes.[^2]"
   ],
   "fisiologia": [
-    "Texto de prueba. Intervienen en la coordinación fina del movimiento de las extremidades."
+    "La zona intermedia pertenece al espinocerebelo, junto con el vermis: ajusta los movimientos de las extremidades mientras ocurren y envía su salida por los núcleos interpuestos hacia el núcleo rojo.[^1][^3]",
+    "La zona lateral es el cerebrocerebelo, la subdivisión funcional más grande del cerebelo humano: recibe de la corteza cerebral a través de los núcleos del puente, por el [[pedunculo]] medio, y devuelve la señal por el núcleo dentado y el tálamo hacia la corteza motora.[^1][^3] Participa en planificar y sincronizar los movimientos, sobre todo de las extremidades, y en funciones cognitivas que aún se investigan.[^1][^3][^4]"
   ],
   "fuentes": [
     {
-      "obra": "CONTENIDO DE PRUEBA — sin verificar",
-      "edicion": "—",
-      "paginas": "—"
+      "obra": "Knierim J. Cerebellum. En: Byrne JH (ed.). Neuroscience Online, sección 3, capítulo 5. Houston: UTHealth McGovern Medical School",
+      "edicion": "revisado el 20 de octubre de 2020",
+      "paginas": "§5.1 a 5.3 y 5.5",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter05.html"
+    },
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "términos 5788 a 5850 (cerebelo)",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §16.5 The Coordination and Gait Exams",
+      "paginas": "",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/16-5-the-coordination-and-gait-exams"
+    },
+    {
+      "obra": "Manto M, Bower JM, Conforto AB, et al. Consensus paper: roles of the cerebellum in motor control. The diversity of ideas on cerebellar involvement in movement. The Cerebellum",
+      "edicion": "2012; 11(2)",
+      "paginas": "457–487",
+      "doi": "10.1007/s12311-011-0331-9"
     }
   ],
   "autoria": "agente",

@@ -1,20 +1,20 @@
 {
   "id": "eferente",
   "tipo": "fundacional",
-  "prueba": true,
   "nombre": "Eferente",
   "termino_latin": "",
   "sinonimos": [],
   "nivel_detalle": "N1",
-  "definicion": "Que lleva información desde una estructura hacia otra.",
+  "definicion": "Que lleva señales desde una estructura o desde el sistema nervioso central hacia fuera.",
   "explicacion": [
-    "Texto de prueba. Lo contrario de [[aferente]]: la que sale."
+    "En un reflejo, la rama eferente es la salida: la proyección que va desde el sistema nervioso central hacia el músculo o la glándula que responde.[^1] Lo contrario es [[aferente]]."
   ],
   "fuentes": [
     {
-      "obra": "CONTENIDO DE PRUEBA — sin verificar",
-      "edicion": "—",
-      "paginas": "—"
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §15.2 Autonomic Reflexes and Homeostasis",
+      "paginas": "",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/15-2-autonomic-reflexes-and-homeostasis"
     }
   ],
   "autoria": "agente",

@@ -32,7 +32,10 @@
     "N5": "circuito"
   },
   "prueba": "Contenido de prueba",
-  "estados": { "borrador": "Borrador", "revisado": "Revisado" },
+  "estados": {
+    "borrador": "Borrador",
+    "revisado": "Revisado"
+  },
   "sin_traducir": "Traducción pendiente: parte del texto está en español",
   "anatomia": "Anatomía",
   "fisiologia": "Fisiología",
@@ -41,12 +44,19 @@
   "fuentes": "Fuentes",
   "modelo": "Modelo visual",
   "modelo_linea": "Modelo {estado}, de origen {origen}, licencia {licencia}.",
-  "modelo_estados": { "provisional": "provisional", "definitivo": "definitivo" },
-  "modelo_origenes": { "propio": "propio", "derivado": "derivado", "terceros": "de terceros" },
+  "modelo_estados": {
+    "provisional": "provisional",
+    "definitivo": "definitivo"
+  },
+  "modelo_origenes": {
+    "propio": "propio",
+    "derivado": "derivado",
+    "terceros": "de terceros"
+  },
   "modelo_atribucion": "Atribución:",
   "modelo_descripcion": "Descripción:",
   "portada_lead": "Atlas interactivo de neuroanatomía y neurofisiología juntas, de acceso libre. Cada estructura dice qué es, qué hace, a qué nivel de detalle está representada y de dónde sale cada afirmación. No hace falta saber neurociencia: los términos técnicos enlazan a su explicación.",
-  "portada_estado": "Proyecto en construcción y en uso. Las fichas marcadas como contenido de prueba se están sustituyendo por contenido verificado.",
+  "portada_estado": "Proyecto en construcción y en uso. Las fichas están en borrador hasta que el autor verifica cada afirmación contra su fuente; cada ficha muestra su estado.",
   "regiones": "Regiones",
   "regiones_texto": "Cada región se puede girar, tocar y leer. Las partes aparecen al entrar.",
   "glosario": "Glosario",

@@ -1,20 +1,20 @@
 {
   "id": "aferente",
   "tipo": "fundacional",
-  "prueba": true,
   "nombre": "Aferente",
   "termino_latin": "",
   "sinonimos": [],
   "nivel_detalle": "N1",
-  "definicion": "Que lleva información hacia una estructura.",
+  "definicion": "Que lleva información hacia una estructura o hacia el sistema nervioso central.",
   "explicacion": [
-    "Texto de prueba. Desde el punto de vista del cerebelo, una vía aferente es la que le trae información."
+    "En un reflejo, la rama aferente es la entrada: las señales sensitivas que llegan a la médula espinal o al encéfalo.[^1] Lo contrario es [[eferente]]. Una misma fibra es aferente respecto de la estructura a la que llega y eferente respecto de la que sale, así que conviene decir siempre de qué estructura se habla."
   ],
   "fuentes": [
     {
-      "obra": "CONTENIDO DE PRUEBA — sin verificar",
-      "edicion": "—",
-      "paginas": "—"
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §15.2 Autonomic Reflexes and Homeostasis",
+      "paginas": "",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/15-2-autonomic-reflexes-and-homeostasis"
     }
   ],
   "autoria": "agente",

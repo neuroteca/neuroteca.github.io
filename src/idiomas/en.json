@@ -32,7 +32,10 @@
     "N5": "circuit"
   },
   "prueba": "Test content",
-  "estados": { "borrador": "Draft", "revisado": "Reviewed" },
+  "estados": {
+    "borrador": "Draft",
+    "revisado": "Reviewed"
+  },
   "sin_traducir": "Translation pending: part of this text is in Spanish",
   "anatomia": "Anatomy",
   "fisiologia": "Physiology",
@@ -41,12 +44,19 @@
   "fuentes": "Sources",
   "modelo": "Visual model",
   "modelo_linea": "{estado} model, {origen}, licence {licencia}.",
-  "modelo_estados": { "provisional": "Provisional", "definitivo": "Definitive" },
-  "modelo_origenes": { "propio": "made for this atlas", "derivado": "derived from a third-party source", "terceros": "third-party" },
+  "modelo_estados": {
+    "provisional": "Provisional",
+    "definitivo": "Definitive"
+  },
+  "modelo_origenes": {
+    "propio": "made for this atlas",
+    "derivado": "derived from a third-party source",
+    "terceros": "third-party"
+  },
   "modelo_atribucion": "Attribution:",
   "modelo_descripcion": "Description:",
   "portada_lead": "An open-access interactive atlas that presents neuroanatomy and neurophysiology together. Every structure states what it is, what it does, the level of detail at which it is represented, and where each statement comes from. No neuroscience background is needed: technical terms link to their explanation.",
-  "portada_estado": "Work in progress, in use. Entries labelled as test content are being replaced by verified content. Content is written in Spanish; entries not yet translated are shown in Spanish and labelled as such.",
+  "portada_estado": "Work in progress, in use. Entries stay as drafts until the author verifies every statement against its source; each entry shows its status. Content is written in Spanish; entries not yet translated are shown in Spanish and labelled as such.",
   "regiones": "Regions",
   "regiones_texto": "Each region can be rotated, tapped and read. Its parts appear once you enter.",
   "glosario": "Glossary",

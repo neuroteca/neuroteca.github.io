@@ -180,6 +180,8 @@ def cargar_paginas():
 # ---------------------------------------------------------------- validación
 
 RE_ENLACE = re.compile(r'\[\[([^\]\|]+)(?:\|([^\]]+))?\]\]')
+# [^3] al final de una frase: la afirmación se apoya en la fuente número 3 de la ficha.
+RE_REF = re.compile(r'\[\^(\d+)\]')
 
 
 def _parrafos(ficha, campo):
@@ -201,6 +203,11 @@ def validar(fichas, activos, paginas, idiomas):
                     if destino not in fichas:
                         problemas.append(
                             '%s: el enlace [[%s]] en `%s` no tiene destino' % (donde, destino, campo))
+                for n in RE_REF.findall(parrafo):
+                    if not 1 <= int(n) <= len(ficha.get('fuentes') or ()):
+                        problemas.append(
+                            '%s: la referencia [^%s] en `%s` no corresponde a ninguna fuente'
+                            % (donde, n, campo))
 
     for idf, ficha in sorted(fichas.items()):
         donde = ficha['_ruta']
@@ -348,11 +355,21 @@ RE_EXTERNO = re.compile(r'\[([^\]]+)\]\((https?://[^)\s]+)\)')
 RE_CODIGO = re.compile(r'`([^`]+)`')
 
 
+RE_REFS = re.compile(r'(?:\[\^\d+\])+')
+
+
+def _refs(m):
+    """[^2][^4] → un solo superíndice «2, 4», cada número enlazado a su fuente."""
+    numeros = RE_REF.findall(m.group(0))
+    return '<sup class="ref">%s</sup>' % ', '.join(
+        '<a href="#fuente-%s">%s</a>' % (n, n) for n in numeros)
+
+
 def _marcado(texto, fichas, enlace, idioma):
     """Convierte el subconjunto permitido a HTML.
 
-    [[id|texto]] enlaza al glosario; [texto](https://…) a fuera; **negrita**, *cursiva*,
-    `código`. Nada más.
+    [[id|texto]] enlaza al glosario; [texto](https://…) a fuera; [^n] a la fuente n de la
+    ficha; **negrita**, *cursiva*, `código`. Nada más.
     """
     salida = _esc(texto)
 
@@ -364,6 +381,7 @@ def _marcado(texto, fichas, enlace, idioma):
 
     salida = RE_ENLACE.sub(glosario, salida)
     salida = RE_EXTERNO.sub(r'<a href="\2" rel="noopener">\1</a>', salida)
+    salida = RE_REFS.sub(_refs, salida)
     salida = re.sub(r'\*\*([^*]+)\*\*', r'<strong>\1</strong>', salida)
     salida = re.sub(r'(?<!\*)\*([^*]+)\*(?!\*)', r'<em>\1</em>', salida)
     salida = RE_CODIGO.sub(r'<code>\1</code>', salida)
@@ -464,13 +482,18 @@ def _ficha_html(ficha, vista, pendientes, fichas, activo, enlace, T, idioma):
         for parrafo in _parrafos(vista, campo):
             h.append('<p%s>%s</p>' % (lang(campo), _marcado(parrafo, fichas, enlace, idioma)))
 
-    h.append('<h2>%s</h2><ul class="fuentes">' % _esc(T['fuentes']))
-    for f in ficha['fuentes']:
-        trozos = [f.get('obra', ''), f.get('edicion', ''), f.get('paginas', ''), f.get('doi', '')]
+    h.append('<h2>%s</h2><ol class="fuentes">' % _esc(T['fuentes']))
+    for n, f in enumerate(ficha['fuentes'], 1):
+        trozos = [_esc(t) for t in (f.get('obra', ''), f.get('edicion', ''), f.get('paginas', ''))
+                  if t and t not in ('-', '—')]
         # Se escapa cada trozo y luego se unen: al revés, el separador se escaparía a sí mismo.
-        h.append('<li>%s</li>'
-                 % ' &middot; '.join([_esc(t) for t in trozos if t and t not in ('-', '—')]))
-    h.append('</ul>')
+        if f.get('doi'):
+            trozos.append('<a href="https://doi.org/%s" rel="noopener">doi:%s</a>'
+                          % (_esc(f['doi']), _esc(f['doi'])))
+        if f.get('url'):
+            trozos.append('<a href="%s" rel="noopener">%s</a>' % (_esc(f['url']), _esc(f['url'])))
+        h.append('<li id="fuente-%d">%s</li>' % (n, ' &middot; '.join(trozos)))
+    h.append('</ol>')
 
     if activo:
         h.append('<h2>%s</h2><p class="modelo-info">%s' % (
@@ -727,7 +750,8 @@ def escribir(fichas, activos, paginas, idiomas):
             guardar('%sestructura/%s/index.html' % (pre, idf),
                     pagina('estructura/%s/' % idf, idioma,
                            '%s — %s' % (vista['nombre'], T['titulo_sitio']),
-                           RE_ENLACE.sub(lambda m: m.group(2) or m.group(1), descripcion),
+                           RE_REF.sub('', RE_ENLACE.sub(lambda m: m.group(2) or m.group(1),
+                                                        descripcion)),
                            base, ''.join(cuerpo), activo=activo,
                            aviso=bool(es_estructura and activo),
                            visor_js=bool(es_estructura and activo)))

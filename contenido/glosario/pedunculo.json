@@ -1,0 +1,36 @@
+{
+  "id": "pedunculo",
+  "tipo": "fundacional",
+  "nombre": "Pedúnculo",
+  "termino_latin": "",
+  "sinonimos": [],
+  "nivel_detalle": "N1",
+  "definicion": "Haz grueso de sustancia blanca que une una parte del encéfalo con otra.",
+  "explicacion": [
+    "Los tres pedúnculos cerebelosos conectan el [[cerebelo]] con el [[tronco_encefalico]]: el superior, con el mesencéfalo y el prosencéfalo; el medio, con el puente; y el inferior, con el bulbo.[^1][^2] El superior lleva sobre todo fibras [[eferente|eferentes]]; el medio y el inferior, la mayoría de las [[aferente|aferentes]].[^3]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §16.5 The Coordination and Gait Exams",
+      "paginas": "",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/16-5-the-coordination-and-gait-exams"
+    },
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "términos 5788 a 5850 (cerebelo)",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
+    },
+    {
+      "obra": "Knierim J. Cerebellum. En: Byrne JH (ed.). Neuroscience Online, sección 3, capítulo 5. Houston: UTHealth McGovern Medical School",
+      "edicion": "revisado el 20 de octubre de 2020",
+      "paginas": "§5.1 a 5.3 y 5.5",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter05.html"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}

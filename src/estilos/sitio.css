@@ -183,8 +183,13 @@ a.glos {
 a.glos:hover { color: var(--acento); border-bottom-style: solid; }
 a.glos::after { content: "\00B0"; color: var(--acento); font-size: .8em; vertical-align: super; }
 
-.fuentes { font-size: 13.5px; color: var(--tinta-2); padding-left: 18px; margin: 0; }
+.fuentes { font-size: 13.5px; color: var(--tinta-2); padding-left: 22px; margin: 0; }
 .fuentes li { margin-bottom: 4px; }
+.fuentes li:target { background: var(--acento-suave); border-radius: 4px; }
+.fuentes a { color: var(--acento); overflow-wrap: anywhere; }
+sup.ref { font-size: .62em; line-height: 0; margin-left: 1px; }
+sup.ref a { color: var(--acento); text-decoration: none; }
+sup.ref a:hover { text-decoration: underline; }
 
 /* ---------------------------------------------------------- pie */
 

@@ -1,20 +1,22 @@
 {
   "id": "tono_muscular",
   "tipo": "fundacional",
-  "prueba": true,
   "nombre": "Tono muscular",
   "termino_latin": "",
-  "sinonimos": [],
+  "sinonimos": [
+    "tono"
+  ],
   "nivel_detalle": "N1",
-  "definicion": "Grado de contracción sostenida de un músculo en reposo.",
+  "definicion": "Contracción ligera y sostenida de un músculo que no está produciendo movimiento.",
   "explicacion": [
-    "Texto de prueba. Sostiene la postura sin que haya que pensarlo."
+    "El sistema nervioso lo mantiene activando unas pocas unidades motoras a la vez, por turnos.[^1] Su falta se llama hipotonía y su exceso, hipertonía.[^1] Las lesiones del [[cerebelo]] suelen disminuirlo."
   ],
   "fuentes": [
     {
-      "obra": "CONTENIDO DE PRUEBA — sin verificar",
-      "edicion": "—",
-      "paginas": "—"
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §10.4 Nervous System Control of Muscle Tension",
+      "paginas": "",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/10-4-nervous-system-control-of-muscle-tension"
     }
   ],
   "autoria": "agente",
