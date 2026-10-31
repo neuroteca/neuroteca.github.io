@@ -67,5 +67,17 @@
   "no_encontrada_texto": "Puede que la estructura se llame de otra forma o que todavía no esté publicada.",
   "no_encontrada_volver": "Volver al principio",
   "pie": "Contenido bajo <a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.es\">CC BY-SA 4.0</a> · Recurso <strong>didáctico y esquemático</strong>: no es una referencia clínica ni quirúrgica.",
-  "meta_portada": "Atlas interactivo de neuroanatomía y neurofisiología juntas, de acceso libre y sin asumir formación previa."
+  "meta_portada": "Atlas interactivo de neuroanatomía y neurofisiología juntas, de acceso libre y sin asumir formación previa.",
+  "funcion": "Función",
+  "circuito": "Circuito",
+  "estructuras_implicadas": "Estructuras implicadas",
+  "sistemas_de": "Sistemas en los que participa",
+  "sistemas": "Sistemas",
+  "sistemas_texto": "Una función real atraviesa varias estructuras. Cada sistema muestra el circuito completo y enlaza a cada parte.",
+  "estructuras_n": "{n} estructuras con ficha",
+  "esquema_alt": "Esquema del circuito: {nombre}. El texto de la sección Circuito describe el mismo recorrido.",
+  "esquema_abrir": "Abrir la ficha: {nombre}",
+  "esquema_sin_ficha": "Todavía sin ficha en el atlas",
+  "esquema_leyenda_con": "Con ficha: pulsa para abrir.",
+  "esquema_leyenda_sin": "Sin ficha todavía."
 }

@@ -67,5 +67,17 @@
   "no_encontrada_texto": "The structure may go by another name, or it may not be published yet.",
   "no_encontrada_volver": "Back to the start",
   "pie": "Content under <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA 4.0</a> · A <strong>teaching resource, schematic by design</strong>: not a clinical or surgical reference.",
-  "meta_portada": "Open-access interactive atlas of neuroanatomy and neurophysiology together, with no prior background assumed."
+  "meta_portada": "Open-access interactive atlas of neuroanatomy and neurophysiology together, with no prior background assumed.",
+  "funcion": "Function",
+  "circuito": "Circuit",
+  "estructuras_implicadas": "Structures involved",
+  "sistemas_de": "Systems it takes part in",
+  "sistemas": "Systems",
+  "sistemas_texto": "A real function runs through several structures. Each system shows the whole circuit and links to every part.",
+  "estructuras_n": "{n} structures with an entry",
+  "esquema_alt": "Circuit diagram: {nombre}. The Circuit section describes the same path in text.",
+  "esquema_abrir": "Open the entry: {nombre}",
+  "esquema_sin_ficha": "No entry in the atlas yet",
+  "esquema_leyenda_con": "Has an entry: click to open.",
+  "esquema_leyenda_sin": "No entry yet."
 }
