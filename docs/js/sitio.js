@@ -74,3 +74,21 @@
   });
   if (location.hash === '#glosario') { campo.focus(); }
 })();
+
+// --- Fuentes plegadas ------------------------------------------------------
+// Una nota [^n] o un enlace #fuente-n abre la caja de fuentes antes de saltar a ella.
+(function () {
+  'use strict';
+  var caja = document.querySelector('details.fuentes-caja');
+  if (!caja) { return; }
+  function abrir() { caja.open = true; }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('a[href^="#fuente-"]') : null;
+    if (a) { abrir(); }
+  });
+  if (location.hash.indexOf('#fuente-') === 0) {
+    abrir();
+    var destino = document.getElementById(location.hash.slice(1));
+    if (destino) { destino.scrollIntoView(); }
+  }
+})();

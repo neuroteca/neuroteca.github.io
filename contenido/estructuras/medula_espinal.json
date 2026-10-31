@@ -15,6 +15,11 @@
     "Es también un centro por derecho propio: en ella se cierran los [[reflejo|reflejos]] espinales, en los que una entrada sensitiva genera directamente una respuesta motora.[^6] Sus [[motoneurona|motoneuronas]] del asta anterior son la vía final común del movimiento: cualquier orden, venga de la corteza o de un reflejo, llega al músculo a través de ellas.[^7]",
     "Cada segmento inerva una franja de piel, su [[dermatoma]], lo que permite localizar el nivel de una lesión en la exploración.[^1][^6]"
   ],
+  "vistazo": {
+    "que_hace": "Sube la sensibilidad del tronco y las extremidades, baja las órdenes motoras y cierra por sí misma los [[reflejo|reflejos]] espinales.[^2][^1][^6]",
+    "si_falla": "El nivel de una lesión se localiza en la exploración por el [[dermatoma]] afectado.[^1][^6]",
+    "conexiones": "Continúa el [[bulbo_raquideo]]; las fibras sensitivas entran por las raíces posteriores y las motoras salen por las anteriores, en 31 pares de [[nervio_espinal|nervios espinales]].[^1][^3]"
+  },
   "fuentes": [
     {
       "obra": "Anatomy of the Spinal Cord. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 2, capítulo 3",

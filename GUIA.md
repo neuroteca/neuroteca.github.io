@@ -30,7 +30,11 @@ Cada ficha es un JSON con `id` (estable, nunca se cambia ni se reutiliza; es la 
 forma general … `N5` circuito; **siempre visible al lector**), `fuentes` (obligatorio), `autoria`,
 `estado` (`borrador` o `revisado`), y la prosa en párrafos: `anatomia` y `fisiologia` para
 estructuras, `definicion` y `explicacion` para fundacionales. Las estructuras declaran
-`divisiones` por **ejes** (una parte puede estar en varios ejes a la vez) y `activos`.
+`divisiones` por **ejes** (una parte puede estar en varios ejes a la vez) y `activos`. Una ficha
+puede llevar además `vistazo`, un objeto opcional con alguna de las claves `que_hace`, `si_falla`,
+`conexiones` y `neurotransmisores`: una frase corta cada una, con el mismo marcado que la prosa y
+**al menos una referencia `[^n]`**, que la cabecera muestra como «De un vistazo». Una clave que la
+fuente no sostiene se omite; no se rellena.
 
 Marcado permitido en la prosa: `[[id]]` o `[[id|texto]]` para enlazar al glosario, `**negrita**`,
 `*cursiva*`, `[texto](https://…)` para un enlace externo (fuentes abiertas, ORCID), `` `código` ``
@@ -67,7 +71,7 @@ del diagrama: tiene que contar lo mismo. La pieza `esquema` (JavaScript) solo a�
 
 `contenido/<carpeta>/<id>.<idioma>.json` con `id`, `idioma` y solo los campos que traduce:
 `nombre`, `sinonimos`, `anatomia`, `fisiologia`, `definicion`, `explicacion`, `funcion`,
-`circuito`, `ejes` (nombre de cada eje de división) y `nodos` (nombre de cada nodo del esquema). Cualquier otro campo hace fallar la construcción: `fuentes`, `estado`,
+`circuito`, `vistazo` (solo las claves que la ficha tiene), `ejes` (nombre de cada eje de división) y `nodos` (nombre de cada nodo del esquema). Cualquier otro campo hace fallar la construcción: `fuentes`, `estado`,
 `nivel_detalle` y `divisiones` son una sola verdad y viven en la ficha en español. Un campo
 ausente se muestra en español con la insignia «traducción pendiente».
 

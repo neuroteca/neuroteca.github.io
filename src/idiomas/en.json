@@ -101,5 +101,13 @@
   "mapa_localizador": "Where it is: {nombre}",
   "glosario_buscar": "Filter by name or definition…",
   "glosario_filtro_aria": "Filter the glossary",
-  "glosario_sin_resultados": "No term matches."
+  "glosario_sin_resultados": "No term matches.",
+  "partes_titulo": "Parts of {nombre}",
+  "vistazo": "At a glance",
+  "vistazo_que_hace": "What it does",
+  "vistazo_si_falla": "When it fails",
+  "vistazo_conexiones": "Main connections",
+  "vistazo_neurotransmisores": "Neurotransmitters",
+  "fuentes_n": "Sources ({n})",
+  "mapa_localizador_pie": "Where it is · schematic sagittal section"
 }
