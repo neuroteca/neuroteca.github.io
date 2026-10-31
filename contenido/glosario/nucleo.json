@@ -1,0 +1,30 @@
+{
+  "id": "nucleo",
+  "tipo": "fundacional",
+  "nombre": "Núcleo",
+  "termino_latin": "",
+  "sinonimos": [],
+  "nivel_detalle": "N1",
+  "definicion": "Conjunto localizado de cuerpos neuronales dentro del sistema nervioso central.",
+  "explicacion": [
+    "Es una isla de [[sustancia_gris]] rodeada de [[sustancia_blanca]].[^1] Cuando un conjunto así está fuera del sistema nervioso central, en la periferia, se llama ganglio.[^1][^2] No tiene que ver con el núcleo de la célula: es la misma palabra para dos cosas distintas."
+  ],
+  "fuentes": [
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §12.1 Basic Structure and Function of the Nervous System",
+      "paginas": "",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/12-1-basic-structure-and-function-of-the-nervous-system"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.4 The Peripheral Nervous System",
+      "paginas": "",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-4-the-peripheral-nervous-system"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}

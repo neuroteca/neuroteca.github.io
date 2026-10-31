@@ -33,8 +33,14 @@ estructuras, `definicion` y `explicacion` para fundacionales. Las estructuras de
 `divisiones` por **ejes** (una parte puede estar en varios ejes a la vez) y `activos`.
 
 Marcado permitido en la prosa: `[[id]]` o `[[id|texto]]` para enlazar al glosario, `**negrita**`,
-`*cursiva*`, `[texto](https://…)` para un enlace externo (fuentes abiertas, ORCID) y `` `código` ``.
-Nada más. **La construcción falla** si un enlace no tiene destino o falta un campo.
+`*cursiva*`, `[texto](https://…)` para un enlace externo (fuentes abiertas, ORCID), `` `código` ``
+y `[^n]` al final de una frase para decir en qué fuente de la ficha (la número *n*) se apoya.
+Nada más. **La construcción falla** si un enlace no tiene destino, una referencia apunta a una
+fuente que no existe o falta un campo.
+
+Cada fuente es `{obra, edicion, paginas}` y, cuando lo tiene, `doi` o `url`, que el sitio
+muestra como enlace. Una fuente abierta (libro de texto libre, terminología oficial, artículo
+con DOI) vale tanto como una de pago: lo que importa es que cualquiera pueda ir y comprobar.
 
 El esquema completo, con la razón de cada campo, está en
 `archivo/atlas-desarrollo/motor/esquema-contenido.md` (v0.3) más la decisión DC-01 de

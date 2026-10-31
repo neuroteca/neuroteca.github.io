@@ -1,0 +1,36 @@
+{
+  "id": "folia",
+  "tipo": "fundacional",
+  "nombre": "Folia",
+  "termino_latin": "Folia cerebelli",
+  "sinonimos": [],
+  "nivel_detalle": "N1",
+  "definicion": "Láminas finas y paralelas en que se pliega la corteza del cerebelo.",
+  "explicacion": [
+    "Es el nombre que da la *Terminologia Anatomica* a los pliegues del [[cerebelo]], el equivalente de las circunvoluciones del cerebro.[^1] En un corte, los pliegues y las fisuras entre ellos dan a la corteza cerebelosa su aspecto característico de árbol.[^2][^3]"
+  ],
+  "fuentes": [
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "términos 5788 a 5850 (cerebelo)",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
+    },
+    {
+      "obra": "Knierim J. Cerebellum. En: Byrne JH (ed.). Neuroscience Online, sección 3, capítulo 5. Houston: UTHealth McGovern Medical School",
+      "edicion": "revisado el 20 de octubre de 2020",
+      "paginas": "§5.1 a 5.3 y 5.5",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter05.html"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.2 The Central Nervous System",
+      "paginas": "",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}

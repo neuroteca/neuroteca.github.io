@@ -1,20 +1,20 @@
 {
   "id": "sustancia_blanca",
   "tipo": "fundacional",
-  "prueba": true,
   "nombre": "Sustancia blanca",
   "termino_latin": "",
   "sinonimos": [],
   "nivel_detalle": "N1",
-  "definicion": "Tejido nervioso formado sobre todo por axones recubiertos de mielina.",
+  "definicion": "Regiones del tejido nervioso formadas sobre todo por axones.",
   "explicacion": [
-    "Texto de prueba. Es el cableado: conecta unas zonas de [[sustancia_gris]] con otras."
+    "Es el cableado: los axones que llevan las señales de una región a otra. Es blanca porque los axones están aislados por mielina, una sustancia rica en lípidos.[^1] Dentro del sistema nervioso central, los axones que van juntos forman [[tracto|tractos]].[^1]"
   ],
   "fuentes": [
     {
-      "obra": "CONTENIDO DE PRUEBA — sin verificar",
-      "edicion": "—",
-      "paginas": "—"
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §12.1 Basic Structure and Function of the Nervous System",
+      "paginas": "",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/12-1-basic-structure-and-function-of-the-nervous-system"
     }
   ],
   "autoria": "agente",

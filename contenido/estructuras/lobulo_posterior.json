@@ -1,22 +1,28 @@
 {
   "id": "lobulo_posterior",
   "tipo": "estructura",
-  "prueba": true,
   "nombre": "Lóbulo posterior",
-  "termino_latin": "Lobus cerebelli posterior",
+  "termino_latin": "Lobus posterior cerebelli",
   "sinonimos": [],
   "nivel_detalle": "N2",
   "anatomia": [
-    "Texto de prueba. El más extenso, entre la fisura primaria y la posterolateral."
+    "Parte del cuerpo del [[cerebelo]] comprendida entre la fisura prima, que lo separa del [[lobulo_anterior]], y la fisura posterolateral, que lo separa del [[lobulo_floculonodular]].[^1][^2] Como al anterior, lo cruzan el [[vermis]] y los [[hemisferios_cerebelosos]] con sus zonas intermedia y lateral.[^1]"
   ],
   "fisiologia": [
-    "Texto de prueba. Participa en la planificación y el ajuste del movimiento voluntario."
+    "Por regiones: su porción vermiana e intermedia forma parte del espinocerebelo, y su porción lateral, del cerebrocerebelo, la subdivisión funcional más grande del cerebelo humano, dedicada a planificar y sincronizar los movimientos.[^1]"
   ],
   "fuentes": [
     {
-      "obra": "CONTENIDO DE PRUEBA — sin verificar",
-      "edicion": "—",
-      "paginas": "—"
+      "obra": "Knierim J. Cerebellum. En: Byrne JH (ed.). Neuroscience Online, sección 3, capítulo 5. Houston: UTHealth McGovern Medical School",
+      "edicion": "revisado el 20 de octubre de 2020",
+      "paginas": "§5.1 a 5.3 y 5.5",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter05.html"
+    },
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "términos 5788 a 5850 (cerebelo)",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
     }
   ],
   "autoria": "agente",

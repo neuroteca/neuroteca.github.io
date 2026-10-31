@@ -1,0 +1,27 @@
+{
+  "id": "tronco_encefalico",
+  "tipo": "fundacional",
+  "nombre": "Tronco encefálico",
+  "termino_latin": "",
+  "sinonimos": [
+    "tallo cerebral",
+    "tronco del encéfalo"
+  ],
+  "nivel_detalle": "N1",
+  "definicion": "Parte del encéfalo que une el cerebro con la médula espinal: mesencéfalo, puente y bulbo.",
+  "explicacion": [
+    "Tiene forma de cono que se estrecha hacia abajo.[^1] El [[cerebelo]] está unido a su cara posterior, aunque se considera una región aparte del encéfalo adulto.[^1]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.2 The Central Nervous System",
+      "paginas": "",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}
