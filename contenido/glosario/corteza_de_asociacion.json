@@ -1,0 +1,33 @@
+{
+  "id": "corteza_de_asociacion",
+  "tipo": "fundacional",
+  "nombre": "Corteza de asociación",
+  "termino_latin": "",
+  "sinonimos": [
+    "áreas de asociación"
+  ],
+  "nivel_detalle": "N1",
+  "definicion": "Corteza que no recibe directamente los sentidos ni manda directamente al músculo, sino que integra la información entre ambos.",
+  "explicacion": [
+    "Las áreas de asociación median entre las entradas sensitivas y las salidas motoras y son el asiento del procesamiento cognitivo.[^1] Las unimodales están junto a su corteza primaria y procesan una sola modalidad; las multimodales, o de integración, combinan varios sentidos o procesan de forma más compleja, y cuanto más lejos de las áreas primarias, más general es su función.[^2][^1]",
+    "Se distinguen tres grandes: la posterior, en la unión parietotemporooccipital, de percepción y lenguaje; la límbica, en el temporal anterior y la [[circunvolucion|circunvolución]] parahipocampal, que une emoción, aprendizaje y memoria; y la anterior o prefrontal, de memoria, planificación y formación de conceptos.[^1]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Wright A. Higher Cortical Functions: Association and Executive Processing. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 4, capítulo 9",
+      "edicion": "revisado el 20 de octubre de 2020",
+      "paginas": "§9.1 a 9.5",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s4/chapter09.html"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §16.2 The Mental Status Exam",
+      "paginas": "apartados The Cerebrum, Orientation and Memory, Language and Speech, Sensorium, Judgment and Abstract Reasoning",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/16-2-the-mental-status-exam"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}

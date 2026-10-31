@@ -1,0 +1,54 @@
+{
+  "id": "insula",
+  "tipo": "estructura",
+  "nombre": "Ínsula",
+  "termino_latin": "Insula",
+  "sinonimos": [
+    "lóbulo insular",
+    "lóbulo de la ínsula"
+  ],
+  "nivel_detalle": "N2",
+  "anatomia": [
+    "Corteza escondida en el fondo del [[surco]] lateral, visible solo al separar los lóbulos frontal y temporal que la cubren.[^1][^5] Aunque se la llame lóbulo insular, no es un lóbulo verdadero.[^1]"
+  ],
+  "fisiologia": [
+    "El gusto llega desde el núcleo ventral posteromedial del [[talamo]] a la corteza insular y a la zona cercana a la [[circunvolucion|circunvolución]] poscentral que representa la lengua.[^2] Hay indicios que la relacionan con la nocicepción y con la regulación autónoma.[^1]",
+    "Está junto a las áreas del lenguaje: la lesión de Broca suele extenderse a ella, los pacientes con apraxia del habla sin afasia tienen lesión insular, y el daño cercano a la ínsula se asocia a dificultad con los verbos.[^3][^4]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Overview of the Nervous System. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 2, capítulo 1",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§1.1, 1.2 y 1.6",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s2/chapter01.html"
+    },
+    {
+      "obra": "Hutchins MO. Chemical Senses: Olfaction and Gustation. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 2, capítulo 9",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§9.1 y 9.3",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s2/chapter09.html"
+    },
+    {
+      "obra": "Wright A. Higher Cortical Functions: Language. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 4, capítulo 8",
+      "edicion": "revisado el 1 de marzo de 2025",
+      "paginas": "§8.1 a 8.4",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s4/chapter08.html"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §16.2 The Mental Status Exam",
+      "paginas": "apartados The Cerebrum, Orientation and Memory, Language and Speech, Sensorium, Judgment and Abstract Reasoning",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/16-2-the-mental-status-exam"
+    },
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "términos 5445 (lobus frontalis), 5467 (lobus parietalis), 5480 (lobus occipitalis), 5488 (lobus temporalis), 5502 (insula) y 5507 (lobus limbicus)",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}

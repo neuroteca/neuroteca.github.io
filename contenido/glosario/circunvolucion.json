@@ -1,0 +1,38 @@
+{
+  "id": "circunvolucion",
+  "tipo": "fundacional",
+  "nombre": "Circunvolución",
+  "termino_latin": "Gyrus",
+  "sinonimos": [
+    "giro"
+  ],
+  "nivel_detalle": "N1",
+  "definicion": "Pliegue saliente de la corteza cerebral, limitado por surcos.",
+  "explicacion": [
+    "Una circunvolución es una cresta de la corteza, y un [[surco]], la hendidura entre dos circunvoluciones.[^1][^3] Los pliegues amplían la superficie cortical sin agrandar el encéfalo.[^2] Algunas tienen función propia: la precentral es la corteza motora primaria y la poscentral, la somatosensitiva.[^1]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.2 The Central Nervous System",
+      "paginas": "apartado The Cerebrum (Cerebral Cortex, Lobes of the Cerebral Cortex, Brodmann, Subcortical Structures); figuras 13.6 a 13.8",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system"
+    },
+    {
+      "obra": "Overview of the Nervous System. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 2, capítulo 1",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§1.1, 1.2 y 1.6",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s2/chapter01.html"
+    },
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "términos 5432 a 5436 (gyri cerebri, sulci cerebri, sulcus centralis, sulcus lateralis), 5458 (gyrus precentralis) y 5469 (gyrus postcentralis)",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}
