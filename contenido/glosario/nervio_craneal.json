@@ -1,0 +1,39 @@
+{
+  "id": "nervio_craneal",
+  "tipo": "fundacional",
+  "nombre": "Nervio craneal",
+  "termino_latin": "Nervus cranialis",
+  "sinonimos": [
+    "par craneal"
+  ],
+  "nivel_detalle": "N1",
+  "definicion": "Nervio que nace directamente del encéfalo, no de la médula espinal; hay doce pares, numerados del I al XII.",
+  "explicacion": [
+    "Salen del cráneo por orificios del hueso llamados forámenes.[^2] Tres son solo sensitivos (I olfatorio, II óptico y VIII vestibulococlear), cinco solo motores (III, IV y VI, que mueven el ojo, XI accesorio y XII hipogloso) y cuatro mixtos (V trigémino, VII facial, IX glosofaríngeo y X vago).[^1]",
+    "Sus fibras sensitivas nacen en ganglios situados fuera del cráneo y terminan en un [[nucleo]] del [[tronco_encefalico]]; sus fibras motoras nacen en núcleos del propio tronco y van a los músculos de la cabeza y el cuello.[^1] Los núcleos de los nervios III a XII se reparten entre el [[mesencefalo]], el [[puente]] y el [[bulbo_raquideo]].[^2] Cuatro de ellos (III, VII, IX y X) llevan además fibras del [[sistema_nervioso_autonomo]].[^1][^3]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.4 The Peripheral Nervous System",
+      "paginas": "apartado Cranial Nerves; tabla 13.3",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-4-the-peripheral-nervous-system"
+    },
+    {
+      "obra": "Overview of the Nervous System. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 2, capítulo 1",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§1.1, 1.4 y 1.6",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s2/chapter01.html"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §15.1 Divisions of the Autonomic Nervous System",
+      "paginas": "apartados Sympathetic Division y Parasympathetic Division",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/15-1-divisions-of-the-autonomic-nervous-system"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}

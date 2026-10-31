@@ -1,0 +1,47 @@
+{
+  "id": "oliva_inferior",
+  "tipo": "estructura",
+  "nombre": "Oliva inferior",
+  "termino_latin": "Nucleus olivaris inferior",
+  "sinonimos": [
+    "complejo olivar inferior",
+    "núcleo olivar inferior"
+  ],
+  "nivel_detalle": "N3",
+  "anatomia": [
+    "[[nucleo|Núcleo]] del [[bulbo_raquideo]] que levanta en su cara anterior un abultamiento visible, la oliva, por fuera de la pirámide.[^1][^2] Es, con las pirámides y el [[pedunculo|pedúnculo]] cerebeloso inferior, una de las estructuras que identifican al bulbo en los cortes.[^1]"
+  ],
+  "fisiologia": [
+    "Recibe una copia de la información sensitiva que entra por los nervios espinales y craneales.[^3] Es el único origen de las fibras trepadoras del [[cerebelo]], que excitan a las células de Purkinje y a los núcleos cerebelosos.[^4] Se cree que estas fibras llevan la señal de error: cuando el movimiento no sale como se esperaba, la oliva lo comunica y el cerebelo ajusta sus conexiones; es la base de su aprendizaje.[^4]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Overview of the Nervous System. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 2, capítulo 1",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§1.1, 1.4 y 1.6",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s2/chapter01.html"
+    },
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "término 6022 (Nucleus olivaris inferior) y 5988 (Oliva)",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.2 The Central Nervous System",
+      "paginas": "apartados The Brain Stem, The Midbrain, The Pons, The Medulla",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system"
+    },
+    {
+      "obra": "Knierim J. Cerebellum. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 3, capítulo 5",
+      "edicion": "revisado el 20 de octubre de 2020",
+      "paginas": "§5.2 a 5.4 y 5.6",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter05.html"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}

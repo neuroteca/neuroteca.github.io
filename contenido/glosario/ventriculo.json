@@ -1,0 +1,33 @@
+{
+  "id": "ventriculo",
+  "tipo": "fundacional",
+  "nombre": "Ventrículo",
+  "termino_latin": "Ventriculus",
+  "sinonimos": [
+    "ventrículo cerebral"
+  ],
+  "nivel_detalle": "N1",
+  "definicion": "Cavidad interior del encéfalo, llena de líquido cefalorraquídeo.",
+  "explicacion": [
+    "Hay cuatro, derivados del hueco del tubo neural: dos ventrículos laterales dentro del cerebro, el tercero entre las dos mitades del diencéfalo y el cuarto entre el [[cerebelo]] por detrás y el [[puente]] y el [[bulbo_raquideo]] por delante.[^1][^2] El tercero y el cuarto se comunican por el acueducto, que atraviesa el [[mesencefalo]]; el cuarto se estrecha hacia abajo en el conducto central de la médula espinal.[^1]",
+    "Los plexos coroideos de los cuatro ventrículos producen el líquido cefalorraquídeo, unos 500 ml al día, que sale del cuarto ventrículo al espacio subaracnoideo, donde amortigua el encéfalo y la médula espinal.[^1]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.3 Circulation and the Central Nervous System",
+      "paginas": "apartado Ventricular System",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-3-circulation-and-the-central-nervous-system"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.1 The Embryologic Perspective",
+      "paginas": "apartados Primary Vesicles y Secondary Vesicles; tabla 13.1",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-1-the-embryologic-perspective"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}

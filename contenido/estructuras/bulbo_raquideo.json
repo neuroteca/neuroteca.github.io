@@ -1,0 +1,91 @@
+{
+  "id": "bulbo_raquideo",
+  "tipo": "estructura",
+  "nombre": "Bulbo raquídeo",
+  "termino_latin": "Medulla oblongata",
+  "sinonimos": [
+    "médula oblongada",
+    "bulbo",
+    "mielencéfalo"
+  ],
+  "nivel_detalle": "N2",
+  "anatomia": [
+    "Es la parte más baja del [[tronco_encefalico]], entre el [[puente]] por arriba y la médula espinal por abajo.[^1][^2] Corresponde al mielencéfalo del embrión; el prefijo alude a la abundante [[sustancia_blanca]] de su superficie, continua con la de la médula espinal.[^2][^3]",
+    "En su cara anterior destacan dos cordones a cada lado del surco medio, las pirámides, formadas por las fibras que bajan de la corteza cerebral, y por fuera de ellas las olivas, abultamientos que marcan la posición de la [[oliva_inferior]].[^1][^4][^5] Por detrás, su mitad superior forma el suelo del cuarto [[ventriculo]], y el [[pedunculo|pedúnculo]] cerebeloso inferior lo une al [[cerebelo]].[^6][^1]",
+    "Su tegmento continúa el del puente y contiene los [[nucleo|núcleos]] de los [[nervio_craneal|nervios craneales]] IX, X, XI y XII y la parte bulbar de la [[formacion_reticular]].[^2][^1][^5]"
+  ],
+  "fisiologia": [
+    "En la parte baja de las pirámides, alrededor del 90 % de las fibras corticoespinales cruzan al lado opuesto: es la [[decusacion]] piramidal.[^4][^5]",
+    "Contiene los núcleos que regulan la respiración, la deglución, la sudoración, la secreción gástrica y la actividad cardíaca y vasomotora.[^1] Su centro respiratorio, con los grupos dorsal y ventral, genera el ritmo básico de la respiración.[^7] Su centro cardiovascular ajusta la frecuencia y la fuerza del corazón y el calibre de los vasos a partir de lo que informan los barorreceptores y los quimiorreceptores arteriales.[^8]",
+    "La [[oliva_inferior]] envía al cerebelo las fibras trepadoras, que llevan la señal de error con la que el cerebelo corrige y aprende los movimientos.[^9]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Overview of the Nervous System. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 2, capítulo 1",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§1.1, 1.4 y 1.6",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s2/chapter01.html"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.2 The Central Nervous System",
+      "paginas": "apartados The Brain Stem, The Midbrain, The Pons, The Medulla",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.1 The Embryologic Perspective",
+      "paginas": "apartados Primary Vesicles y Secondary Vesicles; tabla 13.1",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-1-the-embryologic-perspective"
+    },
+    {
+      "obra": "Knierim J. Spinal Reflexes and Descending Motor Pathways. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 3, capítulo 2",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§2.2 Descending Motor Pathways",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter02.html"
+    },
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "términos 5983 a 6048 (bulbo raquídeo)",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.3 Circulation and the Central Nervous System",
+      "paginas": "apartado Ventricular System",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-3-circulation-and-the-central-nervous-system"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §22.3 The Process of Breathing",
+      "paginas": "apartado Ventilation Control Centers; tabla 22.1",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/22-3-the-process-of-breathing"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §20.4 Homeostatic Regulation of the Vascular System",
+      "paginas": "apartados The Cardiovascular Centers in the Brain, Baroreceptor Reflexes y Chemoreceptor Reflexes",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/20-4-homeostatic-regulation-of-the-vascular-system"
+    },
+    {
+      "obra": "Knierim J. Cerebellum. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 3, capítulo 5",
+      "edicion": "revisado el 20 de octubre de 2020",
+      "paginas": "§5.2 a 5.4 y 5.6",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter05.html"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [
+    {
+      "eje": "nucleos",
+      "nombre_visible": "Por núcleos",
+      "principal": true,
+      "partes": [
+        "oliva_inferior"
+      ]
+    }
+  ],
+  "activos": []
+}

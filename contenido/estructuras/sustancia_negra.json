@@ -1,0 +1,44 @@
+{
+  "id": "sustancia_negra",
+  "tipo": "estructura",
+  "nombre": "Sustancia negra",
+  "termino_latin": "Substantia nigra",
+  "sinonimos": [],
+  "nivel_detalle": "N3",
+  "anatomia": [
+    "[[nucleo|Núcleo]] de la parte anterior del [[mesencefalo]], situado entre el [[nucleo_rojo]] y los pedúnculos cerebrales.[^1][^2][^3] Tiene dos partes: la pars compacta y la pars reticulata.[^1]"
+  ],
+  "fisiologia": [
+    "La pars compacta envía al cuerpo estriado una proyección que libera dopamina, el [[neurotransmisor]] que regula el paso entre las vías de los ganglios basales.[^1][^4] La pars reticulata es una de las salidas principales de los ganglios basales.[^1] La muerte de las neuronas dopaminérgicas de la pars compacta causa la enfermedad de Parkinson.[^1][^4]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Knierim J. Basal Ganglia. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 3, capítulo 4",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§4.2, 4.4, 4.5 y 4.7",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter04.html"
+    },
+    {
+      "obra": "Overview of the Nervous System. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 2, capítulo 1",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§1.1, 1.4 y 1.6",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s2/chapter01.html"
+    },
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "término 5881 (Substantia nigra)",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.2 The Central Nervous System",
+      "paginas": "apartados The Brain Stem, The Midbrain, The Pons, The Medulla",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}

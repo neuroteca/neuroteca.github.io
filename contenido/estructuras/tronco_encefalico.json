@@ -1,0 +1,87 @@
+{
+  "id": "tronco_encefalico",
+  "tipo": "estructura",
+  "nombre": "Tronco encefálico",
+  "termino_latin": "Truncus encephali",
+  "sinonimos": [
+    "tallo cerebral",
+    "tronco del encéfalo"
+  ],
+  "nivel_detalle": "N1",
+  "anatomia": [
+    "El tronco encefálico es la parte del encéfalo que une el cerebro con la médula espinal: emerge de la cara inferior del cerebro como un cono que se estrecha hacia abajo.[^1] Lo forman, de arriba abajo, el [[mesencefalo]], el [[puente]] y el [[bulbo_raquideo]].[^1][^2][^3] El [[cerebelo]] está unido a su cara posterior, pero se considera una región aparte del encéfalo adulto.[^1]",
+    "Sus tres partes nacen de vesículas distintas del tubo neural embrionario: el mesencéfalo de la vesícula del mismo nombre, el puente del metencéfalo, que también da origen al cerebelo, y el bulbo del mielencéfalo.[^4] Por su interior corre el sistema de cavidades del encéfalo: el acueducto atraviesa el mesencéfalo y el cuarto [[ventriculo]] queda entre el puente y el bulbo por delante y el cerebelo por detrás.[^5]",
+    "En un corte se reconocen hasta tres planos: una base anterior ocupada por fibras que bajan de la corteza cerebral, un tegmento intermedio de [[sustancia_gris]] que continúa a lo largo de los tres niveles y, solo en el mesencéfalo, un techo o tectum posterior.[^2][^1] El tegmento contiene los [[nucleo|núcleos]] de los [[nervio_craneal|nervios craneales]] y la [[formacion_reticular]].[^1]",
+    "Por él pasan las grandes vías ascendentes y descendentes entre la médula espinal y el cerebro.[^1] Los núcleos de los nervios craneales III a XII se reparten por sus tres niveles.[^2][^6]"
+  ],
+  "fisiologia": [
+    "Es a la vez vía de paso y centro de control.[^1] Como vía, conduce la información sensitiva que sube de la médula espinal y las órdenes motoras que bajan a ella.[^1]",
+    "Como centro, recibe la información de la cabeza y el cuello y mueve sus músculos a través de los nervios craneales, incluidos la mayoría de los sentidos especiales.[^1] El puente y el bulbo regulan funciones vitales: el ritmo de la respiración y el control del corazón y de los vasos.[^1][^7][^8] El mesencéfalo coordina las representaciones del espacio visual, auditivo y somatosensorial.[^1]",
+    "La [[formacion_reticular]], una red difusa de sustancia gris que lo recorre entero, interviene en el sueño y la vigilia, la atención y el nivel general de actividad del cerebro.[^1] Es también el principal enlace del cerebelo, al que el puente envía la copia de las órdenes de la corteza cerebral.[^1]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.2 The Central Nervous System",
+      "paginas": "apartados The Brain Stem, The Midbrain, The Pons, The Medulla",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system"
+    },
+    {
+      "obra": "Overview of the Nervous System. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 2, capítulo 1",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§1.1, 1.4 y 1.6",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s2/chapter01.html"
+    },
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "términos 5856 a 6048 (tronco encefálico)",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.1 The Embryologic Perspective",
+      "paginas": "apartados Primary Vesicles y Secondary Vesicles; tabla 13.1",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-1-the-embryologic-perspective"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.3 Circulation and the Central Nervous System",
+      "paginas": "apartado Ventricular System",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-3-circulation-and-the-central-nervous-system"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.4 The Peripheral Nervous System",
+      "paginas": "apartado Cranial Nerves; tabla 13.3",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-4-the-peripheral-nervous-system"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §22.3 The Process of Breathing",
+      "paginas": "apartado Ventilation Control Centers; tabla 22.1",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/22-3-the-process-of-breathing"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §20.4 Homeostatic Regulation of the Vascular System",
+      "paginas": "apartados The Cardiovascular Centers in the Brain, Baroreceptor Reflexes y Chemoreceptor Reflexes",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/20-4-homeostatic-regulation-of-the-vascular-system"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [
+    {
+      "eje": "niveles",
+      "nombre_visible": "Por niveles",
+      "principal": true,
+      "partes": [
+        "mesencefalo",
+        "puente",
+        "bulbo_raquideo"
+      ]
+    }
+  ],
+  "activos": []
+}

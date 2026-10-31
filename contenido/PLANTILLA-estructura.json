@@ -1,0 +1,45 @@
+{
+  "_instrucciones": "Plantilla. Copia este archivo a <carpeta>/<id>.json, sustituye cada valor por el real y borra todas las claves que empiezan por «_». El generador ignora este archivo porque está fuera de las carpetas de contenido. Cada frase de la prosa termina en [^n], el número de la fuente que la respalda; [[id]] o [[id|texto]] enlaza a otra ficha. Comprueba con: python3 herramientas/construir.py --validar",
+  "id": "identificador estable en minúsculas, sin acentos, con guiones bajos; es la URL y nunca cambia ni se reutiliza; debe ser igual al nombre del archivo",
+  "tipo": "estructura",
+  "nombre": "Nombre en español, con mayúscula inicial",
+  "termino_latin": "Término de la Terminologia Anatomica (TA2); cadena vacía si no existe",
+  "sinonimos": [
+    "otros nombres en uso, en minúscula; lista vacía si no hay"
+  ],
+  "nivel_detalle": "N1 forma general | N2 subdivisiones | N3 núcleos | N4 capas y vías | N5 circuito",
+  "anatomia": [
+    "Un párrafo por elemento de la lista. Dónde está, qué forma tiene, qué partes se ven al nivel declarado.[^1] Cada frase lleva su fuente.[^2]",
+    "Los términos técnicos enlazan a su ficha en el primer uso: [[sustancia_gris]], [[nucleo|núcleos]].[^1]"
+  ],
+  "fisiologia": [
+    "Qué hace, con qué se conecta, qué pasa cuando falla; al mismo nivel de detalle que la anatomía.[^1]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Autores. Título. Lugar: editorial (o capítulo, sección y sitio si es una obra abierta)",
+      "edicion": "año y edición, o fecha de revisión de la página",
+      "paginas": "páginas, sección o números de término (TA2)",
+      "doi": "solo si lo tiene, sin https://doi.org/",
+      "url": "solo si es abierta y estable; si hay doi, no hace falta"
+    }
+  ],
+  "autoria": "agente | Max | nombre de quien redacta",
+  "estado": "borrador (siempre al crear; «revisado» solo lo pone Max al aprobar el PR)",
+  "divisiones": [
+    {
+      "eje": "identificador del eje, p. ej. regiones | lobulos | niveles | nucleos",
+      "nombre_visible": "Etiqueta que ve el lector, p. ej. «Por regiones»",
+      "principal": true,
+      "partes": [
+        "ids de las fichas hijas, en orden; cada una debe existir; una parte puede estar en varios ejes"
+      ]
+    },
+    {
+      "_nota": "Borra esta lista entera si la ficha no tiene partes. Solo un eje lleva principal: true."
+    }
+  ],
+  "activos": [
+    "id del activo de contenido/activos/ que muestra esta estructura; lista vacía si no hay modelo"
+  ]
+}
