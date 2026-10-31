@@ -1,0 +1,63 @@
+{
+  "id": "lobulo_parietal",
+  "tipo": "estructura",
+  "nombre": "Lóbulo parietal",
+  "termino_latin": "Lobus parietalis",
+  "sinonimos": [],
+  "nivel_detalle": "N2",
+  "anatomia": [
+    "Está detrás del [[surco]] central y por encima del surco lateral; en la cara lateral no tiene un límite neto con el [[lobulo_occipital|lóbulo occipital]], y en la medial lo marca el surco parietooccipital.[^1][^2][^6] Justo detrás del surco central está la [[circunvolucion]] poscentral; más atrás, las circunvoluciones parietales superior e inferior.[^2][^7]"
+  ],
+  "fisiologia": [
+    "La circunvolución poscentral es la corteza somatosensitiva primaria ([[area_de_brodmann|áreas]] 1, 2 y 3): tacto, presión, dolor, picor, vibración, [[propiocepcion]] y cinestesia.[^1] Las vías somatosensitivas llegan a ella tras relevar en el [[talamo]], y el cuerpo se representa en ella como un [[homunculo|homúnculo]], de medial a lateral.[^3]",
+    "La corteza parietal posterior integra la visión con el movimiento, por ejemplo al alcanzar un vaso; la circunvolución parietal superior se relaciona con la imagen corporal y la orientación espacial, y la inferior integra información de varios sentidos y forma parte del área de Wernicke.[^4][^2] La lesión parietal posterior derecha produce heminegligencia: el paciente ignora el lado izquierdo del espacio, de los objetos y de su propio cuerpo, y no suele darse cuenta.[^5]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.2 The Central Nervous System",
+      "paginas": "apartado The Cerebrum (Cerebral Cortex, Lobes of the Cerebral Cortex, Brodmann, Subcortical Structures); figuras 13.6 a 13.8",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system"
+    },
+    {
+      "obra": "Overview of the Nervous System. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 2, capítulo 1",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§1.1, 1.2 y 1.6",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s2/chapter01.html"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §14.2 Central Processing",
+      "paginas": "apartados Spinal Cord and Brain Stem, Diencephalon y Cortical Processing",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/14-2-central-processing"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §16.2 The Mental Status Exam",
+      "paginas": "apartados The Cerebrum, Orientation and Memory, Language and Speech, Sensorium, Judgment and Abstract Reasoning",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/16-2-the-mental-status-exam"
+    },
+    {
+      "obra": "Wright A. Higher Cortical Functions: Association and Executive Processing. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 4, capítulo 9",
+      "edicion": "revisado el 20 de octubre de 2020",
+      "paginas": "§9.1 a 9.5",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s4/chapter09.html"
+    },
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "términos 5445 (lobus frontalis), 5467 (lobus parietalis), 5480 (lobus occipitalis), 5488 (lobus temporalis), 5502 (insula) y 5507 (lobus limbicus)",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
+    },
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "términos 5432 a 5436 (gyri cerebri, sulci cerebri, sulcus centralis, sulcus lateralis), 5458 (gyrus precentralis) y 5469 (gyrus postcentralis)",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}

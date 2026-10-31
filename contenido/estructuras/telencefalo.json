@@ -1,0 +1,91 @@
+{
+  "id": "telencefalo",
+  "tipo": "estructura",
+  "nombre": "Telencéfalo",
+  "termino_latin": "Telencephalon",
+  "sinonimos": [
+    "cerebro",
+    "hemisferios cerebrales"
+  ],
+  "nivel_detalle": "N1",
+  "anatomia": [
+    "Es la porción mayor del encéfalo humano y su nivel más alto de organización neuronal.[^1][^2] Lo forman dos hemisferios cerebrales, separados en parte por la fisura longitudinal, que aloja la hoz del cerebro; otra fisura, la transversa, los separa del [[cerebelo]].[^3][^2][^7]",
+    "En el embrión nace del prosencéfalo, que se divide en telencéfalo y [[diencefalo]]: el telencéfalo se convierte en el cerebro y su cavidad, en los [[ventriculo|ventrículos]] laterales.[^1] La TA2 agrupa telencéfalo y diencéfalo bajo el nombre latino de «cerebro» (cerebrum); en estas fichas «cerebro» se usa, como en el habla común, por telencéfalo.[^7]",
+    "Su superficie es la [[corteza_cerebral]], una capa continua de [[sustancia_gris]] plegada en [[circunvolucion|circunvoluciones]] y [[surco|surcos]]; debajo hay [[sustancia_blanca]] de fibras mielínicas y, dentro de ella, núcleos grises.[^3][^2] Cada hemisferio se divide en cuatro lóbulos, [[lobulo_frontal|frontal]], [[lobulo_parietal|parietal]], [[lobulo_temporal|temporal]] y [[lobulo_occipital|occipital]], más la [[insula|ínsula]], escondida en el fondo del surco lateral, y el llamado lóbulo límbico, de la cara medial, que no son lóbulos verdaderos.[^3][^2] El [[cuerpo_calloso]], un gran haz de sustancia blanca, comunica ambos hemisferios.[^3][^2]",
+    "Entre las estructuras subcorticales de cada hemisferio están los ganglios basales, la amígdala y la formación del hipocampo.[^2]"
+  ],
+  "fisiologia": [
+    "La corteza cerebral se encarga de las funciones superiores del sistema nervioso: la memoria, la emoción y la conciencia son resultado de la función cerebral.[^3] Cada hemisferio controla el lado opuesto del cuerpo, y ambos se comunican por el cuerpo calloso.[^4]",
+    "A grandes rasgos, el lóbulo frontal mueve y planifica, el parietal siente el cuerpo, el temporal oye y guarda la memoria a largo plazo, y el occipital ve.[^3] Lo que queda entre esas cortezas primarias, la [[corteza_de_asociacion]], integra la información y sostiene el lenguaje, la atención y el razonamiento.[^4][^6]",
+    "Toda la información sensitiva que llega a la corteza pasa antes por el [[talamo]], salvo el olfato, que se conecta directamente con el cerebro.[^3] La salida motora baja desde la corteza por el tracto corticoespinal hasta la [[medula_espinal]], y los ganglios basales y el cerebelo ajustan esa orden.[^5]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.1 The Embryologic Perspective",
+      "paginas": "apartados Secondary Vesicles y Relating Embryonic Development to the Adult Brain; tabla 13.1",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-1-the-embryologic-perspective"
+    },
+    {
+      "obra": "Overview of the Nervous System. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 2, capítulo 1",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§1.1, 1.2 y 1.6",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s2/chapter01.html"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.2 The Central Nervous System",
+      "paginas": "apartado The Cerebrum (Cerebral Cortex, Lobes of the Cerebral Cortex, Brodmann, Subcortical Structures); figuras 13.6 a 13.8",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §16.2 The Mental Status Exam",
+      "paginas": "apartados The Cerebrum, Orientation and Memory, Language and Speech, Sensorium, Judgment and Abstract Reasoning",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/16-2-the-mental-status-exam"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §14.3 Motor Responses",
+      "paginas": "apartados Cortical Responses, Descending Pathways y Extrapyramidal Controls",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/14-3-motor-responses"
+    },
+    {
+      "obra": "Wright A. Higher Cortical Functions: Association and Executive Processing. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 4, capítulo 9",
+      "edicion": "revisado el 20 de octubre de 2020",
+      "paginas": "§9.1 a 9.5",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s4/chapter09.html"
+    },
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "términos 5416 a 5660 (cerebrum y telencéfalo); 5417 (fissura longitudinalis cerebri); 5418 (hemisphaerium cerebri)",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [
+    {
+      "eje": "lobulos",
+      "nombre_visible": "Por lóbulos",
+      "principal": true,
+      "partes": [
+        "lobulo_frontal",
+        "lobulo_parietal",
+        "lobulo_temporal",
+        "lobulo_occipital",
+        "insula"
+      ]
+    },
+    {
+      "eje": "interior",
+      "nombre_visible": "Por dentro",
+      "partes": [
+        "corteza_cerebral",
+        "cuerpo_calloso"
+      ]
+    }
+  ],
+  "activos": []
+}

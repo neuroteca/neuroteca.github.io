@@ -1,0 +1,39 @@
+{
+  "id": "homunculo",
+  "tipo": "fundacional",
+  "nombre": "Homúnculo",
+  "termino_latin": "",
+  "sinonimos": [
+    "homúnculo cortical"
+  ],
+  "nivel_detalle": "N1",
+  "definicion": "Mapa del cuerpo sobre la corteza cerebral, en el que cada parte se dibuja al tamaño del área que la representa.",
+  "explicacion": [
+    "En la corteza somatosensitiva la posición de los receptores del cuerpo se proyecta sobre la [[circunvolucion|circunvolución]] poscentral: los genitales, los pies y las piernas en la cara medial, y la cara junto a los dedos, hacia el surco lateral.[^1] No es una copia a escala: exagera las zonas más sensibles, como los dedos y la cara, y reduce otras, como los hombros y la espalda.[^1]",
+    "La corteza motora tiene su propio homúnculo, con más espacio para los músculos de movimientos finos y ágiles; no representa músculos aislados, sino movimientos.[^2][^3]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §14.2 Central Processing",
+      "paginas": "apartados Spinal Cord and Brain Stem, Diencephalon y Cortical Processing",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/14-2-central-processing"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §14.3 Motor Responses",
+      "paginas": "apartados Cortical Responses, Descending Pathways y Extrapyramidal Controls",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/14-3-motor-responses"
+    },
+    {
+      "obra": "Knierim J. Motor Cortex. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 3, capítulo 3",
+      "edicion": "revisado el 20 de octubre de 2020",
+      "paginas": "§3.2 a 3.5",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter03.html"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}
