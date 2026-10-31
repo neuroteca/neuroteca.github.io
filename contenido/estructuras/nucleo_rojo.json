@@ -1,0 +1,50 @@
+{
+  "id": "nucleo_rojo",
+  "tipo": "estructura",
+  "nombre": "Núcleo rojo",
+  "termino_latin": "Nucleus ruber",
+  "sinonimos": [],
+  "nivel_detalle": "N3",
+  "anatomia": [
+    "[[nucleo|Núcleo]] prominente del tegmento del [[mesencefalo]], vecino de la [[sustancia_negra]].[^1][^2][^3] Recibe fibras de los núcleos cerebelosos del lado opuesto: de los núcleos interpuestos y del núcleo dentado.[^4]"
+  ],
+  "fisiologia": [
+    "De él nace el [[tracto]] rubroespinal, que cruza la línea media nada más salir y llega a todos los niveles de la médula espinal.[^5][^4] Es una vía importante en muchos animales pero relativamente menor en el ser humano, donde se le atribuye un papel en la velocidad del movimiento.[^5] Forma parte de la salida del [[cerebelo]] hacia la médula espinal.[^4]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Overview of the Nervous System. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 2, capítulo 1",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§1.1, 1.4 y 1.6",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s2/chapter01.html"
+    },
+    {
+      "obra": "Knierim J. Basal Ganglia. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 3, capítulo 4",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§4.2, 4.4, 4.5 y 4.7",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter04.html"
+    },
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "término 5898 (Nucleus ruber)",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
+    },
+    {
+      "obra": "Knierim J. Cerebellum. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 3, capítulo 5",
+      "edicion": "revisado el 20 de octubre de 2020",
+      "paginas": "§5.2 a 5.4 y 5.6",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter05.html"
+    },
+    {
+      "obra": "Knierim J. Spinal Reflexes and Descending Motor Pathways. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 3, capítulo 2",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§2.2 Descending Motor Pathways",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter02.html"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}

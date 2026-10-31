@@ -1,0 +1,44 @@
+{
+  "id": "nucleos_vestibulares",
+  "tipo": "estructura",
+  "nombre": "Núcleos vestibulares",
+  "termino_latin": "Nuclei vestibulares",
+  "sinonimos": [],
+  "nivel_detalle": "N3",
+  "anatomia": [
+    "Cuatro [[nucleo|núcleos]] situados en el suelo del cuarto [[ventriculo]], en el límite entre el [[puente]] y el [[bulbo_raquideo]].[^1][^2][^3] Reciben las fibras del nervio vestibular, que trae la información del equilibrio desde el oído interno, y las del [[lobulo_floculonodular]] del [[cerebelo]].[^1][^2]"
+  ],
+  "fisiologia": [
+    "Son funcionalmente equivalentes a los núcleos cerebelosos: una salida del cerebelo situada fuera de él.[^2] Dos de ellos originan los [[tracto|tractos]] vestibuloespinales: el lateral excita los músculos antigravitatorios y el medial mueve los del cuello; juntos ajustan la postura y los movimientos de la cabeza.[^4] Están conectados con los núcleos de los [[nervio_craneal|nervios craneales]] III, IV y VI, lo que permite mantener la mirada estable mientras la cabeza se mueve.[^1]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Vestibular System: Structure and Function. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 2, capítulo 10",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§10.1 y preguntas de autoevaluación",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s2/chapter10.html"
+    },
+    {
+      "obra": "Knierim J. Cerebellum. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 3, capítulo 5",
+      "edicion": "revisado el 20 de octubre de 2020",
+      "paginas": "§5.2 a 5.4 y 5.6",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter05.html"
+    },
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "término 5933 (Nuclei vestibulares)",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
+    },
+    {
+      "obra": "Knierim J. Spinal Reflexes and Descending Motor Pathways. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 3, capítulo 2",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§2.2 Descending Motor Pathways",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter02.html"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}

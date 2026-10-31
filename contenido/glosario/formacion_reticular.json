@@ -1,0 +1,43 @@
+{
+  "id": "formacion_reticular",
+  "tipo": "fundacional",
+  "nombre": "Formación reticular",
+  "termino_latin": "Formatio reticularis",
+  "sinonimos": [],
+  "nivel_detalle": "N1",
+  "definicion": "Red difusa de sustancia gris que recorre el tronco encefálico entero, sin límites netos.",
+  "explicacion": [
+    "Es una colección grande y poco organizada de neuronas repartida por el [[mesencefalo]], el [[puente]] y el [[bulbo_raquideo]].[^1][^2][^3] Interviene en el sueño y la vigilia, en la atención y en el nivel general de actividad del cerebro.[^1]",
+    "Sus porciones pontina y bulbar originan los [[tracto|tractos]] reticuloespinales, que sostienen la postura, el equilibrio y el control grueso de los músculos del tronco y de la raíz de las extremidades.[^2] Envía fibras musgosas al [[cerebelo]] y recibe la salida de su núcleo del fastigio.[^4]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §13.2 The Central Nervous System",
+      "paginas": "apartados The Brain Stem, The Midbrain, The Pons, The Medulla",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system"
+    },
+    {
+      "obra": "Knierim J. Spinal Reflexes and Descending Motor Pathways. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 3, capítulo 2",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§2.2 Descending Motor Pathways",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter02.html"
+    },
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "términos 5367 (Formatio reticularis), 5899, 5948 y 6026",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
+    },
+    {
+      "obra": "Knierim J. Cerebellum. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 3, capítulo 5",
+      "edicion": "revisado el 20 de octubre de 2020",
+      "paginas": "§5.2 a 5.4 y 5.6",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter05.html"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}
