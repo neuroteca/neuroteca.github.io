@@ -76,6 +76,23 @@
         "lobulo_posterior",
         "lobulo_floculonodular"
       ]
+    },
+    {
+      "eje": "nucleos",
+      "nombre_visible": "Por núcleos",
+      "partes": [
+        "nucleo_fastigio",
+        "nucleos_interpuestos",
+        "nucleo_dentado"
+      ]
+    },
+    {
+      "eje": "interior",
+      "nombre_visible": "Por dentro",
+      "partes": [
+        "corteza_cerebelosa",
+        "pedunculos_cerebelosos"
+      ]
     }
   ],
   "activos": [

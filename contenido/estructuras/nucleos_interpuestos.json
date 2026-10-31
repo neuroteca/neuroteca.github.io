@@ -1,0 +1,35 @@
+{
+  "id": "nucleos_interpuestos",
+  "tipo": "estructura",
+  "nombre": "Núcleos interpuestos",
+  "termino_latin": "Nucleus emboliformis; Nucleus globosus",
+  "sinonimos": [
+    "núcleo emboliforme y núcleo globoso",
+    "núcleo interpósito"
+  ],
+  "nivel_detalle": "N3",
+  "anatomia": [
+    "Dos [[nucleo|núcleos]] situados entre el [[nucleo_fastigio]] y el [[nucleo_dentado]]: el emboliforme y el globoso, que la Terminologia Anatomica llama también núcleo interpósito anterior y posterior.[^1][^2] Reciben la salida de la [[corteza_cerebelosa]] de la zona intermedia, la franja de los [[hemisferios_cerebelosos]] vecina al [[vermis]].[^1]"
+  ],
+  "fisiologia": [
+    "Con el núcleo del fastigio forman la salida del espinocerebelo, que integra la información sensitiva con las órdenes motoras para coordinar el movimiento en marcha.[^1] Proyectan al [[nucleo_rojo]] del lado opuesto, origen del [[tracto]] rubroespinal, y así actúan sobre la médula espinal.[^1]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Knierim J. Cerebellum. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 3, capítulo 5",
+      "edicion": "revisado el 20 de octubre de 2020",
+      "paginas": "§5.1 a 5.4 y 5.6",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter05.html"
+    },
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "términos 5838 (Nucleus emboliformis) y 5839 (Nucleus globosus)",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}

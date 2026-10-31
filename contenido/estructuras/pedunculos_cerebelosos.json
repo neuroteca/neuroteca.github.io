@@ -1,0 +1,46 @@
+{
+  "id": "pedunculos_cerebelosos",
+  "tipo": "estructura",
+  "nombre": "Pedúnculos cerebelosos",
+  "termino_latin": "Pedunculi cerebellares",
+  "sinonimos": [
+    "pedúnculo cerebeloso superior, medio e inferior"
+  ],
+  "nivel_detalle": "N3",
+  "anatomia": [
+    "Tres pares de [[pedunculo|pedúnculos]] de [[sustancia_blanca]] unen el [[cerebelo]] al [[tronco_encefalico]].[^1][^2] El inferior, o cuerpo restiforme, lo une al [[bulbo_raquideo]]; el medio, o brazo del puente, al [[puente]]; y el superior, o brazo conjuntivo, al [[mesencefalo]].[^1][^3][^4]"
+  ],
+  "fisiologia": [
+    "Por el inferior entran sobre todo [[aferente|aferentes]] del bulbo, donde está la [[oliva_inferior]], y salen las [[eferente|eferentes]] hacia los [[nucleos_vestibulares]].[^1] El medio está formado casi por completo por las fibras que vienen de los [[nucleos_pontinos]], la vía por la que la corteza cerebral se comunica con el cerebelo.[^1][^3] Por el superior sale la mayor parte de las eferentes de los [[nucleo|núcleos]] cerebelosos, hacia el [[nucleo_rojo]] y el [[talamo|tálamo]], y entra una parte del [[tracto]] espinocerebeloso.[^1]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Knierim J. Cerebellum. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 3, capítulo 5",
+      "edicion": "revisado el 20 de octubre de 2020",
+      "paginas": "§5.1 a 5.4 y 5.6",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter05.html"
+    },
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "términos 5846, 5848 y 5850 (pedunculi cerebellares)",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
+    },
+    {
+      "obra": "Overview of the Nervous System. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 2, capítulo 1",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§1.4",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s2/chapter01.html"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §16.5 The Coordination and Gait Exams",
+      "paginas": "",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/16-5-the-coordination-and-gait-exams"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}
