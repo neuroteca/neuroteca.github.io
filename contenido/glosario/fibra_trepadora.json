@@ -1,0 +1,25 @@
+{
+  "id": "fibra_trepadora",
+  "tipo": "fundacional",
+  "nombre": "Fibra trepadora",
+  "termino_latin": "",
+  "sinonimos": [],
+  "nivel_detalle": "N1",
+  "definicion": "Axón que nace en la oliva inferior y excita con gran potencia a una sola célula de Purkinje.",
+  "explicacion": [
+    "Nacen exclusivamente en la [[oliva_inferior]] del [[bulbo_raquideo]].[^1] Hacen proyecciones excitadoras sobre los núcleos cerebelosos y sobre las [[celula_de_purkinje|células de Purkinje]]; cada célula de Purkinje recibe una única entrada, extremadamente potente, de una sola fibra trepadora.[^1]",
+    "Se cree que llevan la señal de error: cuando el movimiento no sale como se esperaba, la fibra trepadora dispara, entra calcio en la célula de Purkinje y cambia la fuerza de sus [[sinapsis]] con las fibras paralelas.[^1] Es el mecanismo propuesto para el aprendizaje motor del cerebelo, que se pierde cuando el cerebelo se lesiona.[^1]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Knierim J. Cerebellum. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 3, capítulo 5",
+      "edicion": "revisado el 20 de octubre de 2020",
+      "paginas": "§5.1 a 5.4 y 5.6",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter05.html"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}
