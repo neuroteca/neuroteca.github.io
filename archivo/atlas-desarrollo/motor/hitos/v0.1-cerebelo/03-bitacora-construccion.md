@@ -230,12 +230,12 @@ atlas —HTML, CSS, JavaScript— suma 10 KB.**
 > `L-001-cerebelo`, con su compuerta V. La frase de valor no se cumple del todo hasta
 > entonces, y estaba previsto desde la fase 1.
 
-**Aprobado por Max el:** 2026-10-31 (por chat, en el hilo «Revisar repo y replantear el plan del atlas»). La etiqueta `v0.1` se creó ese mismo día sobre el último commit de `main`; la casilla de arriba se había marcado antes de que existiera.
+**Aprobado por Max el:** 2026-10-31 (por chat, en el hilo «Revisar repo y replantear el plan del atlas»). La etiqueta `v0.1` existe en el repositorio remoto sobre el commit `424504f` (pasos 14 y 15, publicado y verificado), anterior a la corrección del destello y de la vista (`86ab930`). Se deja donde está: la corrección entra en `v0.2`.
 
 ## Historial de versiones
 | Versión | Fecha | Cambio principal |
 |---|---|---|
-| 1.6 | 2026-10-31 | Compuerta C aprobada por Max. Etiqueta `v0.1` creada. El método se retira ese mismo día (ver `archivo/LEEME.md`); este hito no tendrá fases 4 y 5 formales. |
+| 1.6 | 2026-10-31 | Compuerta C aprobada por Max. La etiqueta `v0.1` ya existía en el remoto sobre `424504f`. El método se retira ese mismo día (ver `archivo/LEEME.md`); este hito no tendrá fases 4 y 5 formales. |
 | 1.5 | 2026-09-19 | Defecto encontrado por Max al revisar la compuerta C: destello del esquema y reinicio de la vista al cambiar de ficha. Corregido. `DC-09` y `DC-10`. |
 | 1.4 | 2026-09-19 | Pasos 14 y 15 completados. Los 10 criterios verificados en el sitio publicado. Compuerta C presentada a Max. |
 | 1.3 | 2026-09-19 | Pasos 11, 12 y 13 completados. `CA-A1` y `CA-A2` probados de verdad. `DC-06`, `DC-07` y `DC-08` registradas. |
