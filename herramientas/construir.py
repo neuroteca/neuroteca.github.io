@@ -31,6 +31,7 @@ import json
 import os
 import re
 import textwrap
+import unicodedata
 import shutil
 import sys
 
@@ -70,6 +71,11 @@ class ErrorDeContenido(Exception):
 
 
 # ---------------------------------------------------------------- carga
+
+
+def _clave(nombre):
+    """Clave de ordenación alfabética que ignora tildes y mayúsculas (Área junto a Aferente)."""
+    return ''.join(c for c in unicodedata.normalize('NFD', nombre.lower()) if not unicodedata.combining(c))
 
 def _leer_json(ruta):
     with open(ruta, encoding='utf-8') as f:
@@ -737,7 +743,8 @@ def _portada_html(fichas, padres, activos, enlace, T, idioma):
     h.append('<p class="lead">%s</p>' % _esc(T['portada_lead']))
     h.append('<p class="estado-proyecto">%s</p>' % _esc(T['portada_estado']))
 
-    raices = sorted(i for i in fichas if i not in padres and fichas[i]['tipo'] == 'estructura')
+    raices = [i for _n, i in sorted((_clave(ver(f, idioma)[0]['nombre']), i) for i, f in fichas.items()
+                                    if i not in padres and f['tipo'] == 'estructura')]
     h.append('<h2>%s</h2><p class="nota">%s</p><ul class="indice">'
              % (_esc(T['regiones']), _esc(T['regiones_texto'])))
     for idf in raices:
@@ -752,7 +759,7 @@ def _portada_html(fichas, padres, activos, enlace, T, idioma):
                     _esc(_t(T, 'partes', n=n)), extra))
     h.append('</ul>')
 
-    sistemas = sorted((ver(f, idioma)[0]['nombre'].lower(), i)
+    sistemas = sorted((_clave(ver(f, idioma)[0]['nombre']), i)
                       for i, f in fichas.items() if f['tipo'] == 'sistema')
     if sistemas:
         h.append('<h2>%s</h2><p class="nota">%s</p><ul class="indice">'
@@ -765,7 +772,7 @@ def _portada_html(fichas, padres, activos, enlace, T, idioma):
                         _esc(_t(T, 'estructuras_n', n=len(fichas[ids].get('estructuras', []))))))
         h.append('</ul>')
 
-    fundacionales = sorted((ver(f, idioma)[0]['nombre'].lower(), i)
+    fundacionales = sorted((_clave(ver(f, idioma)[0]['nombre']), i)
                            for i, f in fichas.items() if f['tipo'] == 'fundacional')
     h.append('<h2>%s <span class="nv">%s</span></h2><p class="nota">%s</p><ul class="indice glosario">'
              % (_esc(T['glosario']), _esc(_t(T, 'entradas', n=len(fundacionales))),
