@@ -1,0 +1,33 @@
+{
+  "id": "motoneurona",
+  "tipo": "fundacional",
+  "nombre": "Motoneurona",
+  "termino_latin": "",
+  "sinonimos": [
+    "neurona motora"
+  ],
+  "nivel_detalle": "N1",
+  "definicion": "Neurona cuyo axón sale del sistema nervioso central para hacer contraer un músculo.",
+  "explicacion": [
+    "Las motoneuronas alfa, o motoneuronas inferiores, inervan el músculo esquelético: las del tronco y las extremidades están en el asta anterior de la [[sustancia_gris_medular|sustancia gris medular]] y las de la cabeza en los núcleos motores del [[tronco_encefalico]].[^1] Una motoneurona y todas las fibras musculares que inerva forman una unidad motora, y las que inervan un mismo músculo se agrupan en un mismo núcleo.[^1] Sherrington las llamó la «vía final común»: toda orden de movimiento pasa por ellas.[^1]",
+    "Se distinguen de las motoneuronas superiores, las de la corteza motora cuyo axón baja por el [[tracto]] corticoespinal hasta ellas.[^2] La lesión de la inferior produce parálisis flácida y pérdida de [[reflejo|reflejos]]; la de la superior, debilidad con espasticidad y reflejos exagerados.[^2]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Knierim J. Motor Units and Muscle Receptors. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 3, capítulo 1",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§1.6, 1.8 y 1.12",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter01.html"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §16.4 The Sensory and Motor Exams",
+      "paginas": "apartados Sensory Modalities and Location, Reflexes y Upper and Lower Motor Neurons",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/16-4-the-sensory-and-motor-exams"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}

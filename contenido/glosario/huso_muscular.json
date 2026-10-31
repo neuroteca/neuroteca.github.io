@@ -1,0 +1,30 @@
+{
+  "id": "huso_muscular",
+  "tipo": "fundacional",
+  "nombre": "Huso muscular",
+  "termino_latin": "",
+  "sinonimos": [],
+  "nivel_detalle": "N1",
+  "definicion": "Receptor situado dentro del músculo que informa de su longitud y de cómo cambia.",
+  "explicacion": [
+    "La [[propiocepcion]] depende de receptores especializados en músculos y tendones: el huso muscular señala la longitud del músculo y sus cambios, y el órgano tendinoso de Golgi, en serie con el músculo, la fuerza que se le aplica.[^1] Cuando un músculo se estira, el huso envía la señal a la [[medula_espinal]] por la raíz posterior y dispara el [[reflejo]] de estiramiento.[^2]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Knierim J. Motor Units and Muscle Receptors. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 3, capítulo 1",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§1.6, 1.8 y 1.12",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s3/chapter01.html"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §16.4 The Sensory and Motor Exams",
+      "paginas": "apartados Sensory Modalities and Location, Reflexes y Upper and Lower Motor Neurons",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/16-4-the-sensory-and-motor-exams"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}

@@ -1,0 +1,30 @@
+{
+  "id": "dermatoma",
+  "tipo": "fundacional",
+  "nombre": "Dermatoma",
+  "termino_latin": "",
+  "sinonimos": [],
+  "nivel_detalle": "N1",
+  "definicion": "Franja de piel inervada por las fibras sensitivas de un solo nervio espinal.",
+  "explicacion": [
+    "Cada [[segmentos_medulares|segmento]] de la [[medula_espinal]] inerva un dermatoma a través del [[ganglio]] de su raíz posterior.[^1] Los [[nervio_espinal|nervios espinales]] se conectan con la piel de forma ordenada, de modo que explorar la sensibilidad por dermatomas localiza el nivel de una lesión.[^2]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Anatomy of the Spinal Cord. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 2, capítulo 3",
+      "edicion": "consultado el 31 de octubre de 2026",
+      "paginas": "§3.1, 3.3, 3.4, 3.6 a 3.9, 3.11 y 3.12",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s2/chapter03.html"
+    },
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §16.4 The Sensory and Motor Exams",
+      "paginas": "apartados Sensory Modalities and Location, Reflexes y Upper and Lower Motor Neurons",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/16-4-the-sensory-and-motor-exams"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}
