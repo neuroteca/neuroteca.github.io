@@ -913,7 +913,10 @@ def escribir(fichas, activos, paginas, idiomas):
             es_sistema = ficha['tipo'] == 'sistema'
             descripcion = (vista.get('definicion') or _parrafos(vista, 'anatomia' if es_estructura
                                                                  else 'funcion')[0])
-            cuerpo = ['<main class="atlas%s" id="contenido">' % (' sistema' if es_sistema else '')]
+            # Sin modelo (fundacionales, regiones aún sin activo) la ficha ocupa una sola
+            # columna legible en vez de dejar vacía la zona del visor.
+            clase = ' sistema' if es_sistema else ('' if activo else ' sin-visor')
+            cuerpo = ['<main class="atlas%s" id="contenido">' % clase]
             if es_estructura and activo:
                 cuerpo.append(_visor_html(ficha, vista, activo, base, enlace, con_visor, T))
             if es_sistema:

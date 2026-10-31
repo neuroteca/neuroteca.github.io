@@ -251,8 +251,8 @@ header.sitio .acciones { display: flex; align-items: center; gap: 14px; flex-wra
 }
 /* Un sistema ocupa todo el ancho: el esquema arriba, el texto debajo. Seis columnas de
    circuito no caben legibles en media pantalla. */
-.atlas.sistema { grid-template-columns: 1fr; }
-.atlas.sistema .panel { max-width: 860px; }
+.atlas.sistema, .atlas.sin-visor { grid-template-columns: 1fr; }
+.atlas.sistema .panel, .atlas.sin-visor .panel { max-width: 860px; }
 .esquema svg.circuito { display: block; width: 100%; min-width: 960px; height: auto; font-family: var(--sans); }
 .esquema .columna { font-size: 10.5px; text-transform: uppercase; letter-spacing: .07em; fill: var(--tinta-3); font-weight: 600; }
 .esquema .nodo rect { fill: var(--papel); stroke: var(--borde); stroke-width: 1.2; transition: stroke .15s, fill .15s; }
