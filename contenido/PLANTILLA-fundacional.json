@@ -1,0 +1,28 @@
+{
+  "_instrucciones": "Plantilla. Copia este archivo a <carpeta>/<id>.json, sustituye cada valor por el real y borra todas las claves que empiezan por «_». El generador ignora este archivo porque está fuera de las carpetas de contenido. Cada frase de la prosa termina en [^n], el número de la fuente que la respalda; [[id]] o [[id|texto]] enlaza a otra ficha. Comprueba con: python3 herramientas/construir.py --validar",
+  "id": "identificador estable en minúsculas, sin acentos, con guiones bajos; es la URL y nunca cambia ni se reutiliza; debe ser igual al nombre del archivo",
+  "tipo": "fundacional",
+  "nombre": "Nombre del concepto, con mayúscula inicial",
+  "termino_latin": "Término de la TA2 si lo tiene; cadena vacía si no",
+  "sinonimos": [
+    "otros nombres en uso; lista vacía si no hay"
+  ],
+  "nivel_detalle": "N1 casi siempre: una fundacional explica un concepto, no una estructura",
+  "definicion": "Una sola frase, sin [^n] ni enlaces: se muestra en la portada como resumen.",
+  "explicacion": [
+    "Uno o dos párrafos que amplían la definición, con fuente por frase y enlaces a otras fichas.[^1]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Autores. Título. Lugar: editorial (o capítulo, sección y sitio si es una obra abierta)",
+      "edicion": "año y edición, o fecha de revisión de la página",
+      "paginas": "páginas, sección o números de término (TA2)",
+      "doi": "solo si lo tiene, sin https://doi.org/",
+      "url": "solo si es abierta y estable; si hay doi, no hace falta"
+    }
+  ],
+  "autoria": "agente | Max | nombre de quien redacta",
+  "estado": "borrador (siempre al crear; «revisado» solo lo pone Max al aprobar el PR)",
+  "divisiones": [],
+  "activos": []
+}

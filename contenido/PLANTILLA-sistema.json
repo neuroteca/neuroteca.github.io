@@ -1,0 +1,61 @@
+{
+  "_instrucciones": "Plantilla. Copia este archivo a <carpeta>/<id>.json, sustituye cada valor por el real y borra todas las claves que empiezan por «_». El generador ignora este archivo porque está fuera de las carpetas de contenido. Cada frase de la prosa termina en [^n], el número de la fuente que la respalda; [[id]] o [[id|texto]] enlaza a otra ficha. Comprueba con: python3 herramientas/construir.py --validar",
+  "id": "identificador estable en minúsculas, sin acentos, con guiones bajos; es la URL y nunca cambia ni se reutiliza; debe ser igual al nombre del archivo",
+  "tipo": "sistema",
+  "nombre": "Nombre de la función, p. ej. «Control cerebeloso del movimiento»",
+  "termino_latin": "",
+  "sinonimos": [],
+  "nivel_detalle": "N2 o N3: el nivel al que se dibuja el circuito",
+  "funcion": [
+    "Qué hace el sistema en conjunto y qué estructuras reúne, con fuente por frase.[^1]"
+  ],
+  "circuito": [
+    "**Entradas.** El equivalente textual del esquema: cuenta el mismo recorrido, nodo por nodo y flecha por flecha.[^1]",
+    "**Salida.** Un párrafo por etapa; la negrita inicial ayuda a seguir el diagrama.[^1]"
+  ],
+  "estructuras": [
+    "ids de las estructuras implicadas, en orden; cada una mostrará «Sistemas en los que participa»"
+  ],
+  "esquema": {
+    "columnas": [
+      {
+        "titulo": "Etapa, p. ej. Origen",
+        "nodos": [
+          {
+            "id": "id de ficha si existe (se vuelve enlace) o un id propio (se dibuja punteado, «sin ficha todavía»)",
+            "nombre": "Texto del nodo, corto"
+          }
+        ]
+      },
+      {
+        "titulo": "Otra etapa",
+        "nodos": [
+          {
+            "id": "otro_nodo",
+            "nombre": "Otro nodo"
+          }
+        ]
+      }
+    ],
+    "flechas": [
+      {
+        "de": "id de nodo",
+        "a": "id de nodo",
+        "texto": "etiqueta corta de la flecha; cadena vacía si no hace falta"
+      }
+    ]
+  },
+  "fuentes": [
+    {
+      "obra": "Autores. Título. Lugar: editorial (o capítulo, sección y sitio si es una obra abierta)",
+      "edicion": "año y edición, o fecha de revisión de la página",
+      "paginas": "páginas, sección o números de término (TA2)",
+      "doi": "solo si lo tiene, sin https://doi.org/",
+      "url": "solo si es abierta y estable; si hay doi, no hace falta"
+    }
+  ],
+  "autoria": "agente | Max | nombre de quien redacta",
+  "estado": "borrador (siempre al crear; «revisado» solo lo pone Max al aprobar el PR)",
+  "divisiones": [],
+  "activos": []
+}

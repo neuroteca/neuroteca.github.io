@@ -42,6 +42,10 @@ Cada fuente es `{obra, edicion, paginas}` y, cuando lo tiene, `doi` o `url`, que
 muestra como enlace. Una fuente abierta (libro de texto libre, terminología oficial, artículo
 con DOI) vale tanto como una de pago: lo que importa es que cualquiera pueda ir y comprobar.
 
+Para empezar una ficha sin consultar el esquema, copia `contenido/PLANTILLA-estructura.json`,
+`PLANTILLA-fundacional.json` o `PLANTILLA-sistema.json`: cada valor explica su campo. Viven fuera
+de las carpetas de contenido, así que el generador no las lee.
+
 El esquema completo, con la razón de cada campo, está en
 `archivo/atlas-desarrollo/motor/esquema-contenido.md` (v0.3) más la decisión DC-01 de
 `archivo/atlas-desarrollo/motor/hitos/v0.1-cerebelo/03-bitacora-construccion.md`, que aquí queda
