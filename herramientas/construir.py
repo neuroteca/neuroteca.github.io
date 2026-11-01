@@ -873,9 +873,10 @@ def _mapa_simbolo(mapa):
     h = ['<svg class="mapa-def" width="0" height="0" aria-hidden="true" focusable="false">'
          '<symbol id="mapa-sagital" viewBox="%s">' % mapa['viewBox']]
     for idr in mapa['orden']:
+        raya = ' stroke-dasharray="5 4"' if idr in mapa.get('esquematicos', []) else ''
         for d in mapa['regiones'][idr]:
             h.append('<path d="%s" fill="var(--f-%s, var(--mapa-apagado))" stroke="var(--papel)" '
-                     'stroke-width="2" stroke-linejoin="round"/>' % (d, idr))
+                     'stroke-width="2" stroke-linejoin="round"%s/>' % (d, idr, raya))
         for d in mapa.get('detalles', {}).get(idr, []):
             h.append('<path d="%s" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1.4" '
                      'stroke-linecap="round"/>' % d)
@@ -896,6 +897,16 @@ def _mapa_localizador(mapa, ids, etiqueta):
             % (mapa['viewBox'], _esc(etiqueta), estilo))
 
 
+def _mapa_credito(mapa, T):
+    """Atribución de las mallas de las que se proyecta el mapa (su licencia la exige)."""
+    fuente = mapa.get('fuente')
+    if not fuente:
+        return ''
+    enlace_fuente = '<a href="%s" rel="license">%s</a> (© %s, %s)' % (
+        _esc(fuente['url']), _esc(fuente['nombre']), _esc(fuente['titular']), _esc(fuente['licencia']))
+    return '<p class="mapa-credito">%s</p>' % _esc(T['mapa_credito']).replace('{fuente}', enlace_fuente)
+
+
 def _mapa_interactivo(mapa, fichas, enlace, T, idioma):
     """Mapa de la portada: cada región es un enlace a su ficha y lleva su nombre."""
     h = ['<svg class="mapa interactivo" viewBox="%s" role="img" aria-labelledby="mapa-titulo">'
@@ -903,8 +914,9 @@ def _mapa_interactivo(mapa, fichas, enlace, T, idioma):
     for idr in mapa['orden']:
         if idr not in fichas:
             continue
-        h.append('<a href="%s" class="region" style="--f: var(--region-%s)"><title>%s</title>'
-                 % (enlace('estructura/%s/' % idr), idr, _esc(nombre_de(fichas, idr, idioma))))
+        h.append('<a href="%s" class="region%s" style="--f: var(--region-%s)"><title>%s</title>'
+                 % (enlace('estructura/%s/' % idr), ' esquematico' if idr in mapa.get('esquematicos', []) else '',
+                    idr, _esc(nombre_de(fichas, idr, idioma))))
         for d in mapa['regiones'][idr]:
             h.append('<path d="%s"/>' % d)
         for d in mapa.get('detalles', {}).get(idr, []):
@@ -939,8 +951,8 @@ def _portada_html(fichas, padres, activos, enlace, T, idioma):
         href = ruta if ruta.startswith('#') else enlace(ruta)
         h.append('<a href="%s"%s>%s</a>' % (href, ' class="principal"' if i == 0 else '', _esc(rec['texto'])))
     h.append('</nav></div>')
-    h.append('<div class="entrada-mapa"><div class="mapa-caja">%s</div><p class="mapa-pie">%s</p></div></section>'
-             % (_mapa_interactivo(mapa, fichas, enlace, T, idioma), _esc(T['mapa_pie'])))
+    h.append('<div class="entrada-mapa"><div class="mapa-caja">%s</div><p class="mapa-pie">%s</p>%s</div></section>'
+             % (_mapa_interactivo(mapa, fichas, enlace, T, idioma), _esc(T['mapa_pie']), _mapa_credito(mapa, T)))
 
     # Regiones: una tarjeta por ficha raíz, con su localizador y su color.
     raices = [i for _n, i in sorted((_clave(ver(f, idioma)[0]['nombre']), i) for i, f in fichas.items()
