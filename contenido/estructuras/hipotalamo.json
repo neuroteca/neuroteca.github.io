@@ -50,6 +50,15 @@
   ],
   "autoria": "agente",
   "estado": "borrador",
-  "divisiones": [],
+  "divisiones": [
+    {
+      "eje": "partes",
+      "nombre_visible": "Por partes",
+      "principal": true,
+      "partes": [
+        "cuerpos_mamilares"
+      ]
+    }
+  ],
   "activos": []
 }

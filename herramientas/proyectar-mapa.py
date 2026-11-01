@@ -57,6 +57,7 @@ MEDULA_LARGO = 24.0  # mm de médula que entran en el mapa por debajo del bulbo
 ORDEN = ['telencefalo', 'tronco_encefalico', 'medula_espinal', 'cerebelo', 'diencefalo']
 RECORTADOS = ['medula_espinal']  # regiones que el mapa muestra solo en parte (trazo discontinuo)
 MALLAS_MAPA = {'medula_espinal': ('White_matter',)}  # regiones cuya silueta sale solo de algunas mallas
+OMITIR_MAPA = {'diencefalo': ('hypophysis',)}  # mallas exportadas con la región que no entran en su silueta
 
 # Vistas: (x, y, z) en mm -> (horizontal, vertical, profundidad); profundidad mayor = más
 # cerca del observador. Ejes: x+ = izquierda del cuerpo, y- = anterior, z+ = superior.
@@ -153,12 +154,42 @@ LAMINAS = {
     }],
     'diencefalo': [{
         # hemisección: el tálamo derecho entero, el hipotálamo y el epitálamo cortados por el
-        # plano medio. Z-Anatomy no trae el subtálamo.
-        'eje': 'partes', 'vista': 'medial', 'area_min': 3.0,
+        # plano medio. Z-Anatomy no trae el subtálamo. La hipófisis va en la lámina del hipotálamo.
+        'eje': 'partes', 'vista': 'medial', 'area_min': 3.0, 'omitir': ('hypophysis',),
         'partes': {
             'talamo': ('^Thalamus', 'geniculate'),
             'hipotalamo': ('^Hypothalamus', 'Mamillary'),
             'epitalamo': ('Habenula', 'Pineal', 'Stria_medullaris'),
+        },
+    }],
+    'talamo': [{
+        # vista posterior: los cuerpos geniculados cuelgan de la cara inferior del pulvinar
+        'eje': 'partes', 'vista': 'posterior', 'mallas': 'diencefalo', 'area_min': 2.0,
+        'omitir': ('Hypothalamus', 'Mamillary', 'Optic', 'Habenula', 'Pineal', 'Stria', 'commissure',
+                   'Third_ventricle', 'hypophysis'),
+        'partes': {
+            'cuerpo_geniculado_lateral': ('Lateral_geniculate',),
+            'cuerpo_geniculado_medial': ('Medial_geniculate',),
+        },
+    }],
+    'hipotalamo': [{
+        # hemisección: el hipotálamo con el quiasma delante, los cuerpos mamilares detrás y la
+        # hipófisis colgando
+        'eje': 'partes', 'vista': 'medial', 'mallas': 'diencefalo', 'area_min': 2.0,
+        'omitir': ('^Thalamus', 'geniculate', 'Habenula', 'Pineal', 'Stria', 'commissure', 'Third_ventricle',
+                   'Optic_tract'),
+        'partes': {
+            'cuerpos_mamilares': ('Mamillary',),
+            'hipofisis': ('hypophysis',),
+        },
+    }],
+    'epitalamo': [{
+        # hemisección: la pineal y la habénula sobre el tálamo (apagado) como referencia
+        'eje': 'partes', 'vista': 'medial', 'mallas': 'diencefalo', 'area_min': 1.0,
+        'omitir': ('Hypothalamus', 'Mamillary', 'Optic', 'geniculate', 'Third_ventricle', 'hypophysis'),
+        'partes': {
+            'glandula_pineal': ('Pineal',),
+            'habenula': ('Habenula',),
         },
     }],
     'tronco_encefalico': [
@@ -818,8 +849,11 @@ def lamina(region, config, mallas, colores):
     # los nombres de fuera van al lado más cercano; el viewBox crece por ese lado
     izq = [p for p in fuera if centros[p][0] < ancho_ref / 2.0]
     der = [p for p in fuera if centros[p][0] >= ancho_ref / 2.0]
-    desplaza = MARGEN_ETIQUETAS if izq else 0
-    ancho_vb = ancho_ref + desplaza + (MARGEN_ETIQUETAS if der else 0)
+    # el margen crece con el nombre más largo de ese lado (el id aproxima al nombre visible)
+    margen = dict((lado, max(MARGEN_ETIQUETAS, 16 + 6 * max([len(p) for p in lista] or [0])) if lista else 0)
+                  for lado, lista in (('izq', izq), ('der', der)))
+    desplaza = margen['izq']
+    ancho_vb = ancho_ref + desplaza + margen['der']
     for lado, lista in (('izq', izq), ('der', der)):
         lista.sort(key=lambda p: centros[p][1])
         y_prev = -1e9
@@ -829,7 +863,7 @@ def lamina(region, config, mallas, colores):
             if lado == 'der':
                 x_texto, ancla, fin = ancho_ref + desplaza + 14, 'start', ancho_ref + desplaza + 10
             else:
-                x_texto, ancla, fin = MARGEN_ETIQUETAS - 14, 'end', MARGEN_ETIQUETAS - 10
+                x_texto, ancla, fin = desplaza - 14, 'end', desplaza - 10
             etiquetas[parte] = {'modo': 'fuera', 'ancla': ancla, 'x': x_texto, 'y': round(y + 4, 1),
                                 'guia': 'M%s %s L%s %s' % (round(cx + desplaza, 1), cy, fin, round(y, 1))}
             y_prev = y
@@ -888,6 +922,8 @@ def main():
         sys.exit('faltan regiones: %s' % ', '.join(faltan))
     for region, claves in MALLAS_MAPA.items():
         mallas[region] = [m for m in mallas[region] if casa(m[0], m[3], claves)]
+    for region, claves in OMITIR_MAPA.items():
+        mallas[region] = [m for m in mallas[region] if not casa(m[0], m[3], claves)]
 
     # la médula sigue la columna hasta medio metro más abajo: al mapa solo entra el tramo que
     # continúa el bulbo, recortado por un plano horizontal

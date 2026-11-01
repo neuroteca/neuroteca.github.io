@@ -35,6 +35,16 @@
   ],
   "autoria": "agente",
   "estado": "borrador",
-  "divisiones": [],
+  "divisiones": [
+    {
+      "eje": "partes",
+      "nombre_visible": "Por partes",
+      "principal": true,
+      "partes": [
+        "glandula_pineal",
+        "habenula"
+      ]
+    }
+  ],
   "activos": []
 }

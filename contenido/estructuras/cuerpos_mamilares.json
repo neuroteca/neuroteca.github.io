@@ -1,0 +1,42 @@
+{
+  "id": "cuerpos_mamilares",
+  "tipo": "estructura",
+  "nombre": "Cuerpos mamilares",
+  "termino_latin": "Corpus mamillare",
+  "sinonimos": [
+    "cuerpos mamilares del hipotálamo",
+    "núcleos mamilares"
+  ],
+  "nivel_detalle": "N3",
+  "anatomia": [
+    "Dos pequeñas eminencias redondeadas en la cara inferior del [[hipotalamo]], una a cada lado de la línea media, que marcan su límite posterior.[^1][^3] Por dentro contienen los [[nucleo|núcleos]] mamilares, que pertenecen a la región posterior de la zona medial del hipotálamo.[^1]"
+  ],
+  "fisiologia": [
+    "Son una estación del circuito de Papez, el primero que se propuso como base de las emociones y todavía uno de los principales circuitos del [[sistema_limbico|sistema límbico]].[^1][^2] Reciben del [[hipocampo]] la rama poscomisural del fórnix y envían el fascículo mamilotalámico al núcleo anterior del [[talamo]], que proyecta a la corteza del cíngulo; esta devuelve la señal al hipocampo y cierra el bucle.[^1][^2] Un segundo haz, el mamilotegmentario, baja al tegmento del tronco encefálico.[^1] Se les atribuye un papel en la expresión de las emociones y en la [[memoria]] reciente.[^1]",
+    "En el síndrome de Korsakoff, consecuencia del alcoholismo y de la falta de tiamina, los cuerpos mamilares se destruyen y el paciente tiene una enorme dificultad para formar recuerdos nuevos.[^2]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Dougherty P. Hypothalamus: Structural Organization. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 4, capítulo 1",
+      "edicion": "consultado el 1 de noviembre de 2026",
+      "paginas": "§1.1 a 1.3",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s4/chapter01.html"
+    },
+    {
+      "obra": "Wright A. Limbic System: Hippocampus. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 4, capítulo 5",
+      "edicion": "consultado el 1 de noviembre de 2026",
+      "paginas": "§5.3 a 5.5 y figura 5.6",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s4/chapter05.html"
+    },
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "términos 5674 (Corpus mamillare) y 5757 (Fasciculus mamillothalamicus)",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}

@@ -1,0 +1,34 @@
+{
+  "id": "cuerpo_geniculado_medial",
+  "tipo": "estructura",
+  "nombre": "Cuerpo geniculado medial",
+  "termino_latin": "Corpus geniculatum mediale",
+  "sinonimos": [
+    "núcleo geniculado medial"
+  ],
+  "nivel_detalle": "N3",
+  "anatomia": [
+    "[[nucleo|Núcleo]] del [[talamo]] situado en su cara inferior y posterior, por dentro del [[cuerpo_geniculado_lateral|cuerpo geniculado lateral]]; los dos forman el metatálamo.[^2] Es el relevo talámico de la audición: todas las fibras auditivas ascendentes hacen escala en el colículo inferior del [[mesencefalo]] y en él.[^1]"
+  ],
+  "fisiologia": [
+    "Todas las aferencias auditivas hacen [[sinapsis]] en los núcleos cocleares y en el tálamo, y del cuerpo geniculado medial salen hacia la corteza auditiva primaria de la [[circunvolucion|circunvolución]] temporal superior por la porción sublenticular de la [[capsula_interna|cápsula interna]].[^1] Las vías auditivas conservan la organización tonotópica desde el oído hasta la corteza: las frecuencias agudas y graves viajan separadas a lo largo de todo el sistema nervioso central.[^1]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Auditory System: Pathways and Reflexes. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 2, capítulo 13",
+      "edicion": "consultado el 1 de noviembre de 2026",
+      "paginas": "§13.1 (texto y figura 13.2)",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s2/chapter13.html"
+    },
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "términos 5667 (Corpus geniculatum mediale) y 5700 (Metathalamus)",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}
