@@ -6,13 +6,17 @@ BodyParts3D: proyecta cada región N1 al plano sagital (vista lateral izquierda)
 el contorno de la silueta. Nada se dibuja a mano: si una malla cambia, se vuelve a correr
 el script y el mapa cambia con ella.
 
-Entrada: una carpeta con una subcarpeta por región, nombrada con el id de la ficha raíz
-(con o sin prefijo numérico: `04_cerebelo` o `cerebelo`), y dentro los `.obj` de
-BodyParts3D (árbol PART-OF, versión 4.0, coordenadas en mm; x positiva = lado izquierdo,
-y negativa = anterior, z = superior). Las mallas no entran al repositorio (son pesadas y
-ya están publicadas): viven en `fuentes-3d/bodyparts3d/`, que `.gitignore` excluye.
+Entrada: las mallas de `fuentes-3d/` (fuera de git: son pesadas y ya están publicadas), una
+carpeta por fuente según `FUENTES` y, dentro, una subcarpeta por región nombrada con el id de
+la ficha raíz (con o sin prefijo numérico: `04_cerebelo` o `cerebelo`) con sus `.obj`:
 
-    python3 herramientas/proyectar-mapa.py fuentes-3d/bodyparts3d/
+- `fuentes-3d/bodyparts3d/`: BodyParts3D 4.0 (árbol PART-OF), mm; x+ = lado izquierdo,
+  y- = anterior, z+ = superior. De aquí salen el mapa y las láminas del tronco y el telencéfalo.
+- `fuentes-3d/zanatomy/`: objetos exportados del `Startup.blend` de Z-Anatomy con
+  `herramientas/exportar-zanatomy.py` (metros, mismos ejes). De aquí sale el cerebelo, que
+  BodyParts3D solo trae en dos mitades.
+
+    python3 herramientas/proyectar-mapa.py
 
 Salida: `src/piezas/mapa-sagital.json` (el mapa de regiones) y una lámina por región en
 `src/piezas/laminas/<region>.json` (las partes con ficha de esa región, cada una con su
@@ -58,19 +62,50 @@ VISTAS = {
     'posterior': lambda x, y, z: (-x, z, y),   # desde atrás
 }
 
-# Láminas: por región, la vista y qué mallas (por fragmento del nombre de archivo) forman cada
-# parte con ficha. Una malla que no case con ninguna parte se dibuja apagada y sin enlace.
+# Fuentes de mallas: carpeta (relativa a la raíz), factor a mm y atribución.
+FUENTES = {
+    'bodyparts3d': {
+        'carpeta': os.path.join('fuentes-3d', 'bodyparts3d'),
+        'escala': 1.0,
+        'fuente': {
+            'nombre': 'BodyParts3D',
+            'version': '4.0 (árbol PART-OF)',
+            'titular': 'The Database Center for Life Science',
+            'licencia': 'CC BY-SA 2.1 JP',
+            'url': 'https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html',
+            'atribucion': 'BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan',
+        },
+    },
+    'zanatomy': {
+        'carpeta': os.path.join('fuentes-3d', 'zanatomy'),
+        'escala': 1000.0,
+        'fuente': {
+            'nombre': 'Z-Anatomy',
+            'version': 'Startup.blend (2023)',
+            'titular': 'Z-Anatomy, derivado de BodyParts3D (© The Database Center for Life Science)',
+            'licencia': 'CC BY-SA 4.0',
+            'url': 'https://github.com/Z-Anatomy/Models-of-human-anatomy',
+            'atribucion': 'Z-Anatomy (CC BY-SA 4.0), derived from BodyParts3D, © The Database Center for Life Science (CC BY-SA 2.1 Japan)',
+        },
+    },
+}
+FUENTE_MAPA = 'bodyparts3d'
+
+# Láminas: por región, una lista; cada una con el eje de la ficha al que corresponde, la fuente,
+# la vista (`VISTAS`) y qué mallas (por fragmento del nombre de archivo) forman cada parte con
+# ficha. Una malla que no case con
+# ninguna parte se dibuja apagada y sin enlace.
 LAMINAS = {
-    'tronco_encefalico': {
-        'vista': 'lateral',
+    'tronco_encefalico': [{
+        'eje': 'niveles', 'fuente': 'bodyparts3d', 'vista': 'lateral',
         'partes': {
             'mesencefalo': ('midbrain', 'superior_colliculus', 'inferior_colliculus', 'cerebral_aqueduct'),
             'puente': ('pons',),
             'bulbo_raquideo': ('medulla_oblongata',),
         },
-    },
-    'telencefalo': {
-        'vista': 'lateral',
+    }],
+    'telencefalo': [{
+        'eje': 'lobulos', 'fuente': 'bodyparts3d', 'vista': 'lateral',
         'partes': {
             'lobulo_frontal': ('superior_frontal', 'middle_frontal', 'inferior_frontal', 'precentral'),
             'lobulo_parietal': ('postcentral', 'superior_parietal', 'supramarginal', 'angular'),
@@ -78,13 +113,40 @@ LAMINAS = {
             'lobulo_occipital': ('occipital',),
             'insula': ('insula',),
         },
-    },
+    }],
+    'cerebelo': [
+        {
+            # vista posterior: el vermis en medio y los hemisferios a los lados
+            'eje': 'regiones', 'fuente': 'zanatomy', 'vista': 'posterior',
+            'partes': {
+                'vermis': ('Lingula', 'Central_lobule', 'Culmen', 'Declive', 'Folium', 'Tuber',
+                           'Pyramis', 'Uvula', 'Nodule'),
+                'hemisferios_cerebelosos': ('Wing_of_central', 'quadrangular', 'semilunar', 'Gracile',
+                                            'Biventral', 'Tonsil', 'Flocculus', 'Peduncle_of_flocculus'),
+                'pedunculos_cerebelosos': ('Superior_cerebellar_peduncle',),
+            },
+        },
+        {
+            # vista lateral: el lóbulo anterior arriba y delante, el posterior como masa
+            # principal y el floculonodular abajo y delante; cada lóbulo reúne sus lobulillos
+            # del vermis y de los hemisferios
+            'eje': 'lobulos', 'fuente': 'zanatomy', 'vista': 'lateral',
+            'partes': {
+                'lobulo_anterior': ('Lingula', 'Central_lobule', 'Wing_of_central', 'Culmen',
+                                    'Anterior_quadrangular'),
+                'lobulo_posterior': ('Declive', 'Posterior_quadrangular', 'Folium', 'Superior_semilunar',
+                                     'Tuber', 'Inferior_semilunar', 'Gracile', 'Pyramis', 'Biventral',
+                                     'Uvula', 'Tonsil'),
+                'lobulo_floculonodular': ('Nodule', 'Flocculus', 'Peduncle_of_flocculus'),
+            },
+        },
+    ],
 }
 LAMINAS_DIR = os.path.join(RAIZ, 'src', 'piezas', 'laminas')
 TOKENS = os.path.join(RAIZ, 'src', 'estilos', 'tokens.css')
 ETIQUETA_ANCHO = 100  # px del viewBox (cuerda) que necesita un nombre para ir dentro de su parte
 ETIQUETA_ALTO = 22
-MARGEN_ETIQUETAS = 120  # px del viewBox reservados a la derecha para los nombres de fuera
+MARGEN_ETIQUETAS = 150  # px del viewBox reservados a cada lado para los nombres de fuera
 
 # Circunvoluciones que delimitan los surcos que se dibujan sobre la cara lateral.
 # Solo el surco central: BodyParts3D no trae la circunvolución temporal superior, así que la
@@ -98,14 +160,7 @@ SURCOS = [('precentral', 'postcentral')]
 SURCO_LARGO_MIN = 14.0   # mm
 SURCO_TOLERANCIA = 1.2   # mm: el surco se simplifica más que el contorno
 
-FUENTE = {
-    'nombre': 'BodyParts3D',
-    'version': '4.0 (árbol PART-OF)',
-    'titular': 'The Database Center for Life Science',
-    'licencia': 'CC BY-SA 2.1 JP',
-    'url': 'https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html',
-    'atribucion': 'BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan',
-}
+
 
 
 # --- lectura ---------------------------------------------------------------------
@@ -124,9 +179,14 @@ def leer_obj(ruta):
     return v, f
 
 
-def cargar(carpeta):
-    """{region: [(nombre_archivo, vertices, caras)]}"""
+def cargar(fuente):
+    """{region: [(nombre_archivo, vertices_mm, caras)]} de una fuente de `FUENTES`."""
+    cfg = FUENTES[fuente]
+    carpeta = os.path.join(RAIZ, cfg['carpeta'])
+    escala = cfg['escala']
     mallas = {}
+    if not os.path.isdir(carpeta):
+        return mallas
     for sub in sorted(os.listdir(carpeta)):
         ruta = os.path.join(carpeta, sub)
         if not os.path.isdir(ruta):
@@ -138,6 +198,8 @@ def cargar(carpeta):
         for nombre in sorted(os.listdir(ruta)):
             if nombre.lower().endswith('.obj'):
                 v, f = leer_obj(os.path.join(ruta, nombre))
+                if escala != 1.0:
+                    v = [(x * escala, y * escala, z * escala) for (x, y, z) in v]
                 mallas.setdefault(idr, []).append((nombre, v, f))
     return mallas
 
@@ -403,10 +465,10 @@ def tonos(hex_base, n):
     if n == 1:
         pasos = [l]
     else:
-        pasos = [l - 0.13 + (0.27 * k / (n - 1)) for k in range(n)]
+        pasos = [l - 0.14 + (0.32 * k / (n - 1)) for k in range(n)]
     out = []
     for lk in pasos:
-        lk = max(0.18, min(0.62, lk))  # ni negro ni tan claro que el nombre en blanco no se lea
+        lk = max(0.18, min(0.64, lk))  # ni negro ni tan claro que el nombre en blanco no se lea
         rr, gg, bb = colorsys.hls_to_rgb(h, lk, min(1.0, s * (1.08 if lk < l else 0.92)))
         out.append('#%02X%02X%02X' % (round(rr * 255), round(gg * 255), round(bb * 255)))
     return out
@@ -469,12 +531,29 @@ def lamina(region, config, mallas, colores):
         l = lazos[0]
         ys = [p[1] for p in l]
         cx, cy = centroide(l)
-        # anchura útil para el nombre: la cuerda de la máscara en la fila del centroide,
-        # no la caja (una parte oblicua tiene una caja ancha y poco sitio real)
-        fila = min(lienzo.H - 1, max(0, int(cy)))
-        cuerda = sum(1 for c in range(lienzo.W) if m[fila * lienzo.W + c] == 1)
-        cajas[parte] = (cuerda * escala, (max(ys) - min(ys)) * escala)
-        centros[parte] = (round(cx * escala, 1), round(cy * escala, 1))
+        # sitio para el nombre: el tramo horizontal más largo de la parte, prefiriendo las
+        # filas cercanas al centro (una parte oblicua o simétrica tiene el centroide fuera
+        # de sí misma o sobre otra parte)
+        mejor, tramo = None, 0
+        W = lienzo.W
+        for fila in range(lienzo.H):
+            base = fila * W
+            c = 0
+            while c < W:
+                if m[base + c]:
+                    ini = c
+                    while c < W and m[base + c]:
+                        c += 1
+                    puntua = (c - ini) - 0.35 * abs(fila - cy)
+                    if puntua > tramo:
+                        tramo, mejor = puntua, ((ini + c) / 2.0, fila + 0.5, c - ini)
+                else:
+                    c += 1
+        cajas[parte] = ((mejor[2] if mejor else 0) * escala, (max(ys) - min(ys)) * escala)
+        if mejor:
+            centros[parte] = (round(mejor[0] * escala, 1), round(mejor[1] * escala, 1))
+        else:
+            centros[parte] = (round(cx * escala, 1), round(cy * escala, 1))
 
     # etiquetas: dentro si la isla mayor tiene sitio; si no, fuera a la derecha con guía
     etiquetas = {}
@@ -517,14 +596,17 @@ def lamina(region, config, mallas, colores):
                 e['x'] = round(e['x'] + desplaza, 1)
 
     base = colores.get(region, '#888888')
-    paleta = dict(zip(partes, tonos(base, len(partes))))
+    presentes = [p for p in partes if p in trazos]
+    paleta = dict(zip(presentes, tonos(base, len(presentes))))
     salida = {
-        '_nota': ('Lámina de %s en vista %s: silueta visible de cada parte con ficha, proyectada desde las '
-                  'mallas de BodyParts3D con herramientas/proyectar-mapa.py. No editar a mano. `partes` son '
-                  'ids de fichas; `sin_ficha` son las mallas de la región que no pertenecen a ninguna parte '
-                  'con ficha (se pintan apagadas). `colores` son tonos del color de la región.' % (region, vista)),
-        'fuente': FUENTE,
+        '_nota': ('Lámina de %s (eje %s), vista %s: silueta visible de cada parte con ficha, '
+                  'proyectada desde las mallas de %s con herramientas/proyectar-mapa.py. No editar a mano. '
+                  '`partes` son ids de fichas; `sin_ficha` son las mallas de la región que no pertenecen a '
+                  'ninguna parte con ficha (se pintan apagadas). `colores` son tonos del color de la región.'
+                  % (region, config['eje'], vista, FUENTES[config['fuente']]['fuente']['nombre'])),
+        'fuente': FUENTES[config['fuente']]['fuente'],
         'region': region,
+        'eje': config['eje'],
         'vista': vista,
         'viewBox': '0 0 %d %s' % (ancho_vb, _fmt(lienzo.H * escala)),
         'ancho_ref': ancho_ref,
@@ -536,20 +618,21 @@ def lamina(region, config, mallas, colores):
         'etiquetas': etiquetas,
     }
     os.makedirs(LAMINAS_DIR, exist_ok=True)
-    ruta = os.path.join(LAMINAS_DIR, region + '.json')
+    ruta = os.path.join(LAMINAS_DIR, '%s-%s.json' % (region, config['eje']))
     with open(ruta, 'w', encoding='utf-8') as f:
         json.dump(salida, f, ensure_ascii=False, indent=2)
         f.write('\n')
-    print('  lámina %s (%s): %s; sin ficha: %d islas' % (
-        region, vista, ', '.join('%s %d' % (p, len(trazos[p])) for p in partes if p in trazos),
+    print('  lámina %s/%s (%s): %s; sin ficha: %d islas' % (
+        region, config['eje'], vista, ', '.join('%s %d' % (p, len(trazos[p])) for p in partes if p in trazos),
         len(trazos.get('_sin_ficha', []))), file=sys.stderr)
     print('escrito', os.path.relpath(ruta, RAIZ), file=sys.stderr)
 
 
 # --- principal -------------------------------------------------------------------
 
-def main(carpeta):
-    mallas = cargar(carpeta)
+def main():
+    por_fuente = dict((nombre, cargar(nombre)) for nombre in FUENTES)
+    mallas = por_fuente[FUENTE_MAPA]
     faltan = [r for r in ORDEN if r not in mallas and r not in ESQUEMATICOS]
     if faltan:
         sys.exit('faltan regiones: %s' % ', '.join(faltan))
@@ -668,7 +751,7 @@ def main(carpeta):
                   'visibles entre grupos de circunvoluciones. `esquematicos` lista las regiones sin malla, '
                   'dibujadas por continuidad y pintadas con trazo discontinuo. `etiquetas` sitúa el nombre de '
                   'cada región (`dentro` = sobre la propia región; `fuera` = con línea guía).'),
-        'fuente': FUENTE,
+        'fuente': FUENTES[FUENTE_MAPA]['fuente'],
         'vista': 'lateral izquierda',
         'viewBox': '0 0 %d %s' % (ANCHO_REF, _fmt(alto_vb)),
         'ancho_ref': ANCHO_REF,
@@ -685,12 +768,17 @@ def main(carpeta):
     print('escrito', os.path.relpath(DESTINO, RAIZ), file=sys.stderr)
 
     colores = colores_region()
-    for region, config in LAMINAS.items():
-        if region in mallas:
-            lamina(region, config, mallas, colores)
+    for region, configs in LAMINAS.items():
+        for config in configs:
+            origen = por_fuente[config['fuente']]
+            if region in origen:
+                lamina(region, config, origen, colores)
+            else:
+                print('aviso: sin mallas de %s para la lámina %s/%s' % (config['fuente'], region, config['eje']),
+                      file=sys.stderr)
 
 
 if __name__ == '__main__':
-    if len(sys.argv) != 2:
+    if len(sys.argv) != 1:
         sys.exit(__doc__)
-    main(sys.argv[1])
+    main()

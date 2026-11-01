@@ -32,7 +32,7 @@
         "parrafos": [
           "Neuroteca la escribe y mantiene **Maximiliano Alamilla Rodríguez** ([ORCID 0009-0000-7890-4569](https://orcid.org/0009-0000-7890-4569)) como proyecto independiente de acceso libre, con ayuda de herramientas de inteligencia artificial para redactar borradores que después se verifican contra las fuentes. Una herramienta no es una fuente: lo que no tiene referencia no se publica.",
           "El código es libre bajo licencia MIT. El contenido (fichas, modelos y diagramas) está bajo [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.es), salvo los modelos derivados de terceros, que llevan su propia licencia y atribución en su ficha. El repositorio completo está en [github.com/neuroteca/neuroteca.github.io](https://github.com/neuroteca/neuroteca.github.io).",
-          "El mapa de orientación que acompaña a cada región se proyecta a partir de las mallas de [BodyParts3D](https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html) (© The Database Center for Life Science, licencia CC BY-SA 2.1 Japón); ningún contorno se dibuja a mano. BodyParts3D no incluye una malla de la médula espinal, así que ese tramo se muestra esquemático, con trazo discontinuo."
+          "El mapa de orientación y las láminas de cada región se proyectan a partir de mallas 3D publicadas: [BodyParts3D](https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html) (© The Database Center for Life Science, licencia CC BY-SA 2.1 Japón) y, para el cerebelo, [Z-Anatomy](https://github.com/Z-Anatomy/Models-of-human-anatomy) (CC BY-SA 4.0, derivado de BodyParts3D); ningún contorno se dibuja a mano. BodyParts3D no incluye una malla de la médula espinal, así que ese tramo se muestra esquemático, con trazo discontinuo."
         ]
       },
       {
@@ -76,7 +76,7 @@
         "parrafos": [
           "Neuroteca is written and maintained by **Maximiliano Alamilla Rodríguez** ([ORCID 0009-0000-7890-4569](https://orcid.org/0009-0000-7890-4569)) as an independent open-access project, with the help of artificial-intelligence tools to draft text that is then verified against the sources. A tool is not a source: whatever lacks a reference is not published.",
           "The code is free under the MIT licence. The content (entries, models and diagrams) is under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), except for models derived from third parties, which carry their own licence and attribution on their entry. The full repository is at [github.com/neuroteca/neuroteca.github.io](https://github.com/neuroteca/neuroteca.github.io).",
-          "The orientation map shown with each region is projected from the [BodyParts3D](https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html) meshes (© The Database Center for Life Science, CC BY-SA 2.1 Japan licence); no outline is drawn by hand. BodyParts3D has no mesh for the spinal cord, so that stretch is shown schematically, with a dashed stroke."
+          "The orientation map and the plates of each region are projected from published 3D meshes: [BodyParts3D](https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html) (© The Database Center for Life Science, CC BY-SA 2.1 Japan licence) and, for the cerebellum, [Z-Anatomy](https://github.com/Z-Anatomy/Models-of-human-anatomy) (CC BY-SA 4.0, derived from BodyParts3D); no outline is drawn by hand. BodyParts3D has no mesh for the spinal cord, so that stretch is shown schematically, with a dashed stroke."
         ]
       },
       {

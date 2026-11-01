@@ -315,8 +315,9 @@ header.sitio .acciones { display: flex; align-items: center; gap: 14px; flex-wra
 .mapa.interactivo .guia { fill: none; stroke: var(--tinta-3); stroke-width: 1; }
 .mapa-def { position: absolute; }
 
-/* Lámina de una región: sus partes con ficha, proyectadas desde las mallas. */
-.lamina { margin: 18px auto 10px; }
+/* Láminas de una región: sus partes con ficha, proyectadas desde las mallas; una por eje. */
+.laminas { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 16px 20px; margin: 18px 0 10px; }
+.lamina { margin: 0; flex: 1 1 300px; }
 .lamina-caja { background: var(--mapa-fondo); border-radius: 12px; padding: 12px; }
 .lamina svg { display: block; width: 100%; height: auto; }
 .lamina .parte path { fill: var(--f); stroke: var(--papel); stroke-width: 2; stroke-linejoin: round; transition: filter .15s, opacity .15s; }
