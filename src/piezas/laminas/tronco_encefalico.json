@@ -1,0 +1,57 @@
+{
+  "_nota": "Lámina de tronco_encefalico en vista lateral: silueta visible de cada parte con ficha, proyectada desde las mallas de BodyParts3D con herramientas/proyectar-mapa.py. No editar a mano. `partes` son ids de fichas; `sin_ficha` son las mallas de la región que no pertenecen a ninguna parte con ficha (se pintan apagadas). `colores` son tonos del color de la región.",
+  "fuente": {
+    "nombre": "BodyParts3D",
+    "version": "4.0 (árbol PART-OF)",
+    "titular": "The Database Center for Life Science",
+    "licencia": "CC BY-SA 2.1 JP",
+    "url": "https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html",
+    "atribucion": "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan"
+  },
+  "region": "tronco_encefalico",
+  "vista": "lateral",
+  "viewBox": "0 0 400 466.7",
+  "ancho_ref": 280,
+  "escala_mm": 5.1852,
+  "colores": {
+    "mesencefalo": "#28605C",
+    "puente": "#428B85",
+    "bulbo_raquideo": "#5FB3AC"
+  },
+  "orden": [
+    "mesencefalo",
+    "puente",
+    "bulbo_raquideo"
+  ],
+  "partes": {
+    "mesencefalo": [
+      "M117 21.7 L115 23.7 L114.4 26.2 L115 29.5 L101.1 30.5 L72.6 29.2 L57.7 27.9 L56.4 26.6 L48.3 26.2 L33.4 26.9 L27.2 35 L29.8 50.6 L33.7 65.5 L38.9 79.7 L41.5 90.7 L41.5 98.5 L42.5 103.4 L44.4 105.3 L73.9 107.6 L130.9 110.2 L160.1 112.1 L161.4 113.4 L164 114.1 L167.9 114.1 L171.4 112.5 L174.7 109.2 L176.3 101.8 L176.3 90.1 L175 82.3 L172.4 78.4 L173.1 72.6 L176.9 64.8 L178.2 56.4 L176.9 47.3 L173.4 40.5 L167.5 36 L156.2 33.7 L139.4 33.7 L127.7 30.5 L121.2 24 Z"
+    ],
+    "puente": [
+      "M23.7 102.1 L21.7 104 L20.7 109.5 L20.7 118.6 L24 130.9 L30.5 146.5 L34.4 158.1 L35.6 165.9 L38.9 175.6 L44.1 187.3 L49.3 195.7 L54.4 200.9 L58.3 207.4 L60.9 215.2 L68.4 226.5 L80.7 241.4 L94 249.5 L108.2 250.8 L117.3 249.5 L121.2 245.6 L128.3 243.1 L138.7 241.8 L155.9 242.1 L179.9 244 L193.8 234.6 L197.7 213.9 L199.6 193.1 L199.6 172.4 L199 161.4 L197.7 160.1 L197.7 158.1 L199 155.6 L199 151 L197.7 144.5 L190.2 134.5 L176.6 120.9 L138.7 112.1 L76.5 108.2 L43.4 105 L39.5 102.4 L34.4 101.1 L27.9 101.1 Z"
+    ],
+    "bulbo_raquideo": [
+      "M138.7 241.8 L128.3 243.1 L121.2 245.6 L117.3 249.5 L108.2 250.8 L94 249.5 L86.5 250.5 L85.9 253.8 L88.1 261.2 L93.3 272.9 L99.8 284.5 L107.6 296.2 L121.9 311.8 L142.6 331.2 L161.4 364.9 L178.2 412.9 L188.3 437.8 L191.5 439.8 L208.7 442 L239.8 444.6 L255.7 442.4 L256.3 435.2 L250.2 407.7 L237.2 359.7 L230.7 329.9 L230.7 318.2 L228.1 305.9 L223 293 L212.3 275.8 L196.1 254.4 L176.9 243.1 L154.9 241.8 Z"
+    ]
+  },
+  "sin_ficha": [],
+  "etiquetas": {
+    "mesencefalo": {
+      "modo": "dentro",
+      "x": 104.8,
+      "y": 72.8
+    },
+    "puente": {
+      "modo": "dentro",
+      "x": 116.5,
+      "y": 177.3
+    },
+    "bulbo_raquideo": {
+      "modo": "fuera",
+      "ancla": "start",
+      "x": 294,
+      "y": 336.9,
+      "guia": "M182.7 332.9 L290 332.9"
+    }
+  }
+}
