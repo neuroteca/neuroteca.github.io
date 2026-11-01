@@ -120,14 +120,12 @@ button.tema-btn:hover { border-color: var(--acento); color: var(--acento); }
 .panel { min-width: 0; }
 
 .partes-nav {
-  position: sticky; top: 0; z-index: 5;
-  background: var(--papel);
-  border-bottom: 1px solid var(--borde);
-  padding-bottom: 10px; margin-bottom: 16px;
+  border-top: 1px solid var(--borde); border-bottom: 1px solid var(--borde);
+  padding: 12px 0 8px; margin: 22px 0 8px;
 }
 .migas-nav {
   display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
-  font-size: 13px; color: var(--tinta-3); margin: 0 0 12px;
+  font-family: var(--sans); font-size: 13.5px; color: var(--tinta-3); margin: 0 0 14px;
 }
 .migas-nav a { color: var(--acento); text-decoration: none; }
 .migas-nav a:hover { text-decoration: underline; }
@@ -158,10 +156,10 @@ button.tema-btn:hover { border-color: var(--acento); color: var(--acento); }
 
 /* ---------------------------------------------------------- ficha */
 
-.ficha h1 { font-family: var(--display); font-size: 32px; font-weight: 600; line-height: 1.1; margin: 0 0 4px; letter-spacing: -0.015em; text-wrap: balance; }
+.ficha h1, .cabecera h1 { font-family: var(--display); font-size: clamp(30px, 4vw, 40px); font-weight: 600; line-height: 1.1; margin: 0 0 4px; letter-spacing: -0.015em; text-wrap: balance; }
 .latin { font-family: var(--serif); font-style: italic; color: var(--tinta-2); font-size: 17px; margin: 0; }
 
-.insignias { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0 18px; }
+.insignias { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0 0; font-family: var(--sans); }
 .insignia {
   font-size: 12px; padding: 3px 9px; border-radius: 99px;
   border: 1px solid var(--borde); color: var(--tinta-2); background: var(--papel-2);
@@ -173,7 +171,7 @@ button.tema-btn:hover { border-color: var(--acento); color: var(--acento); }
   font-size: 12px; text-transform: uppercase; letter-spacing: .09em;
   color: var(--tinta-3); margin: 22px 0 6px; font-weight: 600;
 }
-.partes-nav h2 { margin-top: 0; }
+.partes-nav h2 { margin-top: 0; margin-bottom: 8px; }
 .ficha p { font-family: var(--serif); font-size: 17px; line-height: 1.65; margin: 0 0 12px; }
 
 a.glos {
@@ -183,7 +181,7 @@ a.glos {
 a.glos:hover { color: var(--acento); border-bottom-style: solid; }
 a.glos::after { content: "\00B0"; color: var(--acento); font-size: .8em; vertical-align: super; }
 
-.fuentes { font-size: 13.5px; color: var(--tinta-2); padding-left: 22px; margin: 0; }
+.fuentes { font-family: var(--sans); font-size: 13.5px; color: var(--tinta-2); padding-left: 22px; margin: 8px 0 0; }
 .fuentes li { margin-bottom: 4px; }
 .fuentes li:target { background: var(--acento-suave); border-radius: 4px; }
 .fuentes a { color: var(--acento); overflow-wrap: anywhere; }
@@ -244,6 +242,42 @@ header.sitio .acciones { display: flex; align-items: center; gap: 14px; flex-wra
 .indice.glosario li a { font-size: 15px; font-weight: 600; }
 .indice.glosario li .meta { margin-left: 0; font-family: var(--serif); font-size: 14.5px; color: var(--tinta-2); flex: 1 1 100%; }
 .texto p { max-width: 68ch; }
+
+/* ---------------------------------------------------------- cabecera de ficha */
+
+.cabecera { padding-top: 10px; }
+.cabecera-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px 24px; align-items: start; }
+.cabecera-grid.con-mapa { grid-template-columns: 168px minmax(0, 1fr); }
+@media (max-width: 560px) { .cabecera-grid.con-mapa { grid-template-columns: 1fr; } .localizador-caja { max-width: 220px; } }
+.localizador-caja { background: var(--mapa-fondo); border-radius: 10px; padding: 10px 10px 8px; border-top: 3px solid var(--rc, var(--acento)); }
+.localizador-caja small { display: block; font-family: var(--sans); font-size: 11.5px; color: var(--tinta-3); text-align: center; margin-top: 6px; line-height: 1.3; }
+.cabecera-texto { min-width: 0; }
+.cabecera .entradilla, .ficha p.entradilla { font-size: 19.5px; line-height: 1.55; }
+.cabecera .entradilla { margin: 14px 0 0; font-family: var(--serif); }
+.cabecera .entradilla.definicion { font-weight: 600; font-size: 20px; }
+
+.vistazo {
+  margin: 16px 0 0; display: grid; gap: 0; font-family: var(--sans);
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--borde); border-radius: var(--radio); overflow: hidden; background: var(--tarjeta);
+}
+.vistazo > div { padding: 10px 14px; border-right: 1px solid var(--borde); border-bottom: 1px solid var(--borde); margin-bottom: -1px; min-width: 0; }
+.vistazo > div:nth-child(even), .vistazo > div:last-child { border-right: 0; }
+/* Con tres entradas, la última ocupa la fila entera en vez de quedar huérfana. */
+.vistazo > div:last-child:nth-child(odd) { grid-column: 1 / -1; }
+@media (max-width: 480px) { .vistazo { grid-template-columns: 1fr; } .vistazo > div { border-right: 0; } }
+.vistazo dt { font-size: 11.5px; text-transform: uppercase; letter-spacing: .07em; color: var(--tinta-3); font-weight: 600; }
+.vistazo dd { margin: 3px 0 0; font-size: 14.5px; line-height: 1.45; }
+.vistazo a.glos { border-bottom-color: var(--borde); }
+.vistazo sup.ref { font-size: .7em; }
+
+.fuentes-caja { margin-top: 26px; border-top: 1px solid var(--borde); padding-top: 10px; }
+.fuentes-caja summary { cursor: pointer; list-style: none; display: flex; align-items: center; gap: 8px; }
+.fuentes-caja summary::-webkit-details-marker { display: none; }
+.fuentes-caja summary::before { content: ""; width: 7px; height: 7px; border-right: 1.5px solid var(--tinta-3); border-bottom: 1.5px solid var(--tinta-3); transform: rotate(-45deg); transition: transform .15s; margin-top: 1px; }
+.fuentes-caja[open] summary::before { transform: rotate(45deg); }
+.fuentes-caja summary h2 { display: inline; margin: 0; }
+.fuentes-caja summary:hover h2 { color: var(--acento); }
 
 /* ---------------------------------------------------------- portada */
 
@@ -337,7 +371,7 @@ header.sitio .acciones { display: flex; align-items: center; gap: 14px; flex-wra
 .atlas.sistema, .atlas.sin-visor { grid-template-columns: 1fr; }
 .atlas.sistema .panel, .atlas.sin-visor .panel, .cabecera-sistema { max-width: 860px; width: 100%; margin: 0 auto; }
 .cabecera-sistema { padding-top: 8px; }
-.cabecera-sistema .insignias { margin-bottom: 4px; }
+.cabecera-sistema .cabecera { margin-bottom: 14px; }
 .esquema svg.circuito { display: block; width: 100%; min-width: 960px; height: auto; font-family: var(--sans); }
 .esquema .columna { font-size: 10.5px; text-transform: uppercase; letter-spacing: .07em; fill: var(--tinta-3); font-weight: 600; }
 .esquema .nodo rect { fill: var(--papel); stroke: var(--borde); stroke-width: 1.2; transition: stroke .15s, fill .15s; }

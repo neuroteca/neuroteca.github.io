@@ -18,6 +18,12 @@
     "Más allá de la corrección instantánea, el cerebelo es crítico para las conductas que exigen predecir en tiempo real, y aprende con la práctica, por ensayo y error.[^6]",
     "Cuando se lesiona, el movimiento no se pierde, pero se descoordina: ataxia, es decir, se rompe el patrón temporal del movimiento; dismetría, los movimientos se pasan o se quedan cortos; temblor que aumenta al acercarse al objetivo; disminución del [[tono_muscular]]; nistagmo; y habla arrastrada o disartria atáxica.[^6][^4]"
   ],
+  "vistazo": {
+    "que_hace": "No inicia el movimiento: compara la copia de las órdenes motoras de la [[corteza_cerebral|corteza cerebral]] con lo que informan la [[medula_espinal]] y el oído interno, y corrige la diferencia sobre la marcha.[^4][^1][^2]",
+    "si_falla": "El movimiento no se pierde, se descoordina: ataxia, dismetría, temblor que aumenta al acercarse al objetivo, menos [[tono_muscular]], nistagmo y disartria.[^6][^4]",
+    "conexiones": "Recibe por los [[pedunculo|pedúnculos]] medio e inferior (la corteza cerebral a través del [[puente]]; la médula y el vestíbulo) y envía su salida por el superior hacia el [[mesencefalo]] y el [[talamo]].[^1][^5][^4]",
+    "neurotransmisores": "La salida de su corteza, la [[celula_de_purkinje|célula de Purkinje]], es inhibidora (GABA); las [[fibra_musgosa|fibras musgosas]] y [[fibra_trepadora|trepadoras]] que entran son excitadoras.[^4]"
+  },
   "fuentes": [
     {
       "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",

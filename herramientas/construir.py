@@ -60,7 +60,9 @@ PROSA = {'estructura': PROPIOS['estructura'], 'fundacional': PROPIOS['fundaciona
          'sistema': ('funcion', 'circuito')}
 # Campos que una superposición de idioma puede traducir.
 TRADUCIBLES = ('nombre', 'sinonimos', 'anatomia', 'fisiologia', 'definicion', 'explicacion',
-               'funcion', 'circuito', 'nodos')
+               'funcion', 'circuito', 'nodos', 'vistazo')
+# «De un vistazo»: frases cortas, opcionales, cada una con su referencia. Solo estas claves.
+VISTAZO = ('que_hace', 'si_falla', 'conexiones', 'neurotransmisores')
 # Campos obligatorios de un activo visual.
 ACTIVO = ('id', 'nivel_detalle', 'origen', 'licencia', 'estado', 'peso_bytes',
           'equivalente_textual', 'modelo', 'esquema', 'colores')
@@ -238,6 +240,35 @@ def validar(fichas, activos, paginas, idiomas):
         for idioma, trad in ficha['_trad'].items():
             enlaces(dict(trad, tipo=tipo), trad['_ruta'])
 
+        def vistazo_ok(bloque, donde_v, n_fuentes):
+            if not isinstance(bloque, dict) or not bloque:
+                problemas.append('%s: `vistazo` debe ser un objeto con alguna de las claves %s'
+                                 % (donde_v, ', '.join(VISTAZO)))
+                return
+            for clave, frase in bloque.items():
+                if clave not in VISTAZO:
+                    problemas.append('%s: `vistazo.%s` no es una clave admitida (%s)'
+                                     % (donde_v, clave, ', '.join(VISTAZO)))
+                    continue
+                if not isinstance(frase, str) or not RE_REF.search(frase):
+                    problemas.append('%s: `vistazo.%s` necesita al menos una referencia [^n]' % (donde_v, clave))
+                    continue
+                for destino, _texto in RE_ENLACE.findall(frase):
+                    if destino not in fichas:
+                        problemas.append('%s: el enlace [[%s]] en `vistazo.%s` no tiene destino'
+                                         % (donde_v, destino, clave))
+                for n in RE_REF.findall(frase):
+                    if not 1 <= int(n) <= n_fuentes:
+                        problemas.append('%s: la referencia [^%s] en `vistazo.%s` no corresponde a ninguna fuente'
+                                         % (donde_v, n, clave))
+        if 'vistazo' in ficha:
+            vistazo_ok(ficha['vistazo'], donde, len(ficha.get('fuentes') or ()))
+        for idioma, trad in ficha['_trad'].items():
+            if 'vistazo' in trad:
+                vistazo_ok(trad['vistazo'], trad['_ruta'], len(ficha.get('fuentes') or ()))
+                if isinstance(trad['vistazo'], dict) and set(trad['vistazo']) - set(ficha.get('vistazo') or {}):
+                    problemas.append('%s: traduce claves de `vistazo` que la ficha no tiene' % trad['_ruta'])
+
         ejes_vistos = set()
         for division in ficha.get('divisiones', []):
             if not division.get('eje') or not division.get('nombre_visible'):
@@ -335,6 +366,11 @@ def ver(ficha, idioma):
             pendientes.append(campo)
     if 'sinonimos' in trad:
         vista['sinonimos'] = trad['sinonimos']
+    if ficha.get('vistazo'):
+        if 'vistazo' in trad:
+            vista['vistazo'] = trad['vistazo']
+        else:
+            pendientes.append('vistazo')
     vista['_ejes'] = trad.get('ejes', {})
     vista['_nodos'] = trad.get('nodos', {})
     return vista, pendientes
@@ -443,18 +479,15 @@ def _padres(fichas):
     return mapa
 
 
-def _navegacion(ficha, fichas, padres, enlace, colores, T, idioma):
-    """Migas hasta la ficha actual, más las divisiones del padre agrupadas por eje.
-
-    Vive en el motor, no en la pieza visor: si viviera en el visor, apagarlo la
-    borraría y el atlas quedaría sin acceso a las fichas.
-    """
+def _migas_html(ficha, fichas, padres, enlace, idioma):
+    """Camino desde la región hasta la ficha actual."""
     cadena, actual, guarda = [], ficha['id'], 0
     while actual in padres and guarda < 10:
         actual = padres[actual][0]
         cadena.insert(0, actual)
         guarda += 1
-
+    if not cadena:
+        return ''
     migas = ['<p class="migas-nav">']
     for idf in cadena:
         migas.append('<a href="%s">%s <span class="nv">%s</span></a>'
@@ -464,7 +497,15 @@ def _navegacion(ficha, fichas, padres, enlace, colores, T, idioma):
     migas.append('<span class="actual">%s <span class="nv">%s</span></span>'
                  % (_esc(nombre_de(fichas, ficha['id'], idioma)), ficha['nivel_detalle']))
     migas.append('</p>')
+    return ''.join(migas)
 
+
+def _navegacion(ficha, fichas, padres, enlace, colores, T, idioma):
+    """Las divisiones de la ficha (o de su dueña) agrupadas por eje, debajo de la cabecera.
+
+    Vive en el motor, no en la pieza visor: si viviera en el visor, apagarlo la
+    borraría y el atlas quedaría sin acceso a las fichas.
+    """
     duena = ficha
     if not ficha.get('divisiones') and ficha['id'] in padres:
         duena = fichas[padres[ficha['id']][0]]
@@ -487,8 +528,9 @@ def _navegacion(ficha, fichas, padres, enlace, colores, T, idioma):
 
     if not ejes:
         return ''
-    return ('<nav class="partes-nav" aria-label="%s">%s%s</nav>'
-            % (_esc(T['nav_aria']), ''.join(migas), ''.join(ejes)))
+    return ('<nav class="partes-nav" aria-label="%s"><h2>%s</h2>%s</nav>'
+            % (_esc(T['nav_aria']), _esc(_t(T, 'partes_titulo', nombre=nombre_de(fichas, duena['id'], idioma))),
+               ''.join(ejes)))
 
 
 def _insignias(ficha, pendientes, T):
@@ -503,19 +545,59 @@ def _insignias(ficha, pendientes, T):
     return '<div class="insignias">%s</div>' % ''.join(partes)
 
 
-def _cabecera_html(ficha, vista, pendientes, T):
-    """Nombre, latín e insignias de la ficha. En un sistema van antes del esquema."""
-    h = ['<h1>%s</h1>' % _esc(vista['nombre'])]
-    if ficha.get('termino_latin'):
-        h.append('<p class="latin" lang="la">%s</p>' % _esc(ficha['termino_latin']))
-    h.append(_insignias(ficha, pendientes, T))
+def _vistazo_html(ficha, vista, pendientes, fichas, enlace, T, idioma):
+    """«De un vistazo»: las frases cortas de la ficha, cada una con su referencia."""
+    bloque = vista.get('vistazo') or {}
+    if not bloque:
+        return ''
+    lang = ' lang="%s"' % IDIOMA_BASE if 'vistazo' in pendientes else ''
+    h = ['<dl class="vistazo"%s>' % lang]
+    for clave in VISTAZO:
+        if clave in bloque:
+            h.append('<div><dt>%s</dt><dd>%s</dd></div>'
+                     % (_esc(T['vistazo_' + clave]), _marcado(bloque[clave], fichas, enlace, idioma)))
+    h.append('</dl>')
     return ''.join(h)
 
 
-def _ficha_html(ficha, vista, pendientes, fichas, activo, enlace, T, idioma, con_cabecera=True):
+def _cabecera_html(ficha, vista, pendientes, fichas, padres, mapa, enlace, T, idioma):
+    """Cabecera de toda ficha: migas, localizador en el mapa, nombre, latín, insignias y
+    «de un vistazo». Va antes que las partes y que el esquema: quien llega debe saber
+    qué mira y dónde está antes de leer."""
+    tipo = ficha['tipo']
+    h = ['<header class="cabecera cabecera-%s">' % tipo]
+    if tipo == 'estructura':
+        h.append(_migas_html(ficha, fichas, padres, enlace, idioma))
+    regiones = []
+    if tipo == 'estructura':
+        regiones = [_region_de(ficha['id'], padres)]
+    elif tipo == 'sistema':
+        regiones = sorted(set(_region_de(e, padres) for e in ficha.get('estructuras', [])))
+    regiones = [r for r in regiones if r in mapa['regiones']]
+    localizador = ''
+    if regiones:
+        etiqueta = _t(T, 'mapa_localizador', nombre=', '.join(nombre_de(fichas, r, idioma) for r in regiones))
+        localizador = ('<div class="localizador-caja" style="--rc: var(--region-%s)">%s%s<small>%s</small></div>'
+                       % (regiones[0], _mapa_simbolo(mapa), _mapa_localizador(mapa, regiones, etiqueta),
+                          _esc(T['mapa_localizador_pie'])))
+    h.append('<div class="cabecera-grid%s">%s<div class="cabecera-texto">' % (' con-mapa' if localizador else '', localizador))
+    h.append('<h1>%s</h1>' % _esc(vista['nombre']))
+    if ficha.get('termino_latin'):
+        h.append('<p class="latin" lang="la">%s</p>' % _esc(ficha['termino_latin']))
+    h.append(_insignias(ficha, pendientes, T))
+    if tipo == 'fundacional':
+        lang = ' lang="%s"' % IDIOMA_BASE if 'definicion' in pendientes else ''
+        h.append('<p class="entradilla definicion"%s>%s</p>'
+                 % (lang, _marcado(vista['definicion'], fichas, enlace, idioma)))
+    h.append(_vistazo_html(ficha, vista, pendientes, fichas, enlace, T, idioma))
+    h.append('</div></div></header>')
+    return ''.join(h)
+
+
+def _ficha_html(ficha, vista, pendientes, fichas, activo, enlace, T, idioma):
+    """Cuerpo de la ficha: la prosa por secciones, los sistemas, las fuentes y el modelo.
+    La cabecera (nombre, localizador, vistazo) la pone _cabecera_html."""
     h = ['<article class="ficha">']
-    if con_cabecera:
-        h.append(_cabecera_html(ficha, vista, pendientes, T))
 
     def lang(campo):
         # Un campo sin traducir se marca con el idioma real del texto, por honestidad y
@@ -527,15 +609,16 @@ def _ficha_html(ficha, vista, pendientes, fichas, activo, enlace, T, idioma, con
     elif ficha['tipo'] == 'sistema':
         secciones = [('funcion', 'funcion'), ('circuito', 'circuito')]
     else:
-        h.append('<h2>%s</h2>' % _esc(T['definicion']))
-        h.append('<p%s>%s</p>' % (lang('definicion'),
-                                 _marcado(vista['definicion'], fichas, enlace, idioma)))
+        # La definición va en la cabecera, como entradilla.
         secciones = [('explicacion', 'explicacion')]
 
+    primero = ficha['tipo'] != 'fundacional'
     for clave, campo in secciones:
         h.append('<h2>%s</h2>' % _esc(T[clave]))
         for parrafo in _parrafos(vista, campo):
-            h.append('<p%s>%s</p>' % (lang(campo), _marcado(parrafo, fichas, enlace, idioma)))
+            clase = ' class="entradilla"' if primero else ''
+            primero = False
+            h.append('<p%s%s>%s</p>' % (clase, lang(campo), _marcado(parrafo, fichas, enlace, idioma)))
 
     if ficha['tipo'] == 'estructura':
         sistemas = sorted(i for i, f in fichas.items()
@@ -548,7 +631,9 @@ def _ficha_html(ficha, vista, pendientes, fichas, activo, enlace, T, idioma, con
                             fichas[ids]['nivel_detalle']))
             h.append('</ul>')
 
-    h.append('<h2>%s</h2><ol class="fuentes">' % _esc(T['fuentes']))
+    # Plegadas: son la credencial de la ficha, no su lectura. Una nota [^n] las abre.
+    h.append('<details class="fuentes-caja" id="fuentes"><summary><h2>%s</h2></summary><ol class="fuentes">'
+             % _esc(_t(T, 'fuentes_n', n=len(ficha['fuentes']))))
     for n, f in enumerate(ficha['fuentes'], 1):
         trozos = [_esc(t) for t in (f.get('obra', ''), f.get('edicion', ''), f.get('paginas', ''))
                   if t and t not in ('-', '—')]
@@ -559,7 +644,7 @@ def _ficha_html(ficha, vista, pendientes, fichas, activo, enlace, T, idioma, con
         if f.get('url'):
             trozos.append('<a href="%s" rel="noopener">%s</a>' % (_esc(f['url']), _esc(f['url'])))
         h.append('<li id="fuente-%d">%s</li>' % (n, ' &middot; '.join(trozos)))
-    h.append('</ol>')
+    h.append('</ol></details>')
 
     if activo:
         h.append('<h2>%s</h2><p class="modelo-info">%s' % (
@@ -776,13 +861,17 @@ def _mapa_simbolo(mapa):
     return ''.join(h)
 
 
-def _mapa_localizador(mapa, idr, etiqueta):
-    """Mapa apagado salvo la región `idr`, para tarjetas y cabeceras de ficha."""
-    if idr not in mapa['regiones']:
+def _mapa_localizador(mapa, ids, etiqueta):
+    """Mapa apagado salvo las regiones `ids` (un id o una lista), para tarjetas y cabeceras."""
+    if isinstance(ids, str):
+        ids = [ids]
+    ids = [i for i in ids if i in mapa['regiones']]
+    if not ids:
         return ''
+    estilo = ' '.join('--f-%s: var(--region-%s);' % (i, i) for i in ids)
     return ('<svg class="mapa localizador" viewBox="%s" role="img" aria-label="%s" '
-            'style="--f-%s: var(--region-%s)"><use href="#mapa-sagital"/></svg>'
-            % (mapa['viewBox'], _esc(etiqueta), idr, idr))
+            'style="%s"><use href="#mapa-sagital"/></svg>'
+            % (mapa['viewBox'], _esc(etiqueta), estilo))
 
 
 def _mapa_interactivo(mapa, fichas, enlace, T, idioma):
@@ -941,6 +1030,7 @@ def escribir(fichas, activos, paginas, idiomas):
 
     plantilla = _plantilla('pagina.html')
     padres = _padres(fichas)
+    mapa = _mapa()
     codigos = orden_idiomas(idiomas)
     versiones = {
         'V_ESTILOS': version_de('estilos/sitio.css'),
@@ -1037,31 +1127,34 @@ def escribir(fichas, activos, paginas, idiomas):
             enlace = lambda ruta, base=base, pre=pre: base + pre + ruta
             vista, pendientes = ver(ficha, idioma)
             activo = activos.get((ficha.get('activos') or [None])[0])
+            # Un modelo provisional ya no se muestra (decisión D3, 2026-10-31): el visor
+            # vuelve con mallas definitivas. Sus colores sí sirven para marcar las partes.
+            activo_visor = activo if activo and activo.get('estado') == 'definitivo' else None
             es_estructura = ficha['tipo'] == 'estructura'
             es_sistema = ficha['tipo'] == 'sistema'
             descripcion = (vista.get('definicion') or _parrafos(vista, 'anatomia' if es_estructura
                                                                  else 'funcion')[0])
             # Sin modelo (fundacionales, regiones aún sin activo) la ficha ocupa una sola
             # columna legible en vez de dejar vacía la zona del visor.
-            clase = ' sistema' if es_sistema else ('' if activo else ' sin-visor')
+            clase = ' sistema' if es_sistema else ('' if activo_visor else ' sin-visor')
             cuerpo = ['<main class="atlas%s" id="contenido">' % clase]
-            if es_estructura and activo:
-                cuerpo.append(_visor_html(ficha, vista, activo, base, enlace, con_visor, T))
+            if es_estructura and activo_visor:
+                cuerpo.append(_visor_html(ficha, vista, activo_visor, base, enlace, con_visor, T))
+            cabecera = _cabecera_html(ficha, vista, pendientes, fichas, padres, mapa, enlace, T, idioma)
             if es_sistema:
                 # El nombre va antes del esquema: quien llega debe saber qué circuito mira
                 # antes de verlo dibujado.
-                cuerpo.append('<header class="ficha cabecera-sistema">%s</header>'
-                              % _cabecera_html(ficha, vista, pendientes, T))
+                cuerpo.append('<div class="cabecera-sistema">%s</div>' % cabecera)
                 cuerpo.append(_esquema_svg(ficha, vista, fichas, enlace, T, idioma))
             cuerpo.append('<section class="panel">')
             if es_sistema:
                 cuerpo.append(_sistema_nav(ficha, fichas, enlace, T, idioma))
             else:
+                cuerpo.append(cabecera)
                 cuerpo.append(_navegacion(ficha, fichas, padres, enlace,
                                           activo['colores'] if activo else {}, T, idioma))
             cuerpo.append(_ficha_html(ficha, vista, pendientes, fichas,
-                                      activo if es_estructura else None, enlace, T, idioma,
-                                      con_cabecera=not es_sistema))
+                                      activo_visor if es_estructura else None, enlace, T, idioma))
             cuerpo.append('</section></main>')
             ruta = ruta_de(fichas, idf)
             guardar('%s%sindex.html' % (pre, ruta),
@@ -1070,8 +1163,8 @@ def escribir(fichas, activos, paginas, idiomas):
                            RE_REF.sub('', RE_ENLACE.sub(lambda m: m.group(2) or m.group(1),
                                                         descripcion)),
                            base, ''.join(cuerpo), activo=activo,
-                           aviso=bool(es_estructura and activo),
-                           visor_js=bool(es_estructura and activo), esquema_js=es_sistema))
+                           aviso=bool(es_estructura and activo_visor),
+                           visor_js=bool(es_estructura and activo_visor), esquema_js=es_sistema))
             paginas_escritas += 1
 
         # Portada: /[idioma/]

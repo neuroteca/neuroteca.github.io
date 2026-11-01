@@ -101,5 +101,13 @@
   "mapa_localizador": "Dónde está: {nombre}",
   "glosario_buscar": "Filtra por nombre o por definición…",
   "glosario_filtro_aria": "Filtrar el glosario",
-  "glosario_sin_resultados": "Ningún término coincide."
+  "glosario_sin_resultados": "Ningún término coincide.",
+  "partes_titulo": "Partes de {nombre}",
+  "vistazo": "De un vistazo",
+  "vistazo_que_hace": "Qué hace",
+  "vistazo_si_falla": "Si falla",
+  "vistazo_conexiones": "Conexiones principales",
+  "vistazo_neurotransmisores": "Neurotransmisores",
+  "fuentes_n": "Fuentes ({n})",
+  "mapa_localizador_pie": "Dónde está · corte sagital esquemático"
 }
