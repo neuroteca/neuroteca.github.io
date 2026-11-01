@@ -11,6 +11,7 @@
   "region": "cerebelo",
   "eje": "lobulos",
   "vista": "lateral",
+  "corte_mm": null,
   "viewBox": "0 0 550 306.9",
   "ancho_ref": 400,
   "escala_mm": 5.0314,

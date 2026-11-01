@@ -1,0 +1,65 @@
+{
+  "_nota": "Lámina de tronco_encefalico (eje nucleos), vista lateral: silueta visible de cada parte con ficha, proyectada desde las mallas de Z-Anatomy con herramientas/proyectar-mapa.py. No editar a mano. `partes` son ids de fichas; `sin_ficha` son las mallas de la región que no pertenecen a ninguna parte con ficha (se pintan apagadas). `colores` son tonos del color de la región.",
+  "fuente": {
+    "nombre": "Z-Anatomy",
+    "version": "Startup.blend (2023)",
+    "titular": "Z-Anatomy, derivado de BodyParts3D (© The Database Center for Life Science)",
+    "licencia": "CC BY-SA 4.0",
+    "url": "https://github.com/Z-Anatomy/Models-of-human-anatomy",
+    "atribucion": "Z-Anatomy (CC BY-SA 4.0), derived from BodyParts3D, © The Database Center for Life Science (CC BY-SA 2.1 Japan)"
+  },
+  "region": "tronco_encefalico",
+  "eje": "nucleos",
+  "vista": "lateral",
+  "corte_mm": null,
+  "viewBox": "0 0 580 448",
+  "ancho_ref": 280,
+  "escala_mm": 5.0909,
+  "colores": {
+    "nucleo_rojo": "#265D58",
+    "nucleos_vestibulares": "#44908A",
+    "oliva_inferior": "#6CB9B3"
+  },
+  "orden": [
+    "nucleo_rojo",
+    "nucleos_vestibulares",
+    "oliva_inferior"
+  ],
+  "partes": {
+    "nucleo_rojo": [
+      "M207.6 32.8 L203.1 37.2 L201.5 45.2 L202.8 56.6 L205.4 68.7 L209.2 81.5 L213.3 90 L217.8 94.5 L221.3 96.7 L223.8 96.7 L228 94.5 L233.7 90 L236.5 85.3 L236.5 80.2 L235.3 75.1 L232.7 70 L230.2 59.8 L227.6 44.5 L224.8 35.3 L221.6 32.1 L217.5 30.5 L212.4 30.5 Z"
+    ],
+    "nucleos_vestibulares": [
+      "M275 132.7 L273.1 143.5 L270.9 150.8 L268.4 154.6 L267.1 160.4 L267.1 168 L272.5 178.5 L283.3 191.9 L287.8 195.7 L285.9 190 L285.5 182.6 L286.8 173.7 L285.5 163.5 L281.7 152.1 L279.8 142.5 L279.8 134.9 L278.9 130.1 L277 128.2 Z"
+    ],
+    "oliva_inferior": [
+      "M282 233.9 L278.9 238.3 L277.3 243.1 L277.3 248.2 L280.5 257.7 L286.8 271.7 L294.1 283.5 L302.4 293 L311 298.5 L319.9 299.7 L326 296.9 L329.1 289.9 L327.5 279.4 L321.2 265.4 L312 251.7 L299.9 238.3 L291.3 231.6 L286.2 231.6 Z"
+    ]
+  },
+  "sin_ficha": [
+    "M272.5 21.3 L270.6 23.2 L270 25.8 L270.6 29 L251.2 29.3 L211.7 26.7 L191.4 24.8 L190.1 23.5 L184.7 23.2 L175.1 23.9 L171 31.8 L172.3 47.1 L175.5 63.6 L180.5 81.5 L182.5 93.5 L181.2 99.9 L181.2 109.5 L182.5 122.2 L188.8 143.2 L200.3 172.5 L207.9 189 L211.7 192.8 L218.1 203 L227 219.5 L234 230.4 L239.1 235.5 L242.3 241.2 L243.5 247.5 L249.3 259.6 L259.5 277.5 L266.8 289.2 L271.2 295 L279.2 301.6 L290.6 309.3 L299.2 316.6 L305 323.6 L311 334.7 L317.4 350 L325 372.9 L333.9 403.5 L339.3 419.7 L341.2 421.6 L358.7 423.8 L391.8 426.4 L408.7 426 L409.3 422.9 L407.7 416.8 L403.9 407.9 L402 400.9 L402 395.8 L398.8 382.5 L392.5 360.8 L389.9 349.4 L391.2 348.1 L390.5 345.5 L388 341.7 L385.5 333.5 L382.9 320.7 L381.6 308.6 L381.6 297.2 L380.4 288.3 L377.8 281.9 L368.9 268.5 L353.6 248.2 L347.9 225.3 L351.7 199.8 L353 185.2 L351.7 181.4 L351.7 178.8 L353 177.5 L353 171.2 L351.7 159.7 L351.7 152.7 L353 150.2 L352.4 144.5 L349.8 135.5 L343.5 126.6 L333.3 117.7 L329.5 106.9 L332 94.2 L331.4 84 L327.5 76.4 L327.5 70 L331.4 64.9 L333.3 58.5 L333.3 50.9 L330.4 43.6 L324.7 36.6 L312.3 32.5 L293.2 31.2 L281.1 28 L276 22.9 Z"
+  ],
+  "etiquetas": {
+    "nucleo_rojo": {
+      "modo": "fuera",
+      "ancla": "end",
+      "x": 136,
+      "y": 66.4,
+      "guia": "M217.5 62.4 L140 62.4"
+    },
+    "nucleos_vestibulares": {
+      "modo": "fuera",
+      "ancla": "end",
+      "x": 136,
+      "y": 173.3,
+      "guia": "M277.3 169.3 L140 169.3"
+    },
+    "oliva_inferior": {
+      "modo": "fuera",
+      "ancla": "start",
+      "x": 444,
+      "y": 272.5,
+      "guia": "M304.0 268.5 L440 268.5"
+    }
+  }
+}

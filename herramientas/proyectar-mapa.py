@@ -1,34 +1,39 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Genera el mapa de orientación `src/piezas/mapa-sagital.json` a partir de las mallas de
-BodyParts3D: proyecta cada región N1 al plano sagital (vista lateral izquierda) y traza
-el contorno de la silueta. Nada se dibuja a mano: si una malla cambia, se vuelve a correr
-el script y el mapa cambia con ella.
+Genera el mapa de orientación `src/piezas/mapa-sagital.json` y las láminas de
+`src/piezas/laminas/` a partir de mallas 3D reales: proyecta cada región o parte a un plano
+(vista lateral, medial, anterior, posterior o transversal) y traza el contorno de la silueta.
+Nada se dibuja a mano: si una malla cambia, se vuelve a correr el script y el dibujo cambia.
 
 Entrada: las mallas de `fuentes-3d/` (fuera de git: son pesadas y ya están publicadas), una
 carpeta por fuente según `FUENTES` y, dentro, una subcarpeta por región nombrada con el id de
-la ficha raíz (con o sin prefijo numérico: `04_cerebelo` o `cerebelo`) con sus `.obj`:
+la ficha raíz (con o sin prefijo numérico: `04_cerebelo` o `cerebelo`) con sus `.obj` y, si la
+fuente lo trae, un `indice.tsv` (archivo, objeto, colecciones) que permite agrupar mallas por
+colección además de por nombre:
 
-- `fuentes-3d/bodyparts3d/`: BodyParts3D 4.0 (árbol PART-OF), mm; x+ = lado izquierdo,
-  y- = anterior, z+ = superior. De aquí salen el mapa y las láminas del tronco y el telencéfalo.
 - `fuentes-3d/zanatomy/`: objetos exportados del `Startup.blend` de Z-Anatomy con
-  `herramientas/exportar-zanatomy.py` (metros, mismos ejes). De aquí sale el cerebelo, que
-  BodyParts3D solo trae en dos mitades.
+  `herramientas/exportar-zanatomy.py` (metros; x+ = lado izquierdo, y- = anterior,
+  z+ = superior). Es la fuente de todo lo que se publica hoy: trae la corteza por lóbulos y
+  circunvoluciones, los núcleos del telencéfalo, el tálamo, el hipotálamo y el epitálamo,
+  el tronco con varios núcleos, el cerebelo por lobulillos y un corte transversal de la médula.
+- `fuentes-3d/bodyparts3d/`: BodyParts3D 4.0 (árbol PART-OF), mm, mismos ejes. Fuente
+  original de Z-Anatomy; queda disponible como alternativa (`FUENTE_MAPA`, `fuente` en cada
+  lámina) pero no trae tálamo, ni divisiones del cerebelo, ni médula.
 
     python3 herramientas/proyectar-mapa.py
 
-Salida: `src/piezas/mapa-sagital.json` (el mapa de regiones) y una lámina por región en
-`src/piezas/laminas/<region>.json` (las partes con ficha de esa región, cada una con su
-silueta visible en la vista elegida, según `LAMINAS`). El generador lee ambas cosas tal cual.
+Salida: `src/piezas/mapa-sagital.json` (el mapa de regiones) y una lámina por entrada de
+`LAMINAS` en `src/piezas/laminas/<region>-<eje>.json` (las partes con ficha de esa región,
+cada una con su silueta visible en la vista elegida). El generador lee ambas cosas tal cual.
 
-Limitaciones conocidas de BodyParts3D que el script compensa y el JSON declara:
-- No hay malla de la médula espinal (solo del conducto central). La médula se dibuja como un
-  tramo esquemático que continúa el contorno caudal del bulbo, y queda marcada en
-  `esquematicos` para que el sitio la pinte con trazo discontinuo.
-- En el árbol PART-OF el diencéfalo no incluye el tálamo. Su silueta sale del tercer
-  ventrículo (cuyas paredes son el tálamo y el hipotálamo), el hipotálamo, la habénula y la
-  pineal: en vista lateral coincide razonablemente con el perfil del diencéfalo.
+Limitaciones conocidas de las mallas que el script compensa y el JSON declara:
+- La médula espinal de Z-Anatomy mide medio metro (sigue la columna). En el mapa solo entra su
+  tramo superior (`MEDULA_LARGO` mm bajo el bulbo), recortado por un plano y marcado en
+  `recortados` para que el sitio lo pinte con trazo discontinuo. Su lámina es un corte
+  transversal real (intersección de las mallas con un plano a `corte` mm del extremo superior).
+- Z-Anatomy no trae el subtálamo, la cápsula interna ni los núcleos del cerebelo: esas fichas
+  quedan sin lámina.
 
 Solo biblioteca estándar.
 """
@@ -46,36 +51,27 @@ MARGEN = 4.0         # mm alrededor de la caja del encéfalo
 ANCHO_REF = 400      # ancho del viewBox
 AREA_MIN = 12.0      # mm² mínimos para conservar una isla de silueta
 TOLERANCIA = 0.45    # mm de tolerancia al simplificar el contorno
-MEDULA_LARGO = 24.0  # mm del tramo esquemático de médula por debajo del bulbo
-MEDULA_SOLAPE = 5.0  # mm por encima del extremo del bulbo donde se mide su anchura
-MEDULA_ESTRECHA = 0.82  # anchura final del tramo respecto a la base del bulbo
+MEDULA_LARGO = 24.0  # mm de médula que entran en el mapa por debajo del bulbo
 
 # Orden de pintado (lo de atrás primero) y qué regiones son esquemáticas.
 ORDEN = ['telencefalo', 'tronco_encefalico', 'medula_espinal', 'cerebelo', 'diencefalo']
-ESQUEMATICOS = ['medula_espinal']
+RECORTADOS = ['medula_espinal']  # regiones que el mapa muestra solo en parte (trazo discontinuo)
+MALLAS_MAPA = {'medula_espinal': ('White_matter',)}  # regiones cuya silueta sale solo de algunas mallas
 
 # Vistas: (x, y, z) en mm -> (horizontal, vertical, profundidad); profundidad mayor = más
-# cerca del observador. BodyParts3D: x+ = izquierda del cuerpo, y- = anterior, z+ = superior.
+# cerca del observador. Ejes: x+ = izquierda del cuerpo, y- = anterior, z+ = superior.
+# `recorte` = (eje, valor, lado) deja solo lo que queda a ese lado del plano (hemisección).
+# `corte` = eje del plano cuya intersección con las mallas se dibuja (secciones).
 VISTAS = {
-    'lateral': lambda x, y, z: (y, z, x),      # desde la izquierda; anterior a la izquierda
-    'anterior': lambda x, y, z: (x, z, -y),    # de frente; la izquierda del cuerpo a la derecha
-    'posterior': lambda x, y, z: (-x, z, y),   # desde atrás
+    'lateral': {'proy': lambda x, y, z: (y, z, x)},        # desde la izquierda; anterior a la izquierda
+    'medial': {'proy': lambda x, y, z: (y, z, x), 'recorte': (0, 0.0, -1)},  # mitad derecha vista desde la línea media; anterior a la izquierda
+    'anterior': {'proy': lambda x, y, z: (x, z, -y)},      # de frente; la izquierda del cuerpo a la derecha
+    'posterior': {'proy': lambda x, y, z: (-x, z, y)},     # desde atrás
+    'transversal': {'proy': lambda x, y, z: (-x, y, -z), 'corte': 2},  # sección horizontal vista desde abajo; posterior arriba
 }
 
 # Fuentes de mallas: carpeta (relativa a la raíz), factor a mm y atribución.
 FUENTES = {
-    'bodyparts3d': {
-        'carpeta': os.path.join('fuentes-3d', 'bodyparts3d'),
-        'escala': 1.0,
-        'fuente': {
-            'nombre': 'BodyParts3D',
-            'version': '4.0 (árbol PART-OF)',
-            'titular': 'The Database Center for Life Science',
-            'licencia': 'CC BY-SA 2.1 JP',
-            'url': 'https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html',
-            'atribucion': 'BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan',
-        },
-    },
     'zanatomy': {
         'carpeta': os.path.join('fuentes-3d', 'zanatomy'),
         'escala': 1000.0,
@@ -88,38 +84,109 @@ FUENTES = {
             'atribucion': 'Z-Anatomy (CC BY-SA 4.0), derived from BodyParts3D, © The Database Center for Life Science (CC BY-SA 2.1 Japan)',
         },
     },
+    'bodyparts3d': {
+        'carpeta': os.path.join('fuentes-3d', 'bodyparts3d'),
+        'escala': 1.0,
+        'fuente': {
+            'nombre': 'BodyParts3D',
+            'version': '4.0 (árbol PART-OF)',
+            'titular': 'The Database Center for Life Science',
+            'licencia': 'CC BY-SA 2.1 JP',
+            'url': 'https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html',
+            'atribucion': 'BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan',
+        },
+    },
 }
-FUENTE_MAPA = 'bodyparts3d'
+FUENTE_MAPA = 'zanatomy'
 
-# Láminas: por región, una lista; cada una con el eje de la ficha al que corresponde, la fuente,
-# la vista (`VISTAS`) y qué mallas (por fragmento del nombre de archivo) forman cada parte con
-# ficha. Una malla que no case con
-# ninguna parte se dibuja apagada y sin enlace.
+# Láminas: por ficha (región N1 o N2), una lista. Cada entrada:
+#   eje     división de la ficha a la que corresponde (nombre del archivo: <ficha>-<eje>.json)
+#   vista   clave de `VISTAS`
+#   partes  {id de ficha: claves}; la primera parte cuyas claves casen se queda la malla. Una
+#           clave es un fragmento del nombre de archivo (sin distinguir mayúsculas), «^…» si
+#           debe ir al principio, o «@Colección» para casar por colección del índice. Una malla
+#           que no case con ninguna parte se dibuja apagada y sin enlace, y no oculta nada.
+#   mallas  carpeta de región de la que salen las mallas (por defecto, la propia ficha)
+#   fuente  clave de `FUENTES` (por defecto, `FUENTE_MAPA`)
+#   omitir  claves de mallas que no entran en la lámina (ventrículos que asoman, etc.)
+#   corte   para una vista de sección: mm por debajo del extremo superior de las mallas a los
+#           que se traza el plano de corte
+#   capas   True: en vez de la profundidad real, cada parte tapa a las anteriores (en una
+#           sección todas las piezas están en el mismo plano)
+#   area_min  mm² mínimos de una isla para conservarla (por defecto, AREA_MIN)
 LAMINAS = {
-    'tronco_encefalico': [{
-        'eje': 'niveles', 'fuente': 'bodyparts3d', 'vista': 'lateral',
+    'telencefalo': [
+        {   # cara lateral por lóbulos: la ínsula queda bajo los opérculos y no asoma
+            'eje': 'lobulos', 'vista': 'lateral',
+            'partes': {
+                'lobulo_frontal': ('@Frontal lobe',),
+                'lobulo_parietal': ('@Parietal lobe',),
+                'lobulo_temporal': ('@Temporal lobe',),
+                'lobulo_occipital': ('@Occipital lobe',),
+                'insula': ('@Insula',),
+            },
+        },
+        {   # núcleos vistos a través del hemisferio (la corteza, sin ficha aquí, no oculta)
+            'eje': 'nucleos', 'vista': 'lateral',
+            'partes': {
+                'ganglios_basales': ('Caudate', 'Putamen', 'Globus_pallidus', 'Lentiform'),
+                'hipocampo': ('^Hippocampus',),
+                'amigdala': ('Amygdaloid',),
+            },
+        },
+        {   # cara medial del hemisferio derecho: corteza y cuerpo calloso
+            'eje': 'interior', 'vista': 'medial',
+            'partes': {
+                'corteza_cerebral': ('@Neo-cortex',),
+                'cuerpo_calloso': ('Corpus_callosum',),
+            },
+        },
+    ],
+    'ganglios_basales': [{
+        # el pálido queda medial al putamen: en capas, para que se vea dentro del lenticular
+        'eje': 'partes', 'vista': 'lateral', 'mallas': 'telencefalo', 'capas': True,
         'partes': {
-            'mesencefalo': ('midbrain', 'superior_colliculus', 'inferior_colliculus', 'cerebral_aqueduct'),
-            'puente': ('pons',),
-            'bulbo_raquideo': ('medulla_oblongata',),
+            'nucleo_caudado': ('Caudate',),
+            'putamen': ('Putamen',),
+            'globo_palido': ('Globus_pallidus',),
         },
     }],
-    'telencefalo': [{
-        'eje': 'lobulos', 'fuente': 'bodyparts3d', 'vista': 'lateral',
+    'diencefalo': [{
+        # hemisección: el tálamo derecho entero, el hipotálamo y el epitálamo cortados por el
+        # plano medio. Z-Anatomy no trae el subtálamo.
+        'eje': 'partes', 'vista': 'medial', 'area_min': 3.0,
         'partes': {
-            'lobulo_frontal': ('superior_frontal', 'middle_frontal', 'inferior_frontal', 'precentral'),
-            'lobulo_parietal': ('postcentral', 'superior_parietal', 'supramarginal', 'angular'),
-            'lobulo_temporal': ('middle_temporal', 'inferior_temporal', 'fusiform', 'parahippocampal'),
-            'lobulo_occipital': ('occipital',),
-            'insula': ('insula',),
+            'talamo': ('^Thalamus', 'geniculate'),
+            'hipotalamo': ('^Hypothalamus', 'Mamillary'),
+            'epitalamo': ('Habenula', 'Pineal', 'Stria_medullaris'),
         },
     }],
+    'tronco_encefalico': [
+        {
+            'eje': 'niveles', 'vista': 'lateral', 'omitir': ('Fourth_ventricle',),
+            'partes': {
+                'mesencefalo': ('^Midbrain', 'colliculus', 'Aqueduct', 'Base_of_peduncle', 'Interpeduncular',
+                                'Red_nucleus'),
+                'puente': ('^Pons', 'Vestibular', 'salivatory'),
+                'bulbo_raquideo': ('^Medulla', '^Olive', 'Pyramid', 'ambiguus', 'hypoglossal', 'solitary',
+                                   'vagus', 'cochlear'),
+            },
+        },
+        {   # núcleos con ficha vistos a través del tronco
+            'eje': 'nucleos', 'vista': 'lateral', 'area_min': 3.0, 'omitir': ('Fourth_ventricle',),
+            'partes': {
+                'nucleo_rojo': ('Red_nucleus',),
+                'nucleos_vestibulares': ('Vestibular',),
+                'oliva_inferior': ('^Olive',),
+            },
+        },
+    ],
     'cerebelo': [
         {
             # vista posterior: el vermis en medio y los hemisferios a los lados
-            'eje': 'regiones', 'fuente': 'zanatomy', 'vista': 'posterior',
+            'eje': 'regiones', 'vista': 'posterior',
             'partes': {
-                'vermis': ('Lingula', 'Central_lobule', 'Culmen', 'Declive', 'Folium', 'Tuber',
+                'vermis': ('Lingula', '^Central_lobule', 'Culmen', 'Declive', 'Folium', 'Tuber',
                            'Pyramis', 'Uvula', 'Nodule'),
                 'hemisferios_cerebelosos': ('Wing_of_central', 'quadrangular', 'semilunar', 'Gracile',
                                             'Biventral', 'Tonsil', 'Flocculus', 'Peduncle_of_flocculus'),
@@ -130,7 +197,7 @@ LAMINAS = {
             # vista lateral: el lóbulo anterior arriba y delante, el posterior como masa
             # principal y el floculonodular abajo y delante; cada lóbulo reúne sus lobulillos
             # del vermis y de los hemisferios
-            'eje': 'lobulos', 'fuente': 'zanatomy', 'vista': 'lateral',
+            'eje': 'lobulos', 'vista': 'lateral',
             'partes': {
                 'lobulo_anterior': ('Lingula', 'Central_lobule', 'Wing_of_central', 'Culmen',
                                     'Anterior_quadrangular'),
@@ -141,6 +208,16 @@ LAMINAS = {
             },
         },
     ],
+    'medula_espinal': [{
+        # corte transversal cervical (donde la malla es perpendicular al plano): Z-Anatomy modela la
+        # sustancia blanca por cordones y fascículos y la gris por astas y núcleos, a lo largo
+        # de toda la médula
+        'eje': 'interior', 'vista': 'transversal', 'corte': 45.0, 'capas': True, 'area_min': 0.5,
+        'partes': {
+            'sustancia_blanca_medular': ('White_matter', 'tract', 'fasciculus'),
+            'sustancia_gris_medular': ('horn', 'nucleus', 'intermediate_substance', 'reticular_process'),
+        },
+    }],
 }
 LAMINAS_DIR = os.path.join(RAIZ, 'src', 'piezas', 'laminas')
 TOKENS = os.path.join(RAIZ, 'src', 'estilos', 'tokens.css')
@@ -148,19 +225,22 @@ ETIQUETA_ANCHO = 100  # px del viewBox (cuerda) que necesita un nombre para ir d
 ETIQUETA_ALTO = 22
 MARGEN_ETIQUETAS = 150  # px del viewBox reservados a cada lado para los nombres de fuera
 
-# Circunvoluciones que delimitan los surcos que se dibujan sobre la cara lateral.
-# Solo el surco central: BodyParts3D no trae la circunvolución temporal superior, así que la
-# frontera visible entre frontal/parietal y temporal sería el surco temporal superior, no el
-# lateral, y dibujarlo confundiría.
-GRUPOS_SURCOS = {
-    'precentral': ('precentral',),
-    'postcentral': ('postcentral',),
-}
-SURCOS = [('precentral', 'postcentral')]
+# Surcos del mapa: grupos de mallas del telencéfalo (mismas claves que en LAMINAS; la primera
+# que case se queda la malla) y qué fronteras entre grupos se dibujan sobre la cara lateral.
+# El surco central: frontera precentral/postcentral (el objeto «Central sulcus» de Z-Anatomy
+# va con el grupo precentral para que ambos grupos se toquen). El surco lateral: frontera
+# entre el lóbulo temporal y los lóbulos frontal y parietal.
+GRUPOS_SURCOS = [
+    ('precentral', ('^Precentral_gyrus', '^Central_sulcus')),
+    ('postcentral', ('^Postcentral_gyrus',)),
+    ('temporal', ('@Temporal lobe',)),
+    ('frontoparietal', ('@Frontal lobe', '@Parietal lobe', 'Lat_Fis')),
+]
+SURCOS = [('precentral', 'postcentral'), ('frontoparietal', 'temporal'), ('precentral', 'temporal'),
+          ('postcentral', 'temporal')]
 SURCO_LARGO_MIN = 14.0   # mm
 SURCO_TOLERANCIA = 1.2   # mm: el surco se simplifica más que el contorno
-
-
+SURCOS_MAX = 2           # líneas que se conservan (las más largas): central y lateral
 
 
 # --- lectura ---------------------------------------------------------------------
@@ -179,8 +259,36 @@ def leer_obj(ruta):
     return v, f
 
 
+def leer_indice(ruta):
+    """{archivo: [colecciones]} del `indice.tsv` de una carpeta, si existe."""
+    cols = {}
+    if os.path.isfile(ruta):
+        with open(ruta, encoding='utf-8') as fh:
+            for ln in fh.read().splitlines()[1:]:
+                campos = ln.split('\t')
+                if len(campos) >= 3:
+                    cols[campos[0]] = [c for c in campos[2].split('|') if c]
+    return cols
+
+
+def casa(nombre, colecciones, claves):
+    """¿Casa la malla con alguna clave? Fragmento del nombre de archivo sin distinguir
+    mayúsculas; «^…» anclado al principio; «@…» por colección del índice."""
+    n = nombre.lower()
+    for k in claves:
+        if k.startswith('@'):
+            if k[1:] in colecciones:
+                return True
+        elif k.startswith('^'):
+            if n.startswith(k[1:].lower()):
+                return True
+        elif k.lower() in n:
+            return True
+    return False
+
+
 def cargar(fuente):
-    """{region: [(nombre_archivo, vertices_mm, caras)]} de una fuente de `FUENTES`."""
+    """{region: [(nombre_archivo, vertices_mm, caras, colecciones)]} de una fuente de `FUENTES`."""
     cfg = FUENTES[fuente]
     carpeta = os.path.join(RAIZ, cfg['carpeta'])
     escala = cfg['escala']
@@ -195,12 +303,13 @@ def cargar(fuente):
         if idr not in ORDEN:
             print('aviso: carpeta ignorada', sub, file=sys.stderr)
             continue
+        indice = leer_indice(os.path.join(ruta, 'indice.tsv'))
         for nombre in sorted(os.listdir(ruta)):
             if nombre.lower().endswith('.obj'):
                 v, f = leer_obj(os.path.join(ruta, nombre))
                 if escala != 1.0:
                     v = [(x * escala, y * escala, z * escala) for (x, y, z) in v]
-                mallas.setdefault(idr, []).append((nombre, v, f))
+                mallas.setdefault(idr, []).append((nombre, v, f, indice.get(nombre, [])))
     return mallas
 
 
@@ -250,17 +359,137 @@ class Lienzo:
                         prof[base + c] = x
                         etq[base + c] = valor
 
-    def silueta(self, v, f, mascara, prof=None, etq=None, valor=0, vista='lateral'):
-        proy = VISTAS[vista]
+    def silueta(self, v, f, mascara, prof=None, etq=None, valor=0, vista='lateral', profundidad=None,
+                recorte=None):
+        """Proyecta la malla y rellena su silueta. `profundidad` fija una profundidad para
+        toda la malla (capas) en vez de la geométrica; `recorte` añade un plano de recorte al
+        de la vista."""
+        cfg = VISTAS[vista]
+        proy = cfg['proy']
+        for plano in (cfg.get('recorte'), recorte):
+            if plano:
+                v, f = recortar(v, f, plano)
         T = [proy(*p) for p in v]
         P = [self.px(h, vv) for (h, vv, _) in T]
         for a, b, c in f:
-            x = (T[a][2] + T[b][2] + T[c][2]) / 3.0 if prof is not None else 0.0
+            if prof is None:
+                x = 0.0
+            elif profundidad is not None:
+                x = profundidad
+            else:
+                x = (T[a][2] + T[b][2] + T[c][2]) / 3.0
             self.triangulo(mascara, P[a], P[b], P[c], prof, etq, valor, x)
             for i in (a, b, c):  # un vértice siempre marca su píxel: sin huecos entre caras
                 col, fila = int(P[i][0]), int(P[i][1])
                 if 0 <= col < self.W and 0 <= fila < self.H:
                     mascara[fila * self.W + col] = 1
+
+    def seccion(self, v, f, mascara, nivel, prof=None, etq=None, valor=0, vista='transversal',
+                profundidad=0.0):
+        """Rellena la intersección de la malla con el plano `eje = nivel` de la vista (una
+        sección real, no una silueta): corta cada triángulo, encadena los segmentos en lazos y
+        los rellena por paridad."""
+        cfg = VISTAS[vista]
+        lazos = cortar(v, f, cfg['corte'], nivel)
+        P = [[self.px(*cfg['proy'](*p)[:2]) for p in lazo] for lazo in lazos]
+        W = self.W
+        aristas = [(l[i], l[(i + 1) % len(l)]) for l in P for i in range(len(l))]
+        if not aristas:
+            return 0
+        filas = [a[1] for a, _ in aristas]
+        for fila in range(max(0, int(min(filas))), min(self.H, int(max(filas)) + 2)):
+            yc = fila + 0.5
+            xs = sorted(a[0] + (b[0] - a[0]) * (yc - a[1]) / (b[1] - a[1])
+                        for a, b in aristas if (a[1] <= yc) != (b[1] <= yc))
+            base = fila * W
+            for k in range(0, len(xs) - 1, 2):
+                c0 = max(0, int(math.ceil(xs[k] - 0.5)))
+                c1 = min(W - 1, int(math.floor(xs[k + 1] - 0.5)))
+                if c1 < c0:
+                    continue
+                mascara[base + c0:base + c1 + 1] = b'\x01' * (c1 - c0 + 1)
+                if prof is not None:
+                    for c in range(c0, c1 + 1):
+                        if profundidad > prof[base + c]:
+                            prof[base + c] = profundidad
+                            etq[base + c] = valor
+        return len(lazos)
+
+
+def cortar(v, f, eje, nivel):
+    """Lazos (listas de puntos 3D) de la intersección de la malla con el plano eje = nivel."""
+    segmentos = {}
+    puntos = {}
+
+    def punto(i, j):
+        clave = (min(i, j), max(i, j))
+        if clave not in puntos:
+            a, b = v[i], v[j]
+            t = (nivel - a[eje]) / (b[eje] - a[eje])
+            puntos[clave] = tuple(a[k] + (b[k] - a[k]) * t for k in range(3))
+        return clave
+
+    for tri in f:
+        lados = [(tri[k], tri[(k + 1) % 3]) for k in range(3)]
+        cruces = [punto(i, j) for i, j in lados if (v[i][eje] < nivel) != (v[j][eje] < nivel)]
+        if len(cruces) == 2 and cruces[0] != cruces[1]:
+            segmentos.setdefault(cruces[0], []).append(cruces[1])
+            segmentos.setdefault(cruces[1], []).append(cruces[0])
+    lazos, usados = [], set()
+    for inicio in segmentos:
+        if inicio in usados:
+            continue
+        lazo, actual = [inicio], inicio
+        usados.add(inicio)
+        while True:
+            siguiente = [q for q in segmentos[actual] if q not in usados]
+            if not siguiente:
+                break
+            actual = siguiente[0]
+            usados.add(actual)
+            lazo.append(actual)
+        if len(lazo) >= 3:
+            lazos.append([puntos[c] for c in lazo])
+    return lazos
+
+
+def recortar(v, f, plano):
+    """Conserva lo que queda a un lado del plano `eje = valor` (`lado` +1: eje >= valor;
+    -1: eje <= valor), partiendo los triángulos que lo cruzan."""
+    eje, valor, lado = plano
+    dentro = [(p[eje] - valor) * lado >= 0 for p in v]
+    v2 = list(v)
+    f2 = []
+    corte = {}
+
+    def punto_corte(i, j):
+        clave = (min(i, j), max(i, j))
+        if clave not in corte:
+            a, b = v[i], v[j]
+            t = (valor - a[eje]) / (b[eje] - a[eje])
+            v2.append(tuple(a[k] + (b[k] - a[k]) * t for k in range(3)))
+            corte[clave] = len(v2) - 1
+        return corte[clave]
+
+    for tri in f:
+        if all(dentro[i] for i in tri):
+            f2.append(tri)
+            continue
+        if not any(dentro[i] for i in tri):
+            continue
+        poligono = []
+        for k in range(3):
+            i, j = tri[k], tri[(k + 1) % 3]
+            if dentro[i]:
+                poligono.append(i)
+            if dentro[i] != dentro[j]:
+                poligono.append(punto_corte(i, j))
+        for k in range(1, len(poligono) - 1):
+            f2.append((poligono[0], poligono[k], poligono[k + 1]))
+    # solo los vértices que alguna cara usa: los de fuera no deben contar para las cajas
+    usados = sorted(set(i for t in f2 for i in t))
+    nuevo = dict((i, k) for k, i in enumerate(usados))
+    return [v2[i] for i in usados], [tuple(nuevo[i] for i in t) for t in f2]
 
 
 def unir(dest, otra):
@@ -484,8 +713,21 @@ def centroide(l):
 
 def lamina(region, config, mallas, colores):
     vista = config['vista']
-    proy = VISTAS[vista]
-    pts = [proy(*p) for (_, v, _) in mallas[region] for p in v]
+    cfg_vista = VISTAS[vista]
+    proy = cfg_vista['proy']
+    origen = config.get('mallas', region)
+    piezas = [m for m in mallas[origen] if not casa(m[0], m[3], config.get('omitir', ()))]
+    nivel = None
+    if 'corte' in config:
+        eje = cfg_vista['corte']
+        nivel = max(p[eje] for (_, v, _, _) in piezas for p in v) - config['corte']
+        lazos = [l for (_, v, f, _) in piezas for l in cortar(v, f, eje, nivel)]
+        pts = [proy(*p) for l in lazos for p in l]
+    elif cfg_vista.get('recorte'):
+        eje, valor, lado = cfg_vista['recorte']
+        pts = [proy(*p) for (_, v, _, _) in piezas for p in v if (p[eje] - valor) * lado >= 0]
+    else:
+        pts = [proy(*p) for (_, v, _, _) in piezas for p in v]
     hs = [p[0] for p in pts]
     vs = [p[1] for p in pts]
     h0, h1 = min(hs) - MARGEN, max(hs) + MARGEN
@@ -505,20 +747,27 @@ def lamina(region, config, mallas, colores):
     codigo = dict((p, i + 1) for i, p in enumerate(partes))
     SIN = len(partes) + 1  # mallas sin parte
     mascara = lienzo.nuevo()
-    for nombre, v, f in mallas[region]:
+    for nombre, v, f, cols in piezas:
         valor = 0
         for parte, claves in config['partes'].items():
-            if any(k in nombre for k in claves):
+            if casa(nombre, cols, claves):
                 valor = codigo[parte]
-        if valor:
-            lienzo.silueta(v, f, mascara, prof, etq, valor, vista)
+                break
+        profundidad = float(valor) if config.get('capas') else None
+        if nivel is not None:
+            if valor:
+                lienzo.seccion(v, f, mascara, nivel, prof, etq, valor, vista, profundidad or 0.0)
+            else:
+                lienzo.seccion(v, f, mascara, nivel, vista=vista)
+        elif valor:
+            lienzo.silueta(v, f, mascara, prof, etq, valor, vista, profundidad)
         else:
             lienzo.silueta(v, f, mascara, vista=vista)
     for i in range(len(etq)):
         if mascara[i] and not etq[i]:
             etq[i] = SIN
 
-    area_min_px = AREA_MIN / (RES * RES)
+    area_min_px = config.get('area_min', AREA_MIN) / (RES * RES)
     tol_px = TOLERANCIA / RES
     trazos, cajas, centros = {}, {}, {}
     for parte, valor in list(codigo.items()) + [('_sin_ficha', SIN)]:
@@ -595,7 +844,7 @@ def lamina(region, config, mallas, colores):
             if e['modo'] == 'dentro':
                 e['x'] = round(e['x'] + desplaza, 1)
 
-    base = colores.get(region, '#888888')
+    base = colores.get(region) or colores.get(origen, '#888888')
     presentes = [p for p in partes if p in trazos]
     paleta = dict(zip(presentes, tonos(base, len(presentes))))
     salida = {
@@ -603,11 +852,12 @@ def lamina(region, config, mallas, colores):
                   'proyectada desde las mallas de %s con herramientas/proyectar-mapa.py. No editar a mano. '
                   '`partes` son ids de fichas; `sin_ficha` son las mallas de la región que no pertenecen a '
                   'ninguna parte con ficha (se pintan apagadas). `colores` son tonos del color de la región.'
-                  % (region, config['eje'], vista, FUENTES[config['fuente']]['fuente']['nombre'])),
-        'fuente': FUENTES[config['fuente']]['fuente'],
+                  % (region, config['eje'], vista, FUENTES[config.get('fuente', FUENTE_MAPA)]['fuente']['nombre'])),
+        'fuente': FUENTES[config.get('fuente', FUENTE_MAPA)]['fuente'],
         'region': region,
         'eje': config['eje'],
         'vista': vista,
+        'corte_mm': config.get('corte'),
         'viewBox': '0 0 %d %s' % (ancho_vb, _fmt(lienzo.H * escala)),
         'ancho_ref': ancho_ref,
         'escala_mm': round(escala / RES, 4),
@@ -632,15 +882,24 @@ def lamina(region, config, mallas, colores):
 
 def main():
     por_fuente = dict((nombre, cargar(nombre)) for nombre in FUENTES)
-    mallas = por_fuente[FUENTE_MAPA]
-    faltan = [r for r in ORDEN if r not in mallas and r not in ESQUEMATICOS]
+    mallas = dict(por_fuente[FUENTE_MAPA])  # copia: el mapa recorta la médula; las láminas la usan entera
+    faltan = [r for r in ORDEN if r not in mallas]
     if faltan:
         sys.exit('faltan regiones: %s' % ', '.join(faltan))
+    for region, claves in MALLAS_MAPA.items():
+        mallas[region] = [m for m in mallas[region] if casa(m[0], m[3], claves)]
 
-    ys = [p[1] for m in mallas.values() for (_, v, _) in m for p in v]
-    zs = [p[2] for m in mallas.values() for (_, v, _) in m for p in v]
+    # la médula sigue la columna hasta medio metro más abajo: al mapa solo entra el tramo que
+    # continúa el bulbo, recortado por un plano horizontal
+    z_bulbo = min(p[2] for (_, v, _, _) in mallas['tronco_encefalico'] for p in v)
+    plano_medula = (2, z_bulbo - MEDULA_LARGO, 1)
+    mallas['medula_espinal'] = [(n, ) + recortar(v, f, plano_medula) + (c, )
+                                for (n, v, f, c) in mallas['medula_espinal']]
+
+    ys = [p[1] for m in mallas.values() for (_, v, _, _) in m for p in v]
+    zs = [p[2] for m in mallas.values() for (_, v, _, _) in m for p in v]
     y0, y1 = min(ys) - MARGEN, max(ys) + MARGEN
-    z0, z1 = min(zs) - MARGEN - MEDULA_LARGO, max(zs) + MARGEN
+    z0, z1 = min(zs) - MARGEN, max(zs) + MARGEN
     lienzo = Lienzo(y0, z1, int(math.ceil((y1 - y0) / RES)), int(math.ceil((z1 - z0) / RES)))
     escala = ANCHO_REF / float(lienzo.W)
     print('raster %dx%d px, %.2f px/mm' % (lienzo.W, lienzo.H, escala / RES), file=sys.stderr)
@@ -654,39 +913,27 @@ def main():
         if idr not in mallas:
             continue
         m = lienzo.nuevo()
-        for nombre, v, f in mallas[idr]:
+        for nombre, v, f, cols in mallas[idr]:
             valor = 0
             if idr == 'telencefalo':
-                for g, claves in GRUPOS_SURCOS.items():
-                    if any(k in nombre for k in claves):
+                for g, claves in GRUPOS_SURCOS:
+                    if casa(nombre, cols, claves):
                         valor = codigo.setdefault(nombre, len(codigo) + 1)
                         grupo_de[valor] = g
+                        break
                 lienzo.silueta(v, f, m, prof, etq, valor)
             else:
                 lienzo.silueta(v, f, m)
-            print('  %s / %s: %d caras' % (idr, nombre, len(f)), file=sys.stderr)
+        print('  %s: %d mallas, %d caras' % (idr, len(mallas[idr]), sum(len(f) for (_, _, f, _) in mallas[idr])),
+              file=sys.stderr)
         mascaras[idr] = m
 
-    # médula espinal esquemática: continúa el borde caudal del bulbo hacia abajo
-    tronco = mascaras['tronco_encefalico']
+    # centro del tramo de médula (para su nombre): caja de su máscara
     W = lienzo.W
-    fila_fin = max(f for f in range(lienzo.H) if any(tronco[f * W:(f + 1) * W]))
-    # la malla del bulbo termina en un corte oblicuo: la anchura se toma unos mm más arriba,
-    # donde el bulbo aún es completo, y el tramo arranca desde ahí solapando la punta
-    fila_base = fila_fin - int(MEDULA_SOLAPE / RES)
-    cols = [c for c in range(W) if tronco[fila_base * W + c]]
-    c0, c1 = min(cols), max(cols) + 1
-    cen, semi = (c0 + c1) / 2.0, (c1 - c0) / 2.0
-    med = lienzo.nuevo()
-    filas = int((MEDULA_LARGO + MEDULA_SOLAPE) / RES)
-    for k in range(filas):
-        s = semi * (1 - (1 - MEDULA_ESTRECHA) * k / float(filas))
-        a, b = int(round(cen - s)), int(round(cen + s))
-        f = fila_base + k
-        if f < lienzo.H:
-            med[f * W + a:f * W + b] = b'\x01' * (b - a)
-    mascaras['medula_espinal'] = med
-    centro_medula = (cen, fila_fin + (filas - (fila_fin - fila_base)) / 2.0)
+    med = mascaras['medula_espinal']
+    filas_med = [f for f in range(lienzo.H) if any(med[f * W:(f + 1) * W])]
+    cols_med = [c for c in range(W) if any(med[f * W + c] for f in filas_med[::4])]
+    centro_medula = ((min(cols_med) + max(cols_med)) / 2.0, (min(filas_med) + max(filas_med)) / 2.0)
 
     regiones, cajas, centroides = {}, {}, {}
     area_min_px = AREA_MIN / (RES * RES)
@@ -716,7 +963,7 @@ def main():
               if largo(l) * RES >= SURCO_LARGO_MIN]
     lineas.sort(key=largo, reverse=True)
     detalles['telencefalo'] = [trazado(suavizar(simplificar(l, SURCO_TOLERANCIA / RES, cerrado=False), cerrado=False), escala, cerrado=False)
-                               for l in lineas[:1]]
+                               for l in lineas[:SURCOS_MAX]]
     print('  surcos: %d' % len(lineas), file=sys.stderr)
 
     # etiquetas: dentro para las regiones grandes, fuera con guía para las demás
@@ -745,18 +992,19 @@ def main():
 
     salida = {
         '_nota': ('Mapa de orientación: silueta del encéfalo en vista lateral izquierda, proyectada desde las '
-                  'mallas de BodyParts3D con herramientas/proyectar-mapa.py. No editar a mano: cambia las '
+                  'mallas de %s con herramientas/proyectar-mapa.py. No editar a mano: cambia las '
                   'mallas o el script y vuelve a generarlo. Las claves de `regiones` son ids de fichas raíz; '
                   'cada región es una lista de trazados SVG (una isla por trazado). `detalles` son los surcos '
-                  'visibles entre grupos de circunvoluciones. `esquematicos` lista las regiones sin malla, '
-                  'dibujadas por continuidad y pintadas con trazo discontinuo. `etiquetas` sitúa el nombre de '
-                  'cada región (`dentro` = sobre la propia región; `fuera` = con línea guía).'),
+                  'visibles entre grupos de circunvoluciones. `recortados` lista las regiones que solo entran '
+                  'en parte (la médula, cortada %s mm bajo el bulbo), pintadas con trazo discontinuo. `etiquetas` sitúa el nombre de '
+                  'cada región (`dentro` = sobre la propia región; `fuera` = con línea guía).'
+                  % (FUENTES[FUENTE_MAPA]['fuente']['nombre'], _fmt(MEDULA_LARGO))),
         'fuente': FUENTES[FUENTE_MAPA]['fuente'],
         'vista': 'lateral izquierda',
         'viewBox': '0 0 %d %s' % (ANCHO_REF, _fmt(alto_vb)),
         'ancho_ref': ANCHO_REF,
         'escala_mm': round(escala / RES, 4),
-        'esquematicos': ESQUEMATICOS,
+        'recortados': RECORTADOS,
         'regiones': regiones,
         'orden': ORDEN,
         'detalles': detalles,
@@ -770,11 +1018,12 @@ def main():
     colores = colores_region()
     for region, configs in LAMINAS.items():
         for config in configs:
-            origen = por_fuente[config['fuente']]
-            if region in origen:
+            fuente = config.get('fuente', FUENTE_MAPA)
+            origen = por_fuente[fuente]
+            if config.get('mallas', region) in origen:
                 lamina(region, config, origen, colores)
             else:
-                print('aviso: sin mallas de %s para la lámina %s/%s' % (config['fuente'], region, config['eje']),
+                print('aviso: sin mallas de %s para la lámina %s/%s' % (fuente, region, config['eje']),
                       file=sys.stderr)
 
 

@@ -1,0 +1,47 @@
+{
+  "_nota": "Lámina de medula_espinal (eje interior), vista transversal: silueta visible de cada parte con ficha, proyectada desde las mallas de Z-Anatomy con herramientas/proyectar-mapa.py. No editar a mano. `partes` son ids de fichas; `sin_ficha` son las mallas de la región que no pertenecen a ninguna parte con ficha (se pintan apagadas). `colores` son tonos del color de la región.",
+  "fuente": {
+    "nombre": "Z-Anatomy",
+    "version": "Startup.blend (2023)",
+    "titular": "Z-Anatomy, derivado de BodyParts3D (© The Database Center for Life Science)",
+    "licencia": "CC BY-SA 4.0",
+    "url": "https://github.com/Z-Anatomy/Models-of-human-anatomy",
+    "atribucion": "Z-Anatomy (CC BY-SA 4.0), derived from BodyParts3D, © The Database Center for Life Science (CC BY-SA 2.1 Japan)"
+  },
+  "region": "medula_espinal",
+  "eje": "interior",
+  "vista": "transversal",
+  "corte_mm": 45.0,
+  "viewBox": "0 0 400 320",
+  "ancho_ref": 400,
+  "escala_mm": 17.7778,
+  "colores": {
+    "sustancia_blanca_medular": "#674287",
+    "sustancia_gris_medular": "#A588BE"
+  },
+  "orden": [
+    "sustancia_blanca_medular",
+    "sustancia_gris_medular"
+  ],
+  "partes": {
+    "sustancia_blanca_medular": [
+      "M153.3 75.6 L131.1 84.4 L110 98.9 L90 118.9 L77.8 133.3 L73.3 142.2 L73.3 157.8 L77.8 180 L90 201.1 L110 221.1 L131.1 235.6 L153.3 244.4 L171.1 246.7 L184.4 242.2 L202.2 242.2 L224.4 246.7 L244.4 244.4 L262.2 235.6 L283.3 218.9 L307.8 194.4 L317.8 166.7 L313.3 135.6 L298.9 110 L274.4 90 L237.8 77.8 L188.9 73.3 Z"
+    ],
+    "sustancia_gris_medular": [
+      "M130 112.2 L132.2 123.3 L128.9 133.3 L120 142.2 L123.3 161.1 L138.9 190 L155.6 195.6 L173.3 177.8 L191.1 168.9 L208.9 168.9 L224.4 177.8 L237.8 195.6 L250 201.1 L261.1 194.4 L268.9 177.8 L273.3 151.1 L272.2 130 L265.6 114.4 L256.7 116.7 L245.6 136.7 L234.4 150 L223.3 156.7 L204.4 157.8 L177.8 153.3 L155.6 140 L137.8 117.8 Z"
+    ]
+  },
+  "sin_ficha": [],
+  "etiquetas": {
+    "sustancia_blanca_medular": {
+      "modo": "dentro",
+      "x": 195.6,
+      "y": 212.9
+    },
+    "sustancia_gris_medular": {
+      "modo": "dentro",
+      "x": 195.6,
+      "y": 168.4
+    }
+  }
+}
