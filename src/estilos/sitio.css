@@ -304,7 +304,7 @@ header.sitio .acciones { display: flex; align-items: center; gap: 14px; flex-wra
 .mapa.interactivo { max-width: 520px; margin: 0 auto; }
 .mapa.interactivo .region path { fill: var(--f); stroke: var(--papel); stroke-width: 2; stroke-linejoin: round; transition: filter .15s; }
 .mapa.interactivo .region path.detalle { fill: none; stroke: rgba(255,255,255,.4); stroke-width: 1.4; stroke-linecap: round; }
-.mapa.interactivo .region.esquematico path { stroke-dasharray: 5 4; }
+.mapa.interactivo .region.recortado path { stroke-dasharray: 5 4; }
 .mapa-credito { font-family: var(--sans) !important; font-size: 11.5px !important; color: var(--tinta-3); text-align: center; margin: 4px 0 0 !important; line-height: 1.4; }
 .mapa-credito a { color: inherit; }
 .mapa.interactivo .region:hover path, .mapa.interactivo .region:focus path { filter: brightness(1.1) saturate(1.15); }

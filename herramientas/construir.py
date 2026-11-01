@@ -947,7 +947,7 @@ def _mapa_simbolo(mapa):
     h = ['<svg class="mapa-def" width="0" height="0" aria-hidden="true" focusable="false">'
          '<symbol id="mapa-sagital" viewBox="%s">' % mapa['viewBox']]
     for idr in mapa['orden']:
-        raya = ' stroke-dasharray="5 4"' if idr in mapa.get('esquematicos', []) else ''
+        raya = ' stroke-dasharray="5 4"' if idr in mapa.get('recortados', []) else ''
         for d in mapa['regiones'][idr]:
             h.append('<path d="%s" fill="var(--f-%s, var(--mapa-apagado))" stroke="var(--papel)" '
                      'stroke-width="2" stroke-linejoin="round"%s/>' % (d, idr, raya))
@@ -989,7 +989,7 @@ def _mapa_interactivo(mapa, fichas, enlace, T, idioma):
         if idr not in fichas:
             continue
         h.append('<a href="%s" class="region%s" style="--f: var(--region-%s)"><title>%s</title>'
-                 % (enlace('estructura/%s/' % idr), ' esquematico' if idr in mapa.get('esquematicos', []) else '',
+                 % (enlace('estructura/%s/' % idr), ' recortado' if idr in mapa.get('recortados', []) else '',
                     idr, _esc(nombre_de(fichas, idr, idioma))))
         for d in mapa['regiones'][idr]:
             h.append('<path d="%s"/>' % d)
