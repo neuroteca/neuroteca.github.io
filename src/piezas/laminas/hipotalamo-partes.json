@@ -1,0 +1,53 @@
+{
+  "_nota": "Lámina de hipotalamo (eje partes), vista medial: silueta visible de cada parte con ficha, proyectada desde las mallas de Z-Anatomy con herramientas/proyectar-mapa.py. No editar a mano. `partes` son ids de fichas; `sin_ficha` son las mallas de la región que no pertenecen a ninguna parte con ficha (se pintan apagadas). `colores` son tonos del color de la región.",
+  "fuente": {
+    "nombre": "Z-Anatomy",
+    "version": "Startup.blend (2023)",
+    "titular": "Z-Anatomy, derivado de BodyParts3D (© The Database Center for Life Science)",
+    "licencia": "CC BY-SA 4.0",
+    "url": "https://github.com/Z-Anatomy/Models-of-human-anatomy",
+    "atribucion": "Z-Anatomy (CC BY-SA 4.0), derived from BodyParts3D, © The Database Center for Life Science (CC BY-SA 2.1 Japan)"
+  },
+  "region": "hipotalamo",
+  "eje": "partes",
+  "vista": "medial",
+  "corte_mm": null,
+  "viewBox": "0 0 586 399.3",
+  "ancho_ref": 286,
+  "escala_mm": 10.7925,
+  "colores": {
+    "cuerpos_mamilares": "#A57217",
+    "hipofisis": "#DEB368"
+  },
+  "orden": [
+    "cuerpos_mamilares",
+    "hipofisis"
+  ],
+  "partes": {
+    "cuerpos_mamilares": [
+      "M350.3 136.9 L346.3 141 L344.3 151.1 L344.3 167.3 L350.3 178.8 L362.5 185.5 L374.6 181.4 L386.8 166.6 L389.5 154.5 L382.7 145 L372.6 139 L359.1 136.3 Z"
+    ],
+    "hipofisis": [
+      "M264.7 226.6 L251.2 248.2 L236.3 260.4 L220.2 263.1 L208.7 267.8 L201.9 274.5 L197.2 287.3 L194.5 306.2 L199.2 323.1 L211.4 337.9 L228.2 346.7 L249.8 349.4 L268 343.3 L282.9 328.5 L290.3 314.3 L290.3 300.8 L286.3 287.3 L278.2 273.9 L278.2 256.3 L286.3 234.7 L285.6 221.9 L276.1 217.9 Z"
+    ]
+  },
+  "sin_ficha": [
+    "M253.2 45.2 L249.2 49.2 L245.8 63.4 L243.1 87.7 L233.6 116 L217.5 148.4 L205.3 168.6 L197.2 176.7 L193.2 184.8 L193.2 192.9 L196.5 201.7 L203.3 211.1 L214.8 215.8 L230.9 215.8 L243.1 211.8 L251.2 203.7 L259.3 199.7 L267.4 199.7 L270.7 203 L269.4 209.8 L274.8 216.5 L286.9 223.3 L305.8 213.8 L331.4 188.2 L344.3 167.3 L344.3 151.1 L346.3 141 L350.3 136.9 L360.5 136.3 L376.6 139 L385.4 135.6 L386.8 126.1 L373.3 108.6 L344.9 83 L317.3 63.4 L290.3 49.9 L271.4 43.2 L260.6 43.2 Z"
+  ],
+  "etiquetas": {
+    "hipofisis": {
+      "modo": "fuera",
+      "ancla": "end",
+      "x": 136,
+      "y": 303.5,
+      "guia": "M241.7 299.5 L140 299.5"
+    },
+    "cuerpos_mamilares": {
+      "modo": "fuera",
+      "ancla": "start",
+      "x": 450,
+      "y": 168.6,
+      "guia": "M368.5 164.6 L446 164.6"
+    }
+  }
+}

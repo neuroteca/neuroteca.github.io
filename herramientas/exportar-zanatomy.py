@@ -31,11 +31,11 @@ import sys
 import bpy
 
 # Región (id de la ficha raíz) -> colecciones de Z-Anatomy cuyo árbol se exporta entero y
-# objetos sueltos que van por nombre (la pineal cuelga de «Endocrine glands»; el corte
+# objetos sueltos que van por nombre (la pineal y la hipófisis cuelgan de «Endocrine glands»; el corte
 # transversal de la médula son objetos sin colección propia en la raíz del sistema nervioso).
 REGIONES = {
     'telencefalo': {'colecciones': ['Telencephalon']},
-    'diencefalo': {'colecciones': ['Diencephalon'], 'objetos': [r'^Pineal gland$']},
+    'diencefalo': {'colecciones': ['Diencephalon'], 'objetos': [r'^Pineal gland$', r'^(Adeno|Neuro)hypophysis$']},
     # la mitad derecha del bulbo y varios núcleos de nervios craneales solo cuelgan de «Head»;
     # la base del pedúnculo cerebral (crus cerebri) está archivada bajo los pedúnculos cerebelosos
     'tronco_encefalico': {'colecciones': ['Brainstem'], 'objetos': [

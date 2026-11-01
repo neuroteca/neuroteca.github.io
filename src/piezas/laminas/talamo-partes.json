@@ -1,0 +1,56 @@
+{
+  "_nota": "Lámina de talamo (eje partes), vista posterior: silueta visible de cada parte con ficha, proyectada desde las mallas de Z-Anatomy con herramientas/proyectar-mapa.py. No editar a mano. `partes` son ids de fichas; `sin_ficha` son las mallas de la región que no pertenecen a ninguna parte con ficha (se pintan apagadas). `colores` son tonos del color de la región.",
+  "fuente": {
+    "nombre": "Z-Anatomy",
+    "version": "Startup.blend (2023)",
+    "titular": "Z-Anatomy, derivado de BodyParts3D (© The Database Center for Life Science)",
+    "licencia": "CC BY-SA 4.0",
+    "url": "https://github.com/Z-Anatomy/Models-of-human-anatomy",
+    "atribucion": "Z-Anatomy (CC BY-SA 4.0), derived from BodyParts3D, © The Database Center for Life Science (CC BY-SA 2.1 Japan)"
+  },
+  "region": "talamo",
+  "eje": "partes",
+  "vista": "posterior",
+  "corte_mm": null,
+  "viewBox": "0 0 566 269.1",
+  "ancho_ref": 400,
+  "escala_mm": 7.2727,
+  "colores": {
+    "cuerpo_geniculado_lateral": "#A57217",
+    "cuerpo_geniculado_medial": "#DEB368"
+  },
+  "orden": [
+    "cuerpo_geniculado_lateral",
+    "cuerpo_geniculado_medial"
+  ],
+  "partes": {
+    "cuerpo_geniculado_lateral": [
+      "M223.3 191.8 L210.5 204.5 L201.9 211.4 L197.4 212.3 L196 215.5 L197.8 220.9 L201.9 225.9 L208.3 230.5 L217.8 231.8 L230.5 230 L241.9 222.3 L251.9 208.6 L254.6 198.6 L250.1 192.3 L243.3 188.2 L234.2 186.4 Z",
+      "M487.4 187.7 L479.2 192.3 L476.9 200.9 L480.5 213.6 L486.5 223.2 L494.6 229.5 L505.1 231.8 L517.8 230 L526.5 225 L531 216.8 L531 212.3 L526.5 211.4 L520.5 205.5 L513.3 194.5 L505.1 188.2 L496 186.4 Z"
+    ],
+    "cuerpo_geniculado_medial": [
+      "M449.2 190.5 L444.6 200.5 L446.9 212.7 L456 227.3 L463.7 235.9 L470.1 238.6 L476.5 236.8 L482.8 230.5 L483.3 221.8 L477.8 210.9 L475.1 202.7 L475.1 197.3 L471.9 192.3 L465.5 187.7 L459.6 185.5 L454.2 185.5 Z",
+      "M262.8 187.7 L256.5 192.3 L254.2 196.4 L256 200 L253.3 207.3 L246 218.2 L245.5 227.7 L251.9 235.9 L258.3 238.6 L264.6 235.9 L272.4 227.3 L281.5 212.7 L286 202.7 L286 197.3 L283.7 192.3 L279.2 187.7 L274.2 185.5 L268.7 185.5 Z"
+    ]
+  },
+  "sin_ficha": [
+    "M255.1 32.7 L240.5 40 L229.2 47.7 L221 55.9 L213.3 68.2 L206 84.5 L200.5 101.8 L196.9 120 L195.1 138.2 L195.1 156.4 L196 169.1 L197.8 176.4 L202.8 184.1 L211 192.3 L218.7 193.6 L226 188.2 L232.4 185.5 L237.8 185.5 L243.3 187.3 L248.7 190.9 L255.1 190.9 L262.4 187.3 L268.7 185.5 L274.2 185.5 L278.7 187.3 L282.4 190.9 L287.8 190.9 L295.1 187.3 L300.5 186.4 L304.2 188.2 L308.7 188.2 L314.2 186.4 L322.8 182.3 L334.6 175.9 L339.6 171.8 L337.8 170 L338.7 168.2 L342.4 166.4 L347.8 158.2 L355.1 143.6 L359.6 129.1 L361.5 114.5 L360.5 99.1 L356.9 82.7 L345.5 65 L326.5 45.9 L313.3 34.5 L306 30.9 L301.5 30 L299.6 31.8 L289.6 31.8 L271.5 30 Z",
+    "M412.8 40.5 L386.5 63.2 L374.2 75.5 L376 77.3 L374.2 85.5 L368.7 100 L366.9 113.6 L368.7 126.4 L372.4 138.2 L377.8 149.1 L384.6 160.5 L392.8 172.3 L403.3 180.9 L416 186.4 L432.4 188.2 L452.4 186.4 L466 187.3 L473.3 190.9 L483.3 190.9 L496 187.3 L506 188.2 L513.3 193.6 L521.9 188.6 L531.9 173.2 L536 164.5 L534.2 162.7 L534.2 160 L536 156.4 L536 147.3 L534.2 132.7 L531.5 120 L527.8 109.1 L526.9 101.8 L528.7 98.2 L527.8 94.5 L524.2 90.9 L523.3 88.2 L525.1 86.4 L524.2 81.8 L520.5 74.5 L515.1 65.5 L507.8 54.5 L501 47.7 L494.6 45 L490.5 41.8 L488.7 38.2 L486.9 37.3 L485.1 39.1 L479.6 37.3 L470.5 31.8 L465.1 30 L463.3 31.8 L453.3 31.8 L435.1 30 Z"
+  ],
+  "etiquetas": {
+    "cuerpo_geniculado_lateral": {
+      "modo": "fuera",
+      "ancla": "end",
+      "x": 152,
+      "y": 216.7,
+      "guia": "M222.4 212.7 L156 212.7"
+    },
+    "cuerpo_geniculado_medial": {
+      "modo": "fuera",
+      "ancla": "end",
+      "x": 152,
+      "y": 238.7,
+      "guia": "M266.0 212.7 L156 234.7"
+    }
+  }
+}

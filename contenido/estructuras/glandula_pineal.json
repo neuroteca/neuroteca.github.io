@@ -1,0 +1,36 @@
+{
+  "id": "glandula_pineal",
+  "tipo": "estructura",
+  "nombre": "Glándula pineal",
+  "termino_latin": "Glandula pinealis",
+  "sinonimos": [
+    "epífisis",
+    "cuerpo pineal"
+  ],
+  "nivel_detalle": "N3",
+  "anatomia": [
+    "Glándula endocrina diminuta situada por detrás y algo por debajo del [[talamo]], en el techo del tercer [[ventriculo]]; forma parte del [[epitalamo]] junto con la estría medular, el trígono de la habénula y la comisura posterior.[^1][^2] Está hecha de pinealocitos.[^1]"
+  ],
+  "fisiologia": [
+    "Los pinealocitos producen y segregan melatonina, una [[hormona]] amínica derivada de la serotonina.[^1] La luz que llega a la retina avisa al núcleo supraquiasmático del [[hipotalamo]]; desde allí la señal baja por la médula espinal hasta la glándula y frena la producción de melatonina, con lo que su nivel en sangre cae y favorece la vigilia.[^1] Cuando la luz declina, por la tarde, la producción sube y aparece la somnolencia.[^1]",
+    "Por eso la melatonina influye en los [[ritmo_circadiano|ritmos circadianos]], que afectan al sueño y la vigilia, al apetito y a la temperatura corporal.[^1] Los niños tienen niveles de melatonina más altos que los adultos, lo que podría frenar la liberación de gonadotropinas por la [[hipofisis]] y retrasar la pubertad.[^1] Cruzar varios husos horarios desajusta el ciclo de luz y oscuridad que la melatonina regula, y su síntesis puede tardar varios días en adaptarse: es el desfase horario.[^1] Las funciones de la glándula no están del todo claras y un posible papel antioxidante de la melatonina sigue en investigación.[^1]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Betts JG, Young KA, Wise JA, et al. Anatomy and Physiology 2e. Houston: OpenStax",
+      "edicion": "2022, §17.7 The Pineal Gland",
+      "paginas": "texto completo de la sección",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/17-7-the-pineal-gland"
+    },
+    {
+      "obra": "Overview of the Nervous System. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 2, capítulo 1",
+      "edicion": "consultado el 1 de noviembre de 2026",
+      "paginas": "§1.3",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s2/chapter01.html"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}

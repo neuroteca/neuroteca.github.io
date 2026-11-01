@@ -73,6 +73,16 @@
   ],
   "autoria": "agente",
   "estado": "borrador",
-  "divisiones": [],
+  "divisiones": [
+    {
+      "eje": "partes",
+      "nombre_visible": "Por partes",
+      "principal": true,
+      "partes": [
+        "cuerpo_geniculado_lateral",
+        "cuerpo_geniculado_medial"
+      ]
+    }
+  ],
   "activos": []
 }

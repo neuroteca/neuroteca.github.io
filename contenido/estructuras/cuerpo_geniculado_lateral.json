@@ -1,0 +1,42 @@
+{
+  "id": "cuerpo_geniculado_lateral",
+  "tipo": "estructura",
+  "nombre": "Cuerpo geniculado lateral",
+  "termino_latin": "Corpus geniculatum laterale",
+  "sinonimos": [
+    "núcleo geniculado lateral"
+  ],
+  "nivel_detalle": "N3",
+  "anatomia": [
+    "[[nucleo|Núcleo]] del [[talamo]] que cuelga de su cara inferior, en la parte posterior; con el [[cuerpo_geniculado_medial|cuerpo geniculado medial]] forma el metatálamo.[^1][^3] Es el relevo talámico de la visión: los axones del tracto óptico terminan en él.[^1][^3]",
+    "Sus neuronas se apilan en seis capas principales: las dos más profundas son magnocelulares, de células grandes; las cuatro superiores, parvocelulares; y entre ellas hay láminas finas de neuronas koniocelulares.[^1] Las fibras del tracto óptico que vienen de cada ojo hacen [[sinapsis]] en capas distintas, de modo que cada neurona del núcleo responde a un solo ojo.[^1]"
+  ],
+  "fisiologia": [
+    "Cada tracto óptico lleva la mitad contraria del campo visual, así que el cuerpo geniculado lateral derecho representa el hemicampo izquierdo de los dos ojos.[^1] La retina se proyecta sobre él de forma ordenada, punto a punto, y el centro del campo visual ocupa una parte desproporcionada de sus neuronas.[^1]",
+    "Las tres clases de células reparten el trabajo: las magnocelulares tienen campos receptivos grandes, no distinguen el color y responden sobre todo al movimiento; las parvocelulares, campos pequeños y sensibles al color, sirven a la forma; las koniocelulares son las más sensibles al color.[^1] Sus axones salen por la [[capsula_interna|cápsula interna]] y forman las radiaciones ópticas, que se abren en abanico por los lóbulos temporal, parietal y occipital hasta terminar en la corteza estriada del [[lobulo_occipital|lóbulo occipital]], donde el color, la forma y el movimiento llegan a neuronas distintas.[^1][^2]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Visual Processing: Cortical Pathways. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 2, capítulo 15",
+      "edicion": "consultado el 1 de noviembre de 2026",
+      "paginas": "§15.1 (The Lateral Geniculate Nucleus, Visual Cortical Areas, figuras 15.3 y 15.5) y §15.2",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s2/chapter15.html"
+    },
+    {
+      "obra": "Overview of the Nervous System. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 2, capítulo 1",
+      "edicion": "consultado el 1 de noviembre de 2026",
+      "paginas": "§1.3",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s2/chapter01.html"
+    },
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "términos 5666 (Corpus geniculatum laterale) y 5700 (Metathalamus)",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}

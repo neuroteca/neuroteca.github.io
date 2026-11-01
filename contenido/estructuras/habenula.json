@@ -1,0 +1,42 @@
+{
+  "id": "habenula",
+  "tipo": "estructura",
+  "nombre": "Habénula",
+  "termino_latin": "Habenula",
+  "sinonimos": [
+    "núcleos habenulares",
+    "trígono de la habénula"
+  ],
+  "nivel_detalle": "N3",
+  "anatomia": [
+    "Estructura pequeña del [[epitalamo]], situada por detrás del [[talamo]] y junto al tercer [[ventriculo]].[^1][^2] Se divide en dos [[nucleo|núcleos]], la habénula medial y la habénula lateral, distintos en anatomía y en expresión génica.[^1][^3] Le llega por la estría medular la mayor parte de sus aferencias y sale de ella el fascículo retroflejo, o tracto habenulointerpeduncular.[^1][^3]"
+  ],
+  "fisiologia": [
+    "Por la estría medular recibe fibras del septo, del [[hipocampo]], del pálido ventral, del hipotálamo lateral, del [[globo_palido|globo pálido]] y de otras estructuras de los [[ganglios_basales|ganglios basales]]; el septo es la entrada principal de la habénula medial y el resto llegan sobre todo a la lateral.[^1] Por el fascículo retroflejo, la habénula medial proyecta al núcleo interpeduncular del [[mesencefalo]] y la lateral al núcleo tegmentario rostromedial, un grupo de neuronas inhibidoras que gobierna la actividad del área tegmentaria ventral, la [[sustancia_negra]], el locus cerúleo y los núcleos del rafe.[^1]",
+    "Las neuronas de la habénula lateral se activan cuando una recompensa esperada no llega y se apagan ante una recompensa inesperada; a través de esa vía inhibidora frenan la señal de [[dopamina]].[^1] Influye en la respuesta del encéfalo al dolor, el estrés, la ansiedad, el sueño y la recompensa, y su hiperactividad se ha relacionado con la depresión y con la adicción.[^1]"
+  ],
+  "fuentes": [
+    {
+      "obra": "Velasquez KM, Molfese DL, Salas R. The role of the habenula in drug addiction. Frontiers in Human Neuroscience",
+      "edicion": "2014; 8: artículo 174 (CC BY)",
+      "paginas": "resumen, General Overview, The Lateral Habenula and the Negative Prediction Error, Habenular Control of Dopamine, Serotonin, and Norepinephrine",
+      "doi": "10.3389/fnhum.2014.00174"
+    },
+    {
+      "obra": "Overview of the Nervous System. En: Byrne JH (ed.). Neuroscience Online. Houston: UTHealth McGovern Medical School, sección 2, capítulo 1",
+      "edicion": "consultado el 1 de noviembre de 2026",
+      "paginas": "§1.3",
+      "url": "https://nba.uth.tmc.edu/neuroscience/s2/chapter01.html"
+    },
+    {
+      "obra": "FIPAT. Terminologia Anatomica, 2.ª edición (TA2). Federative International Programme for Anatomical Terminology",
+      "edicion": "2019, parte V, capítulo 14 (sistema nervioso)",
+      "paginas": "términos 5662 (Habenula), 5663 (Trigonum habenulare), 5676 y 5677 (núcleos habenulares lateral y medial), 5747 (Stria medullaris thalami) y 5750 (Tractus habenulointerpeduncularis)",
+      "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf"
+    }
+  ],
+  "autoria": "agente",
+  "estado": "borrador",
+  "divisiones": [],
+  "activos": []
+}
