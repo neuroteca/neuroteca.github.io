@@ -1,0 +1,58 @@
+{
+  "_nota": "Lámina de cerebelo (eje lobulos), vista lateral: silueta visible de cada parte con ficha, proyectada desde las mallas de Z-Anatomy con herramientas/proyectar-mapa.py. No editar a mano. `partes` son ids de fichas; `sin_ficha` son las mallas de la región que no pertenecen a ninguna parte con ficha (se pintan apagadas). `colores` son tonos del color de la región.",
+  "fuente": {
+    "nombre": "Z-Anatomy",
+    "version": "Startup.blend (2023)",
+    "titular": "Z-Anatomy, derivado de BodyParts3D (© The Database Center for Life Science)",
+    "licencia": "CC BY-SA 4.0",
+    "url": "https://github.com/Z-Anatomy/Models-of-human-anatomy",
+    "atribucion": "Z-Anatomy (CC BY-SA 4.0), derived from BodyParts3D, © The Database Center for Life Science (CC BY-SA 2.1 Japan)"
+  },
+  "region": "cerebelo",
+  "eje": "lobulos",
+  "vista": "lateral",
+  "viewBox": "0 0 550 306.9",
+  "ancho_ref": 400,
+  "escala_mm": 5.0314,
+  "colores": {
+    "lobulo_anterior": "#324F83",
+    "lobulo_posterior": "#5476B3",
+    "lobulo_floculonodular": "#8099C6"
+  },
+  "orden": [
+    "lobulo_anterior",
+    "lobulo_posterior",
+    "lobulo_floculonodular"
+  ],
+  "partes": {
+    "lobulo_anterior": [
+      "M303.5 23.3 L290.9 29.6 L275.2 34.6 L256.3 38.4 L242.5 43.4 L233.6 49.7 L223.6 55.3 L212.3 60.4 L202.8 67.3 L195.3 76.1 L186.8 83.3 L177.4 89 L172 94.3 L170.8 99.4 L174.5 104.4 L183.3 109.4 L190.3 118.9 L195.3 132.7 L200 141.8 L204.4 146.2 L208.2 148.1 L211.3 147.5 L212.3 145.3 L211 141.5 L211.6 136.5 L214.2 130.2 L222.6 121.1 L237.1 109.1 L250.6 100 L263.2 93.7 L282.1 88.1 L307.2 83 L331.4 73.9 L354.7 60.7 L364.5 50.3 L360.7 42.8 L355.3 35.5 L348.4 28.6 L342.5 23.9 L337.4 21.4 L328.6 20.1 L316 20.1 Z"
+    ],
+    "lobulo_posterior": [
+      "M355.7 59.7 L331.8 73.6 L305.3 83.6 L276.4 89.9 L253.8 98.1 L237.4 108.2 L225.8 116.7 L218.9 123.6 L214.2 130.2 L211.6 136.5 L211 142.1 L212.3 147.2 L215.7 152.5 L221.4 158.2 L229.6 163.2 L240.3 167.6 L244 172 L240.9 176.4 L234.9 179.9 L226.1 182.4 L219.5 185.8 L215.1 190.3 L212.3 196.9 L211 205.7 L212.3 214.5 L216 223.3 L223.3 233 L234 243.7 L245 252.2 L256.3 258.5 L264.5 264.2 L269.5 269.2 L282.7 275.5 L304.1 283 L317.3 286.8 L322.3 286.8 L327.4 284.9 L332.4 281.1 L341.2 279.2 L353.8 279.2 L363.8 276.7 L371.4 271.7 L379.6 270.4 L388.4 273 L397.2 274.2 L406 274.2 L414.8 269.8 L423.6 261 L433 259.1 L443.1 264.2 L453.1 266.7 L463.2 266.7 L474.8 260.7 L488.1 248.7 L500.3 235.2 L511.6 220.1 L519.2 208.2 L523 199.4 L525.5 191.8 L526.7 185.5 L526.7 176.1 L525.5 163.5 L522.3 152.2 L517.3 142.1 L511.3 133.6 L504.4 126.7 L494 119.5 L480.2 111.9 L465.7 106.3 L450.6 102.5 L442.1 96.5 L440.3 88.4 L434 79.6 L423.3 70.1 L412.9 62.9 L402.8 57.9 L390.3 54.7 L375.2 53.5 Z"
+    ],
+    "lobulo_floculonodular": [
+      "M197.8 159.7 L195.3 162.3 L193.4 162.9 L192.1 161.6 L189 161.6 L184 162.9 L180.5 165.7 L178.6 170.1 L178.3 174.8 L179.6 179.9 L186.2 186.5 L198.1 194.7 L206 198.7 L209.7 198.7 L211.9 197.2 L212.6 194 L215.1 190.3 L219.5 185.8 L224.8 183 L231.1 181.8 L236.5 179.6 L240.9 176.4 L241.5 172.6 L238.4 168.2 L234.3 164.8 L229.2 162.3 L219.8 160.4 L206 159.1 Z"
+    ]
+  },
+  "sin_ficha": [],
+  "etiquetas": {
+    "lobulo_anterior": {
+      "modo": "dentro",
+      "x": 267.0,
+      "y": 75.7
+    },
+    "lobulo_posterior": {
+      "modo": "dentro",
+      "x": 368.9,
+      "y": 196.5
+    },
+    "lobulo_floculonodular": {
+      "modo": "fuera",
+      "ancla": "end",
+      "x": 136,
+      "y": 176.3,
+      "guia": "M210.4 172.3 L140 172.3"
+    }
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "_nota": "Lámina de tronco_encefalico en vista lateral: silueta visible de cada parte con ficha, proyectada desde las mallas de BodyParts3D con herramientas/proyectar-mapa.py. No editar a mano. `partes` son ids de fichas; `sin_ficha` son las mallas de la región que no pertenecen a ninguna parte con ficha (se pintan apagadas). `colores` son tonos del color de la región.",
+  "_nota": "Lámina de tronco_encefalico (eje niveles), vista lateral: silueta visible de cada parte con ficha, proyectada desde las mallas de BodyParts3D con herramientas/proyectar-mapa.py. No editar a mano. `partes` son ids de fichas; `sin_ficha` son las mallas de la región que no pertenecen a ninguna parte con ficha (se pintan apagadas). `colores` son tonos del color de la región.",
   "fuente": {
     "nombre": "BodyParts3D",
     "version": "4.0 (árbol PART-OF)",
@@ -9,14 +9,15 @@
     "atribucion": "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan"
   },
   "region": "tronco_encefalico",
+  "eje": "niveles",
   "vista": "lateral",
-  "viewBox": "0 0 400 466.7",
+  "viewBox": "0 0 280 466.7",
   "ancho_ref": 280,
   "escala_mm": 5.1852,
   "colores": {
-    "mesencefalo": "#28605C",
-    "puente": "#428B85",
-    "bulbo_raquideo": "#5FB3AC"
+    "mesencefalo": "#265D58",
+    "puente": "#44908A",
+    "bulbo_raquideo": "#6CB9B3"
   },
   "orden": [
     "mesencefalo",
@@ -38,20 +39,18 @@
   "etiquetas": {
     "mesencefalo": {
       "modo": "dentro",
-      "x": 104.8,
-      "y": 72.8
+      "x": 105.0,
+      "y": 62.3
     },
     "puente": {
       "modo": "dentro",
-      "x": 116.5,
-      "y": 177.3
+      "x": 118.0,
+      "y": 173.8
     },
     "bulbo_raquideo": {
-      "modo": "fuera",
-      "ancla": "start",
-      "x": 294,
-      "y": 336.9,
-      "guia": "M182.7 332.9 L290 332.9"
+      "modo": "dentro",
+      "x": 169.8,
+      "y": 306.0
     }
   }
 }

@@ -336,12 +336,13 @@ def validar(fichas, activos, paginas, idiomas):
             if parte not in fichas:
                 problemas.append('%s: `colores` nombra «%s», que no es una ficha' % (donde, parte))
 
-    for region, lam in _laminas()[0].items():
+    for region, lams in _laminas()[0].items():
         if region not in fichas:
             problemas.append('lámina %s: la región no es una ficha' % region)
-        for parte in list(lam['partes']) + list(lam['colores']) + list(lam['etiquetas']):
-            if parte not in fichas:
-                problemas.append('lámina %s: «%s» no es una ficha' % (region, parte))
+        for lam in lams:
+            for parte in list(lam['partes']) + list(lam['colores']) + list(lam['etiquetas']):
+                if parte not in fichas:
+                    problemas.append('lámina %s/%s: «%s» no es una ficha' % (region, lam.get('eje'), parte))
 
     for idp, pagina in sorted(paginas.items()):
         for idioma in idiomas:
@@ -878,10 +879,16 @@ def _laminas():
             continue
         with open(os.path.join(carpeta, nombre), encoding='utf-8') as f:
             lam = json.load(f)
-        por_region[lam['region']] = lam
+        por_region.setdefault(lam['region'], []).append(lam)
         for parte in lam['partes']:
-            por_parte.setdefault(parte, lam)
+            por_parte.setdefault(parte, []).append(lam)
     return por_region, por_parte
+
+
+def _laminas_html(lams, actual, fichas, enlace, T, idioma):
+    if not lams:
+        return ''
+    return '<div class="laminas">%s</div>' % ''.join(_lamina_html(l, actual, fichas, enlace, T, idioma) for l in lams)
 
 
 def _lamina_html(lam, actual, fichas, enlace, T, idioma):
@@ -891,10 +898,11 @@ def _lamina_html(lam, actual, fichas, enlace, T, idioma):
     vista = _esc(T.get('vista_' + lam['vista'], lam['vista']))
     titulo = _esc(_t(T, 'lamina_titulo', nombre=nombre_de(fichas, region, idioma), vista=vista))
     con_actual = actual in lam['partes']
+    idl = 'lamina-%s-%s' % (region, lam.get('eje', 'partes'))
     h = ['<figure class="lamina%s" style="max-width:min(100%%, %dpx)">'
          % (' con-actual' if con_actual else '', int(float(lam['viewBox'].split()[2])) + 24),
-         '<div class="lamina-caja"><svg viewBox="%s" role="img" aria-labelledby="lamina-titulo">'
-         '<title id="lamina-titulo">%s</title>' % (lam['viewBox'], titulo)]
+         '<div class="lamina-caja"><svg viewBox="%s" role="img" aria-labelledby="%s">'
+         '<title id="%s">%s</title>' % (lam['viewBox'], idl, idl, titulo)]
     for d in lam.get('sin_ficha', []):
         h.append('<path class="apagado" d="%s"><title>%s</title></path>' % (d, _esc(T['lamina_sin_ficha'])))
     for parte in lam['orden']:
@@ -1247,8 +1255,10 @@ def escribir(fichas, activos, paginas, idiomas):
                 # antes de verlo dibujado.
                 cuerpo.append('<div class="cabecera-sistema">%s</div>' % cabecera)
                 cuerpo.append(_esquema_svg(ficha, vista, fichas, padres, mapa, enlace, T, idioma))
-            lam = laminas_region.get(idf) or laminas_parte.get(idf) if es_estructura else None
-            colores = dict(lam['colores']) if lam else {}
+            lams = (laminas_region.get(idf) or laminas_parte.get(idf) or []) if es_estructura else []
+            colores = {}
+            for lam in lams:
+                colores.update(lam['colores'])
             if activo:
                 colores.update(activo['colores'])
             cuerpo.append('<section class="panel">')
@@ -1257,8 +1267,7 @@ def escribir(fichas, activos, paginas, idiomas):
             else:
                 cuerpo.append(cabecera)
                 cuerpo.append(_navegacion(ficha, fichas, padres, enlace, colores, T, idioma))
-                if lam:
-                    cuerpo.append(_lamina_html(lam, idf, fichas, enlace, T, idioma))
+                cuerpo.append(_laminas_html(lams, idf, fichas, enlace, T, idioma))
             cuerpo.append(_ficha_html(ficha, vista, pendientes, fichas,
                                       activo_visor if es_estructura else None, enlace, T, idioma))
             cuerpo.append('</section></main>')
