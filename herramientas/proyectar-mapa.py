@@ -14,7 +14,9 @@ ya están publicadas): viven en `fuentes-3d/bodyparts3d/`, que `.gitignore` excl
 
     python3 herramientas/proyectar-mapa.py fuentes-3d/bodyparts3d/
 
-Salida: `src/piezas/mapa-sagital.json`, que el generador lee tal cual.
+Salida: `src/piezas/mapa-sagital.json` (el mapa de regiones) y una lámina por región en
+`src/piezas/laminas/<region>.json` (las partes con ficha de esa región, cada una con su
+silueta visible en la vista elegida, según `LAMINAS`). El generador lee ambas cosas tal cual.
 
 Limitaciones conocidas de BodyParts3D que el script compensa y el JSON declara:
 - No hay malla de la médula espinal (solo del conducto central). La médula se dibuja como un
@@ -47,6 +49,42 @@ MEDULA_ESTRECHA = 0.82  # anchura final del tramo respecto a la base del bulbo
 # Orden de pintado (lo de atrás primero) y qué regiones son esquemáticas.
 ORDEN = ['telencefalo', 'tronco_encefalico', 'medula_espinal', 'cerebelo', 'diencefalo']
 ESQUEMATICOS = ['medula_espinal']
+
+# Vistas: (x, y, z) en mm -> (horizontal, vertical, profundidad); profundidad mayor = más
+# cerca del observador. BodyParts3D: x+ = izquierda del cuerpo, y- = anterior, z+ = superior.
+VISTAS = {
+    'lateral': lambda x, y, z: (y, z, x),      # desde la izquierda; anterior a la izquierda
+    'anterior': lambda x, y, z: (x, z, -y),    # de frente; la izquierda del cuerpo a la derecha
+    'posterior': lambda x, y, z: (-x, z, y),   # desde atrás
+}
+
+# Láminas: por región, la vista y qué mallas (por fragmento del nombre de archivo) forman cada
+# parte con ficha. Una malla que no case con ninguna parte se dibuja apagada y sin enlace.
+LAMINAS = {
+    'tronco_encefalico': {
+        'vista': 'lateral',
+        'partes': {
+            'mesencefalo': ('midbrain', 'superior_colliculus', 'inferior_colliculus', 'cerebral_aqueduct'),
+            'puente': ('pons',),
+            'bulbo_raquideo': ('medulla_oblongata',),
+        },
+    },
+    'telencefalo': {
+        'vista': 'lateral',
+        'partes': {
+            'lobulo_frontal': ('superior_frontal', 'middle_frontal', 'inferior_frontal', 'precentral'),
+            'lobulo_parietal': ('postcentral', 'superior_parietal', 'supramarginal', 'angular'),
+            'lobulo_temporal': ('middle_temporal', 'inferior_temporal', 'fusiform', 'parahippocampal'),
+            'lobulo_occipital': ('occipital',),
+            'insula': ('insula',),
+        },
+    },
+}
+LAMINAS_DIR = os.path.join(RAIZ, 'src', 'piezas', 'laminas')
+TOKENS = os.path.join(RAIZ, 'src', 'estilos', 'tokens.css')
+ETIQUETA_ANCHO = 100  # px del viewBox (cuerda) que necesita un nombre para ir dentro de su parte
+ETIQUETA_ALTO = 22
+MARGEN_ETIQUETAS = 120  # px del viewBox reservados a la derecha para los nombres de fuera
 
 # Circunvoluciones que delimitan los surcos que se dibujan sobre la cara lateral.
 # Solo el surco central: BodyParts3D no trae la circunvolución temporal superior, así que la
@@ -150,10 +188,12 @@ class Lienzo:
                         prof[base + c] = x
                         etq[base + c] = valor
 
-    def silueta(self, v, f, mascara, prof=None, etq=None, valor=0):
-        P = [self.px(y, z) for (_, y, z) in v]
+    def silueta(self, v, f, mascara, prof=None, etq=None, valor=0, vista='lateral'):
+        proy = VISTAS[vista]
+        T = [proy(*p) for p in v]
+        P = [self.px(h, vv) for (h, vv, _) in T]
         for a, b, c in f:
-            x = (v[a][0] + v[b][0] + v[c][0]) / 3.0 if prof is not None else 0.0
+            x = (T[a][2] + T[b][2] + T[c][2]) / 3.0 if prof is not None else 0.0
             self.triangulo(mascara, P[a], P[b], P[c], prof, etq, valor, x)
             for i in (a, b, c):  # un vértice siempre marca su píxel: sin huecos entre caras
                 col, fila = int(P[i][0]), int(P[i][1])
@@ -342,6 +382,170 @@ def largo(puntos):
                for i in range(len(puntos) - 1))
 
 
+# --- láminas ---------------------------------------------------------------------
+
+def colores_region():
+    """{region: '#rrggbb'} del tema claro, leído de tokens.css: un solo sitio para el color."""
+    import re
+    colores = {}
+    with open(TOKENS, encoding='utf-8') as f:
+        for m in re.finditer(r'--region-([a-z_]+):\s*(#[0-9A-Fa-f]{6})', f.read()):
+            colores.setdefault(m.group(1), m.group(2))
+    return colores
+
+
+def tonos(hex_base, n):
+    """n tonos del mismo color, del más oscuro al más claro, para distinguir las partes de una
+    región sin perder su identidad."""
+    import colorsys
+    r, g, b = (int(hex_base[i:i + 2], 16) / 255.0 for i in (1, 3, 5))
+    h, l, s = colorsys.rgb_to_hls(r, g, b)
+    if n == 1:
+        pasos = [l]
+    else:
+        pasos = [l - 0.13 + (0.27 * k / (n - 1)) for k in range(n)]
+    out = []
+    for lk in pasos:
+        lk = max(0.18, min(0.62, lk))  # ni negro ni tan claro que el nombre en blanco no se lea
+        rr, gg, bb = colorsys.hls_to_rgb(h, lk, min(1.0, s * (1.08 if lk < l else 0.92)))
+        out.append('#%02X%02X%02X' % (round(rr * 255), round(gg * 255), round(bb * 255)))
+    return out
+
+
+def centroide(l):
+    A = -area(l)
+    n = len(l)
+    cx = sum((l[i][0] + l[(i + 1) % n][0]) * (l[i][0] * l[(i + 1) % n][1] - l[(i + 1) % n][0] * l[i][1]) for i in range(n)) / (6 * A)
+    cy = sum((l[i][1] + l[(i + 1) % n][1]) * (l[i][0] * l[(i + 1) % n][1] - l[(i + 1) % n][0] * l[i][1]) for i in range(n)) / (6 * A)
+    return cx, cy
+
+
+def lamina(region, config, mallas, colores):
+    vista = config['vista']
+    proy = VISTAS[vista]
+    pts = [proy(*p) for (_, v, _) in mallas[region] for p in v]
+    hs = [p[0] for p in pts]
+    vs = [p[1] for p in pts]
+    h0, h1 = min(hs) - MARGEN, max(hs) + MARGEN
+    v0, v1 = min(vs) - MARGEN, max(vs) + MARGEN
+    lienzo = Lienzo(h0, v1, int(math.ceil((h1 - h0) / RES)), int(math.ceil((v1 - v0) / RES)))
+    # una lámina más alta que ancha se muestra más estrecha: el viewBox se ajusta para que el
+    # texto (en unidades del viewBox) salga del mismo tamaño en pantalla en todas
+    ancho_ref = ANCHO_REF if lienzo.W >= lienzo.H else max(280, int(round(ANCHO_REF * lienzo.W / float(lienzo.H))))
+    escala = ancho_ref / float(lienzo.W)
+
+    # z-buffer: cada píxel recibe la parte de la malla más cercana al observador. Las mallas
+    # sin parte con ficha (sustancia blanca, ventrículos…) no ocultan: se ven las partes que
+    # hay detrás, y solo donde no hay ninguna queda la zona apagada.
+    prof = [-1e9] * (lienzo.W * lienzo.H)
+    etq = bytearray(lienzo.W * lienzo.H)
+    partes = list(config['partes'])
+    codigo = dict((p, i + 1) for i, p in enumerate(partes))
+    SIN = len(partes) + 1  # mallas sin parte
+    mascara = lienzo.nuevo()
+    for nombre, v, f in mallas[region]:
+        valor = 0
+        for parte, claves in config['partes'].items():
+            if any(k in nombre for k in claves):
+                valor = codigo[parte]
+        if valor:
+            lienzo.silueta(v, f, mascara, prof, etq, valor, vista)
+        else:
+            lienzo.silueta(v, f, mascara, vista=vista)
+    for i in range(len(etq)):
+        if mascara[i] and not etq[i]:
+            etq[i] = SIN
+
+    area_min_px = AREA_MIN / (RES * RES)
+    tol_px = TOLERANCIA / RES
+    trazos, cajas, centros = {}, {}, {}
+    for parte, valor in list(codigo.items()) + [('_sin_ficha', SIN)]:
+        m = bytearray(1 if e == valor else 0 for e in etq)
+        lazos = [l for l in contornos(lienzo, m) if area(l) > area_min_px]
+        lazos.sort(key=area, reverse=True)
+        if not lazos:
+            continue
+        trazos[parte] = [trazado(suavizar(simplificar(l, tol_px)), escala) for l in lazos]
+        l = lazos[0]
+        ys = [p[1] for p in l]
+        cx, cy = centroide(l)
+        # anchura útil para el nombre: la cuerda de la máscara en la fila del centroide,
+        # no la caja (una parte oblicua tiene una caja ancha y poco sitio real)
+        fila = min(lienzo.H - 1, max(0, int(cy)))
+        cuerda = sum(1 for c in range(lienzo.W) if m[fila * lienzo.W + c] == 1)
+        cajas[parte] = (cuerda * escala, (max(ys) - min(ys)) * escala)
+        centros[parte] = (round(cx * escala, 1), round(cy * escala, 1))
+
+    # etiquetas: dentro si la isla mayor tiene sitio; si no, fuera a la derecha con guía
+    etiquetas = {}
+    fuera = []
+    for parte in partes:
+        if parte not in trazos:
+            continue
+        ancho, alto = cajas[parte]
+        if ancho >= ETIQUETA_ANCHO and alto >= ETIQUETA_ALTO:
+            etiquetas[parte] = {'modo': 'dentro', 'x': centros[parte][0], 'y': centros[parte][1] + 4}
+        else:
+            fuera.append(parte)
+    # los nombres de fuera van al lado más cercano; el viewBox crece por ese lado
+    izq = [p for p in fuera if centros[p][0] < ancho_ref / 2.0]
+    der = [p for p in fuera if centros[p][0] >= ancho_ref / 2.0]
+    desplaza = MARGEN_ETIQUETAS if izq else 0
+    ancho_vb = ancho_ref + desplaza + (MARGEN_ETIQUETAS if der else 0)
+    for lado, lista in (('izq', izq), ('der', der)):
+        lista.sort(key=lambda p: centros[p][1])
+        y_prev = -1e9
+        for parte in lista:
+            cx, cy = centros[parte]
+            y = max(cy, y_prev + ETIQUETA_ALTO)  # que no se monten
+            if lado == 'der':
+                x_texto, ancla, fin = ancho_ref + desplaza + 14, 'start', ancho_ref + desplaza + 10
+            else:
+                x_texto, ancla, fin = MARGEN_ETIQUETAS - 14, 'end', MARGEN_ETIQUETAS - 10
+            etiquetas[parte] = {'modo': 'fuera', 'ancla': ancla, 'x': x_texto, 'y': round(y + 4, 1),
+                                'guia': 'M%s %s L%s %s' % (round(cx + desplaza, 1), cy, fin, round(y, 1))}
+            y_prev = y
+    if desplaza:
+        # las partes se desplazan a la derecha para dejar sitio a los nombres de la izquierda
+        import re as _re
+        def _mueve(d):
+            return _re.sub(r'([ML])(-?[\d.]+) ', lambda m: '%s%s ' % (m.group(1), _fmt(float(m.group(2)) + desplaza)), d)
+        for parte in list(trazos):
+            trazos[parte] = [_mueve(d) for d in trazos[parte]]
+        for parte, e in etiquetas.items():
+            if e['modo'] == 'dentro':
+                e['x'] = round(e['x'] + desplaza, 1)
+
+    base = colores.get(region, '#888888')
+    paleta = dict(zip(partes, tonos(base, len(partes))))
+    salida = {
+        '_nota': ('Lámina de %s en vista %s: silueta visible de cada parte con ficha, proyectada desde las '
+                  'mallas de BodyParts3D con herramientas/proyectar-mapa.py. No editar a mano. `partes` son '
+                  'ids de fichas; `sin_ficha` son las mallas de la región que no pertenecen a ninguna parte '
+                  'con ficha (se pintan apagadas). `colores` son tonos del color de la región.' % (region, vista)),
+        'fuente': FUENTE,
+        'region': region,
+        'vista': vista,
+        'viewBox': '0 0 %d %s' % (ancho_vb, _fmt(lienzo.H * escala)),
+        'ancho_ref': ancho_ref,
+        'escala_mm': round(escala / RES, 4),
+        'colores': paleta,
+        'orden': [p for p in partes if p in trazos],
+        'partes': dict((p, trazos[p]) for p in partes if p in trazos),
+        'sin_ficha': trazos.get('_sin_ficha', []),
+        'etiquetas': etiquetas,
+    }
+    os.makedirs(LAMINAS_DIR, exist_ok=True)
+    ruta = os.path.join(LAMINAS_DIR, region + '.json')
+    with open(ruta, 'w', encoding='utf-8') as f:
+        json.dump(salida, f, ensure_ascii=False, indent=2)
+        f.write('\n')
+    print('  lámina %s (%s): %s; sin ficha: %d islas' % (
+        region, vista, ', '.join('%s %d' % (p, len(trazos[p])) for p in partes if p in trazos),
+        len(trazos.get('_sin_ficha', []))), file=sys.stderr)
+    print('escrito', os.path.relpath(ruta, RAIZ), file=sys.stderr)
+
+
 # --- principal -------------------------------------------------------------------
 
 def main(carpeta):
@@ -479,6 +683,11 @@ def main(carpeta):
         json.dump(salida, f, ensure_ascii=False, indent=2)
         f.write('\n')
     print('escrito', os.path.relpath(DESTINO, RAIZ), file=sys.stderr)
+
+    colores = colores_region()
+    for region, config in LAMINAS.items():
+        if region in mallas:
+            lamina(region, config, mallas, colores)
 
 
 if __name__ == '__main__':

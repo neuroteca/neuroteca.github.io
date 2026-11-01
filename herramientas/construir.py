@@ -336,6 +336,13 @@ def validar(fichas, activos, paginas, idiomas):
             if parte not in fichas:
                 problemas.append('%s: `colores` nombra «%s», que no es una ficha' % (donde, parte))
 
+    for region, lam in _laminas()[0].items():
+        if region not in fichas:
+            problemas.append('lámina %s: la región no es una ficha' % region)
+        for parte in list(lam['partes']) + list(lam['colores']) + list(lam['etiquetas']):
+            if parte not in fichas:
+                problemas.append('lámina %s: «%s» no es una ficha' % (region, parte))
+
     for idp, pagina in sorted(paginas.items()):
         for idioma in idiomas:
             if idioma not in pagina:
@@ -667,10 +674,11 @@ def _aviso(T):
             % (_esc(T['aviso_titulo']), _esc(T['aviso_texto']), _esc(T['entendido'])))
 
 
-def _colores_css(activo):
-    if not activo:
+def _colores_css(colores):
+    """Un color por parte (`--c-<id>`): los del activo y los de la lámina de la región."""
+    if not colores:
         return ''
-    reglas = ''.join('--c-%s:%s;' % (k, v) for k, v in sorted(activo['colores'].items()))
+    reglas = ''.join('--c-%s:%s;' % (k, v) for k, v in sorted(colores.items()))
     return '<style>:root{%s}</style>' % reglas
 
 
@@ -856,6 +864,64 @@ def _mapa():
     """Mapa de orientación (src/piezas/mapa-sagital.json): regiones N1 como trazados SVG."""
     with open(os.path.join(FUENTE, 'piezas', 'mapa-sagital.json'), encoding='utf-8') as f:
         return json.load(f)
+
+
+def _laminas():
+    """Láminas por región (src/piezas/laminas/<region>.json): las partes con ficha de una región,
+    proyectadas desde las mallas. Devuelve (por región, por parte)."""
+    carpeta = os.path.join(FUENTE, 'piezas', 'laminas')
+    por_region, por_parte = {}, {}
+    if not os.path.isdir(carpeta):
+        return por_region, por_parte
+    for nombre in sorted(os.listdir(carpeta)):
+        if not nombre.endswith('.json'):
+            continue
+        with open(os.path.join(carpeta, nombre), encoding='utf-8') as f:
+            lam = json.load(f)
+        por_region[lam['region']] = lam
+        for parte in lam['partes']:
+            por_parte.setdefault(parte, lam)
+    return por_region, por_parte
+
+
+def _lamina_html(lam, actual, fichas, enlace, T, idioma):
+    """Figura con la lámina de una región: cada parte es un enlace a su ficha; la ficha actual,
+    si es una parte, queda resaltada y las demás atenuadas."""
+    region = lam['region']
+    vista = _esc(T.get('vista_' + lam['vista'], lam['vista']))
+    titulo = _esc(_t(T, 'lamina_titulo', nombre=nombre_de(fichas, region, idioma), vista=vista))
+    con_actual = actual in lam['partes']
+    h = ['<figure class="lamina%s" style="max-width:min(100%%, %dpx)">'
+         % (' con-actual' if con_actual else '', int(float(lam['viewBox'].split()[2])) + 24),
+         '<div class="lamina-caja"><svg viewBox="%s" role="img" aria-labelledby="lamina-titulo">'
+         '<title id="lamina-titulo">%s</title>' % (lam['viewBox'], titulo)]
+    for d in lam.get('sin_ficha', []):
+        h.append('<path class="apagado" d="%s"><title>%s</title></path>' % (d, _esc(T['lamina_sin_ficha'])))
+    for parte in lam['orden']:
+        if parte not in fichas:
+            continue
+        aqui = ' aria-current="page"' if parte == actual else ''
+        h.append('<a href="%s" class="parte"%s style="--f: var(--c-%s)"><title>%s</title>'
+                 % (enlace('estructura/%s/' % parte), aqui, parte, _esc(nombre_de(fichas, parte, idioma))))
+        for d in lam['partes'][parte]:
+            h.append('<path d="%s"/>' % d)
+        h.append('</a>')
+    for parte, et in lam['etiquetas'].items():
+        if parte not in fichas:
+            continue
+        nombre = _esc(nombre_de(fichas, parte, idioma))
+        if et['modo'] == 'dentro':
+            h.append('<text class="dentro" text-anchor="middle" x="%s" y="%s">%s</text>' % (et['x'], et['y'], nombre))
+        else:
+            h.append('<path class="guia" d="%s"/><text text-anchor="%s" x="%s" y="%s">%s</text>'
+                     % (et['guia'], et.get('ancla', 'start'), et['x'], et['y'], nombre))
+    h.append('</svg></div>')
+    fuente = lam.get('fuente')
+    credito = ''
+    if fuente:
+        credito = ' · <a href="%s" rel="license">%s</a>' % (_esc(fuente['url']), _esc(fuente['nombre']))
+    h.append('<figcaption>%s%s</figcaption></figure>' % (_esc(_t(T, 'lamina_pie', vista=vista)), credito))
+    return ''.join(h)
 
 
 def _region_de(idf, padres):
@@ -1065,6 +1131,7 @@ def escribir(fichas, activos, paginas, idiomas):
     plantilla = _plantilla('pagina.html')
     padres = _padres(fichas)
     mapa = _mapa()
+    laminas_region, laminas_parte = _laminas()
     codigos = orden_idiomas(idiomas)
     versiones = {
         'V_ESTILOS': version_de('estilos/sitio.css'),
@@ -1119,7 +1186,7 @@ def escribir(fichas, activos, paginas, idiomas):
         return '\n'.join(etiquetas)
 
     def pagina(ruta, idioma, titulo, descripcion, base, cuerpo, activo=None,
-               aviso=False, visor_js=False, base_enlaces=None, esquema_js=False):
+               aviso=False, visor_js=False, base_enlaces=None, esquema_js=False, colores=None):
         T = idiomas[idioma]
         html = plantilla
         for k, v in versiones.items():
@@ -1131,7 +1198,7 @@ def escribir(fichas, activos, paginas, idiomas):
                 .replace('{{BASE}}', base)
                 .replace('{{INICIO}}', base_enlaces if base_enlaces is not None else base + prefijo(idioma))
                 .replace('{{ALTERNAS}}', alternas(ruta))
-                .replace('{{COLORES}}', _colores_css(activo))
+                .replace('{{COLORES}}', _colores_css(colores))
                 .replace('{{T_SALTAR}}', _esc(T['saltar']))
                 .replace('{{T_BAJADA}}', _esc(T['bajada']))
                 .replace('{{T_TEMA}}', _esc(T['tema']))
@@ -1180,13 +1247,18 @@ def escribir(fichas, activos, paginas, idiomas):
                 # antes de verlo dibujado.
                 cuerpo.append('<div class="cabecera-sistema">%s</div>' % cabecera)
                 cuerpo.append(_esquema_svg(ficha, vista, fichas, padres, mapa, enlace, T, idioma))
+            lam = laminas_region.get(idf) or laminas_parte.get(idf) if es_estructura else None
+            colores = dict(lam['colores']) if lam else {}
+            if activo:
+                colores.update(activo['colores'])
             cuerpo.append('<section class="panel">')
             if es_sistema:
                 cuerpo.append(_sistema_nav(ficha, fichas, padres, mapa, enlace, T, idioma))
             else:
                 cuerpo.append(cabecera)
-                cuerpo.append(_navegacion(ficha, fichas, padres, enlace,
-                                          activo['colores'] if activo else {}, T, idioma))
+                cuerpo.append(_navegacion(ficha, fichas, padres, enlace, colores, T, idioma))
+                if lam:
+                    cuerpo.append(_lamina_html(lam, idf, fichas, enlace, T, idioma))
             cuerpo.append(_ficha_html(ficha, vista, pendientes, fichas,
                                       activo_visor if es_estructura else None, enlace, T, idioma))
             cuerpo.append('</section></main>')
@@ -1196,7 +1268,7 @@ def escribir(fichas, activos, paginas, idiomas):
                            '%s — %s' % (vista['nombre'], T['titulo_sitio']),
                            RE_REF.sub('', RE_ENLACE.sub(lambda m: m.group(2) or m.group(1),
                                                         descripcion)),
-                           base, ''.join(cuerpo), activo=activo,
+                           base, ''.join(cuerpo), activo=activo, colores=colores,
                            aviso=bool(es_estructura and activo_visor),
                            visor_js=bool(es_estructura and activo_visor), esquema_js=es_sistema))
             paginas_escritas += 1
