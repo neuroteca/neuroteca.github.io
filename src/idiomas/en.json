@@ -96,8 +96,9 @@
       "ruta": "#glosario"
     }
   ],
-  "mapa_titulo": "Region map: schematic sagittal section of the brain and spinal cord",
-  "mapa_pie": "Schematic sagittal section · tap a region to enter",
+  "mapa_titulo": "Region map: left lateral view of the brain, with the start of the spinal cord",
+  "mapa_pie": "Left lateral view · tap a region to enter",
+  "mapa_credito": "Outlines projected from the {fuente} meshes. The diencephalon and brainstem are shown as if the hemisphere were transparent; the spinal cord is a schematic stub.",
   "mapa_localizador": "Where it is: {nombre}",
   "glosario_buscar": "Filter by name or definition…",
   "glosario_filtro_aria": "Filter the glossary",
@@ -109,6 +110,6 @@
   "vistazo_conexiones": "Main connections",
   "vistazo_neurotransmisores": "Neurotransmitters",
   "fuentes_n": "Sources ({n})",
-  "mapa_localizador_pie": "Where it is · schematic sagittal section",
+  "mapa_localizador_pie": "Where it is · lateral view",
   "estructuras_implicadas_n": "Structures involved ({n})"
 }

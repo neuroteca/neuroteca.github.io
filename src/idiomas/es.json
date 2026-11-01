@@ -96,8 +96,9 @@
       "ruta": "#glosario"
     }
   ],
-  "mapa_titulo": "Mapa de regiones: corte sagital esquemático del encéfalo y la médula",
-  "mapa_pie": "Corte sagital esquemático · toca una región para entrar",
+  "mapa_titulo": "Mapa de regiones: encéfalo en vista lateral izquierda, con el inicio de la médula",
+  "mapa_pie": "Vista lateral izquierda · toca una región para entrar",
+  "mapa_credito": "Siluetas proyectadas de las mallas de {fuente}. El diencéfalo y el tronco se muestran como si el hemisferio fuera transparente; la médula espinal es un tramo esquemático.",
   "mapa_localizador": "Dónde está: {nombre}",
   "glosario_buscar": "Filtra por nombre o por definición…",
   "glosario_filtro_aria": "Filtrar el glosario",
@@ -109,6 +110,6 @@
   "vistazo_conexiones": "Conexiones principales",
   "vistazo_neurotransmisores": "Neurotransmisores",
   "fuentes_n": "Fuentes ({n})",
-  "mapa_localizador_pie": "Dónde está · corte sagital esquemático",
+  "mapa_localizador_pie": "Dónde está · vista lateral",
   "estructuras_implicadas_n": "Estructuras implicadas ({n})"
 }
