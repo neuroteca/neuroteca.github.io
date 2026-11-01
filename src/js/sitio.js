@@ -48,3 +48,29 @@
     }
   }
 })();
+
+// --- Filtro del glosario en la portada -----------------------------------
+// Sin JavaScript la lista completa está a la vista; con él aparece un campo que la filtra.
+(function () {
+  'use strict';
+  var campo = document.getElementById('glosario-buscar');
+  var lista = document.getElementById('glosario-lista');
+  if (!campo || !lista) { return; }
+  var vacio = document.querySelector('.glosario-vacio');
+  var items = Array.prototype.slice.call(lista.querySelectorAll('li'));
+  var textos = items.map(function (li) {
+    return li.textContent.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+  });
+  campo.hidden = false;
+  campo.addEventListener('input', function () {
+    var q = campo.value.trim().toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+    var vistos = 0;
+    items.forEach(function (li, i) {
+      var ok = !q || textos[i].indexOf(q) !== -1;
+      li.hidden = !ok;
+      if (ok) { vistos++; }
+    });
+    if (vacio) { vacio.hidden = vistos > 0; }
+  });
+  if (location.hash === '#glosario') { campo.focus(); }
+})();

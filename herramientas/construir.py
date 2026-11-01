@@ -745,52 +745,164 @@ def _eje_principal(ficha):
     return divisiones[0]['eje'] if divisiones else ''
 
 
+def _mapa():
+    """Mapa de orientación (src/piezas/mapa-sagital.json): regiones N1 como trazados SVG."""
+    with open(os.path.join(FUENTE, 'piezas', 'mapa-sagital.json'), encoding='utf-8') as f:
+        return json.load(f)
+
+
+def _region_de(idf, padres):
+    """Id de la ficha raíz (región N1) de la que cuelga `idf`; la propia si no cuelga de nadie."""
+    actual, guarda = idf, 0
+    while actual in padres and guarda < 10:
+        actual = padres[actual][0]
+        guarda += 1
+    return actual
+
+
+def _mapa_simbolo(mapa):
+    """Definición única del mapa para los localizadores (<use>). El color de cada región
+    entra por la variable --f-<id>: los selectores no atraviesan un <use>, las variables sí."""
+    h = ['<svg class="mapa-def" width="0" height="0" aria-hidden="true" focusable="false">'
+         '<symbol id="mapa-sagital" viewBox="%s">' % mapa['viewBox']]
+    for idr in mapa['orden']:
+        for d in mapa['regiones'][idr]:
+            h.append('<path d="%s" fill="var(--f-%s, var(--mapa-apagado))" stroke="var(--papel)" '
+                     'stroke-width="2" stroke-linejoin="round"/>' % (d, idr))
+        for d in mapa.get('detalles', {}).get(idr, []):
+            h.append('<path d="%s" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1.4" '
+                     'stroke-linecap="round"/>' % d)
+    h.append('</symbol></svg>')
+    return ''.join(h)
+
+
+def _mapa_localizador(mapa, idr, etiqueta):
+    """Mapa apagado salvo la región `idr`, para tarjetas y cabeceras de ficha."""
+    if idr not in mapa['regiones']:
+        return ''
+    return ('<svg class="mapa localizador" viewBox="%s" role="img" aria-label="%s" '
+            'style="--f-%s: var(--region-%s)"><use href="#mapa-sagital"/></svg>'
+            % (mapa['viewBox'], _esc(etiqueta), idr, idr))
+
+
+def _mapa_interactivo(mapa, fichas, enlace, T, idioma):
+    """Mapa de la portada: cada región es un enlace a su ficha y lleva su nombre."""
+    h = ['<svg class="mapa interactivo" viewBox="%s" role="img" aria-labelledby="mapa-titulo">'
+         '<title id="mapa-titulo">%s</title>' % (mapa['viewBox'], _esc(T['mapa_titulo']))]
+    for idr in mapa['orden']:
+        if idr not in fichas:
+            continue
+        h.append('<a href="%s" class="region" style="--f: var(--region-%s)"><title>%s</title>'
+                 % (enlace('estructura/%s/' % idr), idr, _esc(nombre_de(fichas, idr, idioma))))
+        for d in mapa['regiones'][idr]:
+            h.append('<path d="%s"/>' % d)
+        for d in mapa.get('detalles', {}).get(idr, []):
+            h.append('<path class="detalle" d="%s"/>' % d)
+        h.append('</a>')
+    for idr, et in mapa['etiquetas'].items():
+        if idr not in fichas:
+            continue
+        nombre = _esc(nombre_de(fichas, idr, idioma))
+        if et['modo'] == 'dentro':
+            h.append('<text class="dentro" text-anchor="middle" x="%s" y="%s">%s</text>'
+                     % (et['x'], et['y'], nombre))
+        else:
+            h.append('<path class="guia" d="%s"/><text text-anchor="%s" x="%s" y="%s">%s</text>'
+                     % (et['guia'], et.get('ancla', 'start'), et['x'], et['y'], nombre))
+    h.append('</svg>')
+    return ''.join(h)
+
+
 def _portada_html(fichas, padres, activos, enlace, T, idioma):
-    h = ['<article class="ficha portada">']
-    h.append('<h1>%s</h1>' % _esc(T['titulo_sitio']))
+    mapa = _mapa()
+    h = ['<article class="portada">', _mapa_simbolo(mapa)]
+
+    # Entrada: título, texto, recorridos y el mapa.
+    h.append('<section class="entrada"><div class="entrada-texto">')
+    h.append('<h1>%s</h1>' % _esc(T['portada_titulo']))
     h.append('<p class="lead">%s</p>' % _esc(T['portada_lead']))
     h.append('<p class="estado-proyecto">%s</p>' % _esc(T['portada_estado']))
+    h.append('<nav class="recorridos" aria-label="%s">' % _esc(T['recorridos']))
+    for i, rec in enumerate(T['portada_recorridos']):
+        ruta = rec['ruta']
+        href = ruta if ruta.startswith('#') else enlace(ruta)
+        h.append('<a href="%s"%s>%s</a>' % (href, ' class="principal"' if i == 0 else '', _esc(rec['texto'])))
+    h.append('</nav></div>')
+    h.append('<div class="entrada-mapa"><div class="mapa-caja">%s</div><p class="mapa-pie">%s</p></div></section>'
+             % (_mapa_interactivo(mapa, fichas, enlace, T, idioma), _esc(T['mapa_pie'])))
 
+    # Regiones: una tarjeta por ficha raíz, con su localizador y su color.
     raices = [i for _n, i in sorted((_clave(ver(f, idioma)[0]['nombre']), i) for i, f in fichas.items()
                                     if i not in padres and f['tipo'] == 'estructura')]
-    h.append('<h2>%s</h2><p class="nota">%s</p><ul class="indice">'
+    h.append('<section class="bloque" id="regiones"><h2>%s</h2><p class="nota">%s</p><ul class="regiones">'
              % (_esc(T['regiones']), _esc(T['regiones_texto'])))
     for idf in raices:
         ficha = fichas[idf]
         vista, _p = ver(ficha, idioma)
-        n = len(set(p for d in ficha.get('divisiones', []) for p in d.get('partes', [])))
-        extra = ' &middot; <span class="prueba-txt">%s</span>' % _esc(T['prueba']) if ficha.get('prueba') else ''
-        h.append('<li><a href="%s"><strong>%s</strong> <span class="latin-inline" lang="la">%s</span></a>'
-                 '<span class="meta"><span class="nv">%s</span> &middot; %s%s</span></li>'
-                 % (enlace('estructura/%s/' % idf), _esc(vista['nombre']),
-                    _esc(ficha.get('termino_latin', '')), ficha['nivel_detalle'],
+        divisiones = ficha.get('divisiones', [])
+        n = len(set(p for d in divisiones for p in d.get('partes', [])))
+        ejes = ' · '.join(_esc(nombre_eje(ficha, d, idioma).lower()) for d in divisiones)
+        extra = ' · <span class="prueba-txt">%s</span>' % _esc(T['prueba']) if ficha.get('prueba') else ''
+        en_mapa = idf in mapa['regiones']
+        color = ('--rc: var(--region-%s); --rs: var(--region-%s-suave)' % (idf, idf)) if en_mapa else ''
+        h.append('<li><a class="region-tarjeta" href="%s" style="%s">'
+                 '<span class="mini">%s</span>'
+                 '<span class="texto"><strong>%s</strong> <span class="latin-inline" lang="la">%s</span>'
+                 '<span class="meta">%s<span class="nv">%s</span> · %s%s</span></span></a></li>'
+                 % (enlace('estructura/%s/' % idf), color,
+                    _mapa_localizador(mapa, idf, _t(T, 'mapa_localizador', nombre=vista['nombre'])),
+                    _esc(vista['nombre']), _esc(ficha.get('termino_latin', '')),
+                    ('<span class="ejes">%s</span>' % ejes) if ejes else '', ficha['nivel_detalle'],
                     _esc(_t(T, 'partes', n=n)), extra))
-    h.append('</ul>')
+    h.append('</ul></section>')
 
+    # Sistemas: nombre, tamaño y el recorrido en miniatura (primer nodo de cada columna, por color de región).
     sistemas = sorted((_clave(ver(f, idioma)[0]['nombre']), i)
                       for i, f in fichas.items() if f['tipo'] == 'sistema')
     if sistemas:
-        h.append('<h2>%s</h2><p class="nota">%s</p><ul class="indice">'
+        h.append('<section class="bloque" id="sistemas"><h2>%s</h2><p class="nota">%s</p><ul class="sistemas">'
                  % (_esc(T['sistemas']), _esc(T['sistemas_texto'])))
         for _n, ids in sistemas:
-            vista, _p = ver(fichas[ids], idioma)
-            h.append('<li><a href="%s"><strong>%s</strong></a><span class="meta"><span class="nv">%s</span>'
-                     ' &middot; %s</span></li>'
-                     % (enlace(ruta_de(fichas, ids)), _esc(vista['nombre']), fichas[ids]['nivel_detalle'],
-                        _esc(_t(T, 'estructuras_n', n=len(fichas[ids].get('estructuras', []))))))
-        h.append('</ul>')
+            ficha = fichas[ids]
+            vista, _p = ver(ficha, idioma)
+            nombres = vista.get('_nodos', {})
+            pasos = []
+            for columna in ficha.get('esquema', {}).get('columnas', [])[:7]:
+                nodos = columna.get('nodos', [])
+                if not nodos:
+                    continue
+                nodo = nodos[0]
+                idn = nodo.get('id', '')
+                if idn in fichas:
+                    region = _region_de(idn, padres)
+                    estilo = (' style="--rc: var(--region-%s); --rs: var(--region-%s-suave)"' % (region, region)
+                              if region in mapa['regiones'] else '')
+                    pasos.append('<li%s>%s</li>' % (estilo, _esc(nombres.get(idn, nodo['nombre']))))
+                else:
+                    pasos.append('<li class="sin-ficha">%s</li>' % _esc(nombres.get(idn, nodo['nombre'])))
+            h.append('<li><a class="sistema-tarjeta" href="%s"><strong>%s</strong>'
+                     '<ol class="recorrido-mini" aria-hidden="true">%s</ol>'
+                     '<span class="meta"><span class="nv">%s</span> · %s</span></a></li>'
+                     % (enlace(ruta_de(fichas, ids)), _esc(vista['nombre']), ''.join(pasos),
+                        ficha['nivel_detalle'],
+                        _esc(_t(T, 'estructuras_n', n=len(ficha.get('estructuras', []))))))
+        h.append('</ul></section>')
 
+    # Glosario: filtro (con JavaScript) y la lista completa (sin él).
     fundacionales = sorted((_clave(ver(f, idioma)[0]['nombre']), i)
                            for i, f in fichas.items() if f['tipo'] == 'fundacional')
-    h.append('<h2>%s <span class="nv">%s</span></h2><p class="nota">%s</p><ul class="indice glosario">'
-             % (_esc(T['glosario']), _esc(_t(T, 'entradas', n=len(fundacionales))),
-                _esc(T['glosario_texto'])))
+    h.append('<section class="bloque" id="glosario"><h2>%s <span class="nv">%s</span></h2><p class="nota">%s</p>'
+             % (_esc(T['glosario']), _esc(_t(T, 'entradas', n=len(fundacionales))), _esc(T['glosario_texto'])))
+    h.append('<p class="glosario-filtro"><label class="sr" for="glosario-buscar">%s</label>'
+             '<input type="search" id="glosario-buscar" placeholder="%s" autocomplete="off" hidden></p>'
+             % (_esc(T['glosario_filtro_aria']), _esc(T['glosario_buscar'])))
+    h.append('<ul class="indice glosario" id="glosario-lista">')
     for _n, idf in fundacionales:
         vista, _p = ver(fichas[idf], idioma)
         h.append('<li><a href="%s">%s</a> <span class="meta">%s</span></li>'
                  % (enlace('estructura/%s/' % idf), _esc(vista['nombre']),
                     _marcado(vista['definicion'], fichas, enlace, idioma)))
-    h.append('</ul></article>')
+    h.append('</ul><p class="glosario-vacio" hidden>%s</p></section></article>' % _esc(T['glosario_sin_resultados']))
     return ''.join(h)
 
 
@@ -813,7 +925,7 @@ def escribir(fichas, activos, paginas, idiomas):
     os.makedirs(SALIDA)
     open(os.path.join(SALIDA, '.nojekyll'), 'w').close()
 
-    for carpeta in ('estilos', 'js'):
+    for carpeta in ('estilos', 'js', 'fuentes'):
         shutil.copytree(os.path.join(FUENTE, carpeta), os.path.join(SALIDA, carpeta))
 
     manifiesto = piezas()
@@ -833,6 +945,7 @@ def escribir(fichas, activos, paginas, idiomas):
     versiones = {
         'V_ESTILOS': version_de('estilos/sitio.css'),
         'V_TOKENS': version_de('estilos/tokens.css'),
+        'V_FUENTES': version_de('estilos/fuentes.css'),
         'V_JS': version_de('js/sitio.js'),
         'V_VISOR': version_de('js/visor.js'),
         'V_ESQUEMA': version_de('js/esquema.js'),
@@ -967,7 +1080,7 @@ def escribir(fichas, activos, paginas, idiomas):
         guardar('%sindex.html' % pre,
                 pagina('', idioma, '%s — %s' % (T['titulo_sitio'], T['bajada']),
                        T['meta_portada'], base,
-                       '<main class="lectura" id="contenido">%s</main>'
+                       '<main class="lectura ancha" id="contenido">%s</main>'
                        % _portada_html(fichas, padres, activos, enlace, T, idioma)))
         paginas_escritas += 1
 

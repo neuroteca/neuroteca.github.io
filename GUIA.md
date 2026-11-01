@@ -12,7 +12,7 @@ código, no está decidido: se pregunta en el pull request o se abre un issue, n
 | Carpeta | Qué contiene |
 |---|---|
 | `contenido/` | **El atlas, como datos.** `estructuras/<id>.json` (una ficha por estructura), `glosario/<id>.json` (fichas fundacionales: conceptos), `sistemas/<id>.json` (funciones que atraviesan varias estructuras, con su circuito), `<id>.<idioma>.json` junto a cada ficha (su traducción), `activos/` (modelos 3D, esquemas SVG y sus metadatos), `paginas/` (páginas sueltas como «Acerca de»). |
-| `src/` | **La aplicación.** Plantillas, estilos, JavaScript, Three.js vendorizado y los textos de la interfaz por idioma (`idiomas/<idioma>.json`). Sin gestor de paquetes. |
+| `src/` | **La aplicación.** Plantillas, estilos, JavaScript, Three.js vendorizado, las fuentes tipográficas (`fuentes/`, OFL, servidas desde aquí), el mapa de orientación (`piezas/mapa-sagital.json`: un trazado SVG por región N1, con un color fijo por región en `estilos/tokens.css`) y los textos de la interfaz por idioma (`idiomas/<idioma>.json`). Sin gestor de paquetes. |
 | `herramientas/` | `construir.py` valida el contenido y genera el sitio. `generar-geometria.py` produce el modelo provisional. Solo biblioteca estándar de Python. |
 | `docs/` | **Salida generada.** Es lo que publica GitHub Pages. No se edita a mano; se regenera y se comitea. |
 | `archivo/` | Material retirado. No rige. |
